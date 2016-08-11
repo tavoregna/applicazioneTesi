@@ -15,7 +15,7 @@ public class GestionePazienti {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("prova11");
+        new MenuPrincipale();
     }
     
 }
