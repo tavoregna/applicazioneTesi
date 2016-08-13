@@ -61,7 +61,7 @@ public class MenuPrincipale extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pazientiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pazientiActionPerformed
-        // TODO add your handling code here:
+       new MenuPazienti();
     }//GEN-LAST:event_pazientiActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
