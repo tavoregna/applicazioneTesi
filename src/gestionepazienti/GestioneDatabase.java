@@ -10,7 +10,10 @@ import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,9 +22,10 @@ import java.sql.Statement;
 public class GestioneDatabase {
     private static final String RELATIVE_DB_PATH="db/Prova1.accdb";
     
-    private static Connection connessione()
+    private static Connection con;
+    
+    public static void connessione()
     {
-        Connection c=null;
         try
         {
         File db=new File(RELATIVE_DB_PATH);
@@ -31,45 +35,54 @@ public class GestioneDatabase {
         }
         
         Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        c=DriverManager.getConnection("jdbc:ucanaccess://"+db.getAbsolutePath());
+        con=DriverManager.getConnection("jdbc:ucanaccess://"+db.getAbsolutePath());
         }
         catch(Exception e)
         {
             Utilita.mostraMessaggioErrore("Errore nell'apertura del database");
             System.exit(1);
         }
-        return c;
+    }
+    
+    public  static ResultSet querySelect(String sql)
+    {
+        try {
+            if(con==null || !con.isValid(0))
+                connessione();
+            Statement st=con.createStatement();
+            ResultSet r=st.executeQuery(sql); 
+            st.close();
+            
+            return r;
+            
+        } catch (SQLException ex) {
+            Utilita.mostraMessaggioErrore("Errore durante l'esecuzione della query");
+            return null;
+        }
+    }
+    public  static void queryNonSelect(String sql)
+    {
+        try {
+            if(con==null || !con.isValid(0))
+                connessione();
+            Statement st=con.createStatement();
+            st.executeUpdate(sql);
+            
+            st.close();
+          
+        } catch (SQLException ex) {
+            Utilita.mostraMessaggioErrore("Errore durante l'esecuzione dell'operazione");
+        }
     }
     
     
     
     
      public static void main(String[] args){
-      
-        boolean connesso=false;
-        do{
-            try
-            {
-                
-                Connection conn=connessione();
-                Statement st=conn.createStatement();
-                
-                connesso=true;
-                ResultSet r=st.executeQuery("SELECT * FROM Paziente");
-                
-                connesso=true;
-                
-                while(r.next())
-                {
-                    System.out.println(r.getInt("ID")+" "+r.getString("Nome")+" "+r.getString("Cognome"));
-                }
-                conn.close();
-            }
-            catch (Exception ex)
-            {
-                System.out.println(ex.getMessage());
-                javax.swing.JOptionPane.showMessageDialog(null, "Connessione non riuscita");
-            }
-        }while(!connesso);
+       for(int i=0;i<500;i++)
+       {
+          queryNonSelect("INSERT INTO Paziente(Nome,Cognome) VALUES ('"+i+"','"+i+"')"); 
+       }
+       
     }   
 }
