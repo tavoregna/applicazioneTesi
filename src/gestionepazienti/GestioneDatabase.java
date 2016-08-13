@@ -15,6 +15,11 @@ import java.sql.Statement;
  * @author Riccardo
  */
 public class GestioneDatabase {
+    
+    
+    
+    
+    
      public static void main(String[] args){
         boolean connesso=false;
         do{
