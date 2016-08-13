@@ -10,7 +10,10 @@ import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -41,35 +44,51 @@ public class GestioneDatabase {
         return c;
     }
     
+    public  static ResultSet querySelect(String sql)
+    {
+        try {
+            //long t1=System.currentTimeMillis();
+            Connection conn=connessione();
+            //long t2=System.currentTimeMillis();
+            //System.out.println("T1: "+(t2-t1));
+            Statement st=conn.createStatement();
+            //long t3=System.currentTimeMillis();
+            //System.out.println("T2: "+(t3-t2));
+            ResultSet r=st.executeQuery(sql); 
+            //long t4=System.currentTimeMillis();
+            //System.out.println("T3: "+(t4-t1));
+            st.close();
+            conn.close();
+            
+            return r;
+            
+        } catch (SQLException ex) {
+            Utilita.mostraMessaggioErrore("Errore durante l'esecuzione della query");
+            return null;
+        }
+    }
+    public  static void queryNonSelect(String sql)
+    {
+        try {
+            Connection conn=connessione();
+            Statement st=conn.createStatement();
+            st.executeUpdate(sql);
+            
+            st.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Utilita.mostraMessaggioErrore("Errore durante l'esecuzione dell'operazione");
+        }
+    }
+    
     
     
     
      public static void main(String[] args){
-      
-        boolean connesso=false;
-        do{
-            try
-            {
-                
-                Connection conn=connessione();
-                Statement st=conn.createStatement();
-                
-                connesso=true;
-                ResultSet r=st.executeQuery("SELECT * FROM Paziente");
-                
-                connesso=true;
-                
-                while(r.next())
-                {
-                    System.out.println(r.getInt("ID")+" "+r.getString("Nome")+" "+r.getString("Cognome"));
-                }
-                conn.close();
-            }
-            catch (Exception ex)
-            {
-                System.out.println(ex.getMessage());
-                javax.swing.JOptionPane.showMessageDialog(null, "Connessione non riuscita");
-            }
-        }while(!connesso);
+       for(int i=0;i<500;i++)
+       {
+          queryNonSelect("INSERT INTO Paziente(Nome,Cognome) VALUES ('"+i+"','"+i+"')"); 
+       }
+       
     }   
 }
