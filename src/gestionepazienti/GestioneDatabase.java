@@ -22,9 +22,10 @@ import java.util.logging.Logger;
 public class GestioneDatabase {
     private static final String RELATIVE_DB_PATH="db/Prova1.accdb";
     
-    private static Connection connessione()
+    private static Connection con;
+    
+    public static void connessione()
     {
-        Connection c=null;
         try
         {
         File db=new File(RELATIVE_DB_PATH);
@@ -34,31 +35,23 @@ public class GestioneDatabase {
         }
         
         Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        c=DriverManager.getConnection("jdbc:ucanaccess://"+db.getAbsolutePath());
+        con=DriverManager.getConnection("jdbc:ucanaccess://"+db.getAbsolutePath());
         }
         catch(Exception e)
         {
             Utilita.mostraMessaggioErrore("Errore nell'apertura del database");
             System.exit(1);
         }
-        return c;
     }
     
     public  static ResultSet querySelect(String sql)
     {
         try {
-            //long t1=System.currentTimeMillis();
-            Connection conn=connessione();
-            //long t2=System.currentTimeMillis();
-            //System.out.println("T1: "+(t2-t1));
-            Statement st=conn.createStatement();
-            //long t3=System.currentTimeMillis();
-            //System.out.println("T2: "+(t3-t2));
+            if(con==null || !con.isValid(0))
+                connessione();
+            Statement st=con.createStatement();
             ResultSet r=st.executeQuery(sql); 
-            //long t4=System.currentTimeMillis();
-            //System.out.println("T3: "+(t4-t1));
             st.close();
-            conn.close();
             
             return r;
             
@@ -70,12 +63,13 @@ public class GestioneDatabase {
     public  static void queryNonSelect(String sql)
     {
         try {
-            Connection conn=connessione();
-            Statement st=conn.createStatement();
+            if(con==null || !con.isValid(0))
+                connessione();
+            Statement st=con.createStatement();
             st.executeUpdate(sql);
             
             st.close();
-            conn.close();
+          
         } catch (SQLException ex) {
             Utilita.mostraMessaggioErrore("Errore durante l'esecuzione dell'operazione");
         }
