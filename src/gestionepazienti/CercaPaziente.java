@@ -7,6 +7,7 @@ package gestionepazienti;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.ListSelectionModel;
 
@@ -18,6 +19,8 @@ public class CercaPaziente extends javax.swing.JFrame {
 
     private DefaultListModel listModel;
     private Paziente parent;
+    
+    private ArrayList<Integer> listaID;
     /**
      * Creates new form CercaPaziente
      */
@@ -28,6 +31,7 @@ public class CercaPaziente extends javax.swing.JFrame {
     }
     public CercaPaziente() {
         initComponents();
+        listaID=new ArrayList<Integer>();
         listModel=new DefaultListModel();
         lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lista.setModel(listModel);
@@ -151,7 +155,7 @@ public class CercaPaziente extends javax.swing.JFrame {
         }
         else
         {
-            parent.visualizzaDati(1);
+            parent.visualizzaDati(listaID.get(lista.getSelectedIndex()));
             parent.setVisible(true);
             this.dispose();
         }
@@ -167,12 +171,15 @@ public class CercaPaziente extends javax.swing.JFrame {
     private void aggiornaLista()
     {
         try {
+            if(listaID.size()>0)
+                listaID.clear();
             if(listModel.size()>0)
               listModel.clear();
-            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome,Cognome FROM Paziente WHERE Nome LIKE '"+nome.getText()+"%' AND Cognome LIKE '"+cognome.getText()+"%'");
+            ResultSet rs=GestioneDatabase.querySelect("SELECT ID,Nome,Cognome FROM Paziente WHERE Nome LIKE '"+nome.getText()+"%' AND Cognome LIKE '"+cognome.getText()+"%'");
             while(rs.next())
             {
-               listModel.addElement(rs.getString(2)+" "+rs.getString(1));
+               listModel.addElement(rs.getString("Cognome")+" "+rs.getString("Nome"));
+               listaID.add(rs.getInt("ID"));
             }
             if(listModel.size()>0)
                 lista.setSelectedIndex(0);
