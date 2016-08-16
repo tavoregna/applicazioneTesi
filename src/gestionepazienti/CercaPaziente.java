@@ -165,7 +165,8 @@ public class CercaPaziente extends javax.swing.JFrame {
     }//GEN-LAST:event_confermaActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        parent.setVisible(true);
+        if(parent!=null)
+            parent.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 
     private void aggiornaLista()

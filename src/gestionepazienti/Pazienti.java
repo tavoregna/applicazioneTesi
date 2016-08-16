@@ -47,6 +47,10 @@ public class Pazienti {
         if(arrayID.size()==0)
             aggiorna();
     }
+
+    public static int getCurrID() {
+        return currID;
+    }
     public static Integer precedente()
     {
         if(currID==0)
