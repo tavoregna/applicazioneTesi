@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -73,6 +74,21 @@ public class GestioneDatabase {
         }
     }
     
+    public static PreparedStatement preparedStatement(String sql)
+    {
+        PreparedStatement pst;
+        try {
+            if(con==null || !con.isValid(0))
+                connessione();
+            pst=con.prepareStatement(sql);
+            return pst;
+          
+        } catch (SQLException ex) {
+            Utilita.mostraMessaggioErrore("Errore durante l'esecuzione dell'operazione");
+            return null;
+        }
+    }
+    
     
     
     
@@ -81,6 +97,7 @@ public class GestioneDatabase {
        {
           queryNonSelect("INSERT INTO Paziente(Nome,Cognome) VALUES ('"+i+"','"+i+"')"); 
        }
+       
        
     }   
 }
