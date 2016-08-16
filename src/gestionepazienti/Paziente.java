@@ -575,15 +575,19 @@ public class Paziente extends javax.swing.JFrame {
     }//GEN-LAST:event_modEsordActionPerformed
 
     private void indirizzoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indirizzoActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_indirizzoActionPerformed
 
     private void indietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroActionPerformed
-        // TODO add your handling code here:
+        Integer prec=Pazienti.precedente();
+        if(prec!=null)
+            visualizzaDati(prec);
     }//GEN-LAST:event_indietroActionPerformed
 
     private void avantiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiActionPerformed
-        // TODO add your handling code here:
+        Integer succ=Pazienti.successivo();
+        if(succ!=null)
+            visualizzaDati(succ);
     }//GEN-LAST:event_avantiActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -592,6 +596,7 @@ public class Paziente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
     public void visualizzaDati(int id)
     {
+        Pazienti.setCurrID(id);
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT Nome,Cognome FROM Paziente WHERE ID="+id);
             if(rs.next())
