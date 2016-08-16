@@ -49,6 +49,8 @@ public class Pazienti {
     }
     public static Integer precedente()
     {
+        if(currID==0)
+            return null;
         int id=currID;
         inizializza();
         Integer currPos=null;
@@ -68,6 +70,8 @@ public class Pazienti {
     
     public static Integer successivo()
     {
+        if(currID==0)
+            return null;
         int id=currID;
         inizializza();
         Integer currPos=null;

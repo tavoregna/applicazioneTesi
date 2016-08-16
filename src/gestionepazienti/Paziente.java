@@ -86,6 +86,8 @@ public class Paziente extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         featuresClinic = new javax.swing.JComboBox<>();
         pev = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         controlliAmb = new javax.swing.JPanel();
         immunu = new javax.swing.JPanel();
         mri = new javax.swing.JPanel();
@@ -208,6 +210,7 @@ public class Paziente extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         storiaMal.setViewportView(jTextArea1);
@@ -229,6 +232,15 @@ public class Paziente extends javax.swing.JFrame {
         jLabel21.setText("PEV:");
 
         jLabel22.setText("Caratteristiche Cliniche:");
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Vedi");
 
         javax.swing.GroupLayout anamnesticaLayout = new javax.swing.GroupLayout(anamnestica);
         anamnestica.setLayout(anamnesticaLayout);
@@ -280,7 +292,14 @@ public class Paziente extends javax.swing.JFrame {
                                     .addComponent(dataDiagno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(noteScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(141, Short.MAX_VALUE))
+            .addGroup(anamnesticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, anamnesticaLayout.createSequentialGroup()
+                    .addContainerGap(1005, Short.MAX_VALUE)
+                    .addComponent(jButton3)
+                    .addGap(143, 143, 143)))
         );
         anamnesticaLayout.setVerticalGroup(
             anamnesticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,7 +332,11 @@ public class Paziente extends javax.swing.JFrame {
                         .addComponent(jLabel16))
                     .addGroup(anamnesticaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(storiaMal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(storiaMal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, anamnesticaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addGap(17, 17, 17)))
                 .addGroup(anamnesticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(anamnesticaLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
@@ -321,7 +344,12 @@ public class Paziente extends javax.swing.JFrame {
                     .addGroup(anamnesticaLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(noteScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(anamnesticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(anamnesticaLayout.createSequentialGroup()
+                    .addGap(155, 155, 155)
+                    .addComponent(jButton3)
+                    .addContainerGap(189, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Anamnestica", anamnestica);
@@ -594,6 +622,10 @@ public class Paziente extends javax.swing.JFrame {
         this.setVisible(false);
         new CercaPaziente(this);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
     public void visualizzaDati(int id)
     {
         Pazienti.setCurrID(id);
@@ -665,6 +697,8 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JButton indietro;
     private javax.swing.JTextField indirizzo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
