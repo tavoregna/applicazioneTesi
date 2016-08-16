@@ -5,6 +5,12 @@
  */
 package gestionepazienti;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Utente
@@ -16,7 +22,21 @@ public class Terapia extends javax.swing.JFrame {
      */
     public Terapia() {
         initComponents();
+        ricercaTerapia();
         enable(false);
+    }
+    
+    public void ricercaTerapia()
+    {
+       try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Terapia,'Data Inizio' FROM Paziente_Terapia"); //WHERE Data Inizio >=all SELECT Data Inizio FROM Terapia");
+            while(rs.next())
+            {
+                terAttuale.addItem(rs.getString("Terapia"));
+            }
+        } catch (SQLException ex) {
+            
+        }
     }
     
     public void enable(boolean i) //true abilita, false disabilita
@@ -71,6 +91,12 @@ public class Terapia extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Terapia Attuale:");
+
+        terAttuale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terAttualeActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Terapie Pregresse:");
@@ -168,6 +194,10 @@ public class Terapia extends javax.swing.JFrame {
         // TODO add your handling code here:
         enable(false);
     }//GEN-LAST:event_saveActionPerformed
+
+    private void terAttualeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terAttualeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_terAttualeActionPerformed
 
     /**
      * @param args the command line arguments
