@@ -26,6 +26,7 @@ public class Paziente extends javax.swing.JFrame {
         initComponents();
         dataIns.setDate(new java.util.Date());
         this.setVisible(true);
+        
     }
 
     /**
