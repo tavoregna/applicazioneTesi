@@ -1229,8 +1229,11 @@ public class Paziente extends javax.swing.JFrame {
     }//GEN-LAST:event_inserisciStoricoActionPerformed
 
     private void vediStoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vediStoricoActionPerformed
+        if(Pazienti.getCurrID()!=null)
+        {
         this.setVisible(false);
         new Storico(Pazienti.getCurrID(),this);
+        }
     }//GEN-LAST:event_vediStoricoActionPerformed
     public void visualizzaDati(int id)
     {

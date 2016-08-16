@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class Pazienti {
     private static ArrayList<Integer> arrayID;
-    private static int currID=0; 
+    private static Integer currID=null; 
             
     public static void setCurrID(int id)
     {
@@ -48,12 +48,12 @@ public class Pazienti {
             aggiorna();
     }
 
-    public static int getCurrID() {
+    public static Integer getCurrID() {
         return currID;
     }
     public static Integer precedente()
     {
-        if(currID==0)
+        if(currID==null || currID==0)
             return null;
         int id=currID;
         inizializza();
@@ -74,7 +74,7 @@ public class Pazienti {
     
     public static Integer successivo()
     {
-        if(currID==0)
+        if(currID==null || currID==0)
             return null;
         int id=currID;
         inizializza();

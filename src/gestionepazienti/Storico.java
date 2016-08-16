@@ -1,5 +1,7 @@
 package gestionepazienti;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -21,24 +23,18 @@ public class Storico extends javax.swing.JFrame {
         parent=par;
         storico=new ArrayList<Story>();
         
-        try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome,Cognome FROM Paziente WHERE ID="+paz);
-            if(rs.next())
-            {
-                titolo.setText(rs.getString(2)+" "+rs.getString(1));
-            }
-            rs=GestioneDatabase.querySelect("SELECT * FROM Storico WHERE ID="+paz+" ORDER BY Data DESC");
-            while(rs.next())
-            {
-                storico.add(new Story(IDpaziente,rs.getDate("Data"),rs.getString("Testo")));  
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Storico.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        aggiorna();
         
         indiceCorrente=0;
         if(storico.size()>0)
-            impostaCampi(0);  
+            impostaCampi(0);
+        else
+        {
+            modifica.setVisible(false);
+            avanti.setVisible(false);
+            indietro.setVisible(false);
+            testoDescr.setText("NESSUNA INFORMAZIONE PER IL PAZIENTE SELEZIONATO");
+        }
         
     }
     public Storico() {
@@ -49,6 +45,26 @@ public class Storico extends javax.swing.JFrame {
         mostra(true);
     }
     
+    private void aggiorna()
+    {
+        if(storico.size()>0)
+            storico.clear();
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome,Cognome FROM Paziente WHERE ID="+IDpaziente);
+            if(rs.next())
+            {
+                titolo.setText(rs.getString(2)+" "+rs.getString(1));
+            }
+            rs=GestioneDatabase.querySelect("SELECT * FROM Storico WHERE ID="+IDpaziente+" ORDER BY Data DESC");
+            while(rs.next())
+            {
+                storico.add(new Story(IDpaziente,rs.getDate("Data"),rs.getString("Testo")));  
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Storico.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     private void impostaCampi(int ind)
     {
         if(ind<0 || ind>=storico.size())
@@ -259,7 +275,35 @@ public class Storico extends javax.swing.JFrame {
     }//GEN-LAST:event_annullaActionPerformed
 
     private void salvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvaActionPerformed
-        // TODO add your handling code here:
+        boolean errore=false;
+        try {
+            PreparedStatement prs=GestioneDatabase.preparedStatement("UPDATE Storico SET Data=?, Testo=? WHERE ID=? AND Data=?");
+            prs.setDate(1, new Date(data.getDate().getTime()));
+            prs.setString(2, testoDescr.getText());
+            prs.setInt(3, IDpaziente);
+            prs.setDate(4,storico.get(indiceCorrente).getData());
+            prs.executeUpdate();
+        } catch (SQLException ex) {
+            errore=true;
+            Utilita.mostraMessaggio("Errore - data già presente per il paziente selezionato");
+        }
+        if(errore)
+        {
+            return;
+        }
+        
+        abilitaCampi(false);
+        mostra(true);
+        aggiorna();
+        int i;
+        for(i=0;i<storico.size();i++)
+        {
+            if(storico.get(i).getData().equals(new Date(data.getDate().getTime())))
+            {
+                indiceCorrente=i;
+                return;
+            }
+        }
     }//GEN-LAST:event_salvaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
