@@ -284,6 +284,11 @@ public class Paziente extends javax.swing.JFrame {
 
         buttonMod.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         buttonMod.setText("MODIFICA");
+        buttonMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonModActionPerformed(evt);
+            }
+        });
 
         buttonAdd.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         buttonAdd.setText("AGGIUNGI");
@@ -1034,8 +1039,18 @@ public class Paziente extends javax.swing.JFrame {
         });
 
         buttonSalva.setText("Salva modifiche");
+        buttonSalva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSalvaActionPerformed(evt);
+            }
+        });
 
         buttonAnnulla.setText("Annulla");
+        buttonAnnulla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAnnullaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1201,15 +1216,29 @@ public class Paziente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void indietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroActionPerformed
-        Integer prec=Pazienti.precedente();
-        if(prec!=null)
-            visualizzaDati(prec);
+        if(Pazienti.getCurrID()!=null)
+        {
+            Integer prec=Pazienti.precedente();
+            if(prec!=null)
+            {
+                visualizzaDati(prec);
+                abilitaSuperiore(false);
+                mostraPulsantiModifica(true);
+            }
+        }
     }//GEN-LAST:event_indietroActionPerformed
 
     private void avantiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiActionPerformed
-        Integer succ=Pazienti.successivo();
-        if(succ!=null)
-            visualizzaDati(succ);
+        if(Pazienti.getCurrID()!=null)
+        {
+            Integer succ=Pazienti.successivo();
+            if(succ!=null)
+            {
+                visualizzaDati(succ);
+                abilitaSuperiore(false);
+                mostraPulsantiModifica(true);
+            }
+        }
     }//GEN-LAST:event_avantiActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1258,6 +1287,21 @@ public class Paziente extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_anamnesiKeyReleased
+
+    private void buttonModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModActionPerformed
+        if(Pazienti.getCurrID()!=null)
+        {
+            //CODICE
+        }
+    }//GEN-LAST:event_buttonModActionPerformed
+
+    private void buttonSalvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalvaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonSalvaActionPerformed
+
+    private void buttonAnnullaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAnnullaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAnnullaActionPerformed
     public void visualizzaDati(int id)
     {
         Pazienti.setCurrID(id);

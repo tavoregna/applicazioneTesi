@@ -432,6 +432,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="MODIFICA"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonModActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonAdd">
       <Properties>
@@ -1843,11 +1846,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Salva modifiche"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSalvaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonAnnulla">
       <Properties>
         <Property name="text" type="java.lang.String" value="Annulla"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAnnullaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
