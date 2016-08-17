@@ -7,6 +7,7 @@ package gestionepazienti;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.ListSelectionModel;
@@ -176,10 +177,13 @@ public class CercaPaziente extends javax.swing.JFrame {
                 listaID.clear();
             if(listModel.size()>0)
               listModel.clear();
-            ResultSet rs=GestioneDatabase.querySelect("SELECT ID,Nome,Cognome FROM Paziente WHERE Nome LIKE '"+nome.getText()+"%' AND Cognome LIKE '"+cognome.getText()+"%'");
+            ResultSet rs=GestioneDatabase.querySelect("SELECT ID,Nome,Cognome,DataNascita FROM Paziente WHERE Nome LIKE '"+nome.getText()+"%' AND Cognome LIKE '"+cognome.getText()+"%' ORDER BY Cognome,Nome,DataNascita ASC");
             while(rs.next())
             {
-               listModel.addElement(rs.getString("Cognome")+" "+rs.getString("Nome"));
+               SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+               String dataStr = sdf.format(rs.getDate("DataNascita")); // data corrente (20 febbraio 2014)
+    
+               listModel.addElement(rs.getString("Cognome")+" "+rs.getString("Nome")+" - "+dataStr);
                listaID.add(rs.getInt("ID"));
             }
             if(listModel.size()>0)

@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 
 /**
@@ -201,8 +202,8 @@ public class Paziente extends javax.swing.JFrame {
         avanti = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton2 = new javax.swing.JButton();
+        telefono = new javax.swing.JList<>();
+        gestioneTel = new javax.swing.JButton();
 
         label5.setText("label5");
 
@@ -1050,14 +1051,19 @@ public class Paziente extends javax.swing.JFrame {
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        telefono.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane5.setViewportView(jList1);
+        jScrollPane5.setViewportView(telefono);
 
-        jButton2.setText("Gestisci");
+        gestioneTel.setText("Gestisci");
+        gestioneTel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gestioneTelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1137,7 +1143,7 @@ public class Paziente extends javax.swing.JFrame {
                                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(34, 34, 34))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(gestioneTel)
                                 .addGap(87, 87, 87))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1204,7 +1210,7 @@ public class Paziente extends javax.swing.JFrame {
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(gestioneTel)
                         .addGap(102, 102, 102)))
                 .addComponent(jTabbedPane1))
         );
@@ -1250,10 +1256,18 @@ public class Paziente extends javax.swing.JFrame {
     private void vediStoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vediStoricoActionPerformed
         if(Pazienti.getCurrID()!=null)
         {
-        this.setVisible(false);
-        new Storico(Pazienti.getCurrID(),this);
+            this.setVisible(false);
+            new Storico(Pazienti.getCurrID(),this);
         }
     }//GEN-LAST:event_vediStoricoActionPerformed
+
+    private void gestioneTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestioneTelActionPerformed
+        if(Pazienti.getCurrID()!=null)
+        {
+            this.setVisible(false);
+            new TelefonoUI(Pazienti.getCurrID(),this);
+        }
+    }//GEN-LAST:event_gestioneTelActionPerformed
     public void visualizzaDati(int id)
     {
         Pazienti.setCurrID(id);
@@ -1268,6 +1282,12 @@ public class Paziente extends javax.swing.JFrame {
             Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        datiStorico(id);
+        
+        datiTelefono(id);
+    }
+    public void datiStorico(int id)
+    {
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT Data,Testo FROM Storico WHERE ID="+id+" ORDER BY Data ASC");
             String tmp="";
@@ -1279,8 +1299,23 @@ public class Paziente extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+    }
+    public void datiTelefono(int id)
+    {
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Numero,Appartenenza FROM Telefono WHERE Paziente="+id);
+            DefaultListModel d=new DefaultListModel();
+            while(rs.next())
+            {
+                String tmp=rs.getString(1);
+                if(rs.getString(2)!=null && rs.getString(2).length()>0)
+                    tmp+=" - "+rs.getString(2);
+                d.addElement(tmp);
+            }
+                telefono.setModel(d);
+        } catch (SQLException ex) {
+            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     /**
      * @param args the command line arguments
@@ -1356,6 +1391,7 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JTextField gb;
     private javax.swing.JTextField gb1;
     private javax.swing.JTextField gb2;
+    private javax.swing.JButton gestioneTel;
     private javax.swing.JTextField gr;
     private javax.swing.JTextField hb;
     private javax.swing.JTextField hct;
@@ -1364,7 +1400,6 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JTextField indirizzo;
     private javax.swing.JButton inserisciStorico;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1437,7 +1472,6 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1479,6 +1513,7 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JScrollPane storiaMal;
     private javax.swing.JTextArea storicoArea;
     private javax.swing.JTextField supCorpo;
+    private javax.swing.JList<String> telefono;
     private javax.swing.JTextArea terPreg;
     private javax.swing.JComboBox<String> terapAtt;
     private javax.swing.JTextArea terapieConcomit;
