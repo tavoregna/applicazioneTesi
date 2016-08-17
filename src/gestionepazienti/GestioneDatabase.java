@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gestionepazienti;
 
 import java.io.File;
@@ -14,13 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- *
- * @author Riccardo
- */
 public class GestioneDatabase {
     private static final String RELATIVE_DB_PATH="db/Prova1.accdb";
-    
     private static Connection con;
     
     public static void connessione()
@@ -88,16 +78,4 @@ public class GestioneDatabase {
             return null;
         }
     }
-    
-    
-    
-    
-     public static void main(String[] args){
-       for(int i=0;i<500;i++)
-       {
-          queryNonSelect("INSERT INTO Paziente(Nome,Cognome) VALUES ('"+i+"','"+i+"')"); 
-       }
-       
-       
-    }   
 }
