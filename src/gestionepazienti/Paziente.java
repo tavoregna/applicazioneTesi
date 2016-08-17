@@ -26,6 +26,10 @@ public class Paziente extends javax.swing.JFrame {
         dataIns.setDate(new java.util.Date());
         this.setVisible(true);
         
+        
+        abilitaSuperiore(false);
+        mostraPulsantiModifica(true);
+        
     }
 
    
@@ -196,6 +200,8 @@ public class Paziente extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         telefono = new javax.swing.JList<>();
         gestioneTel = new javax.swing.JButton();
+        buttonSalva = new javax.swing.JButton();
+        buttonAnnulla = new javax.swing.JButton();
 
         label5.setText("label5");
 
@@ -268,12 +274,9 @@ public class Paziente extends javax.swing.JFrame {
         terPreg.setRows(5);
         jScrollPane1.setViewportView(terPreg);
 
+        dataIns.setEditable(false);
+        dataIns.setEnabled(false);
         dataIns.setName(""); // NOI18N
-        dataIns.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataInsActionPerformed(evt);
-            }
-        });
 
         dataBorn.setName(""); // NOI18N
 
@@ -299,12 +302,6 @@ public class Paziente extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel17.setText("Anamnesi");
-
-        modEsord.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modEsordActionPerformed(evt);
-            }
-        });
 
         storicoArea.setColumns(20);
         storicoArea.setRows(5);
@@ -388,7 +385,7 @@ public class Paziente extends javax.swing.JFrame {
                                     .addComponent(dataDiagno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(noteScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(375, Short.MAX_VALUE))
+                .addContainerGap(390, Short.MAX_VALUE))
         );
         anamnesticaLayout.setVerticalGroup(
             anamnesticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -438,7 +435,7 @@ public class Paziente extends javax.swing.JFrame {
         controlliAmb.setLayout(controlliAmbLayout);
         controlliAmbLayout.setHorizontalGroup(
             controlliAmbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1344, Short.MAX_VALUE)
+            .addGap(0, 1359, Short.MAX_VALUE)
         );
         controlliAmbLayout.setVerticalGroup(
             controlliAmbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -651,7 +648,7 @@ public class Paziente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel68)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edss, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
+                        .addComponent(edss, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
                     .addGroup(immunuLayout.createSequentialGroup()
                         .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(immunuLayout.createSequentialGroup()
@@ -963,7 +960,7 @@ public class Paziente extends javax.swing.JFrame {
         mri.setLayout(mriLayout);
         mriLayout.setHorizontalGroup(
             mriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1344, Short.MAX_VALUE)
+            .addGap(0, 1359, Short.MAX_VALUE)
         );
         mriLayout.setVerticalGroup(
             mriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -976,7 +973,7 @@ public class Paziente extends javax.swing.JFrame {
         epidem.setLayout(epidemLayout);
         epidemLayout.setHorizontalGroup(
             epidemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1344, Short.MAX_VALUE)
+            .addGap(0, 1359, Short.MAX_VALUE)
         );
         epidemLayout.setVerticalGroup(
             epidemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -989,7 +986,7 @@ public class Paziente extends javax.swing.JFrame {
         nps.setLayout(npsLayout);
         npsLayout.setHorizontalGroup(
             npsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1344, Short.MAX_VALUE)
+            .addGap(0, 1359, Short.MAX_VALUE)
         );
         npsLayout.setVerticalGroup(
             npsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1000,12 +997,6 @@ public class Paziente extends javax.swing.JFrame {
 
         jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel23.setText("Indirizzo:");
-
-        indirizzo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                indirizzoActionPerformed(evt);
-            }
-        });
 
         indietro.setText("<");
         indietro.addActionListener(new java.awt.event.ActionListener() {
@@ -1041,6 +1032,10 @@ public class Paziente extends javax.swing.JFrame {
                 gestioneTelActionPerformed(evt);
             }
         });
+
+        buttonSalva.setText("Salva modifiche");
+
+        buttonAnnulla.setText("Annulla");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1106,12 +1101,14 @@ public class Paziente extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel6)))
+                            .addComponent(supCorpo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(indirizzo, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(supCorpo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(indirizzo, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(213, 213, 213)))
+                                .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonSalva, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonAnnulla, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -1148,34 +1145,42 @@ public class Paziente extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dataBorn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(cf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel23)
-                            .addComponent(indirizzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel9)
-                                        .addComponent(terapAtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel10)
-                                        .addComponent(dataInTer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel11)
-                                        .addComponent(supCorpo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(19, 19, 19)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(dataBorn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(cf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel23)
+                                    .addComponent(indirizzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(1, 1, 1))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(buttonMod, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel9)
+                                                .addComponent(terapAtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel10)
+                                                .addComponent(dataInTer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel11)
+                                                .addComponent(supCorpo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(1, 1, 1))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(buttonMod, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(buttonSalva, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(buttonAnnulla, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(4, 4, 4))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -1194,18 +1199,6 @@ public class Paziente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void dataInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataInsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataInsActionPerformed
-
-    private void modEsordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modEsordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_modEsordActionPerformed
-
-    private void indirizzoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indirizzoActionPerformed
-
-    }//GEN-LAST:event_indirizzoActionPerformed
 
     private void indietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroActionPerformed
         Integer prec=Pazienti.precedente();
@@ -1323,35 +1316,30 @@ public class Paziente extends javax.swing.JFrame {
             Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    private void abilitaSuperiore(boolean ab)
+    {
+        nome.setEnabled(ab);
+        cognome.setEnabled(ab);
+        sex.setEnabled(ab);
+        dataBorn.setEnabled(ab);
+        cf.setEnabled(ab);
+        indirizzo.setEnabled(ab);
+        supCorpo.setEnabled(ab);
+    }
+    private void mostraPulsantiModifica(boolean m)
+    {
+        buttonAdd.setVisible(m);
+        buttonMod.setVisible(m);
+        buttonSalva.setVisible(!m);
+        buttonAnnulla.setVisible(!m);
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         GestioneDatabase.connessione();
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Paziente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Paziente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Paziente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Paziente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Paziente().setVisible(true);
@@ -1368,7 +1356,9 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JTextField bas2;
     private javax.swing.JComboBox<String> boigg;
     private javax.swing.JButton buttonAdd;
+    private javax.swing.JButton buttonAnnulla;
     private javax.swing.JButton buttonMod;
+    private javax.swing.JButton buttonSalva;
     private javax.swing.JTextField cf;
     private javax.swing.JTextField citologiaUrin;
     private javax.swing.JTextField cognome;
