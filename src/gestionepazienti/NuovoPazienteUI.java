@@ -64,8 +64,8 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(112, 146, 190));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
+        jTextArea1.setColumns(1);
+        jTextArea1.setRows(1);
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N

@@ -1695,6 +1695,9 @@ public class Paziente extends javax.swing.JFrame {
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
         this.setVisible(false);
+        ripristinaPulsanti();
+        if(Pazienti.getCurrID()!=null)
+            infoPersonali(Pazienti.getCurrID());
         new NuovoPazienteUI(this);
     }//GEN-LAST:event_buttonAddActionPerformed
     private void abilitaComponentiPaziente(boolean ab)
