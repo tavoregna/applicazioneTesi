@@ -7,55 +7,53 @@ package gestionepazienti;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BoxLayout;
+
 
 /**
  *
  * @author Utente
  */
 public class Terapia extends javax.swing.JFrame {
-
+    private ArrayList<ElementiListaTerapie> list=new ArrayList<ElementiListaTerapie>();
+    private Integer IDpaz;
     /**
      * Creates new form Terapia
      */
-    public Terapia() {
+    public Terapia(int id) {
         initComponents();
-        ricercaTerapia();
-        enable(false);
+        pannello.setLayout(new BoxLayout(pannello, BoxLayout.Y_AXIS));
+        list=new ArrayList<ElementiListaTerapie>();
+        IDpaz=id;
+        aggiornaTerapie();
+        this.setVisible(true);
+        //ricercaTerapia();
+        //enable(false);
     }
-    
-    public void ricercaTerapia()
+    public void aggiornaTerapie() 
     {
-       try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT Terapia,'Data_Inizio' FROM Paziente_Terapia"); //WHERE Data Inizio >=all SELECT Data Inizio FROM Terapia");
+        pannello.removeAll();
+        list.clear();
+        
+        ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Paziente_Terapia WHERE ID_Paziente="+IDpaz+" ORDER BY Data_Inizio DESC");
+        try {
             while(rs.next())
             {
-                terAttuale.addItem(rs.getString("Terapia"));
+                Terapy t=new Terapy(rs.getDate("Data_Inizio"),rs.getDate("Data_Fine"),rs.getInt("ID_Paziente"),rs.getString("Terapia"));
+                ElementiListaTerapie temp=new ElementiListaTerapie(this,t);
+                pannello.add(temp);
+                list.add(temp);
             }
+            pannello.setVisible(false);
+            pannello.setVisible(true);
         } catch (SQLException ex) {
-            
+            Logger.getLogger(Terapia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void enable(boolean i) //true abilita, false disabilita
-    {
-     if(i)
-     {
-      dataInTer.setEnabled(true);
-      terAttuale.setEnabled(true);
-      save.setEnabled(true);
-     }
-     else
-     {
-      dataInTer.setEnabled(false);
-      terAttuale.setEnabled(false);
-      save.setEnabled(false);
-     }
-     
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,10 +71,7 @@ public class Terapia extends javax.swing.JFrame {
         terAttuale = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        terPreg = new javax.swing.JTextArea();
-        add = new javax.swing.JButton();
-        mod = new javax.swing.JButton();
-        save = new javax.swing.JButton();
+        pannello = new javax.swing.JPanel();
 
         jLabel4.setText("jLabel4");
 
@@ -101,99 +96,68 @@ public class Terapia extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Terapie Pregresse:");
 
-        terPreg.setColumns(20);
-        terPreg.setRows(5);
-        terPreg.setEnabled(false);
-        jScrollPane1.setViewportView(terPreg);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        add.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        add.setText("AGGIUNGI");
+        javax.swing.GroupLayout pannelloLayout = new javax.swing.GroupLayout(pannello);
+        pannello.setLayout(pannelloLayout);
+        pannelloLayout.setHorizontalGroup(
+            pannelloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 651, Short.MAX_VALUE)
+        );
+        pannelloLayout.setVerticalGroup(
+            pannelloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 415, Short.MAX_VALUE)
+        );
 
-        mod.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        mod.setText("MODIFICA");
-        mod.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modActionPerformed(evt);
-            }
-        });
-
-        save.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        save.setText("SALVA");
-        save.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveActionPerformed(evt);
-            }
-        });
+        jScrollPane1.setViewportView(pannello);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(add)
-                        .addGap(18, 18, 18)
-                        .addComponent(mod)
-                        .addGap(18, 18, 18)
-                        .addComponent(save))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5))
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1)
-                            .addComponent(terAttuale, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dataInTer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(50, 50, 50))
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(53, 53, 53)
+                .addComponent(terAttuale, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(69, 69, 69)
+                .addComponent(jLabel2)
+                .addGap(47, 47, 47)
+                .addComponent(dataInTer, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(dataInTer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(3, 3, 3)
                         .addComponent(jLabel3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(terAttuale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(terAttuale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)
+                        .addComponent(dataInTer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel5)))
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add)
-                    .addComponent(mod)
-                    .addComponent(save))
-                .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(151, 151, 151))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void modActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modActionPerformed
-        // TODO add your handling code here:
-        enable(true);
-    }//GEN-LAST:event_modActionPerformed
-
-    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        // TODO add your handling code here:
-        enable(false);
-    }//GEN-LAST:event_saveActionPerformed
 
     private void terAttualeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terAttualeActionPerformed
         // TODO add your handling code here:
@@ -206,13 +170,13 @@ public class Terapia extends javax.swing.JFrame {
         GestioneDatabase.connessione();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Terapia().setVisible(true);
+                new Terapia(1).setVisible(true);
             }
         });
     }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add;
     private org.jdesktop.swingx.JXDatePicker dataInTer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -220,9 +184,7 @@ public class Terapia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton mod;
-    private javax.swing.JButton save;
+    private javax.swing.JPanel pannello;
     private javax.swing.JComboBox<String> terAttuale;
-    private javax.swing.JTextArea terPreg;
     // End of variables declaration//GEN-END:variables
 }
