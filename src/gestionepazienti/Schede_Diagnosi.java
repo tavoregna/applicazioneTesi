@@ -475,8 +475,8 @@ public class Schede_Diagnosi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // TODO add your handling code here:
-        parent.setVisible(true);
+        if(parent!=null)
+            parent.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 
     private void boigg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boigg1ActionPerformed

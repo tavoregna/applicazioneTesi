@@ -186,8 +186,11 @@ public class TelefonoUI extends javax.swing.JFrame {
     }//GEN-LAST:event_numeroActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        parent.datiTelefono(pazID);
-        parent.setVisible(true);
+        if(parent!=null)
+        {
+            parent.datiTelefono(pazID);
+            parent.setVisible(true);
+        }
     }//GEN-LAST:event_formWindowClosed
 
     private void inserisciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserisciActionPerformed
