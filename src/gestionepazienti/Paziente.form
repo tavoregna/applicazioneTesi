@@ -236,17 +236,11 @@
                 </Property>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modEsordActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
             <Component class="org.jdesktop.swingx.JXDatePicker" name="dataDiagno">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataDiagnoActionPerformed"/>
-              </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="storiaMal">
               <AuxValues>
@@ -596,9 +590,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="oct">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="octActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel77">
               <Properties>
@@ -867,9 +858,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="AGGIUNGI SCHEDA"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel82">
               <Properties>
@@ -1927,7 +1915,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                          <Component id="dataBorn" linkSize="4" pref="152" max="32767" attributes="0"/>
+                                          <Component id="dataNascita" linkSize="4" pref="152" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
@@ -2033,7 +2021,7 @@
                                       <Component id="cf" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="dataBorn" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dataNascita" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="indirizzo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2169,8 +2157,8 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="terPreg">
               <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="rows" type="int" value="5"/>
+                <Property name="columns" type="int" value="1"/>
+                <Property name="rows" type="int" value="1"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -2194,7 +2182,7 @@
             <Property name="name" type="java.lang.String" value="" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="org.jdesktop.swingx.JXDatePicker" name="dataBorn">
+        <Component class="org.jdesktop.swingx.JXDatePicker" name="dataNascita">
           <Properties>
             <Property name="name" type="java.lang.String" value="" noResource="true"/>
           </Properties>
@@ -2203,9 +2191,6 @@
           <Properties>
             <Property name="name" type="java.lang.String" value="" noResource="true"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cfActionPerformed"/>
-          </Events>
         </Component>
         <Component class="org.jdesktop.swingx.JXDatePicker" name="dataIns">
           <Properties>
@@ -2313,6 +2298,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="AGGIUNGI"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane5">
           <AuxValues>
@@ -2361,6 +2349,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="MODIFICA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonModActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="gestioneTel">
           <Properties>
@@ -2402,10 +2393,11 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jTextArea1">
+            <Component class="javax.swing.JTextArea" name="note">
               <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="rows" type="int" value="5"/>
+                <Property name="columns" type="int" value="1"/>
+                <Property name="lineWrap" type="boolean" value="true"/>
+                <Property name="rows" type="int" value="1"/>
               </Properties>
             </Component>
           </SubComponents>
