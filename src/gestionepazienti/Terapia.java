@@ -170,7 +170,7 @@ public class Terapia extends javax.swing.JFrame {
         GestioneDatabase.connessione();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Terapia(1).setVisible(true);
+                new Terapia(2).setVisible(true);
             }
         });
     }

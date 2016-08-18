@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
 
 
 public class Paziente extends javax.swing.JFrame {
@@ -114,6 +115,7 @@ public class Paziente extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel82 = new javax.swing.JLabel();
         dataDiagnosi = new org.jdesktop.swingx.JXDatePicker();
+        caricaFile = new javax.swing.JButton();
         controlliAmb = new javax.swing.JPanel();
         immunu = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
@@ -241,6 +243,8 @@ public class Paziente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PAZIENTE");
+        setBackground(new java.awt.Color(255, 255, 204));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -279,8 +283,10 @@ public class Paziente extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel12.setText("Terapie pregresse:");
 
+        nome.setBackground(java.awt.Color.orange);
         nome.setName(""); // NOI18N
 
+        cognome.setBackground(java.awt.Color.orange);
         cognome.setName(""); // NOI18N
 
         sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
@@ -316,6 +322,8 @@ public class Paziente extends javax.swing.JFrame {
         buttonAdd.setText("AGGIUNGI");
 
         jTabbedPane1.setToolTipText("");
+
+        anamnestica.setBackground(new java.awt.Color(204, 255, 204));
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel13.setText("Data di esordio:");
@@ -377,7 +385,7 @@ public class Paziente extends javax.swing.JFrame {
         anamnesticaLayout.setHorizontalGroup(
             anamnesticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(anamnesticaLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
+                .addGap(111, 111, 111)
                 .addGroup(anamnesticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(filler1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(anamnesticaLayout.createSequentialGroup()
@@ -406,7 +414,7 @@ public class Paziente extends javax.swing.JFrame {
                         .addGroup(anamnesticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(formaClnAtt, 0, 442, Short.MAX_VALUE)
                             .addComponent(modEsord, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         anamnesticaLayout.setVerticalGroup(
             anamnesticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -497,6 +505,7 @@ public class Paziente extends javax.swing.JFrame {
             }
         });
 
+        jPanelPL.setBackground(new java.awt.Color(255, 255, 51));
         jPanelPL.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel74.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -572,16 +581,22 @@ public class Paziente extends javax.swing.JFrame {
             }
         });
 
+        jPanelRMN.setBackground(new java.awt.Color(102, 255, 102));
         jPanelRMN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jCheckBox1.setBackground(new java.awt.Color(102, 255, 102));
         jCheckBox1.setText("jCheckBox1");
 
+        jCheckBox2.setBackground(getBackground());
         jCheckBox2.setText("jCheckBox2");
 
+        jCheckBox3.setBackground(getBackground());
         jCheckBox3.setText("jCheckBox3");
 
+        jCheckBox4.setBackground(getBackground());
         jCheckBox4.setText("jCheckBox4");
 
+        jCheckBox5.setBackground(getBackground());
         jCheckBox5.setText("altro");
 
         javax.swing.GroupLayout jPanelRMNLayout = new javax.swing.GroupLayout(jPanelRMN);
@@ -637,6 +652,14 @@ public class Paziente extends javax.swing.JFrame {
         jLabel82.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel82.setText("Data della diagnosi:");
 
+        caricaFile.setText("Documento da caricare");
+        caricaFile.setToolTipText("");
+        caricaFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caricaFileActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout diagnosticaLayout = new javax.swing.GroupLayout(diagnostica);
         diagnostica.setLayout(diagnosticaLayout);
         diagnosticaLayout.setHorizontalGroup(
@@ -645,24 +668,7 @@ public class Paziente extends javax.swing.JFrame {
                 .addGap(63, 63, 63)
                 .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(diagnosticaLayout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addGap(40, 40, 40)
-                        .addComponent(dataEsord_Diagn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel19)
-                        .addGap(18, 18, 18)
-                        .addComponent(modEsord_Diagn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(126, 126, 126)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(126, 126, 126)
-                        .addComponent(jButton3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(diagnosticaLayout.createSequentialGroup()
                         .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(diagnosticaLayout.createSequentialGroup()
-                                .addComponent(jLabel82)
-                                .addGap(18, 18, 18)
-                                .addComponent(dataDiagnosi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, 1251, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(diagnosticaLayout.createSequentialGroup()
                                 .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -687,6 +693,12 @@ public class Paziente extends javax.swing.JFrame {
                                 .addGap(31, 31, 31)
                                 .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(diagnosticaLayout.createSequentialGroup()
+                                        .addComponent(jLabel72)
+                                        .addGap(8, 8, 8)
+                                        .addComponent(jButtonRMN)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanelRMN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(diagnosticaLayout.createSequentialGroup()
                                         .addComponent(jLabel77)
                                         .addGap(18, 18, 18)
                                         .addComponent(npsi, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -697,14 +709,28 @@ public class Paziente extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel73)
                                         .addGap(18, 18, 18)
-                                        .addComponent(pev1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(diagnosticaLayout.createSequentialGroup()
-                                        .addComponent(jLabel72)
-                                        .addGap(8, 8, 8)
-                                        .addComponent(jButtonRMN)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jPanelRMN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 60, Short.MAX_VALUE))))
+                                        .addComponent(pev1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 60, Short.MAX_VALUE))
+                    .addGroup(diagnosticaLayout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(40, 40, 40)
+                        .addComponent(dataEsord_Diagn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel19)
+                        .addGap(18, 18, 18)
+                        .addComponent(modEsord_Diagn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(126, 126, 126)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(126, 126, 126)
+                        .addComponent(jButton3)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(diagnosticaLayout.createSequentialGroup()
+                        .addComponent(jLabel82)
+                        .addGap(18, 18, 18)
+                        .addComponent(dataDiagnosi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(caricaFile, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(169, 169, 169))))
         );
 
         diagnosticaLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPanelPL, jPanelRMN});
@@ -727,7 +753,8 @@ public class Paziente extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel82)
-                    .addComponent(dataDiagnosi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dataDiagnosi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caricaFile))
                 .addGap(18, 18, 18)
                 .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel77)
@@ -766,7 +793,7 @@ public class Paziente extends javax.swing.JFrame {
                         .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel72)
                             .addComponent(jButtonRMN, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         diagnosticaLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPanelPL, jPanelRMN});
@@ -1648,6 +1675,14 @@ public class Paziente extends javax.swing.JFrame {
             new Schede_Diagnosi(Pazienti.getCurrID(),this,2);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void caricaFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caricaFileActionPerformed
+        if(Pazienti.getCurrID()!=null)
+        {
+            JFileChooser c = new JFileChooser();
+            int rVal = c.showOpenDialog(this);
+        }
+    }//GEN-LAST:event_caricaFileActionPerformed
     public void visualizzaDati(int id)
     {
         Pazienti.setCurrID(id);
@@ -1752,6 +1787,7 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> boigg1;
     private javax.swing.JButton buttonAdd;
     private javax.swing.JButton buttonMod;
+    private javax.swing.JButton caricaFile;
     private javax.swing.JTextField cf;
     private javax.swing.JTextField citologiaUrin;
     private javax.swing.JTextField cognome;

@@ -17,7 +17,7 @@ public class TelefonoUI extends javax.swing.JFrame {
     
     public TelefonoUI(int ID,Paziente p) {
         initComponents();
-        jLabel1.setText(TITOLO+" "+trovaPaziente(ID));
+        jLabel1.setText(TITOLO+" "+trovaPaziente(ID).toUpperCase());
         this.setVisible(true);
         pazID=ID;
         parent=p;
@@ -56,7 +56,7 @@ public class TelefonoUI extends javax.swing.JFrame {
             }
         }catch (SQLException ex) {
         }
-        return null;
+        return "";
     }
 
     @SuppressWarnings("unchecked")
