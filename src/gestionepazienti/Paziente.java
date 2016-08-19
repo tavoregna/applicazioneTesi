@@ -1660,6 +1660,8 @@ public class Paziente extends javax.swing.JFrame {
               if(reply==JOptionPane.YES_OPTION)
               {  
                   try {
+                      if(nome.getText()==null || nome.getText().length()==0 || cognome.getText()==null || cognome.getText().length()==0)
+                            throw new Exception();
                       PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente SET Nome=?,Cognome=?,CF=?,Sesso=?,DataNascita=?,SuperficieCorporea=?,Indirizzo=?,Note=? WHERE ID=?");
                       pst.setString(1,nome.getText());
                       pst.setString(2,cognome.getText());
