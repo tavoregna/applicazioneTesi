@@ -5,8 +5,14 @@
  */
 package gestionepazienti;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -18,17 +24,26 @@ import javax.swing.JOptionPane;
 public class ElementiListaTerapie extends javax.swing.JPanel {
     private Terapy terapiaInfo;
     private Terapia parent;
+    private boolean active;
     
     
-    public ElementiListaTerapie(Terapia p,Terapy t) {
+    public ElementiListaTerapie(Terapia p,ArrayList<String> lista,Terapy t) {
+        active=false;
         initComponents();
-        this.setVisible(true);
         terapiaInfo=t;
         parent=p;
-        
         dataFine.setDate(t.getDataFine());
         dataInizio.setDate(t.getDataInizio());
+        int sel=0;
+        for(int i=0;i<lista.size();i++)
+        {
+            listaTerapie.addItem(lista.get(i));
+            if(lista.get(i).equals(t.getTerapia()))
+                sel=i;
+        }
         listaTerapie.setSelectedItem(t.getTerapia());
+        active=true;
+        this.setVisible(true);
     }
 
     /**
@@ -49,7 +64,7 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
         elimina = new javax.swing.JButton();
 
         listaTerapie.setEditable(true);
-        listaTerapie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        listaTerapie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
         listaTerapie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listaTerapieActionPerformed(evt);
@@ -115,15 +130,57 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void dataInizioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataInizioActionPerformed
-        // TODO add your handling code here:
+        this.setEnabled(false);
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente_Terapia SET Data_Inizio=? WHERE ID_Paziente=? AND Data_Inizio=?");
+            pst.setDate(1, new Date(dataInizio.getDate().getTime()));
+            pst.setInt(2, terapiaInfo.getIdPaz());
+            pst.setDate(3, new Date(terapiaInfo.getDataInizio().getTime()));
+            pst.executeUpdate();
+            parent.aggiornaTerapie();
+        } catch (SQLException ex) {
+            Utilita.mostraMessaggioErrore("ERRORE: un'altra terapia ha la stessa data d'inizio");
+            dataInizio.setDate(terapiaInfo.getDataInizio());
+        }
+        this.setEnabled(true);
     }//GEN-LAST:event_dataInizioActionPerformed
 
     private void dataFineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataFineActionPerformed
-        // TODO add your handling code here:
+        this.setEnabled(false);
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente_Terapia SET Data_Fine=? WHERE ID_Paziente=? AND Data_Inizio=?");
+            pst.setDate(1, new Date(dataFine.getDate().getTime()));
+            pst.setInt(2, terapiaInfo.getIdPaz());
+            pst.setDate(3, new Date(terapiaInfo.getDataInizio().getTime()));
+            pst.executeUpdate();
+            terapiaInfo.setDataFine(new Date(dataFine.getDate().getTime()));
+        } catch (SQLException ex) {
+            
+        }
+        this.setEnabled(true);
     }//GEN-LAST:event_dataFineActionPerformed
 
     private void listaTerapieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaTerapieActionPerformed
-        // TODO add your handling code here:
+        if(!active)
+            return;
+        this.setEnabled(false);
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente_Terapia SET Terapia=? WHERE ID_Paziente=? AND Data_Inizio=?");
+            pst.setString(1,listaTerapie.getItemAt(listaTerapie.getSelectedIndex()));
+            pst.setInt(2, terapiaInfo.getIdPaz());
+            DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            java.util.Date today = new java.util.Date(System.currentTimeMillis());
+            today = formatter.parse(formatter.format(today));
+            pst.setDate(3,new Date(today.getTime()));
+            pst.executeUpdate();
+            terapiaInfo.setTerapia(listaTerapie.getItemAt(listaTerapie.getSelectedIndex()));
+        } catch (SQLException ex) {
+            Utilita.mostraMessaggioErrore("Terapia inserita non valida");
+            listaTerapie.setSelectedItem(terapiaInfo.getTerapia());
+        } catch (ParseException ex) {
+            Logger.getLogger(ElementiListaTerapie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setEnabled(true);
     }//GEN-LAST:event_listaTerapieActionPerformed
 
     private void eliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaActionPerformed

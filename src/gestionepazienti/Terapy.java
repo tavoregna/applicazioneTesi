@@ -24,6 +24,14 @@ public class Terapy {
         this.terapia = terapia;
     }
 
+    public void setDataFine(Date dataFine) {
+        this.dataFine = dataFine;
+    }
+
+    public void setTerapia(String terapia) {
+        this.terapia = terapia;
+    }
+
     
     public Date getDataInizio() {
         return dataInizio;

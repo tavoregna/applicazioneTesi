@@ -5,6 +5,8 @@
  */
 package gestionepazienti;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,19 +22,37 @@ import javax.swing.BoxLayout;
 public class Terapia extends javax.swing.JFrame {
     private ArrayList<ElementiListaTerapie> list=new ArrayList<ElementiListaTerapie>();
     private Integer IDpaz;
+    private ArrayList<String> listaNomiTerapie;
+    private Paziente parent;
     /**
      * Creates new form Terapia
      */
-    public Terapia(int id) {
+    public Terapia(int id,Paziente p) {
         initComponents();
         pannello.setLayout(new BoxLayout(pannello, BoxLayout.Y_AXIS));
         list=new ArrayList<ElementiListaTerapie>();
         IDpaz=id;
+        parent=p;
+        listaNomiTerapie=new ArrayList<String>();
+        listaNomiTerapie();
         aggiornaTerapie();
         this.setVisible(true);
         //ricercaTerapia();
         //enable(false);
     }
+    private void listaNomiTerapie()
+    {
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome FROM Terapia ORDER BY Nome ASC");
+            while(rs.next())
+            {
+                listaNomiTerapie.add(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Terapia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void aggiornaTerapie() 
     {
         pannello.removeAll();
@@ -43,7 +63,7 @@ public class Terapia extends javax.swing.JFrame {
             while(rs.next())
             {
                 Terapy t=new Terapy(rs.getDate("Data_Inizio"),rs.getDate("Data_Fine"),rs.getInt("ID_Paziente"),rs.getString("Terapia"));
-                ElementiListaTerapie temp=new ElementiListaTerapie(this,t);
+                ElementiListaTerapie temp=new ElementiListaTerapie(this,listaNomiTerapie,t);
                 pannello.add(temp);
                 list.add(temp);
             }
@@ -65,36 +85,26 @@ public class Terapia extends javax.swing.JFrame {
 
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        dataInTer = new org.jdesktop.swingx.JXDatePicker();
-        jLabel3 = new javax.swing.JLabel();
-        terAttuale = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pannello = new javax.swing.JPanel();
+        nuovaTerapia = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("TERAPIE \"NOME PAZIENTE\"");
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel2.setText("Data Inizio Terapia:");
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel3.setText("Terapia Attuale:");
-
-        terAttuale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                terAttualeActionPerformed(evt);
-            }
-        });
-
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel5.setText("Terapie Pregresse:");
+        jLabel5.setText("Terapie");
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -102,7 +112,7 @@ public class Terapia extends javax.swing.JFrame {
         pannello.setLayout(pannelloLayout);
         pannelloLayout.setHorizontalGroup(
             pannelloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 651, Short.MAX_VALUE)
+            .addGap(0, 677, Short.MAX_VALUE)
         );
         pannelloLayout.setVerticalGroup(
             pannelloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,6 +120,13 @@ public class Terapia extends javax.swing.JFrame {
         );
 
         jScrollPane1.setViewportView(pannello);
+
+        nuovaTerapia.setText("Nuova Terapia");
+        nuovaTerapia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuovaTerapiaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,71 +137,71 @@ public class Terapia extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(53, 53, 53)
-                .addComponent(terAttuale, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(69, 69, 69)
-                .addComponent(jLabel2)
-                .addGap(47, 47, 47)
-                .addComponent(dataInTer, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nuovaTerapia, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(304, 304, 304))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(nuovaTerapia)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(terAttuale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)
-                        .addComponent(dataInTer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(151, 151, 151))))
+                        .addGap(151, 151, 151))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void terAttualeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terAttualeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_terAttualeActionPerformed
+    private void nuovaTerapiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuovaTerapiaActionPerformed
+        this.setEnabled(false);
+        if(IDpaz==null)
+            return;
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Paziente_Terapia(Data_Inizio,ID_Paziente,Terapia) VALUES(?,?,?)");
+           
+            pst.setDate(1, new Date(Utilita.removeTime(new java.util.Date(System.currentTimeMillis())).getTime()));
+            pst.setInt(2,IDpaz);
+            pst.setString(3,listaNomiTerapie.get(0));
+            pst.executeUpdate();
+            aggiornaTerapie();
+        } catch (SQLException ex) {
+            Utilita.mostraMessaggioErrore("C'è già una terapia con la data odierna");
+        }
+         this.setEnabled(true);
+        
+    }//GEN-LAST:event_nuovaTerapiaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        GestioneDatabase.connessione();
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Terapia(2).setVisible(true);
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        if(parent!=null)
+        {
+            if(IDpaz!=null)
+            {
+                parent.aggiornaTerapie(IDpaz);
             }
-        });
-    }
+            parent.setVisible(true);
+        }
+    }//GEN-LAST:event_formWindowClosed
+
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.jdesktop.swingx.JXDatePicker dataInTer;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton nuovaTerapia;
     private javax.swing.JPanel pannello;
-    private javax.swing.JComboBox<String> terAttuale;
     // End of variables declaration//GEN-END:variables
 }

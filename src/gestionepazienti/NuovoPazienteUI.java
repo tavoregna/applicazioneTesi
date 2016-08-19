@@ -204,8 +204,8 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
             if(nome.getText()==null || nome.getText().length()==0 || cognome.getText()==null || cognome.getText().length()==0)
                 throw new Exception();
             PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Paziente(Nome,Cognome,CF,Sesso,DataNascita,SuperficieCorporea,Indirizzo,Note,DataInserimento) VALUES (?,?,?,?,?,?,?,?,?)");
-            pst.setString(1,nome.getText());
-            pst.setString(2,cognome.getText());
+            pst.setString(1,Utilita.standardizzaNomi(nome.getText()));
+            pst.setString(2,Utilita.standardizzaNomi(cognome.getText()));
             pst.setString(3,cf.getText());
             pst.setString(4,sex.getItemAt(sex.getSelectedIndex()));
             pst.setDate(5,new Date(dataNascita.getDate().getTime()));

@@ -5,6 +5,8 @@
  */
 package gestionepazienti;
 
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,4 +22,64 @@ public final class Utilita {
     {
         JOptionPane.showMessageDialog(null, s,"Errore",JOptionPane.ERROR_MESSAGE);
     }
+    
+    public static String standardizzaNomi(String s)
+    {
+        if(s==null || s.length()==0)
+            return s;
+       
+        boolean nextBig=true;
+        String res=s;
+        for(int i=0;i<s.length();i++)
+        {
+            char c=s.charAt(i);
+            if(c==' ')
+                nextBig=true;
+            else
+            {
+                if(nextBig)
+                {
+                    res=rimpiazzaCarattere(res, Character.toUpperCase(c), i);
+                    nextBig=false;
+                }
+                else
+                {
+                    res=rimpiazzaCarattere(res, Character.toLowerCase(c), i);
+                }
+            }
+        }
+        return res;
+    }
+    
+    private static String rimpiazzaCarattere(String s,char c,int pos)
+    {
+        if(s==null || s.length()==0 || pos>=s.length() || pos<0)
+            return s;
+        String tmp="";
+        String res="";
+        for(int i=0;i<pos;i++)
+        {
+            tmp+=s.charAt(i);
+        }
+        res+=tmp+c;
+        tmp="";
+        for(int i=pos+1;i<s.length();i++)
+        {
+            tmp+=s.charAt(i);
+        }
+        res+=tmp;
+        return res;
+        
+    }
+    
+    public static Date removeTime(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
+
 }
