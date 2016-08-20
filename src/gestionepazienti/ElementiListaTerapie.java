@@ -63,6 +63,8 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
         dataFine = new org.jdesktop.swingx.JXDatePicker();
         elimina = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(108, 255, 167));
+
         listaTerapie.setEditable(true);
         listaTerapie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
         listaTerapie.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +73,7 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setText("inizio:");
+        jLabel2.setText("Inizio:");
 
         dataInizio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +81,7 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("fine:");
+        jLabel3.setText("Fine:");
 
         dataFine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +115,7 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dataFine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                         .addComponent(elimina, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(

@@ -125,6 +125,7 @@ public class Terapia extends javax.swing.JFrame {
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        pannello.setBackground(new java.awt.Color(108, 255, 167));
         pannello.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pannelloLayout = new javax.swing.GroupLayout(pannello);
