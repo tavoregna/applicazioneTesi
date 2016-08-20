@@ -20,15 +20,7 @@ public class MenuPrincipale extends javax.swing.JFrame {
     public MenuPrincipale() {
         initComponents();
         
-        BarraDiagnostica b=new BarraDiagnostica();
-        b.dimensioni();
-        //JLabel b=new JLabel("provaaa");
-        b.setLocation(20, 20);
-        b.setSize(100, 100);
-        //b.setPreferredSize(new Dimension(50,300));
-        b.dimensioni();
-        b.generaEtichette(3);
-        this.add(b);
+     
         this.setVisible(true);
     }
 
@@ -74,7 +66,7 @@ public class MenuPrincipale extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pazientiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pazientiActionPerformed
-       new MenuPazienti();
+       
     }//GEN-LAST:event_pazientiActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
