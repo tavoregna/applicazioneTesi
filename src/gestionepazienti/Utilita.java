@@ -81,5 +81,22 @@ public final class Utilita {
         cal.set(Calendar.MILLISECOND, 0);
         return cal.getTime();
     }
+    
+    public static String verticalizza(String s)
+    {
+        if(s==null || s.length()<=1)
+            return s;
+        String ret="<HTML>";
+        for(int i=0;i<s.length();i++)
+        {
+            ret+=s.charAt(i);
+            if(i!=s.length()-1)
+            {
+                ret+="<BR>";
+            }
+        }
+        ret+="</HTML>";
+        return ret;
+    }
 
 }
