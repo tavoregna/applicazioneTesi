@@ -110,9 +110,19 @@ public class BarraDiagnostica extends javax.swing.JPanel {
 
         su.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         su.setText("<html>&uarr;</html>");
+        su.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                suActionPerformed(evt);
+            }
+        });
 
         giu.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         giu.setText("<html>&darr;</html>");
+        giu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                giuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -132,6 +142,14 @@ public class BarraDiagnostica extends javax.swing.JPanel {
                 .addComponent(giu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void suActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_suActionPerformed
+
+    private void giuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_giuActionPerformed
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aggiungi;
