@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -16,6 +17,8 @@ import javax.swing.JOptionPane;
 public class Paziente extends javax.swing.JFrame {
     private final String NOME_MODIFICA="MODIFICA";
     private final String NOME_TERMINA_MODIFICA="TERMINA MODIFICHE";
+    
+    private BarraDiagnostica barra;
     /**
      * Creates new form Paziente
      */
@@ -26,9 +29,9 @@ public class Paziente extends javax.swing.JFrame {
         dataIns.setDate(null);
         dataIns.setEnabled(false);
         
-        BarraDiagnostica b=new BarraDiagnostica(this,panelBarra.getHeight(),panelBarra.getWidth(),null);
-        b.setBackground(diagnostica.getBackground());
-        panelBarra.add(b);
+        barra=new BarraDiagnostica(this,panelBarra.getHeight(),panelBarra.getWidth());
+        barra.settaColori(diagnostica.getBackground());
+        panelBarra.add(barra);
         
         this.setVisible(true);
     }
@@ -2031,6 +2034,23 @@ public class Paziente extends javax.swing.JFrame {
         aggiornaTerapie(id);
         
         datiAnamnesi(id);
+        
+        datiDiagnosi(id);
+    }
+    
+    public void datiDiagnosi(int id)
+    {
+        ArrayList<Date> date=new ArrayList<Date>(); 
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Data_Diagnosi FROM Diagnosi WHERE ID_Paziente="+id);
+            while(rs.next())
+            {
+                date.add(rs.getDate(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        barra.aggiorna(date);
     }
     public void aggiornaTerapie(int id)
     {
