@@ -9,8 +9,6 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JButton;
@@ -85,7 +83,7 @@ public class BarraDiagnostica extends javax.swing.JPanel {
             sdf.applyPattern("dd/MM/yyyy");  
             String dataStr = sdf.format(d.get(i)); // data corrente (20 febbraio 2014)
   
-            JButton but=new JButton(Utilita.verticalizza(dataStr));
+            JButton but=new JButton(Utilita.verticalizzaData(dataStr));
             but.setBounds(0, i*alt+initialY, larghezza, alt);
             but.setBackground(pane.getBackground());
             but.setHorizontalAlignment(SwingConstants.CENTER);

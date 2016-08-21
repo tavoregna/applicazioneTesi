@@ -98,5 +98,24 @@ public final class Utilita {
         ret+="</HTML>";
         return ret;
     }
+    public static String verticalizzaData(String s)
+    {
+        if(s==null || s.length()<=1)
+            return s;
+        String ret="<HTML>";
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)=='/')
+            {
+                ret+="<BR>/<BR>";
+            }
+            else
+            {
+                ret+=s.charAt(i);
+            }
+        }
+        ret+="</HTML>";
+        return ret;
+    }
 
 }
