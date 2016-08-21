@@ -414,6 +414,11 @@ public class Paziente extends javax.swing.JFrame {
         jLabel75.setText("Caratteristiche Cliniche:");
 
         caratteristicheCliniche.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        caratteristicheCliniche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caratteristicheClinicheActionPerformed(evt);
+            }
+        });
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel18.setText("Data di esordio:");
@@ -444,6 +449,12 @@ public class Paziente extends javax.swing.JFrame {
         jLabel82.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel82.setText("Data della diagnosi:");
 
+        dataDiagnosi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataDiagnosiActionPerformed(evt);
+            }
+        });
+
         caricaFile.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         caricaFile.setText("Documento da caricare");
         caricaFile.setToolTipText("");
@@ -457,6 +468,11 @@ public class Paziente extends javax.swing.JFrame {
         jLabel84.setText("Diagnosi:");
 
         diagnosi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sindrome clinicamente isolata (CIS)", "CIS suggestiva di sclerosi multipla", "Sclerosi multipla Relapsing-Remitting", "Sclerosi multipla progressiva", "Neuromielite ottica (NMOSD)", "Aggiungi" }));
+        diagnosi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diagnosiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBarraLayout = new javax.swing.GroupLayout(panelBarra);
         panelBarra.setLayout(panelBarraLayout);
@@ -471,6 +487,12 @@ public class Paziente extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(239, 228, 176));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        dataRMN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataRMNActionPerformed(evt);
+            }
+        });
 
         jLabel72.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel72.setText("RMN all'esordio:");
@@ -556,6 +578,12 @@ public class Paziente extends javax.swing.JFrame {
 
         jLabel78.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel78.setText("PL:");
+
+        dataPL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataPLActionPerformed(evt);
+            }
+        });
 
         jPanelPL.setBackground(new java.awt.Color(255, 233, 157));
         jPanelPL.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -655,6 +683,12 @@ public class Paziente extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(239, 228, 176));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        dataPEV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataPEVActionPerformed(evt);
+            }
+        });
+
         jPanel2.setBackground(new java.awt.Color(255, 233, 157));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -672,6 +706,11 @@ public class Paziente extends javax.swing.JFrame {
         });
 
         osPEV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normale", "Ritardo conduzione", "Ridotta ampiezza", "Rit. conduz. + Rid. ampiezza" }));
+        osPEV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                osPEVActionPerformed(evt);
+            }
+        });
 
         pev.setColumns(1);
         pev.setRows(1);
@@ -746,6 +785,12 @@ public class Paziente extends javax.swing.JFrame {
         jLabel76.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel76.setText("OCT:");
 
+        dataOCT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataOCTActionPerformed(evt);
+            }
+        });
+
         oct.setColumns(1);
         oct.setRows(1);
         jScrollPane8.setViewportView(oct);
@@ -782,6 +827,12 @@ public class Paziente extends javax.swing.JFrame {
 
         jLabel77.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel77.setText("NPSI:");
+
+        dataNPSI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataNPSIActionPerformed(evt);
+            }
+        });
 
         npsi.setColumns(1);
         npsi.setRows(1);
@@ -2004,6 +2055,42 @@ public class Paziente extends javax.swing.JFrame {
             new Terapia(Pazienti.getCurrID(),this);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void diagnosiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diagnosiActionPerformed
+
+    private void dataDiagnosiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDiagnosiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataDiagnosiActionPerformed
+
+    private void caratteristicheClinicheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caratteristicheClinicheActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_caratteristicheClinicheActionPerformed
+
+    private void osPEVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osPEVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_osPEVActionPerformed
+
+    private void dataRMNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRMNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataRMNActionPerformed
+
+    private void dataPLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataPLActionPerformed
+
+    private void dataPEVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPEVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataPEVActionPerformed
+
+    private void dataOCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataOCTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataOCTActionPerformed
+
+    private void dataNPSIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNPSIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataNPSIActionPerformed
     private void abilitaComponentiPaziente(boolean ab)
     {
         nome.setEnabled(ab);
@@ -2038,6 +2125,7 @@ public class Paziente extends javax.swing.JFrame {
         datiAnamnesi(id);
         
         datiDiagnosi(id);
+        azzeraCampiDiagnosi();
     }
     
     public void datiDiagnosi(int id)
@@ -2149,6 +2237,31 @@ public class Paziente extends javax.swing.JFrame {
         }
     }
     
+    private void azzeraCampiDiagnosi()
+    {
+                diagnosi.setSelectedItem(null);
+                dataDiagnosi.setDate(null);
+                ospedale.setText(null);
+                controllo.setText(null);
+                caratteristicheCliniche.setSelectedItem(null);
+                dataRMN.setDate(null);
+                //MANCA RMN!!!!
+                dataPL.setDate(null);
+                iggIndex.setText(null);
+                iggLOC.setText(null);
+                iggIF.setText(null);
+                boigg1.setSelectedItem(null);
+                dataPEV.setDate(null);
+                pev.setText(null);
+                odPEV.setSelectedItem(null);
+                osPEV.setSelectedItem(null);
+                dataOCT.setDate(null);
+                oct.setText(null);
+                dataNPSI.setDate(null);
+                npsi.setText(null);
+                varie.setText(null);
+    }
+    
    public void pressionePulsanteBarra(int idPaz,Date data)
     {
         try{
@@ -2175,7 +2288,7 @@ public class Paziente extends javax.swing.JFrame {
                 odPEV.setSelectedItem(rs.getString("OD"));
                 osPEV.setSelectedItem(rs.getString("OS"));
                 dataOCT.setDate(rs.getDate("Data_OCT"));
-                oct.setText("OCT");
+                oct.setText(rs.getString("OCT"));
                 dataNPSI.setDate(rs.getDate("Data_NPSI"));
                 npsi.setText(rs.getString("NPSI"));
                 varie.setText(rs.getString("Varie"));

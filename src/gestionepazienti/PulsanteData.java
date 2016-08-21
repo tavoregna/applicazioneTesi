@@ -35,5 +35,20 @@ public class PulsanteData {
         this.ID=ID;
     }
     
+    private static PulsanteData premuto;
+
+    public static PulsanteData getPremuto() {
+        return premuto;
+    }
+
+    public static void setPremuto(PulsanteData premuto) {
+        PulsanteData.premuto = premuto;
+    }
+    
+    public static void nessunPremuto()
+    {
+        premuto=null;
+    }
+    
     
 }
