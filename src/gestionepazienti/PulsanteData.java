@@ -32,6 +32,7 @@ public class PulsanteData {
     public PulsanteData(Date data, JButton pulsante,int ID) {
         this.data = data;
         this.pulsante = pulsante;
+        this.ID=ID;
     }
     
     

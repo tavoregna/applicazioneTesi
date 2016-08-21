@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -62,7 +63,7 @@ public class Paziente extends javax.swing.JFrame {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(2, 0), new java.awt.Dimension(0, 0));
         diagnostica = new javax.swing.JPanel();
         jLabel75 = new javax.swing.JLabel();
-        featuresClinic1 = new javax.swing.JComboBox<>();
+        caratteristicheCliniche = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
         dataEsord_Diagn = new org.jdesktop.swingx.JXDatePicker();
         jLabel19 = new javax.swing.JLabel();
@@ -77,7 +78,7 @@ public class Paziente extends javax.swing.JFrame {
         dataDiagnosi = new org.jdesktop.swingx.JXDatePicker();
         caricaFile = new javax.swing.JButton();
         jLabel84 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        diagnosi = new javax.swing.JComboBox<>();
         panelBarra = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         dataRMN = new org.jdesktop.swingx.JXDatePicker();
@@ -412,7 +413,7 @@ public class Paziente extends javax.swing.JFrame {
         jLabel75.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel75.setText("Caratteristiche Cliniche:");
 
-        featuresClinic1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        caratteristicheCliniche.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel18.setText("Data di esordio:");
@@ -455,7 +456,7 @@ public class Paziente extends javax.swing.JFrame {
         jLabel84.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel84.setText("Diagnosi:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sindrome clinicamente isolata (CIS)", "CIS suggestiva di sclerosi multipla", "Sclerosi multipla Relapsing-Remitting", "Sclerosi multipla progressiva", "Neuromielite ottica (NMOSD)", "Aggiungi" }));
+        diagnosi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sindrome clinicamente isolata (CIS)", "CIS suggestiva di sclerosi multipla", "Sclerosi multipla Relapsing-Remitting", "Sclerosi multipla progressiva", "Neuromielite ottica (NMOSD)", "Aggiungi" }));
 
         javax.swing.GroupLayout panelBarraLayout = new javax.swing.GroupLayout(panelBarra);
         panelBarra.setLayout(panelBarraLayout);
@@ -871,7 +872,7 @@ public class Paziente extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(diagnosticaLayout.createSequentialGroup()
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(diagnosi, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel82))
                                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -880,7 +881,7 @@ public class Paziente extends javax.swing.JFrame {
                                     .addGroup(diagnosticaLayout.createSequentialGroup()
                                         .addComponent(jLabel75)
                                         .addGap(18, 18, 18)
-                                        .addComponent(featuresClinic1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(caratteristicheCliniche, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(diagnosticaLayout.createSequentialGroup()
                                         .addComponent(dataDiagnosi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -921,7 +922,7 @@ public class Paziente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel84)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(diagnosi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel82)
                             .addComponent(dataDiagnosi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel21)
@@ -935,7 +936,7 @@ public class Paziente extends javax.swing.JFrame {
                                 .addGap(26, 26, 26)
                                 .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel75)
-                                    .addComponent(featuresClinic1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(caratteristicheCliniche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(diagnosticaLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2023,6 +2024,7 @@ public class Paziente extends javax.swing.JFrame {
     
     public void visualizzaDati(int id)
     {
+        //IMPORTANTE
         Pazienti.setCurrID(id);
         
         infoPersonali(id);
@@ -2146,6 +2148,42 @@ public class Paziente extends javax.swing.JFrame {
             Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+   public void pressionePulsanteBarra(int idPaz,Date data)
+    {
+        try{
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Diagnosi WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setDate(1, data);
+            pst.setInt(2, idPaz);
+            ResultSet rs=pst.executeQuery();
+            if(rs.next())
+            {
+                diagnosi.setSelectedItem(rs.getString("Diagnosi"));
+                dataDiagnosi.setDate(data);
+                ospedale.setText(rs.getString("Ospedale"));
+                controllo.setText(rs.getString("EON"));
+                caratteristicheCliniche.setSelectedItem(rs.getString("Caratteristiche_Cliniche"));
+                dataRMN.setDate(rs.getDate("Data_RMN"));
+                //MANCA RMN!!!!
+                dataPL.setDate(rs.getDate("Data_PL"));
+                iggIndex.setText(rs.getString("IgG_Index"));
+                iggLOC.setText(rs.getString("IgG_Loc"));
+                iggIF.setText(rs.getString("IgG_IF"));
+                boigg1.setSelectedItem(rs.getString("BoIgG"));
+                dataPEV.setDate(rs.getDate("Data_PEV"));
+                pev.setText(rs.getString("PEV"));
+                odPEV.setSelectedItem(rs.getString("OD"));
+                osPEV.setSelectedItem(rs.getString("OS"));
+                dataOCT.setDate(rs.getDate("Data_OCT"));
+                oct.setText("OCT");
+                dataNPSI.setDate(rs.getDate("Data_NPSI"));
+                npsi.setText(rs.getString("NPSI"));
+                varie.setText(rs.getString("Varie"));
+            }
+        }
+        catch(Exception ex)
+        {System.out.println(ex.getMessage());}
+    }
     /**
      * @param args the command line arguments
      */
@@ -2192,6 +2230,7 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> boigg1;
     private javax.swing.JButton buttonAdd;
     private javax.swing.JButton buttonMod;
+    private javax.swing.JComboBox<String> caratteristicheCliniche;
     private javax.swing.JButton caricaFile;
     private javax.swing.JTextField cf;
     private javax.swing.JTextField citologiaUrin;
@@ -2214,6 +2253,7 @@ public class Paziente extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXDatePicker dataPEV;
     private org.jdesktop.swingx.JXDatePicker dataPL;
     private org.jdesktop.swingx.JXDatePicker dataRMN;
+    private javax.swing.JComboBox<String> diagnosi;
     private javax.swing.JPanel diagnostica;
     private javax.swing.JTextField dosaggio;
     private javax.swing.JTextField ecg;
@@ -2226,7 +2266,6 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JTextField eo2;
     private javax.swing.JPanel epidem;
     private javax.swing.JTextField esUrine;
-    private javax.swing.JComboBox<String> featuresClinic1;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JComboBox<String> formaClnAtt;
@@ -2250,7 +2289,6 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

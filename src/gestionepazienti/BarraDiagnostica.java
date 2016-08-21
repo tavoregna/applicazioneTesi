@@ -6,7 +6,11 @@
 package gestionepazienti;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JButton;
@@ -87,12 +91,33 @@ public class BarraDiagnostica extends javax.swing.JPanel {
             but.setHorizontalAlignment(SwingConstants.CENTER);
             but.setVerticalAlignment(SwingConstants.CENTER);
             but.setName(Integer.toString(i));
+            but.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e)
+                {
+                    if(e.getSource() instanceof JButton && parent!=null)
+                    {
+                        JButton p=(JButton)e.getSource();
+                        for(int i=0;i<lista.size();i++)
+                        {
+                            lista.get(i).getPulsante().setBackground(pane.getBackground());
+                        }
+                        p.setBackground(pane.getBackground().darker().darker());
+                        int press=Integer.parseInt(p.getName());
+                        int idPaz=lista.get(press).getID();
+                        Date data=lista.get(press).getData();
+                        parent.pressionePulsanteBarra(idPaz,data);
+                        
+                    }
+                }
+            }); 
             but.setFont(new java.awt.Font("Tahoma", 1, 15/numeroEtichette));
             lista.add(new PulsanteData(d.get(i), but,Pazienti.getCurrID()));
             pane.add(but);
         }
         aggiornaUI();
     }
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
