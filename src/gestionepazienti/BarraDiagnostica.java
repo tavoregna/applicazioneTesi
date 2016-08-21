@@ -83,7 +83,7 @@ public class BarraDiagnostica extends javax.swing.JPanel {
             sdf.applyPattern("dd/MM/yyyy");  
             String dataStr = sdf.format(d.get(i)); // data corrente (20 febbraio 2014)
   
-            JButton but=new JButton(Utilita.verticalizzaData(dataStr));
+            JButton but=new JButton(Utilita.verticalizza(dataStr));
             but.setBounds(0, i*alt+initialY, larghezza, alt);
             but.setBackground(pane.getBackground());
             but.setHorizontalAlignment(SwingConstants.CENTER);
