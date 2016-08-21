@@ -2133,7 +2133,7 @@ public class Paziente extends javax.swing.JFrame {
     {
         ArrayList<Date> date=new ArrayList<Date>(); 
         try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT Data_Diagnosi FROM Diagnosi WHERE ID_Paziente="+id);
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Data_Diagnosi FROM Diagnosi_Paziente WHERE ID_Paziente="+id);
             while(rs.next())
             {
                 date.add(rs.getDate(1));
@@ -2269,7 +2269,7 @@ public class Paziente extends javax.swing.JFrame {
    public void pressionePulsanteBarra(int idPaz,Date data)
     {
         try{
-            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Diagnosi WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Diagnosi_Paziente WHERE Data_Diagnosi=? AND ID_Paziente=?");
             pst.setDate(1, data);
             pst.setInt(2, idPaz);
             ResultSet rs=pst.executeQuery();
