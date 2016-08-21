@@ -1002,7 +1002,7 @@ public class Paziente extends javax.swing.JFrame {
                 .addGap(212, 324, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Diagnostica(N° schede)", diagnostica);
+        jTabbedPane1.addTab("Diagnostica", diagnostica);
 
         javax.swing.GroupLayout controlliAmbLayout = new javax.swing.GroupLayout(controlliAmb);
         controlliAmb.setLayout(controlliAmbLayout);
@@ -2124,8 +2124,8 @@ public class Paziente extends javax.swing.JFrame {
         
         datiAnamnesi(id);
         
-        datiDiagnosi(id);
         azzeraCampiDiagnosi();
+        datiDiagnosi(id);
     }
     
     public void datiDiagnosi(int id)
@@ -2137,6 +2137,7 @@ public class Paziente extends javax.swing.JFrame {
             {
                 date.add(rs.getDate(1));
             }
+            jTabbedPane1.setTitleAt(1, "Diagnostica ("+date.size()+")");
         } catch (SQLException ex) {
             Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2239,6 +2240,8 @@ public class Paziente extends javax.swing.JFrame {
     
     private void azzeraCampiDiagnosi()
     {
+                
+                jTabbedPane1.setTitleAt(1, "Diagnostica");
                 diagnosi.setSelectedItem(null);
                 dataDiagnosi.setDate(null);
                 ospedale.setText(null);
