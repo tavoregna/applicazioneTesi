@@ -467,6 +467,7 @@ public class Paziente extends javax.swing.JFrame {
         jLabel84.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel84.setText("Diagnosi:");
 
+        diagnosi.setEditable(true);
         diagnosi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sindrome clinicamente isolata (CIS)", "CIS suggestiva di sclerosi multipla", "Sclerosi multipla Relapsing-Remitting", "Sclerosi multipla progressiva", "Neuromielite ottica (NMOSD)", "Aggiungi" }));
         diagnosi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
