@@ -110,13 +110,17 @@ public class BarraDiagnostica extends javax.swing.JPanel {
                     }
                 }
             }); 
-            but.setFont(new java.awt.Font("Tahoma", 1, 15/numeroEtichette));
+            but.setFont(new java.awt.Font("Tahoma", 1, sizeEtichette(numeroEtichette)));
             lista.add(new PulsanteData(d.get(i), but,Pazienti.getCurrID()));
             pane.add(but);
         }
         aggiornaUI();
     }
     
+    public int sizeEtichette(int numEtic)
+    {
+     return 15-(4*(numEtic-1));
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
