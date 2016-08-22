@@ -407,6 +407,8 @@ public class Paziente extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Anamnestica", anamnestica);
+        anamnestica.getAccessibleContext().setAccessibleName("");
+        anamnestica.getAccessibleContext().setAccessibleDescription("");
 
         diagnostica.setBackground(new java.awt.Color(239, 228, 176));
 
