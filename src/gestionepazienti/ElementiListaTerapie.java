@@ -12,7 +12,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -65,7 +64,6 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(108, 255, 167));
 
-        listaTerapie.setEditable(true);
         listaTerapie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
         listaTerapie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,22 +163,21 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
     private void listaTerapieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaTerapieActionPerformed
         if(!active)
             return;
+        
         this.setEnabled(false);
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente_Terapia SET Terapia=? WHERE ID_Paziente=? AND Data_Inizio=?");
             pst.setString(1,listaTerapie.getItemAt(listaTerapie.getSelectedIndex()));
+            
             pst.setInt(2, terapiaInfo.getIdPaz());
-            DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            java.util.Date today = new java.util.Date(System.currentTimeMillis());
-            today = formatter.parse(formatter.format(today));
-            pst.setDate(3,new Date(today.getTime()));
+           
+            pst.setDate(3,new Date(dataInizio.getDate().getTime()));
             pst.executeUpdate();
+            
             terapiaInfo.setTerapia(listaTerapie.getItemAt(listaTerapie.getSelectedIndex()));
         } catch (SQLException ex) {
             Utilita.mostraMessaggioErrore("Terapia inserita non valida");
             listaTerapie.setSelectedItem(terapiaInfo.getTerapia());
-        } catch (ParseException ex) {
-            Logger.getLogger(ElementiListaTerapie.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.setEnabled(true);
     }//GEN-LAST:event_listaTerapieActionPerformed
