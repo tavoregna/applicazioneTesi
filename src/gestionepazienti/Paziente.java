@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -34,6 +33,8 @@ public class Paziente extends javax.swing.JFrame {
         barra.settaColori(diagnostica.getBackground());
         panelBarra.add(barra);
         
+        AggiornaCampoDiagnosi();
+                
         this.setVisible(true);
     }
 
@@ -470,7 +471,7 @@ public class Paziente extends javax.swing.JFrame {
         jLabel84.setText("Diagnosi:");
 
         diagnosi.setEditable(true);
-        diagnosi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sindrome clinicamente isolata (CIS)", "CIS suggestiva di sclerosi multipla", "Sclerosi multipla Relapsing-Remitting", "Sclerosi multipla progressiva", "Neuromielite ottica (NMOSD)", "Aggiungi" }));
+        diagnosi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
         diagnosi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 diagnosiActionPerformed(evt);
@@ -2094,6 +2095,18 @@ public class Paziente extends javax.swing.JFrame {
     private void dataNPSIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNPSIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dataNPSIActionPerformed
+    private void AggiornaCampoDiagnosi()
+    {
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome FROM DIAGNOSI");
+            while(rs.next())
+            {
+                diagnosi.addItem(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void abilitaComponentiPaziente(boolean ab)
     {
         nome.setEnabled(ab);

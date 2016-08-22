@@ -617,15 +617,8 @@
             <Component class="javax.swing.JComboBox" name="diagnosi">
               <Properties>
                 <Property name="editable" type="boolean" value="true"/>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="Sindrome clinicamente isolata (CIS)"/>
-                    <StringItem index="1" value="CIS suggestiva di sclerosi multipla"/>
-                    <StringItem index="2" value="Sclerosi multipla Relapsing-Remitting"/>
-                    <StringItem index="3" value="Sclerosi multipla progressiva"/>
-                    <StringItem index="4" value="Neuromielite ottica (NMOSD)"/>
-                    <StringItem index="5" value="Aggiungi"/>
-                  </StringArray>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] {  })" type="code"/>
                 </Property>
               </Properties>
               <Events>

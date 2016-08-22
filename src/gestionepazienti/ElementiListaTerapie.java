@@ -7,6 +7,7 @@ package gestionepazienti;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -167,22 +168,40 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
         
         this.setEnabled(false);
         try {
+            aggiungiTerapia();
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente_Terapia SET Terapia=? WHERE ID_Paziente=? AND Data_Inizio=?");
             pst.setString(1,Utilita.standardizzaNomi((String)listaTerapie.getSelectedItem()));
-            Utilita.mostraMessaggio(Utilita.standardizzaNomi((String)listaTerapie.getSelectedItem()));
             pst.setInt(2, terapiaInfo.getIdPaz());
            
             pst.setDate(3,new Date(dataInizio.getDate().getTime()));
             pst.executeUpdate();
             
             terapiaInfo.setTerapia(Utilita.standardizzaNomi((String)listaTerapie.getSelectedItem()));
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Utilita.mostraMessaggioErrore("Terapia inserita non valida");
             listaTerapie.setSelectedItem(terapiaInfo.getTerapia());
         }
         this.setEnabled(true);
     }//GEN-LAST:event_listaTerapieActionPerformed
-
+    private void aggiungiTerapia()
+    {
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Nome FROM Terapia WHERE Nome=?");
+            pst.setString(1, Utilita.standardizzaNomi((String)listaTerapie.getSelectedItem()));
+            ResultSet rs=pst.executeQuery();
+            if(rs.next())
+                return;
+            int n = JOptionPane.showOptionDialog(parent,"Vuoi inserire questa terapia nell'elenco delle  terapie?","NUOVA TERAPIA",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
+            if(n==JOptionPane.YES_OPTION)
+            {
+                pst=GestioneDatabase.preparedStatement("INSERT INTO Terapia(Nome) VALUES (?)");
+                pst.setString(1, Utilita.standardizzaNomi((String)listaTerapie.getSelectedItem()));
+                pst.executeUpdate();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ElementiListaTerapie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void eliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaActionPerformed
         int reply = JOptionPane.showConfirmDialog(null,"Vuoi eliminare questo elemento?", "Conferma eliminazione", JOptionPane.YES_NO_OPTION);
         if(reply==JOptionPane.YES_OPTION)
