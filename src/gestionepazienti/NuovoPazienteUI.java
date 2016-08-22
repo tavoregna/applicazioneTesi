@@ -222,6 +222,7 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
             if(rs.next())
             {
                 int id=rs.getInt(1);
+                Pazienti.aggiorna();
                 parent.visualizzaDati(id);
                 parent.setVisible(true);
                 this.dispose();

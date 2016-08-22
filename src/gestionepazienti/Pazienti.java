@@ -23,7 +23,7 @@ public class Pazienti {
     {
         currID=id;
     }
-    private static void aggiorna()
+    public static void aggiorna()
     {
         if(arrayID==null)
             arrayID=new ArrayList<Integer>();
