@@ -312,6 +312,8 @@ public class Paziente extends javax.swing.JFrame {
 
         modEsord.setEnabled(false);
 
+        dataDiagno.setEnabled(false);
+
         storicoArea.setColumns(20);
         storicoArea.setRows(5);
         storicoArea.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1148,7 +1150,7 @@ public class Paziente extends javax.swing.JFrame {
         jLabel62.setText("S. Piramidale:");
 
         jLabel63.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel63.setText("S. Celebrale:");
+        jLabel63.setText("S. Cerebellare:");
 
         jLabel64.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel64.setText("S. Visivo:");
