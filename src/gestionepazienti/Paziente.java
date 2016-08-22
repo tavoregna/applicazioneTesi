@@ -320,10 +320,12 @@ public class Paziente extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel17.setText("Anamnesi");
 
+        dataEsord.setEditable(false);
         dataEsord.setEnabled(false);
 
         modEsord.setEnabled(false);
 
+        dataDiagno.setEditable(false);
         dataDiagno.setEnabled(false);
 
         storicoArea.setColumns(20);
@@ -346,6 +348,8 @@ public class Paziente extends javax.swing.JFrame {
 
         jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel20.setText("Forma clinica attuale:");
+
+        formaClnAtt.setEnabled(false);
 
         filler1.setBackground(new java.awt.Color(0, 0, 0));
         filler1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -440,6 +444,12 @@ public class Paziente extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel18.setText("Data di esordio:");
 
+        dataEsord_Diagn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataEsord_DiagnActionPerformed(evt);
+            }
+        });
+
         jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel19.setText("Modalità di esordio:");
 
@@ -484,7 +494,6 @@ public class Paziente extends javax.swing.JFrame {
         jLabel84.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel84.setText("Diagnosi:");
 
-        diagnosi.setEditable(true);
         diagnosi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
         diagnosi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -587,7 +596,7 @@ public class Paziente extends javax.swing.JFrame {
                     .addComponent(jLabel72)
                     .addComponent(dataRMN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelRMN, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jPanelRMN, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1015,7 +1024,7 @@ public class Paziente extends javax.swing.JFrame {
                             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(212, 324, Short.MAX_VALUE))
         );
@@ -2208,6 +2217,21 @@ public class Paziente extends javax.swing.JFrame {
     private void tipoControlloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoControlloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tipoControlloActionPerformed
+
+    private void dataEsord_DiagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsord_DiagnActionPerformed
+       if(Pazienti.getCurrID()==null)
+                return;
+        try {
+            int id=Pazienti.getCurrID();
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente SET Data_Esordio=? WHERE ID=?");
+            pst.setDate(1, new Date(dataEsord_Diagn.getDate().getTime()));
+            pst.setInt(2, id);
+            pst.executeUpdate();
+            infoEsordio(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataEsord_DiagnActionPerformed
     private void AggiornaCampoDiagnosi()
     {
         try {
@@ -2215,6 +2239,7 @@ public class Paziente extends javax.swing.JFrame {
             while(rs.next())
             {
                 diagnosi.addItem(rs.getString(1));
+                formaClnAtt.addItem(rs.getString(1));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
@@ -2245,6 +2270,8 @@ public class Paziente extends javax.swing.JFrame {
         
         infoPersonali(id);
         
+        infoEsordio(id);
+        
         datiStorico(id);
         
         datiTelefono(id);
@@ -2261,7 +2288,7 @@ public class Paziente extends javax.swing.JFrame {
     {
         ArrayList<Date> date=new ArrayList<Date>(); 
         try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT Data_Diagnosi FROM Diagnosi_Paziente WHERE ID_Paziente="+id);
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Data_Diagnosi FROM Diagnosi_Paziente WHERE ID_Paziente="+id+" ORDER BY Data_Diagnosi DESC");
             while(rs.next())
             {
                 date.add(rs.getDate(1));
@@ -2269,8 +2296,10 @@ public class Paziente extends javax.swing.JFrame {
             jTabbedPane1.setTitleAt(1, "Diagnostica ("+date.size()+")");
         } catch (SQLException ex) {
             Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }   
         barra.aggiorna(date);
+        if(date.size()>0)
+            pressionePulsanteBarra(id, date.get(0),true);
     }
     public void aggiornaTerapie(int id)
     {
@@ -2311,7 +2340,7 @@ public class Paziente extends javax.swing.JFrame {
     public void infoPersonali(int id)
     {
        try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome,Cognome,CF,Sesso,DataNascita,SuperficieCorporea,Indirizzo,DataInserimento,Note FROM Paziente WHERE ID="+id);
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome,Cognome,CF,Sesso,DataNascita,SuperficieCorporea,Indirizzo,DataInserimento,Note,Data_Esordio,Modalita_Esordio FROM Paziente WHERE ID="+id);
             if(rs.next())
             {
                 nome.setText(rs.getString("Nome"));
@@ -2323,6 +2352,24 @@ public class Paziente extends javax.swing.JFrame {
                 indirizzo.setText(rs.getString("Indirizzo"));
                 dataIns.setDate(rs.getDate("DataInserimento"));
                 note.setText(rs.getString("Note"));
+                modEsord.setSelectedItem(rs.getString("Modalita_Esordio"));
+                dataEsord.setDate(rs.getDate("Data_Esordio"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+    public void infoEsordio(int id)
+    {
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Data_Esordio,Modalita_Esordio FROM Paziente WHERE ID="+id);
+            if(rs.next())
+            {
+                //SISTEMARE MODALITà ESORDIO
+                modEsord.setSelectedItem(rs.getString("Modalita_Esordio"));
+                dataEsord.setDate(rs.getDate("Data_Esordio"));
+                modEsord_Diagn.setSelectedItem(rs.getString("Modalita_Esordio"));
+                dataEsord_Diagn.setDate(rs.getDate("Data_Esordio"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
@@ -2370,6 +2417,8 @@ public class Paziente extends javax.swing.JFrame {
     private void azzeraCampiDiagnosi()
     {
                 
+                dataDiagno.setDate(null);
+                formaClnAtt.setSelectedItem(null);
                 jTabbedPane1.setTitleAt(1, "Diagnostica");
                 diagnosi.setSelectedItem(null);
                 dataDiagnosi.setDate(null);
@@ -2394,7 +2443,7 @@ public class Paziente extends javax.swing.JFrame {
                 varie.setText(null);
     }
     
-   public void pressionePulsanteBarra(int idPaz,Date data)
+   public void pressionePulsanteBarra(int idPaz,Date data,boolean first)
     {
         try{
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Diagnosi_Paziente WHERE Data_Diagnosi=? AND ID_Paziente=?");
@@ -2424,6 +2473,12 @@ public class Paziente extends javax.swing.JFrame {
                 dataNPSI.setDate(rs.getDate("Data_NPSI"));
                 npsi.setText(rs.getString("NPSI"));
                 varie.setText(rs.getString("Varie"));
+                if(first)
+                {
+                    dataDiagno.setDate(data);
+                    formaClnAtt.setSelectedItem(rs.getString("Diagnosi"));
+                    
+                }
             }
         }
         catch(Exception ex)
