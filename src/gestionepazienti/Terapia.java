@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -204,8 +205,21 @@ public class Terapia extends javax.swing.JFrame {
         if(IDpaz==null)
             return;
          try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Paziente_Terapia(Data_Inizio,ID_Paziente,Terapia) VALUES(?,?,?)");
-           
+            PreparedStatement pst;
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Data_Inizio FROM Paziente_Terapia WHERE ID_Paziente="+IDpaz+" ORDER BY Data_Inizio DESC LIMIT 1");
+            if(rs.next())
+            {
+                int n = JOptionPane.showOptionDialog(parent,"Vuoi terminare la terapia precedente?","TERMINA TERAPIA",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
+                if(n==JOptionPane.YES_OPTION)
+                {
+                  pst=GestioneDatabase.preparedStatement("UPDATE Paziente_Terapia SET Data_Fine=? WHERE ID_Paziente=? AND Data_Inizio=?");
+                  pst.setDate(1,new Date(Utilita.removeTime(new java.util.Date(System.currentTimeMillis())).getTime()));
+                  pst.setInt(2, IDpaz);
+                  pst.setString(3, rs.getNString("Data_Inizio"));
+                  pst.executeUpdate();
+                }
+            }
+            pst=GestioneDatabase.preparedStatement("INSERT INTO Paziente_Terapia(Data_Inizio,ID_Paziente,Terapia) VALUES(?,?,?)");
             pst.setDate(1, new Date(Utilita.removeTime(new java.util.Date(System.currentTimeMillis())).getTime()));
             pst.setInt(2,IDpaz);
             pst.setString(3,listaNomiTerapie.get(0));

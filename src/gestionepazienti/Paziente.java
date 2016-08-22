@@ -127,6 +127,20 @@ public class Paziente extends javax.swing.JFrame {
         jScrollPane10 = new javax.swing.JScrollPane();
         varie = new javax.swing.JTextArea();
         controlliAmb = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        cognomeContrAmb = new javax.swing.JTextField();
+        jLabel89 = new javax.swing.JLabel();
+        nomeContrAmb = new javax.swing.JTextField();
+        jLabel90 = new javax.swing.JLabel();
+        dataContrAmb = new org.jdesktop.swingx.JXDatePicker();
+        jLabel91 = new javax.swing.JLabel();
+        terapiaPrinc = new javax.swing.JTextField();
+        jLabel92 = new javax.swing.JLabel();
+        medicoEsamContrAmb = new javax.swing.JComboBox<>();
+        jLabel93 = new javax.swing.JLabel();
+        tipoControllo = new javax.swing.JComboBox<>();
+        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 32767));
+        jPanel4 = new javax.swing.JPanel();
         immunu = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         dataControl = new org.jdesktop.swingx.JXDatePicker();
@@ -227,8 +241,6 @@ public class Paziente extends javax.swing.JFrame {
         jLabel71 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
-        epidem = new javax.swing.JPanel();
-        nps = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         indietro = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -575,7 +587,7 @@ public class Paziente extends javax.swing.JFrame {
                     .addComponent(jLabel72)
                     .addComponent(dataRMN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelRMN, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jPanelRMN, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1003,22 +1015,135 @@ public class Paziente extends javax.swing.JFrame {
                             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(212, 324, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Diagnostica", diagnostica);
 
+        controlliAmb.setBackground(new java.awt.Color(239, 228, 176));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setText("Cognome:");
+
+        cognomeContrAmb.setEnabled(false);
+
+        jLabel89.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel89.setText("Nome:");
+
+        nomeContrAmb.setEnabled(false);
+        nomeContrAmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeContrAmbActionPerformed(evt);
+            }
+        });
+
+        jLabel90.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel90.setText("Data:");
+
+        dataContrAmb.setEditable(false);
+        dataContrAmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataContrAmbActionPerformed(evt);
+            }
+        });
+
+        jLabel91.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel91.setText("Terapia Principale:");
+
+        terapiaPrinc.setEnabled(false);
+
+        jLabel92.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel92.setText("Medico Esaminatore:");
+
+        jLabel93.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel93.setText("Tipo di controllo:");
+
+        tipoControllo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoControlloActionPerformed(evt);
+            }
+        });
+
+        filler3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 413, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout controlliAmbLayout = new javax.swing.GroupLayout(controlliAmb);
         controlliAmb.setLayout(controlliAmbLayout);
         controlliAmbLayout.setHorizontalGroup(
             controlliAmbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlliAmbLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(controlliAmbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(controlliAmbLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(controlliAmbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(filler3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(controlliAmbLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cognomeContrAmb, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel89)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nomeContrAmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel90)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dataContrAmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel91)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(terapiaPrinc, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel92)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(medicoEsamContrAmb, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel93)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tipoControllo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(106, 106, 106))
         );
+
+        controlliAmbLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cognomeContrAmb, nomeContrAmb});
+
+        controlliAmbLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {medicoEsamContrAmb, tipoControllo});
+
         controlliAmbLayout.setVerticalGroup(
             controlliAmbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(controlliAmbLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(controlliAmbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cognomeContrAmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel89)
+                    .addComponent(nomeContrAmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel90)
+                    .addComponent(dataContrAmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel91)
+                    .addComponent(terapiaPrinc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel92)
+                    .addComponent(medicoEsamContrAmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel93)
+                    .addComponent(tipoControllo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Controlli ambulatoriali", controlliAmb);
@@ -1534,32 +1659,6 @@ public class Paziente extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Immunosoppressione", immunu);
-
-        javax.swing.GroupLayout epidemLayout = new javax.swing.GroupLayout(epidem);
-        epidem.setLayout(epidemLayout);
-        epidemLayout.setHorizontalGroup(
-            epidemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        epidemLayout.setVerticalGroup(
-            epidemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Epidemiologica", epidem);
-
-        javax.swing.GroupLayout npsLayout = new javax.swing.GroupLayout(nps);
-        nps.setLayout(npsLayout);
-        npsLayout.setHorizontalGroup(
-            npsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        npsLayout.setVerticalGroup(
-            npsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Valutazione NPS", nps);
 
         jPanel1.setBackground(new java.awt.Color(112, 146, 190));
 
@@ -2097,6 +2196,18 @@ public class Paziente extends javax.swing.JFrame {
     private void dataNPSIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNPSIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dataNPSIActionPerformed
+
+    private void nomeContrAmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeContrAmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeContrAmbActionPerformed
+
+    private void dataContrAmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataContrAmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataContrAmbActionPerformed
+
+    private void tipoControlloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoControlloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoControlloActionPerformed
     private void AggiornaCampoDiagnosi()
     {
         try {
@@ -2369,10 +2480,12 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JTextField cf;
     private javax.swing.JTextField citologiaUrin;
     private javax.swing.JTextField cognome;
+    private javax.swing.JTextField cognomeContrAmb;
     private javax.swing.JPanel controlliAmb;
     private javax.swing.JTextArea controllo;
     private org.jdesktop.swingx.JXDatePicker data1;
     private org.jdesktop.swingx.JXDatePicker data2;
+    private org.jdesktop.swingx.JXDatePicker dataContrAmb;
     private org.jdesktop.swingx.JXDatePicker dataControl;
     private org.jdesktop.swingx.JXDatePicker dataDiagno;
     private org.jdesktop.swingx.JXDatePicker dataDiagnosi;
@@ -2398,10 +2511,10 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JTextField eo;
     private javax.swing.JTextField eo1;
     private javax.swing.JTextField eo2;
-    private javax.swing.JPanel epidem;
     private javax.swing.JTextField esUrine;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
+    private javax.swing.Box.Filler filler3;
     private javax.swing.JComboBox<String> formaClnAtt;
     private javax.swing.JTextField gb;
     private javax.swing.JTextField gb1;
@@ -2468,6 +2581,7 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
@@ -2510,10 +2624,16 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel93;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -2542,6 +2662,7 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JTextField linfAss1;
     private javax.swing.JTextField linfAss2;
     private javax.swing.JComboBox<String> medicoEsam;
+    private javax.swing.JComboBox<String> medicoEsamContrAmb;
     private javax.swing.JComboBox<String> modEsord;
     private javax.swing.JComboBox<String> modEsord_Diagn;
     private javax.swing.JTextField mon;
@@ -2551,9 +2672,9 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JTextField neu1;
     private javax.swing.JTextField neu2;
     private javax.swing.JTextField nome;
+    private javax.swing.JTextField nomeContrAmb;
     private javax.swing.JTextArea note;
     private javax.swing.JScrollPane noteScroll;
-    private javax.swing.JPanel nps;
     private javax.swing.JTextArea npsi;
     private javax.swing.JTextField numCiclo;
     private javax.swing.JTextArea oct;
@@ -2575,9 +2696,11 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JTextField supCorpo;
     private javax.swing.JList<String> telefono;
     private javax.swing.JTextField terapiaAttuale;
+    private javax.swing.JTextField terapiaPrinc;
     private javax.swing.JTextArea terapieConcomit;
     private javax.swing.JTextArea terapiePregresse;
     private javax.swing.JComboBox<String> tipoContol;
+    private javax.swing.JComboBox<String> tipoControllo;
     private javax.swing.JTextArea varie;
     // End of variables declaration//GEN-END:variables
 }
