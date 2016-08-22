@@ -29,6 +29,7 @@ public final class Utilita {
             return s;
        
         boolean nextBig=true;
+        s=s.toLowerCase();
         String res=s;
         for(int i=0;i<s.length();i++)
         {
@@ -116,6 +117,14 @@ public final class Utilita {
         }
         ret+="</HTML>";
         return ret;
+    }
+    
+    public static void main(String [] args)
+    {
+        String s="CiAoOOoO12oO";
+        System.out.println(s);
+        s=standardizzaNomi(s);
+        System.out.println(s);
     }
 
 }

@@ -64,6 +64,7 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(108, 255, 167));
 
+        listaTerapie.setEditable(true);
         listaTerapie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
         listaTerapie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,14 +168,14 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
         this.setEnabled(false);
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente_Terapia SET Terapia=? WHERE ID_Paziente=? AND Data_Inizio=?");
-            pst.setString(1,listaTerapie.getItemAt(listaTerapie.getSelectedIndex()));
-            
+            pst.setString(1,Utilita.standardizzaNomi((String)listaTerapie.getSelectedItem()));
+            Utilita.mostraMessaggio(Utilita.standardizzaNomi((String)listaTerapie.getSelectedItem()));
             pst.setInt(2, terapiaInfo.getIdPaz());
            
             pst.setDate(3,new Date(dataInizio.getDate().getTime()));
             pst.executeUpdate();
             
-            terapiaInfo.setTerapia(listaTerapie.getItemAt(listaTerapie.getSelectedIndex()));
+            terapiaInfo.setTerapia(Utilita.standardizzaNomi((String)listaTerapie.getSelectedItem()));
         } catch (SQLException ex) {
             Utilita.mostraMessaggioErrore("Terapia inserita non valida");
             listaTerapie.setSelectedItem(terapiaInfo.getTerapia());
