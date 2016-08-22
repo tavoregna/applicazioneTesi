@@ -209,7 +209,7 @@ public class Terapia extends javax.swing.JFrame {
             ResultSet rs=GestioneDatabase.querySelect("SELECT Data_Inizio,Data_Fine FROM Paziente_Terapia WHERE ID_Paziente="+IDpaz+" ORDER BY Data_Inizio DESC LIMIT 1");
             if(rs.next())
             {
-                if(rs.getDate("Data_Fine")==null && JOptionPane.showOptionDialog(parent,"Vuoi terminare la terapia precedente?","TERMINA TERAPIA",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null)==JOptionPane.YES_OPTION)
+                if(rs.getDate("Data_Fine")==null && JOptionPane.showConfirmDialog(null,"Vuoi terminare la terapia precedente?","TERMINA TERAPIA",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION)
                 {
                    pst=GestioneDatabase.preparedStatement("UPDATE Paziente_Terapia SET Data_Fine=? WHERE ID_Paziente=? AND Data_Inizio=?");
                    pst.setDate(1,new Date(Utilita.removeTime(new java.util.Date(System.currentTimeMillis())).getTime()));
