@@ -2122,7 +2122,10 @@ public class Paziente extends javax.swing.JFrame {
                       pst.setString(2,cognome.getText());
                       pst.setString(3,cf.getText());
                       pst.setString(4,sex.getItemAt(sex.getSelectedIndex()));
-                      pst.setDate(5,new Date(dataNascita.getDate().getTime()));
+                      if(dataNascita.getDate()!=null)
+                         pst.setDate(5,new Date(dataNascita.getDate().getTime()));
+                      else
+                         pst.setNull(5, java.sql.Types.DATE);
                       if(supCorpo.getText()==null || supCorpo.getText().length()==0)
                           pst.setNull(6, java.sql.Types.DOUBLE);
                       else
@@ -2224,7 +2227,10 @@ public class Paziente extends javax.swing.JFrame {
         try {
             int id=Pazienti.getCurrID();
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente SET Data_Esordio=? WHERE ID=?");
-            pst.setDate(1, new Date(dataEsord_Diagn.getDate().getTime()));
+            if(dataEsord_Diagn.getDate()!=null)
+                pst.setDate(1, new Date(dataEsord_Diagn.getDate().getTime()));
+            else
+                pst.setNull(1, java.sql.Types.DATE);
             pst.setInt(2, id);
             pst.executeUpdate();
             infoEsordio(id);
@@ -2282,6 +2288,7 @@ public class Paziente extends javax.swing.JFrame {
         
         azzeraCampiDiagnosi();
         datiDiagnosi(id);
+        barra.settaPrimoSelezionato();
     }
     
     public void datiDiagnosi(int id)

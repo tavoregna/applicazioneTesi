@@ -208,7 +208,10 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
             pst.setString(2,Utilita.standardizzaNomi(cognome.getText()));
             pst.setString(3,cf.getText());
             pst.setString(4,(String)sex.getSelectedItem());
-            pst.setDate(5,new Date(dataNascita.getDate().getTime()));
+            if(dataNascita.getDate()!=null)
+                pst.setDate(5,new Date(dataNascita.getDate().getTime()));
+            else
+                pst.setNull(5, java.sql.Types.DATE);
             if(supCorpo.getText()==null || supCorpo.getText().length()==0)
                 pst.setNull(6, java.sql.Types.DOUBLE);
             else
