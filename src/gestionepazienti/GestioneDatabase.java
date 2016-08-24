@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GestioneDatabase {
     private static final String RELATIVE_DB_PATH="db/Prova1.accdb";
@@ -28,6 +30,7 @@ public class GestioneDatabase {
         }
         catch(Exception e)
         {
+            Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, e);
             Utilita.mostraMessaggioErrore("Errore nell'apertura del database");
             System.exit(1);
         }
@@ -45,6 +48,7 @@ public class GestioneDatabase {
             return r;
             
         } catch (SQLException ex) {
+            Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante l'esecuzione della query");
             return null;
         }
@@ -60,6 +64,7 @@ public class GestioneDatabase {
             st.close();
           
         } catch (SQLException ex) {
+            Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante l'esecuzione dell'operazione");
         }
     }
@@ -74,6 +79,7 @@ public class GestioneDatabase {
             return pst;
           
         } catch (SQLException ex) {
+            Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante l'esecuzione dell'operazione");
             return null;
         }
