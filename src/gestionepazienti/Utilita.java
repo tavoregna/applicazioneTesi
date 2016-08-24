@@ -5,6 +5,7 @@
  */
 package gestionepazienti;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -116,6 +117,15 @@ public final class Utilita {
         }
         ret+="</HTML>";
         return ret;
+    }
+    
+    public static String dataToString(Date d) //     dd/MM/yyyy
+    {
+        if(d==null)
+            return null;
+        SimpleDateFormat sdf = new SimpleDateFormat(); // creo l'oggetto
+        sdf.applyPattern("dd/MM/yyyy"); 
+        return sdf.format(d); 
     }
 
 }

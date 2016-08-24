@@ -1,4 +1,3 @@
-
 package gestionepazienti;
 
 import java.sql.Date;
@@ -257,7 +256,7 @@ public class Paziente extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         sex = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
+        pulsanteTerapie = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -630,11 +629,6 @@ public class Paziente extends javax.swing.JFrame {
         jLabel74.setText("BoIgG:");
 
         boigg1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negarivo" }));
-        boigg1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boigg1ActionPerformed(evt);
-            }
-        });
 
         jLabel79.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel79.setText("IgG IF:");
@@ -721,12 +715,6 @@ public class Paziente extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(239, 228, 176));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        dataPEV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataPEVActionPerformed(evt);
-            }
-        });
-
         jPanel2.setBackground(new java.awt.Color(255, 233, 157));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -737,18 +725,8 @@ public class Paziente extends javax.swing.JFrame {
         jLabel86.setText("OS:");
 
         odPEV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normale", "Ritardo conduzione", "Ridotta ampiezza", "Rit. conduz. + Rid. ampiezza" }));
-        odPEV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                odPEVActionPerformed(evt);
-            }
-        });
 
         osPEV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normale", "Ritardo conduzione", "Ridotta ampiezza", "Rit. conduz. + Rid. ampiezza" }));
-        osPEV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                osPEVActionPerformed(evt);
-            }
-        });
 
         pev.setColumns(1);
         pev.setRows(1);
@@ -1725,11 +1703,6 @@ public class Paziente extends javax.swing.JFrame {
         cf.setName(""); // NOI18N
 
         dataIns.setName(""); // NOI18N
-        dataIns.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataInsActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("CF:");
@@ -1740,11 +1713,11 @@ public class Paziente extends javax.swing.JFrame {
         sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
         sex.setName(""); // NOI18N
 
-        jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton4.setText("Gestisci Terapie");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        pulsanteTerapie.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        pulsanteTerapie.setText("Gestisci Terapie");
+        pulsanteTerapie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                pulsanteTerapieActionPerformed(evt);
             }
         });
 
@@ -1803,12 +1776,6 @@ public class Paziente extends javax.swing.JFrame {
         gestioneTel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gestioneTelActionPerformed(evt);
-            }
-        });
-
-        indirizzo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                indirizzoActionPerformed(evt);
             }
         });
 
@@ -1891,7 +1858,7 @@ public class Paziente extends javax.swing.JFrame {
                                             .addComponent(jLabel9))
                                         .addGap(10, 10, 10)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jButton4)
+                                            .addComponent(pulsanteTerapie)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addComponent(terapiaAttuale, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1983,7 +1950,7 @@ public class Paziente extends javax.swing.JFrame {
                                                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(35, 35, 35)
-                                                .addComponent(jButton4)))
+                                                .addComponent(pulsanteTerapie)))
                                         .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -2020,14 +1987,6 @@ public class Paziente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void dataInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataInsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataInsActionPerformed
-
-    private void indirizzoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indirizzoActionPerformed
-
-    }//GEN-LAST:event_indirizzoActionPerformed
 
     private void indietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroActionPerformed
         Integer prec=Pazienti.precedente();
@@ -2095,12 +2054,8 @@ public class Paziente extends javax.swing.JFrame {
     }//GEN-LAST:event_anamnesiKeyReleased
 
     private void modEsord_DiagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modEsord_DiagnActionPerformed
-        // TODO add your handling code here:
+        //DA FARE
     }//GEN-LAST:event_modEsord_DiagnActionPerformed
-
-    private void boigg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boigg1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_boigg1ActionPerformed
 
     private void caricaFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caricaFileActionPerformed
         if(Pazienti.getCurrID()!=null)
@@ -2113,11 +2068,13 @@ public class Paziente extends javax.swing.JFrame {
     private void buttonModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModActionPerformed
         if(Pazienti.getCurrID()!=null)
         {
+          //CASO 1 ABILITA MODIFICA
           if(buttonMod.getText().equals(NOME_MODIFICA))
           {
               abilitaComponentiPaziente(true);
               buttonMod.setText(NOME_TERMINA_MODIFICA);
           }
+          //CASO 2 TERMINA MODIFICA
           else if(buttonMod.getText().equals(NOME_TERMINA_MODIFICA))
           {
               abilitaComponentiPaziente(false);
@@ -2148,6 +2105,7 @@ public class Paziente extends javax.swing.JFrame {
                       
                       
                   } catch (Exception ex) {
+                      Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
                       Utilita.mostraMessaggioErrore("Controllare dati inseriti");
                       buttonMod.setEnabled(true);
                       abilitaComponentiPaziente(true);
@@ -2156,10 +2114,11 @@ public class Paziente extends javax.swing.JFrame {
               }
               else
               {
+                  //ripristino info precedenti
                   infoPersonali(Pazienti.getCurrID());
               }
-              buttonMod.setEnabled(true);
               buttonMod.setText(NOME_MODIFICA);
+              buttonMod.setEnabled(true);  
            }
         }
     }//GEN-LAST:event_buttonModActionPerformed
@@ -2172,17 +2131,13 @@ public class Paziente extends javax.swing.JFrame {
         new NuovoPazienteUI(this);
     }//GEN-LAST:event_buttonAddActionPerformed
 
-    private void odPEVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_odPEVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_odPEVActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void pulsanteTerapieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pulsanteTerapieActionPerformed
         if(Pazienti.getCurrID()!=null)
         {
             this.setVisible(false);
             new Terapia(Pazienti.getCurrID(),this);
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_pulsanteTerapieActionPerformed
 
     private void diagnosiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosiActionPerformed
         if(Pazienti.getCurrID()==null || BarraDiagnostica.getPulsanteAttuale()==null)
@@ -2194,6 +2149,7 @@ public class Paziente extends javax.swing.JFrame {
             pst.setInt(3,BarraDiagnostica.getPulsanteAttuale().getID());
             pst.executeUpdate();
         } catch (SQLException ex) {
+            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_diagnosiActionPerformed
@@ -2206,10 +2162,6 @@ public class Paziente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_caratteristicheClinicheActionPerformed
 
-    private void osPEVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osPEVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_osPEVActionPerformed
-
     private void dataRMNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRMNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dataRMNActionPerformed
@@ -2217,10 +2169,6 @@ public class Paziente extends javax.swing.JFrame {
     private void dataPLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPLActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dataPLActionPerformed
-
-    private void dataPEVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPEVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataPEVActionPerformed
 
     private void dataOCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataOCTActionPerformed
         // TODO add your handling code here:
@@ -2270,6 +2218,7 @@ public class Paziente extends javax.swing.JFrame {
             pst.setInt(3,BarraDiagnostica.getPulsanteAttuale().getID());
             pst.executeUpdate();
         } catch (SQLException ex) {
+            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_ospedaleKeyReleased
@@ -2284,9 +2233,11 @@ public class Paziente extends javax.swing.JFrame {
             pst.setInt(3,BarraDiagnostica.getPulsanteAttuale().getID());
             pst.executeUpdate();
         } catch (SQLException ex) {
+            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_controlloKeyReleased
+    //barra con i nomi delle diagnosi
     private void AggiornaCampoDiagnosi()
     {
         try {
@@ -2321,7 +2272,7 @@ public class Paziente extends javax.swing.JFrame {
     public void visualizzaDati(int id)
     {
         //IMPORTANTE
-        Pazienti.setCurrID(id);
+        Pazienti.setCurrID(id); //!!!
         
         infoPersonali(id);
         
@@ -2329,11 +2280,11 @@ public class Paziente extends javax.swing.JFrame {
         
         datiStorico(id);
         
+        datiAnamnesi(id);
+        
         datiTelefono(id);
         
         aggiornaTerapie(id);
-        
-        datiAnamnesi(id);
         
         barra.setPulsanteAttualeNull();
         azzeraCampiDiagnosi();
@@ -2367,10 +2318,7 @@ public class Paziente extends javax.swing.JFrame {
             ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Paziente_Terapia WHERE ID_Paziente="+id+" ORDER BY Data_Inizio DESC");
             if(rs.next())
             {
-                 SimpleDateFormat sdf = new SimpleDateFormat(); // creo l'oggetto
-                 sdf.applyPattern("dd/MM/yyyy"); 
-                 String dataStr = sdf.format(rs.getDate("Data_Inizio")); 
-                 dataInizioTerapia.setText(dataStr);
+                 dataInizioTerapia.setText(Utilita.dataToString(rs.getDate("Data_Inizio")));
                  
                  terapiaAttuale.setText(rs.getString("Terapia"));
                  
@@ -2378,13 +2326,11 @@ public class Paziente extends javax.swing.JFrame {
                  while(rs.next())
                  {
                      str+=rs.getString("Terapia")+" - dal ";
-                     dataStr = sdf.format(rs.getDate("Data_Inizio"));
-                     str+=dataStr;
+                     str+=Utilita.dataToString(rs.getDate("Data_Inizio"));
                      Date d=rs.getDate("Data_Fine");
                      if(d!=null)
                      {
-                          dataStr = sdf.format(d);
-                          str+=" al "+dataStr;
+                          str+=" al "+Utilita.dataToString(d);
                      }
                      str+="\n";
                  }
@@ -2396,8 +2342,19 @@ public class Paziente extends javax.swing.JFrame {
     }
     public void infoPersonali(int id)
     {
-       try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome,Cognome,CF,Sesso,DataNascita,SuperficieCorporea,Indirizzo,DataInserimento,Note,Data_Esordio,Modalita_Esordio FROM Paziente WHERE ID="+id);
+       //azzero info precedenti
+        nome.setText("");
+        cognome.setText("");
+        cf.setText("");
+        sex.setSelectedItem(null);
+        dataNascita.setDate(null);
+        supCorpo.setText("");
+        indirizzo.setText("");
+        dataIns.setDate(null);
+        note.setText("");
+        
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome,Cognome,CF,Sesso,DataNascita,SuperficieCorporea,Indirizzo,DataInserimento,Note FROM Paziente WHERE ID="+id);
             if(rs.next())
             {
                 nome.setText(rs.getString("Nome"));
@@ -2409,8 +2366,6 @@ public class Paziente extends javax.swing.JFrame {
                 indirizzo.setText(rs.getString("Indirizzo"));
                 dataIns.setDate(rs.getDate("DataInserimento"));
                 note.setText(rs.getString("Note"));
-                modEsord.setSelectedItem(rs.getString("Modalita_Esordio"));
-                dataEsord.setDate(rs.getDate("Data_Esordio"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
@@ -2418,6 +2373,11 @@ public class Paziente extends javax.swing.JFrame {
     }
     public void infoEsordio(int id)
     {
+        modEsord.setSelectedItem(null);
+        dataEsord.setDate(null);
+        modEsord_Diagn.setSelectedItem(null);
+        dataEsord_Diagn.setDate(null);
+        
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT Data_Esordio,Modalita_Esordio FROM Paziente WHERE ID="+id);
             if(rs.next())
@@ -2434,6 +2394,7 @@ public class Paziente extends javax.swing.JFrame {
     }
     public void datiStorico(int id)
     {
+        storicoArea.setText("");
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT StoriaMalattia FROM Paziente WHERE ID="+id);
             if(rs.next())
@@ -2445,6 +2406,7 @@ public class Paziente extends javax.swing.JFrame {
     
     public void datiAnamnesi(int id)
     {
+        anamnesi.setText("");
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT Anamnesi FROM Paziente WHERE ID="+id);
             if(rs.next())
@@ -2455,9 +2417,10 @@ public class Paziente extends javax.swing.JFrame {
     }
     public void datiTelefono(int id)
     {
+        DefaultListModel d=new DefaultListModel();
+        telefono.setModel(d);
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT Numero,Appartenenza FROM Telefono WHERE Paziente="+id);
-            DefaultListModel d=new DefaultListModel();
             while(rs.next())
             {
                 String tmp=rs.getString(1);
@@ -2465,7 +2428,6 @@ public class Paziente extends javax.swing.JFrame {
                     tmp+=" - "+rs.getString(2);
                 d.addElement(tmp);
             }
-                telefono.setModel(d);
         } catch (SQLException ex) {
             Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2539,7 +2501,9 @@ public class Paziente extends javax.swing.JFrame {
             }
         }
         catch(Exception ex)
-        {System.out.println(ex.getMessage());}
+        {
+            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     /**
      * @param args the command line arguments
@@ -2642,7 +2606,6 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JButton indietro;
     private javax.swing.JTextField indirizzo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
@@ -2796,6 +2759,7 @@ public class Paziente extends javax.swing.JFrame {
     private javax.swing.JPanel panelBarra;
     private javax.swing.JTextField pbg;
     private javax.swing.JTextArea pev;
+    private javax.swing.JButton pulsanteTerapie;
     private javax.swing.JTextField sCelebrale;
     private javax.swing.JTextField sPiramidale;
     private javax.swing.JTextField sSensitivo;
