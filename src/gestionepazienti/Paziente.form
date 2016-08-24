@@ -541,6 +541,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="ospedale">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ospedaleKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
@@ -562,6 +565,9 @@
                     <Property name="columns" type="int" value="1"/>
                     <Property name="rows" type="int" value="1"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="controlloKeyReleased"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

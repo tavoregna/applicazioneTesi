@@ -21,6 +21,8 @@ import javax.swing.SwingConstants;
  */
 public class BarraDiagnostica extends javax.swing.JPanel {
 
+    private static PulsanteData pulsanteAttuale=null;
+    
     private ArrayList<PulsanteData> lista;
     
     private double totHeight;
@@ -56,12 +58,29 @@ public class BarraDiagnostica extends javax.swing.JPanel {
         pane.setVisible(false);
         pane.setVisible(true);
     }
+    public void settaPrimoSelezionato()
+    {
+        if(lista!=null && lista.size()>0)
+        {
+            lista.get(0).getPulsante().setBackground(lista.get(0).getPulsante().getBackground().darker().darker());
+            pulsanteAttuale=lista.get(0);
+        }
+    }
+
+    public static PulsanteData getPulsanteAttuale() {
+        return pulsanteAttuale;
+    }
+    public static void setPulsanteAttualeNull()
+    {
+        pulsanteAttuale=null;
+    }
+    
     public void aggiorna(ArrayList<Date> d)
     {
         
         
-            lista.clear();
-            pane.removeAll();
+        lista.clear();
+        pane.removeAll();
         aggiornaUI();
         if(d==null || d.size()==0)
         {
@@ -103,6 +122,9 @@ public class BarraDiagnostica extends javax.swing.JPanel {
                         int press=Integer.parseInt(p.getName());
                         int idPaz=lista.get(press).getID();
                         Date data=lista.get(press).getData();
+                        
+                        pulsanteAttuale=lista.get(press);
+                        
                         parent.pressionePulsanteBarra(idPaz,data,false);
                         
                     }

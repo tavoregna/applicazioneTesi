@@ -462,11 +462,22 @@ public class Paziente extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel21.setText("Ospedale:");
 
+        ospedale.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ospedaleKeyReleased(evt);
+            }
+        });
+
         jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel22.setText("EON::");
 
         controllo.setColumns(1);
         controllo.setRows(1);
+        controllo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                controlloKeyReleased(evt);
+            }
+        });
         jScrollPane6.setViewportView(controllo);
 
         filler2.setBackground(new java.awt.Color(0, 0, 0));
@@ -2122,7 +2133,10 @@ public class Paziente extends javax.swing.JFrame {
                       pst.setString(2,cognome.getText());
                       pst.setString(3,cf.getText());
                       pst.setString(4,sex.getItemAt(sex.getSelectedIndex()));
-                      pst.setDate(5,new Date(dataNascita.getDate().getTime()));
+                      if(dataNascita.getDate()!=null)
+                         pst.setDate(5,new Date(dataNascita.getDate().getTime()));
+                      else
+                         pst.setNull(5, java.sql.Types.DATE);
                       if(supCorpo.getText()==null || supCorpo.getText().length()==0)
                           pst.setNull(6, java.sql.Types.DOUBLE);
                       else
@@ -2171,7 +2185,17 @@ public class Paziente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void diagnosiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosiActionPerformed
-        // TODO add your handling code here:
+        if(Pazienti.getCurrID()==null || BarraDiagnostica.getPulsanteAttuale()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Diagnosi=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,(String)diagnosi.getSelectedItem());
+            pst.setDate(2, BarraDiagnostica.getPulsanteAttuale().getData());
+            pst.setInt(3,BarraDiagnostica.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
     }//GEN-LAST:event_diagnosiActionPerformed
 
     private void dataDiagnosiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDiagnosiActionPerformed
@@ -2224,7 +2248,10 @@ public class Paziente extends javax.swing.JFrame {
         try {
             int id=Pazienti.getCurrID();
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente SET Data_Esordio=? WHERE ID=?");
-            pst.setDate(1, new Date(dataEsord_Diagn.getDate().getTime()));
+            if(dataEsord_Diagn.getDate()!=null)
+                pst.setDate(1, new Date(dataEsord_Diagn.getDate().getTime()));
+            else
+                pst.setNull(1, java.sql.Types.DATE);
             pst.setInt(2, id);
             pst.executeUpdate();
             infoEsordio(id);
@@ -2232,6 +2259,34 @@ public class Paziente extends javax.swing.JFrame {
             Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataEsord_DiagnActionPerformed
+
+    private void ospedaleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ospedaleKeyReleased
+        if(Pazienti.getCurrID()==null || BarraDiagnostica.getPulsanteAttuale()==null || ospedale.getText()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Ospedale=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,ospedale.getText());
+            pst.setDate(2, BarraDiagnostica.getPulsanteAttuale().getData());
+            pst.setInt(3,BarraDiagnostica.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_ospedaleKeyReleased
+
+    private void controlloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_controlloKeyReleased
+         if(Pazienti.getCurrID()==null || BarraDiagnostica.getPulsanteAttuale()==null || controllo.getText()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET EON=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,controllo.getText());
+            pst.setDate(2, BarraDiagnostica.getPulsanteAttuale().getData());
+            pst.setInt(3,BarraDiagnostica.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_controlloKeyReleased
     private void AggiornaCampoDiagnosi()
     {
         try {
@@ -2280,8 +2335,10 @@ public class Paziente extends javax.swing.JFrame {
         
         datiAnamnesi(id);
         
+        barra.setPulsanteAttualeNull();
         azzeraCampiDiagnosi();
         datiDiagnosi(id);
+        barra.settaPrimoSelezionato();
     }
     
     public void datiDiagnosi(int id)

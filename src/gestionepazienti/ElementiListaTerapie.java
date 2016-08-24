@@ -7,11 +7,7 @@ package gestionepazienti;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -132,6 +128,13 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
 
     private void dataInizioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataInizioActionPerformed
         this.setEnabled(false);
+        if(dataInizio.getDate()==null)
+        {
+            Utilita.mostraMessaggioErrore("Inserire la data di inizio terapia");
+            dataInizio.setDate(terapiaInfo.getDataInizio());
+            this.setEnabled(true);
+            return;
+        }
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente_Terapia SET Data_Inizio=? WHERE ID_Paziente=? AND Data_Inizio=?");
             pst.setDate(1, new Date(dataInizio.getDate().getTime()));
@@ -150,11 +153,18 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
         this.setEnabled(false);
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente_Terapia SET Data_Fine=? WHERE ID_Paziente=? AND Data_Inizio=?");
-            pst.setDate(1, new Date(dataFine.getDate().getTime()));
+            
+            if(dataFine.getDate()!=null)
+                pst.setDate(1,new Date(dataFine.getDate().getTime()));
+            else
+                pst.setNull(1, java.sql.Types.DATE);
             pst.setInt(2, terapiaInfo.getIdPaz());
             pst.setDate(3, new Date(terapiaInfo.getDataInizio().getTime()));
             pst.executeUpdate();
-            terapiaInfo.setDataFine(new Date(dataFine.getDate().getTime()));
+            if(dataFine.getDate()!=null)
+                terapiaInfo.setDataFine(new Date(dataFine.getDate().getTime()));
+            else
+                terapiaInfo.setDataFine(null);
         } catch (SQLException ex) {
             
         }
