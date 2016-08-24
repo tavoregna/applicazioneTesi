@@ -70,6 +70,10 @@ public class BarraDiagnostica extends javax.swing.JPanel {
     public static PulsanteData getPulsanteAttuale() {
         return pulsanteAttuale;
     }
+    public static void setPulsanteAttualeNull()
+    {
+        pulsanteAttuale=null;
+    }
     
     public void aggiorna(ArrayList<Date> d)
     {
