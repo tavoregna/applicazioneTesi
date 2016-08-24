@@ -88,6 +88,11 @@ public class TerapiaPrincipale extends javax.swing.JPanel {
         buttonTer2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonTer2.setText(">");
         buttonTer2.setEnabled(false);
+        buttonTer2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTer2ActionPerformed(evt);
+            }
+        });
 
         buttonTer3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonTer3.setText(">");
@@ -149,6 +154,13 @@ public class TerapiaPrincipale extends javax.swing.JPanel {
         // TODO add your handling code here:
         unvisibleAll();
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void buttonTer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer2ActionPerformed
+        // TODO add your handling code here:
+        parent.setVisible(false);
+        new SceltaTerapiaPrincipale(parent);
+        
+    }//GEN-LAST:event_buttonTer2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
