@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.ListSelectionModel;
 
@@ -16,8 +18,7 @@ public class CercaPaziente extends javax.swing.JFrame {
     private Paziente parent;
     
     private ArrayList<Integer> listaID;
-    
-    
+       
     public CercaPaziente(Paziente p)
     {
         this();
@@ -27,7 +28,6 @@ public class CercaPaziente extends javax.swing.JFrame {
         initComponents();
         listaID=new ArrayList<Integer>();
         listModel=new DefaultListModel();
-        lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lista.setModel(listModel);
         aggiornaLista();
         this.setVisible(true);
@@ -89,6 +89,7 @@ public class CercaPaziente extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        lista.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(lista);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -174,7 +175,6 @@ public class CercaPaziente extends javax.swing.JFrame {
         else
         {
             parent.visualizzaDati(listaID.get(lista.getSelectedIndex()));
-            parent.setVisible(true);
             this.dispose();
         } 
     }//GEN-LAST:event_confermaActionPerformed
@@ -194,15 +194,18 @@ public class CercaPaziente extends javax.swing.JFrame {
             ResultSet rs=GestioneDatabase.querySelect("SELECT ID,Nome,Cognome,DataNascita FROM Paziente WHERE Nome LIKE '"+nome.getText()+"%' AND Cognome LIKE '"+cognome.getText()+"%' ORDER BY Cognome,Nome,DataNascita ASC");
             while(rs.next())
             {
-               SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-               String dataStr = sdf.format(rs.getDate("DataNascita")); // data corrente (20 febbraio 2014)
-    
-               listModel.addElement(rs.getString("Cognome")+" "+rs.getString("Nome")+" - "+dataStr);
+               String dataStr = Utilita.dataToString(rs.getDate("DataNascita")); // data corrente (20 febbraio 2014)
+               if(dataStr==null)
+                   dataStr="";
+               else
+                   dataStr=" - "+dataStr;
+               listModel.addElement(rs.getString("Cognome")+" "+rs.getString("Nome")+dataStr);
                listaID.add(rs.getInt("ID"));
             }
             if(listModel.size()>0)
                 lista.setSelectedIndex(0);
         } catch (SQLException ex) {
+            Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     /**
