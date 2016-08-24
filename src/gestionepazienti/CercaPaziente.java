@@ -1,5 +1,8 @@
 package gestionepazienti;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -205,7 +208,8 @@ public class CercaPaziente extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
+      //  Desktop.getDesktop().open(new File("C:\\setup.log"));
         GestioneDatabase.connessione();
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

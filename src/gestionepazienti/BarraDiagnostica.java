@@ -103,7 +103,7 @@ public class BarraDiagnostica extends javax.swing.JPanel {
                         int press=Integer.parseInt(p.getName());
                         int idPaz=lista.get(press).getID();
                         Date data=lista.get(press).getData();
-                        parent.pressionePulsanteBarra(idPaz,data);
+                        parent.pressionePulsanteBarra(idPaz,data,false);
                         
                     }
                 }

@@ -65,7 +65,6 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(108, 255, 167));
 
-        listaTerapie.setEditable(true);
         listaTerapie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
         listaTerapie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +167,7 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
         
         this.setEnabled(false);
         try {
-            aggiungiTerapia();
+            //aggiungiTerapia();
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente_Terapia SET Terapia=? WHERE ID_Paziente=? AND Data_Inizio=?");
             pst.setString(1,Utilita.standardizzaNomi((String)listaTerapie.getSelectedItem()));
             pst.setInt(2, terapiaInfo.getIdPaz());
@@ -183,7 +182,7 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
         }
         this.setEnabled(true);
     }//GEN-LAST:event_listaTerapieActionPerformed
-    private void aggiungiTerapia()
+  /*  private void aggiungiTerapia()
     {
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Nome FROM Terapia WHERE Nome=?");
@@ -201,7 +200,7 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
         } catch (Exception ex) {
             Logger.getLogger(ElementiListaTerapie.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
     private void eliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaActionPerformed
         int reply = JOptionPane.showConfirmDialog(null,"Vuoi eliminare questo elemento?", "Conferma eliminazione", JOptionPane.YES_NO_OPTION);
         if(reply==JOptionPane.YES_OPTION)
