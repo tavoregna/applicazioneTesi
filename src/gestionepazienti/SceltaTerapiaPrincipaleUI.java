@@ -9,13 +9,13 @@ package gestionepazienti;
  *
  * @author Utente
  */
-public class SceltaTerapiaPrincipale extends javax.swing.JFrame {
+public class SceltaTerapiaPrincipaleUI extends javax.swing.JFrame {
     
-    private Paziente parent;
+    private PazienteUI parent;
     /**
      * Creates new form SceltaTerapiaPrincipale
      */
-    public SceltaTerapiaPrincipale(Paziente p) {
+    public SceltaTerapiaPrincipaleUI(PazienteUI p) {
         initComponents();
         parent=p;
     }

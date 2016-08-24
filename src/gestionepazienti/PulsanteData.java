@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gestionepazienti;
 
 import java.sql.Date;
 import javax.swing.JButton;
 
-/**
- *
- * @author Riccardo
- */
 public class PulsanteData {
     private Date data;
     private JButton  pulsante;
@@ -35,6 +26,7 @@ public class PulsanteData {
         this.ID=ID;
     }
     
+    //ultimo pulsante premuto
     private static PulsanteData premuto;
 
     public static PulsanteData getPremuto() {

@@ -13,22 +13,22 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 
-public class Paziente extends javax.swing.JFrame {
+public class PazienteUI extends javax.swing.JFrame {
     private final String NOME_MODIFICA="MODIFICA";
     private final String NOME_TERMINA_MODIFICA="TERMINA MODIFICHE";
     
-    private BarraDiagnostica barra;
+    private BarraDiagnosticaUI barra;
     /**
      * Creates new form Paziente
      */
-    public Paziente() {
+    public PazienteUI() {
         initComponents();
         
         ripristinaPulsanti();
         dataIns.setDate(null);
         dataIns.setEnabled(false);
         
-        barra=new BarraDiagnostica(this,panelBarra.getHeight(),panelBarra.getWidth());
+        barra=new BarraDiagnosticaUI(this,panelBarra.getHeight(),panelBarra.getWidth());
         barra.settaColori(diagnostica.getBackground());
         panelBarra.add(barra);
         
@@ -606,7 +606,7 @@ public class Paziente extends javax.swing.JFrame {
                     .addComponent(jLabel72)
                     .addComponent(dataRMN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelRMN, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jPanelRMN, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1013,7 +1013,7 @@ public class Paziente extends javax.swing.JFrame {
                             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(212, 324, Short.MAX_VALUE))
         );
@@ -2008,7 +2008,7 @@ public class Paziente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        new CercaPaziente(this);
+        new CercaPazienteUI(this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void gestioneTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestioneTelActionPerformed
@@ -2030,7 +2030,7 @@ public class Paziente extends javax.swing.JFrame {
                 st.executeUpdate();
                 
             } catch (SQLException ex) {
-                Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         }
@@ -2047,7 +2047,7 @@ public class Paziente extends javax.swing.JFrame {
                 st.executeUpdate();
                 
             } catch (SQLException ex) {
-                Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         }
@@ -2111,7 +2111,7 @@ public class Paziente extends javax.swing.JFrame {
                       
                       
                   } catch (Exception ex) {
-                      Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+                      Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
                       Utilita.mostraMessaggioErrore("Controllare dati inseriti");
                       buttonMod.setEnabled(true);
                       abilitaComponentiPaziente(true);
@@ -2141,21 +2141,21 @@ public class Paziente extends javax.swing.JFrame {
         if(Pazienti.getCurrID()!=null)
         {
             this.setVisible(false);
-            new Terapia(Pazienti.getCurrID(),this);
+            new TerapiaUI(Pazienti.getCurrID(),this);
         }
     }//GEN-LAST:event_pulsanteTerapieActionPerformed
 
     private void diagnosiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosiActionPerformed
-        if(Pazienti.getCurrID()==null || BarraDiagnostica.getPulsanteAttuale()==null)
+        if(Pazienti.getCurrID()==null || BarraDiagnosticaUI.getPulsanteAttuale()==null)
                 return;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Diagnosi=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
             pst.setString(1,(String)diagnosi.getSelectedItem());
-            pst.setDate(2, BarraDiagnostica.getPulsanteAttuale().getData());
-            pst.setInt(3,BarraDiagnostica.getPulsanteAttuale().getID());
+            pst.setDate(2, BarraDiagnosticaUI.getPulsanteAttuale().getData());
+            pst.setInt(3,BarraDiagnosticaUI.getPulsanteAttuale().getID());
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_diagnosiActionPerformed
@@ -2210,36 +2210,36 @@ public class Paziente extends javax.swing.JFrame {
             pst.executeUpdate();
             infoEsordio(id);
         } catch (SQLException ex) {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataEsord_DiagnActionPerformed
 
     private void ospedaleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ospedaleKeyReleased
-        if(Pazienti.getCurrID()==null || BarraDiagnostica.getPulsanteAttuale()==null || ospedale.getText()==null)
+        if(Pazienti.getCurrID()==null || BarraDiagnosticaUI.getPulsanteAttuale()==null || ospedale.getText()==null)
                 return;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Ospedale=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
             pst.setString(1,ospedale.getText());
-            pst.setDate(2, BarraDiagnostica.getPulsanteAttuale().getData());
-            pst.setInt(3,BarraDiagnostica.getPulsanteAttuale().getID());
+            pst.setDate(2, BarraDiagnosticaUI.getPulsanteAttuale().getData());
+            pst.setInt(3,BarraDiagnosticaUI.getPulsanteAttuale().getID());
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_ospedaleKeyReleased
 
     private void controlloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_controlloKeyReleased
-         if(Pazienti.getCurrID()==null || BarraDiagnostica.getPulsanteAttuale()==null || controllo.getText()==null)
+         if(Pazienti.getCurrID()==null || BarraDiagnosticaUI.getPulsanteAttuale()==null || controllo.getText()==null)
                 return;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET EON=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
             pst.setString(1,controllo.getText());
-            pst.setDate(2, BarraDiagnostica.getPulsanteAttuale().getData());
-            pst.setInt(3,BarraDiagnostica.getPulsanteAttuale().getID());
+            pst.setDate(2, BarraDiagnosticaUI.getPulsanteAttuale().getData());
+            pst.setInt(3,BarraDiagnosticaUI.getPulsanteAttuale().getID());
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_controlloKeyReleased
@@ -2254,7 +2254,7 @@ public class Paziente extends javax.swing.JFrame {
                 formaClnAtt.addItem(rs.getString(1));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     private void abilitaComponentiPaziente(boolean ab)
@@ -2309,7 +2309,7 @@ public class Paziente extends javax.swing.JFrame {
             }
             jTabbedPane1.setTitleAt(1, "Diagnostica ("+date.size()+")");
         } catch (SQLException ex) {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }   
         barra.aggiorna(date);
         if(date.size()>0)
@@ -2343,7 +2343,7 @@ public class Paziente extends javax.swing.JFrame {
                  terapiePregresse.setText(str);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
     public void infoPersonali(int id)
@@ -2374,7 +2374,7 @@ public class Paziente extends javax.swing.JFrame {
                 note.setText(rs.getString("Note"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
     public void infoEsordio(int id)
@@ -2395,7 +2395,7 @@ public class Paziente extends javax.swing.JFrame {
                 dataEsord_Diagn.setDate(rs.getDate("Data_Esordio"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
     public void datiStorico(int id)
@@ -2406,7 +2406,7 @@ public class Paziente extends javax.swing.JFrame {
             if(rs.next())
                 storicoArea.setText(rs.getString(1));
         } catch (SQLException ex) {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -2418,7 +2418,7 @@ public class Paziente extends javax.swing.JFrame {
             if(rs.next())
                anamnesi.setText(rs.getString(1));
         } catch (SQLException ex) {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public void datiTelefono(int id)
@@ -2435,7 +2435,7 @@ public class Paziente extends javax.swing.JFrame {
                 d.addElement(tmp);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -2508,7 +2508,7 @@ public class Paziente extends javax.swing.JFrame {
         }
         catch(Exception ex)
         {
-            Logger.getLogger(Paziente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     /**
@@ -2529,20 +2529,21 @@ public class Paziente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Paziente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PazienteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Paziente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PazienteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Paziente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PazienteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Paziente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PazienteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Paziente().setVisible(true);
+                new PazienteUI().setVisible(true);
             }
         });
     }

@@ -9,13 +9,13 @@ import org.apache.commons.lang.NumberUtils;
 
 public class TelefonoUI extends javax.swing.JFrame {
 
-    private Paziente parent;
+    private PazienteUI parent;
     private Integer pazID;
     private static String TITOLO="INSERIMENTO TELEFONO";
   
     private ArrayList<String> listNum;
     
-    public TelefonoUI(int ID,Paziente p) {
+    public TelefonoUI(int ID,PazienteUI p) {
         initComponents();
         jLabel1.setText(TITOLO+" "+trovaPaziente(ID).toUpperCase());
         this.setVisible(true);

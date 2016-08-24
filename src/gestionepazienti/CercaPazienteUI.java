@@ -10,19 +10,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 
-public class CercaPaziente extends javax.swing.JFrame {
+public class CercaPazienteUI extends javax.swing.JFrame {
 
     private DefaultListModel listModel;
-    private Paziente parent;
+    private PazienteUI parent;
     
     private ArrayList<Integer> listaID;
        
-    public CercaPaziente(Paziente p)
+    public CercaPazienteUI(PazienteUI p)
     {
         this();
         parent=p;
     }
-    public CercaPaziente() {
+    public CercaPazienteUI() {
         initComponents();
         listaID=new ArrayList<Integer>();
         listModel=new DefaultListModel();
@@ -225,13 +225,13 @@ public class CercaPaziente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CercaPaziente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CercaPazienteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CercaPaziente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CercaPazienteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CercaPaziente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CercaPazienteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CercaPaziente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CercaPazienteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
  
@@ -239,6 +239,13 @@ public class CercaPaziente extends javax.swing.JFrame {
         /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CercaPaziente().setVisible(true);
+            }
+        //</editor-fold>
+ 
+        /* Create and display the form */
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CercaPazienteUI().setVisible(true);
             }
         });*/
     }

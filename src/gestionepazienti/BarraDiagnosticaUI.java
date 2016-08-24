@@ -19,7 +19,7 @@ import javax.swing.SwingConstants;
  *
  * @author Riccardo
  */
-public class BarraDiagnostica extends javax.swing.JPanel {
+public class BarraDiagnosticaUI extends javax.swing.JPanel {
 
     private static PulsanteData pulsanteAttuale=null;
     
@@ -28,9 +28,9 @@ public class BarraDiagnostica extends javax.swing.JPanel {
     private double totHeight;
     private double totWidth;
     private JPanel pane;
-    private Paziente parent;
+    private PazienteUI parent;
     
-    public BarraDiagnostica(Paziente p,double hei,double wid) {
+    public BarraDiagnosticaUI(PazienteUI p,double hei,double wid) {
         
         initComponents();
         this.setBounds(0, 0, (int)wid, (int)hei);

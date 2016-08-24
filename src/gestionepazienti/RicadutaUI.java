@@ -11,13 +11,13 @@ import java.awt.Color;
  *
  * @author Utente
  */
-public class Ricaduta extends javax.swing.JPanel {
+public class RicadutaUI extends javax.swing.JPanel {
     
-    private Paziente parent;
+    private PazienteUI parent;
     /**
      * Creates new form Ricaduta
      */
-    public Ricaduta(Paziente p) {
+    public RicadutaUI(PazienteUI p) {
         initComponents();
         parent=p;
         ricadTerap.setVisible(false);

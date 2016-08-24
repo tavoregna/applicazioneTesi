@@ -20,21 +20,21 @@ import javax.swing.JOptionPane;
  *
  * @author Utente
  */
-public class Terapia extends javax.swing.JFrame {
-    private ArrayList<ElementiListaTerapie> list=new ArrayList<ElementiListaTerapie>();
+public class TerapiaUI extends javax.swing.JFrame {
+    private ArrayList<ElementiListaTerapieUI> list=new ArrayList<ElementiListaTerapieUI>();
     private Integer IDpaz;
     private ArrayList<String> listaNomiTerapie;
-    private Paziente parent;
+    private PazienteUI parent;
     private static String TITOLO="TERAPIE DI";
     
     /**
      * Creates new form Terapia
      */
-    public Terapia(int id,Paziente p) {
+    public TerapiaUI(int id,PazienteUI p) {
         initComponents();
         jLabel1.setText(TITOLO+" "+trovaPaziente(id).toUpperCase());
         pannello.setLayout(new BoxLayout(pannello, BoxLayout.Y_AXIS));
-        list=new ArrayList<ElementiListaTerapie>();
+        list=new ArrayList<ElementiListaTerapieUI>();
         IDpaz=id;
         parent=p;
         listaNomiTerapie=new ArrayList<String>();
@@ -53,7 +53,7 @@ public class Terapia extends javax.swing.JFrame {
                 listaNomiTerapie.add(rs.getString(1));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Terapia.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TerapiaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -67,14 +67,14 @@ public class Terapia extends javax.swing.JFrame {
             while(rs.next())
             {
                 Terapy t=new Terapy(rs.getDate("Data_Inizio"),rs.getDate("Data_Fine"),rs.getInt("ID_Paziente"),rs.getString("Terapia"));
-                ElementiListaTerapie temp=new ElementiListaTerapie(this,listaNomiTerapie,t);
+                ElementiListaTerapieUI temp=new ElementiListaTerapieUI(this,listaNomiTerapie,t);
                 pannello.add(temp);
                 list.add(temp);
             }
             pannello.setVisible(false);
             pannello.setVisible(true);
         } catch (SQLException ex) {
-            Logger.getLogger(Terapia.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TerapiaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

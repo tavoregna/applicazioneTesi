@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 
 public class NuovoPazienteUI extends javax.swing.JFrame {
 
-    private Paziente parent;
+    private PazienteUI parent;
     
-    public NuovoPazienteUI(Paziente pa) {
+    public NuovoPazienteUI(PazienteUI pa) {
         initComponents();
         parent=pa;
         this.setVisible(true);

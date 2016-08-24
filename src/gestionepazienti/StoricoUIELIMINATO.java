@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Storico extends javax.swing.JFrame {
+public class StoricoUIELIMINATO extends javax.swing.JFrame {
     
     private int IDpaziente;
-    private Paziente parent;
+    private PazienteUI parent;
     private ArrayList<Story> storico;
     
     private int indiceCorrente;
   
-    public Storico(int paz,Paziente par) 
+    public StoricoUIELIMINATO(int paz,PazienteUI par) 
     {
         this();
         IDpaziente=paz;
@@ -37,7 +37,7 @@ public class Storico extends javax.swing.JFrame {
         }
         
     }
-    public Storico() {
+    public StoricoUIELIMINATO() {
         initComponents();
         this.setVisible(true);
         
@@ -61,7 +61,7 @@ public class Storico extends javax.swing.JFrame {
                 storico.add(new Story(IDpaziente,rs.getDate("Data"),rs.getString("Testo")));  
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Storico.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StoricoUIELIMINATO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

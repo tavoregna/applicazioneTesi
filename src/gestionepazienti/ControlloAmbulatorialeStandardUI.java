@@ -9,12 +9,12 @@ package gestionepazienti;
  *
  * @author Utente
  */
-public class ControlloAmbulatorialeStandard extends javax.swing.JPanel {
+public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
 
     /**
      * Creates new form ControlloAmbulatorialeStandard
      */
-    public ControlloAmbulatorialeStandard() {
+    public ControlloAmbulatorialeStandardUI() {
         initComponents();
     }
 

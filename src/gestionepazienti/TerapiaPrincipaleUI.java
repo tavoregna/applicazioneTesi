@@ -9,13 +9,13 @@ package gestionepazienti;
  *
  * @author Utente
  */
-public class TerapiaPrincipale extends javax.swing.JPanel {
-    private Paziente parent;
+public class TerapiaPrincipaleUI extends javax.swing.JPanel {
+    private PazienteUI parent;
     private int tipoControllo;
     /**
      * Creates new form TerapiaPrincipale
      */
-    public TerapiaPrincipale(Paziente p,int controllo) {
+    public TerapiaPrincipaleUI(PazienteUI p,int controllo) {
         initComponents();
         unvisibleAll();
         parent=p;
@@ -158,7 +158,7 @@ public class TerapiaPrincipale extends javax.swing.JPanel {
     private void buttonTer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer2ActionPerformed
         // TODO add your handling code here:
         parent.setVisible(false);
-        new SceltaTerapiaPrincipale(parent);
+        new SceltaTerapiaPrincipaleUI(parent);
         
     }//GEN-LAST:event_buttonTer2ActionPerformed
 

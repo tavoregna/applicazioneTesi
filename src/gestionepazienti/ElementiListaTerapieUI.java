@@ -17,13 +17,13 @@ import javax.swing.JOptionPane;
  *
  * @author Riccardo
  */
-public class ElementiListaTerapie extends javax.swing.JPanel {
+public class ElementiListaTerapieUI extends javax.swing.JPanel {
     private Terapy terapiaInfo;
-    private Terapia parent;
+    private TerapiaUI parent;
     private boolean active;
     
     
-    public ElementiListaTerapie(Terapia p,ArrayList<String> lista,Terapy t) {
+    public ElementiListaTerapieUI(TerapiaUI p,ArrayList<String> lista,Terapy t) {
         active=false;
         initComponents();
         terapiaInfo=t;
@@ -195,7 +195,7 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
   /*  private void aggiungiTerapia()
     {
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Nome FROM Terapia WHERE Nome=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Nome FROM TerapiaUI WHERE Nome=?");
             pst.setString(1, Utilita.standardizzaNomi((String)listaTerapie.getSelectedItem()));
             ResultSet rs=pst.executeQuery();
             if(rs.next())
@@ -203,12 +203,12 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
             int n = JOptionPane.showOptionDialog(parent,"Vuoi inserire questa terapia nell'elenco delle  terapie?","NUOVA TERAPIA",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
             if(n==JOptionPane.YES_OPTION)
             {
-                pst=GestioneDatabase.preparedStatement("INSERT INTO Terapia(Nome) VALUES (?)");
+                pst=GestioneDatabase.preparedStatement("INSERT INTO TerapiaUI(Nome) VALUES (?)");
                 pst.setString(1, Utilita.standardizzaNomi((String)listaTerapie.getSelectedItem()));
                 pst.executeUpdate();
             }
         } catch (Exception ex) {
-            Logger.getLogger(ElementiListaTerapie.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ElementiListaTerapieUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }*/
     private void eliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaActionPerformed
@@ -224,7 +224,7 @@ public class ElementiListaTerapie extends javax.swing.JPanel {
                 this.setEnabled(false);
                 parent.aggiornaTerapie();
             } catch (SQLException ex) {
-                Logger.getLogger(ElementiListaTerapie.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ElementiListaTerapieUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_eliminaActionPerformed

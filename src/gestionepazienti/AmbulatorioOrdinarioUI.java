@@ -9,13 +9,13 @@ package gestionepazienti;
  *
  * @author Utente
  */
-public class AmbulatorioOrdinario extends javax.swing.JPanel {
+public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
     
-    private Paziente parent;
+    private PazienteUI parent;
     /**
      * Creates new form AmbulatorioOrdinario
      */
-    public AmbulatorioOrdinario(Paziente p) {
+    public AmbulatorioOrdinarioUI(PazienteUI p) {
         initComponents();
         parent=p;
     }
@@ -77,7 +77,7 @@ public class AmbulatorioOrdinario extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(terPrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
