@@ -10,8 +10,8 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
     
     public NuovoPazienteUI(Paziente pa) {
         initComponents();
-        this.setVisible(true);
         parent=pa;
+        this.setVisible(true);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -206,7 +206,14 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
             PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Paziente(Nome,Cognome,CF,Sesso,DataNascita,SuperficieCorporea,Indirizzo,Note,DataInserimento) VALUES (?,?,?,?,?,?,?,?,?)");
             pst.setString(1,Utilita.standardizzaNomi(nome.getText()));
             pst.setString(2,Utilita.standardizzaNomi(cognome.getText()));
-            pst.setString(3,cf.getText());
+            if(cf.getText()!=null && cf.getText().length()<=16)
+                pst.setString(3,cf.getText());
+            else
+            {
+                Utilita.mostraMessaggioErrore("Codice fiscale troppo lungo");
+                throw new Exception();
+            }
+                
             pst.setString(4,(String)sex.getSelectedItem());
             if(dataNascita.getDate()!=null)
                 pst.setDate(5,new Date(dataNascita.getDate().getTime()));
@@ -221,20 +228,20 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
             pst.setDate(9, new Date(System.currentTimeMillis()));
             pst.executeUpdate();     
             
+            //DA MODIFICARE SE SI CAMBIA MODO ASSEGNAZIONE ID
             ResultSet rs=GestioneDatabase.querySelect("SELECT MAX(ID) FROM Paziente");
             if(rs.next())
             {
                 int id=rs.getInt(1);
                 Pazienti.aggiorna();
-                parent.visualizzaDati(id);
-                parent.setVisible(true);
-                this.dispose();
+                parent.visualizzaDati(id);    
             }
+            parent.setVisible(true);
+            this.dispose();
             
         } catch (Exception ex) {
             Utilita.mostraMessaggioErrore("Controllare dati inseriti");
             this.setEnabled(true);
-            return;
         }
     }//GEN-LAST:event_inserisciActionPerformed
 

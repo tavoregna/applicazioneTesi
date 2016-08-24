@@ -2088,7 +2088,13 @@ public class Paziente extends javax.swing.JFrame {
                       PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente SET Nome=?,Cognome=?,CF=?,Sesso=?,DataNascita=?,SuperficieCorporea=?,Indirizzo=?,Note=? WHERE ID=?");
                       pst.setString(1,nome.getText());
                       pst.setString(2,cognome.getText());
-                      pst.setString(3,cf.getText());
+                      if(cf.getText()!=null && cf.getText().length()<=16)
+                        pst.setString(3,cf.getText());
+                      else
+                      {
+                        Utilita.mostraMessaggioErrore("Codice fiscale troppo lungo");
+                        throw new Exception();
+                      }
                       pst.setString(4,sex.getItemAt(sex.getSelectedIndex()));
                       if(dataNascita.getDate()!=null)
                          pst.setDate(5,new Date(dataNascita.getDate().getTime()));
