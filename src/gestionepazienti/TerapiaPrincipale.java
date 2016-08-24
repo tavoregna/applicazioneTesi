@@ -10,14 +10,29 @@ package gestionepazienti;
  * @author Utente
  */
 public class TerapiaPrincipale extends javax.swing.JPanel {
-
+    private Paziente parent;
+    private int tipoControllo;
     /**
      * Creates new form TerapiaPrincipale
      */
-    public TerapiaPrincipale() {
+    public TerapiaPrincipale(Paziente p,int controllo) {
         initComponents();
+        unvisibleAll();
+        parent=p;
+        tipoControllo=controllo;
+        if(controllo==2)
+        {
+            jRadioButton2.setVisible(false);
+        }
     }
 
+    private void unvisibleAll()
+    {
+        buttonTer2.setVisible(false);
+        buttonTer3.setVisible(false);
+        terapie.setVisible(false);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,28 +47,51 @@ public class TerapiaPrincipale extends javax.swing.JPanel {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         terapie = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonTer2 = new javax.swing.JButton();
+        buttonTer3 = new javax.swing.JButton();
+
+        setOpaque(false);
 
         gruppoTeraPric.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jRadioButton1.setText("si consiglia di proseguire con la terapia in atto");
+        jRadioButton1.setOpaque(false);
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         gruppoTeraPric.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jRadioButton2.setText("switch in DM");
+        jRadioButton2.setOpaque(false);
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         gruppoTeraPric.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jRadioButton3.setText("switch ora a:");
+        jRadioButton3.setOpaque(false);
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
 
         terapie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        terapie.setEnabled(false);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText(">");
+        buttonTer2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        buttonTer2.setText(">");
+        buttonTer2.setEnabled(false);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText(">");
+        buttonTer3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        buttonTer3.setText(">");
+        buttonTer3.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -69,12 +107,12 @@ public class TerapiaPrincipale extends javax.swing.JPanel {
                             .addComponent(jRadioButton2))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
+                            .addComponent(buttonTer2)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(terapie, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(jButton2)))))
-                .addContainerGap(177, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonTer3)))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,21 +122,39 @@ public class TerapiaPrincipale extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton2)
-                    .addComponent(jButton1))
+                    .addComponent(buttonTer2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton3)
                     .addComponent(terapie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addContainerGap(76, Short.MAX_VALUE))
+                    .addComponent(buttonTer3))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+        unvisibleAll();
+        buttonTer2.setVisible(true);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+        unvisibleAll();
+        buttonTer3.setVisible(true);
+        terapie.setVisible(true);
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+        unvisibleAll();
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonTer2;
+    private javax.swing.JButton buttonTer3;
     private javax.swing.ButtonGroup gruppoTeraPric;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
