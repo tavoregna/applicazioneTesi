@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gestionepazienti;
 
 import java.sql.ResultSet;
@@ -11,10 +6,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Riccardo
- */
 public class Pazienti {
     private static ArrayList<Integer> arrayID;
     private static Integer currID=null; 
@@ -23,6 +14,11 @@ public class Pazienti {
     {
         currID=id;
     }
+    
+    public static Integer getCurrID() {
+        return currID;
+    }
+    
     public static void aggiorna()
     {
         if(arrayID==null)
@@ -40,6 +36,7 @@ public class Pazienti {
             Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     private static void inizializza()
     {
         if(arrayID==null)
@@ -48,9 +45,7 @@ public class Pazienti {
             aggiorna();
     }
 
-    public static Integer getCurrID() {
-        return currID;
-    }
+    //OTTIMIZZABILE
     public static Integer precedente()
     {
         if(currID==null || currID==0)
@@ -68,10 +63,9 @@ public class Pazienti {
         if(currPos==null || currPos.intValue()==0)
             return null;
         return arrayID.get(currPos.intValue()-1);
-        
-        
     }
     
+    //OTTIMIZZABILE
     public static Integer successivo()
     {
         if(currID==null || currID==0)
@@ -90,6 +84,4 @@ public class Pazienti {
             return null;
         return arrayID.get(currPos.intValue()+1);
     }
-    
-    
 }
