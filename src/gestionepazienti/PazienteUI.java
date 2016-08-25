@@ -1,5 +1,6 @@
 package gestionepazienti;
 
+import java.awt.Dimension;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -17,6 +19,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private final String NOME_TERMINA_MODIFICA="TERMINA MODIFICHE";
     
     private BarraDiagnosticaUI barra;
+    private AmbulatorioOrdinarioUI ambulatorio;
     /**
      * Creates new form Paziente
      */
@@ -32,8 +35,13 @@ public class PazienteUI extends javax.swing.JFrame {
         
         pannelloDiagnostica.setVisible(false);
                 
+        ambulatorio=new AmbulatorioOrdinarioUI(this);
+        panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
+        panelControlloAmb.add(ambulatorio);
+        
         AggiornaCampoDiagnosi();
                 
+        //panelControlloAmb.setPreferredSize(new Dimension(1000,1000));
         this.setVisible(true);
     }
 
@@ -140,7 +148,8 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel93 = new javax.swing.JLabel();
         tipoControllo = new javax.swing.JComboBox<>();
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 32767));
-        jPanel4 = new javax.swing.JPanel();
+        panelContolloScroll = new javax.swing.JScrollPane();
+        panelControlloAmb = new javax.swing.JPanel();
         immunu = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         dataControl = new org.jdesktop.swingx.JXDatePicker();
@@ -1040,7 +1049,7 @@ public class PazienteUI extends javax.swing.JFrame {
                         .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(pannelloDiagnostica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(212, 314, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Diagnostica", diagnostica);
@@ -1091,16 +1100,18 @@ public class PazienteUI extends javax.swing.JFrame {
 
         filler3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelControlloAmbLayout = new javax.swing.GroupLayout(panelControlloAmb);
+        panelControlloAmb.setLayout(panelControlloAmbLayout);
+        panelControlloAmbLayout.setHorizontalGroup(
+            panelControlloAmbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 413, Short.MAX_VALUE)
+        panelControlloAmbLayout.setVerticalGroup(
+            panelControlloAmbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 448, Short.MAX_VALUE)
         );
+
+        panelContolloScroll.setViewportView(panelControlloAmb);
 
         javax.swing.GroupLayout controlliAmbLayout = new javax.swing.GroupLayout(controlliAmb);
         controlliAmb.setLayout(controlliAmbLayout);
@@ -1109,7 +1120,7 @@ public class PazienteUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlliAmbLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(controlliAmbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelContolloScroll, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(controlliAmbLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(controlliAmbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1164,8 +1175,8 @@ public class PazienteUI extends javax.swing.JFrame {
                     .addComponent(tipoControllo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(panelContolloScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2006,8 +2017,8 @@ public class PazienteUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE))
         );
 
         pack();
@@ -2747,7 +2758,6 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -2796,6 +2806,8 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> osPEV;
     private javax.swing.JTextField ospedale;
     private javax.swing.JPanel panelBarra;
+    private javax.swing.JScrollPane panelContolloScroll;
+    private javax.swing.JPanel panelControlloAmb;
     private javax.swing.JPanel pannelloDiagnostica;
     private javax.swing.JTextField pbg;
     private javax.swing.JTextArea pev;

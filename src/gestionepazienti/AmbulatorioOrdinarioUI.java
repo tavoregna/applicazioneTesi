@@ -5,6 +5,8 @@
  */
 package gestionepazienti;
 
+import java.awt.Color;
+
 /**
  *
  * @author Utente
@@ -14,16 +16,17 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
     private PazienteUI parent;
     private ControlloAmbulatorialeStandardUI standard;
     private TerapiaPrincipaleUI terPrincipale;
-    /**
-     * Creates new form AmbulatorioOrdinario
-     */
+    
     public AmbulatorioOrdinarioUI(PazienteUI p) {
         initComponents();
         parent=p;
-        standard=new ControlloAmbulatorialeStandardUI(parent);
+        standard=new ControlloAmbulatorialeStandardUI(parent,panelStandard.getWidth(),panelStandard.getHeight());
         terPrincipale=new TerapiaPrincipaleUI(parent, 1);
         panelStandard.add(standard);
         panelTerPrincipale.add(terPrincipale);
+        this.setBackground(Color.red);
+        this.setVisible(true);
+        
     }
 
     /**
