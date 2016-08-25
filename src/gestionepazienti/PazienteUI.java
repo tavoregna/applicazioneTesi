@@ -11,6 +11,8 @@ import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 
 public class PazienteUI extends javax.swing.JFrame {
@@ -2551,8 +2553,9 @@ public class PazienteUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
         GestioneDatabase.connessione();
+        //UIManager.setLookAndFeel("javax.swing.plaf.mac.MacLookAndFeel");
         new PazienteUI().setVisible(true);
     }
 
