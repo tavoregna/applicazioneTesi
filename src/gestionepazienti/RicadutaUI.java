@@ -22,7 +22,7 @@ public class RicadutaUI extends javax.swing.JPanel {
     public RicadutaUI(PazienteUI p) {
         initComponents();
         parent=p;
-        standard=new ControlloAmbulatorialeStandardUI(parent);
+        standard=new ControlloAmbulatorialeStandardUI(parent,panelStandard.getWidth(),panelStandard.getHeight());
         terPrincipale=new TerapiaPrincipaleUI(parent, 2);
         panelStandard.add(standard);
         panelTerPrincipale.add(terPrincipale);

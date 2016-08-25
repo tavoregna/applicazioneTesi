@@ -24,6 +24,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         {
             jRadioButton2.setVisible(false);
         }
+        this.setVisible(true);
     }
 
     private void unvisibleAll()

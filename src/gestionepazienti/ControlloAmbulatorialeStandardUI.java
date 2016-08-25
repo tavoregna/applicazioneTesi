@@ -5,6 +5,8 @@
  */
 package gestionepazienti;
 
+import java.awt.Color;
+
 /**
  *
  * @author Utente
@@ -15,9 +17,12 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
     /**
      * Creates new form ControlloAmbulatorialeStandard
      */
-    public ControlloAmbulatorialeStandardUI(PazienteUI p) {
+    public ControlloAmbulatorialeStandardUI(PazienteUI p,int wid,int hei) {
         initComponents();
         parent=p;
+        this.setBounds(0, 0, wid, hei);
+        this.setBackground(Color.red);
+        this.setVisible(true);
     }
 
     /**
