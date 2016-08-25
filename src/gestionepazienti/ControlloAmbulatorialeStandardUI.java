@@ -14,7 +14,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         initComponents();
         parent=p;
         dataControllo=data;
-//        aggiornaDatiAmb(Pazienti.getCurrID(),dataControllo);
+        aggiornaDatiAmb(Pazienti.getCurrID(),dataControllo);
         this.setVisible(true);
     }
 

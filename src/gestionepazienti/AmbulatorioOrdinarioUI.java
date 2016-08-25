@@ -17,13 +17,13 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
         initComponents();
         parent=p;
         dataControllo=data;
-     /*  standard=new ControlloAmbulatorialeStandardUI(parent,dataControllo);
+        standard=new ControlloAmbulatorialeStandardUI(parent,dataControllo);
         terPrincipale=new TerapiaPrincipaleUI(parent, this,dataControllo);
         panelStandard.setLayout(new BoxLayout(panelStandard, BoxLayout.LINE_AXIS));
         panelTerPrincipale.setLayout(new BoxLayout(panelTerPrincipale, BoxLayout.LINE_AXIS));
         panelStandard.add(standard);
         panelTerPrincipale.add(terPrincipale);
-        aggiornaDati(Pazienti.getCurrID(),dataControllo);*/
+        aggiornaDati(Pazienti.getCurrID(),dataControllo);
         this.setVisible(true);
         
     }

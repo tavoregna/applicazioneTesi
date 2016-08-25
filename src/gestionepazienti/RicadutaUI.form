@@ -111,6 +111,7 @@
             <StringItem index="4" value=" "/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="3"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>

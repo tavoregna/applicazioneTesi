@@ -21,6 +21,7 @@ public class PazienteUI extends javax.swing.JFrame {
     
     private BarraDiagnosticaUI barra;
     private AmbulatorioOrdinarioUI ambulatorio;
+    private RicadutaUI ricaduta;
     
     public PazienteUI() {
         initComponents();
@@ -34,9 +35,15 @@ public class PazienteUI extends javax.swing.JFrame {
         pannelloDiagnostica.setVisible(false);
         AggiornaCampoDiagnosi();
                 
-        ambulatorio=new AmbulatorioOrdinarioUI(this,new java.util.Date());
+        //Il pannello conviene inserirlo quando viene selezionato un paziente, perchè deve "cambiare" a seconda del tipo di controllo(ricaduta; ambulatorio ordinario)
+        
+       /* ambulatorio=new AmbulatorioOrdinarioUI(this,new java.util.Date());
         panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
-        panelControlloAmb.add(ambulatorio);
+        panelControlloAmb.add(ambulatorio);*/
+       
+        /*ricaduta=new RicadutaUI(this,new java.util.Date());
+        panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
+        panelControlloAmb.add(ricaduta);*/
              
         this.setVisible(true);
     }
@@ -1095,6 +1102,10 @@ public class PazienteUI extends javax.swing.JFrame {
         });
 
         filler3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        panelContolloScroll.setBackground(new java.awt.Color(239, 228, 176));
+
+        panelControlloAmb.setBackground(new java.awt.Color(239, 228, 176));
 
         javax.swing.GroupLayout panelControlloAmbLayout = new javax.swing.GroupLayout(panelControlloAmb);
         panelControlloAmb.setLayout(panelControlloAmbLayout);

@@ -77,6 +77,7 @@ public class RicadutaUI extends javax.swing.JPanel {
         jLabel1.setText("Ricaduta:");
 
         ricaduta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "clinica", "??", "pseudoricaduta", "no", " " }));
+        ricaduta.setSelectedIndex(3);
         ricaduta.setToolTipText("");
         ricaduta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,12 +189,12 @@ public class RicadutaUI extends javax.swing.JPanel {
         if((ricaduta.getSelectedIndex()==0) || ricaduta.getSelectedIndex()==1)
         {
             ricadTerap.setVisible(true);
-            this.setBackground(new Color(237, 28, 36));
+            coloreRicaduta(1);
         }
         else
         {
             ricadTerap.setVisible(false);
-            this.setBackground(new Color(255,242,0));
+            coloreRicaduta(2);
         }
     }//GEN-LAST:event_ricadutaActionPerformed
 

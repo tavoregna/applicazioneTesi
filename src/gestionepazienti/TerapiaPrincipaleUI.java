@@ -20,7 +20,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         {
             jRadioButton2.setVisible(false);
         }
-//        aggiornaDatiTerap(Pazienti.getCurrID(),dataControllo);
+        aggiornaDatiTerap(Pazienti.getCurrID(),dataControllo);
         this.setVisible(true);
     }
 
@@ -80,7 +80,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             }
         });
 
-        terapie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        terapie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "terapia1", "terapia2", "..." }));
 
         buttonTer2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonTer2.setText(">");
