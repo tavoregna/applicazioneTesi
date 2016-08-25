@@ -16,8 +16,7 @@ import javax.swing.SwingConstants;
 
 public class BarraDiagnosticaUI extends javax.swing.JPanel {
 
-    //private static PulsanteData pulsanteAttuale=null;
-    private static Integer indicePulsanteAttuale;
+    private Integer indicePulsanteAttuale;
     
     
     private ArrayList<PulsanteData> lista;
@@ -30,24 +29,29 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
     public BarraDiagnosticaUI(PazienteUI p,double hei,double wid) {
         
         initComponents();
+                
         indicePulsanteAttuale=null;
-        this.setBounds(0, 0, (int)wid, (int)hei);
         totHeight=hei;
-        parent=p;
         totWidth=wid;
+        parent=p;
+        
+        this.setBounds(0, 0, (int)wid, (int)hei);
+        this.setLayout(null); 
+         
         lista=new ArrayList<PulsanteData>();
-        this.setLayout(null);
+        
         aggiungi.setBounds(0, 0,(int) wid, (int)(5*hei/100));
         su.setBounds(0, aggiungi.getY()+aggiungi.getHeight(),(int) wid, (int)(10*hei/100));
         giu.setBounds(0, (int)hei-(int)(10*hei/100),(int) wid, (int)(10*hei/100));
+        
         pane=new JPanel();
         pane.setBounds(0, su.getY()+su.getHeight(),(int)totWidth, giu.getY()-(su.getY()+su.getHeight()));
         pane.setOpaque(false);
         pane.setLayout(null);
         this.add(pane);
+        
         this.setVisible(true);
-    }
-    
+    } 
     private void aggiornaUI()
     {
         pane.setVisible(false);
@@ -62,38 +66,35 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
             indicePulsanteAttuale=0;
         }
     }
-    public void settaSelezionato(int i)
+    public boolean settaSelezionatoIesimo(int i)
     {
-        if(lista!=null && lista.size()>=i)
+        if(lista!=null && lista.size()>i && i>=0)
         {
+            for(int k=0;k<lista.size();k++)
+            {
+                lista.get(k).getPulsante().setBackground(pane.getBackground());
+            }
             lista.get(i).getPulsante().setBackground(lista.get(i).getPulsante().getBackground().darker().darker());
-            //pulsanteAttuale=lista.get(i);
+            parent.pressionePulsanteBarra(lista.get(i).getID(),lista.get(i).getData() , false);
             indicePulsanteAttuale=i;
+            return true;
         }
+        return false;
     }
-
-    public static Integer getIndicePulsanteAttuale() {
+    public Integer getIndicePulsanteAttuale() {
         return indicePulsanteAttuale;
     }
-
-    public static void setIndicePulsanteAttuale(Integer indicePulsanteAttuale) {
-        BarraDiagnosticaUI.indicePulsanteAttuale = indicePulsanteAttuale;
+    public void setIndicePulsanteAttuale(Integer indicePulsanteAttuale) {
+        this.indicePulsanteAttuale = indicePulsanteAttuale;
     }
-
-    
-   /* public static PulsanteData getPulsanteAttuale() {
-        return pulsanteAttuale;
-    }
-    public static void setPulsanteAttualeNull()
+    public PulsanteData getPulsanteAttuale()
     {
-        pulsanteAttuale=null;
-    }*/
-    
-    
+        if(indicePulsanteAttuale!=null && indicePulsanteAttuale<lista.size())
+            return lista.get(indicePulsanteAttuale);
+        return null;
+    }
     public void aggiorna(ArrayList<Date> d)
     {
-        
-        
         lista.clear();
         pane.removeAll();
         aggiornaUI();
@@ -127,20 +128,8 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
                     if(e.getSource() instanceof JButton && parent!=null)
                     {
                         JButton p=(JButton)e.getSource();
-                        for(int i=0;i<lista.size();i++)
-                        {
-                            lista.get(i).getPulsante().setBackground(pane.getBackground());
-                        }
-                        p.setBackground(pane.getBackground().darker().darker());
                         int press=Integer.parseInt(p.getName());
-                        int idPaz=lista.get(press).getID();
-                        Date data=lista.get(press).getData();
-                        
-                        //pulsanteAttuale=lista.get(press);
-                        indicePulsanteAttuale=press;
-                        
-                        parent.pressionePulsanteBarra(idPaz,data,false);
-                        
+                        settaSelezionatoIesimo(press);    
                     }
                 }
             }); 
@@ -216,11 +205,13 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void suActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suActionPerformed
-        // TODO add your handling code here:
+        if(indicePulsanteAttuale!=null)
+            settaSelezionatoIesimo(indicePulsanteAttuale-1);
     }//GEN-LAST:event_suActionPerformed
 
     private void giuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giuActionPerformed
-        // TODO add your handling code here:
+        if(indicePulsanteAttuale!=null)
+            settaSelezionatoIesimo(indicePulsanteAttuale+1);
     }//GEN-LAST:event_giuActionPerformed
 
     private void aggiungiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggiungiActionPerformed

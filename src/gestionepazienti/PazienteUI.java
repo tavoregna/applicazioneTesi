@@ -1,6 +1,5 @@
 package gestionepazienti;
 
-import java.awt.Dimension;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,9 +19,7 @@ public class PazienteUI extends javax.swing.JFrame {
     
     private BarraDiagnosticaUI barra;
     private AmbulatorioOrdinarioUI ambulatorio;
-    /**
-     * Creates new form Paziente
-     */
+    
     public PazienteUI() {
         initComponents();
         
@@ -32,16 +29,13 @@ public class PazienteUI extends javax.swing.JFrame {
         
         barra=new BarraDiagnosticaUI(this,panelBarra.getHeight(),panelBarra.getWidth());
         panelBarra.add(barra);
-        
         pannelloDiagnostica.setVisible(false);
+        AggiornaCampoDiagnosi();
                 
         ambulatorio=new AmbulatorioOrdinarioUI(this);
         panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
         panelControlloAmb.add(ambulatorio);
-        
-        AggiornaCampoDiagnosi();
-                
-        //panelControlloAmb.setPreferredSize(new Dimension(1000,1000));
+             
         this.setVisible(true);
     }
 
@@ -2182,13 +2176,13 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_pulsanteTerapieActionPerformed
 
     private void diagnosiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosiActionPerformed
-        if(Pazienti.getCurrID()==null || BarraDiagnosticaUI.getIndicePulsanteAttuale()==null)
+        if(Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null)
                 return;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Diagnosi=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
             pst.setString(1,(String)diagnosi.getSelectedItem());
-            pst.setDate(2, BarraDiagnosticaUI.getPulsanteAttuale().getData());
-            pst.setInt(3,BarraDiagnosticaUI.getPulsanteAttuale().getID());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -2251,13 +2245,13 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_dataEsord_DiagnActionPerformed
 
     private void ospedaleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ospedaleKeyReleased
-        if(Pazienti.getCurrID()==null || BarraDiagnosticaUI.getPulsanteAttuale()==null || ospedale.getText()==null)
+        if(Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null || ospedale.getText()==null)
                 return;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Ospedale=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
             pst.setString(1,ospedale.getText());
-            pst.setDate(2, BarraDiagnosticaUI.getPulsanteAttuale().getData());
-            pst.setInt(3,BarraDiagnosticaUI.getPulsanteAttuale().getID());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -2266,13 +2260,13 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ospedaleKeyReleased
 
     private void controlloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_controlloKeyReleased
-         if(Pazienti.getCurrID()==null || BarraDiagnosticaUI.getPulsanteAttuale()==null || controllo.getText()==null)
+         if(Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null || controllo.getText()==null)
                 return;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET EON=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
             pst.setString(1,controllo.getText());
-            pst.setDate(2, BarraDiagnosticaUI.getPulsanteAttuale().getData());
-            pst.setInt(3,BarraDiagnosticaUI.getPulsanteAttuale().getID());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -2328,7 +2322,7 @@ public class PazienteUI extends javax.swing.JFrame {
         
         aggiornaTerapie(id);
         
-        barra.setPulsanteAttualeNull();
+        barra.setIndicePulsanteAttuale(null);   //IMP
         azzeraCampiDiagnosi();
         datiDiagnosi(id);
         barra.settaPrimoSelezionato();
@@ -2559,36 +2553,7 @@ public class PazienteUI extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         GestioneDatabase.connessione();
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PazienteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PazienteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PazienteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PazienteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PazienteUI().setVisible(true);
-            }
-        });
+        new PazienteUI().setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
