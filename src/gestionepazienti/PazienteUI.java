@@ -2182,7 +2182,7 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_pulsanteTerapieActionPerformed
 
     private void diagnosiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosiActionPerformed
-        if(Pazienti.getCurrID()==null || BarraDiagnosticaUI.getPulsanteAttuale()==null)
+        if(Pazienti.getCurrID()==null || BarraDiagnosticaUI.getIndicePulsanteAttuale()==null)
                 return;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Diagnosi=? WHERE Data_Diagnosi=? AND ID_Paziente=?");

@@ -16,7 +16,9 @@ import javax.swing.SwingConstants;
 
 public class BarraDiagnosticaUI extends javax.swing.JPanel {
 
-    private static PulsanteData pulsanteAttuale=null;
+    //private static PulsanteData pulsanteAttuale=null;
+    private static Integer indicePulsanteAttuale;
+    
     
     private ArrayList<PulsanteData> lista;
     
@@ -28,6 +30,7 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
     public BarraDiagnosticaUI(PazienteUI p,double hei,double wid) {
         
         initComponents();
+        indicePulsanteAttuale=null;
         this.setBounds(0, 0, (int)wid, (int)hei);
         totHeight=hei;
         parent=p;
@@ -55,17 +58,37 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
         if(lista!=null && lista.size()>0)
         {
             lista.get(0).getPulsante().setBackground(lista.get(0).getPulsante().getBackground().darker().darker());
-            pulsanteAttuale=lista.get(0);
+            //pulsanteAttuale=lista.get(0);
+            indicePulsanteAttuale=0;
+        }
+    }
+    public void settaSelezionato(int i)
+    {
+        if(lista!=null && lista.size()>=i)
+        {
+            lista.get(i).getPulsante().setBackground(lista.get(i).getPulsante().getBackground().darker().darker());
+            //pulsanteAttuale=lista.get(i);
+            indicePulsanteAttuale=i;
         }
     }
 
-    public static PulsanteData getPulsanteAttuale() {
+    public static Integer getIndicePulsanteAttuale() {
+        return indicePulsanteAttuale;
+    }
+
+    public static void setIndicePulsanteAttuale(Integer indicePulsanteAttuale) {
+        BarraDiagnosticaUI.indicePulsanteAttuale = indicePulsanteAttuale;
+    }
+
+    
+   /* public static PulsanteData getPulsanteAttuale() {
         return pulsanteAttuale;
     }
     public static void setPulsanteAttualeNull()
     {
         pulsanteAttuale=null;
-    }
+    }*/
+    
     
     public void aggiorna(ArrayList<Date> d)
     {
@@ -88,8 +111,6 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
         
         for(int i=0;i<numeroEtichette;i++)
         {
-            
-            
             SimpleDateFormat sdf = new SimpleDateFormat(); // creo l'oggetto
             sdf.applyPattern("dd/MM/yyyy");  
             String dataStr = sdf.format(d.get(i)); // data corrente (20 febbraio 2014)
@@ -115,7 +136,8 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
                         int idPaz=lista.get(press).getID();
                         Date data=lista.get(press).getData();
                         
-                        pulsanteAttuale=lista.get(press);
+                        //pulsanteAttuale=lista.get(press);
+                        indicePulsanteAttuale=press;
                         
                         parent.pressionePulsanteBarra(idPaz,data,false);
                         
