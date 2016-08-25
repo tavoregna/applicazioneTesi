@@ -1,32 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gestionepazienti;
 
 import java.awt.Color;
+import java.util.Date;
 import javax.swing.BoxLayout;
 
-/**
- *
- * @author Utente
- */
+
 public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
     
     private PazienteUI parent;
     private ControlloAmbulatorialeStandardUI standard;
     private TerapiaPrincipaleUI terPrincipale;
+    private Date dataControllo;
     
-    public AmbulatorioOrdinarioUI(PazienteUI p) {
+    public AmbulatorioOrdinarioUI(PazienteUI p, Date data) {
         initComponents();
         parent=p;
-        standard=new ControlloAmbulatorialeStandardUI(parent);
-        terPrincipale=new TerapiaPrincipaleUI(parent, this);
+        dataControllo=data;
+        standard=new ControlloAmbulatorialeStandardUI(parent,dataControllo);
+        terPrincipale=new TerapiaPrincipaleUI(parent, this,dataControllo);
         panelStandard.setLayout(new BoxLayout(panelStandard, BoxLayout.LINE_AXIS));
         panelTerPrincipale.setLayout(new BoxLayout(panelTerPrincipale, BoxLayout.LINE_AXIS));
         panelStandard.add(standard);
         panelTerPrincipale.add(terPrincipale);
+        aggiornaDati(Pazienti.getCurrID(),dataControllo);
         this.setVisible(true);
         
     }
@@ -46,6 +43,10 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
         this.setBackground(new Color(0,162,232));
     }
 
+    public void aggiornaDati(int idPaz,Date date)
+    {
+    
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
