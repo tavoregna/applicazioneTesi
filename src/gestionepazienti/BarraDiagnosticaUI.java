@@ -16,7 +16,8 @@ import javax.swing.SwingConstants;
 
 public class BarraDiagnosticaUI extends javax.swing.JPanel {
 
-    private static PulsanteData pulsanteAttuale=null;
+    private Integer indicePulsanteAttuale;
+    
     
     private ArrayList<PulsanteData> lista;
     
@@ -28,23 +29,29 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
     public BarraDiagnosticaUI(PazienteUI p,double hei,double wid) {
         
         initComponents();
-        this.setBounds(0, 0, (int)wid, (int)hei);
+                
+        indicePulsanteAttuale=null;
         totHeight=hei;
-        parent=p;
         totWidth=wid;
+        parent=p;
+        
+        this.setBounds(0, 0, (int)wid, (int)hei);
+        this.setLayout(null); 
+         
         lista=new ArrayList<PulsanteData>();
-        this.setLayout(null);
+        
         aggiungi.setBounds(0, 0,(int) wid, (int)(5*hei/100));
         su.setBounds(0, aggiungi.getY()+aggiungi.getHeight(),(int) wid, (int)(10*hei/100));
         giu.setBounds(0, (int)hei-(int)(10*hei/100),(int) wid, (int)(10*hei/100));
+        
         pane=new JPanel();
         pane.setBounds(0, su.getY()+su.getHeight(),(int)totWidth, giu.getY()-(su.getY()+su.getHeight()));
         pane.setOpaque(false);
         pane.setLayout(null);
         this.add(pane);
+        
         this.setVisible(true);
-    }
-    
+    } 
     private void aggiornaUI()
     {
         pane.setVisible(false);
@@ -55,22 +62,39 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
         if(lista!=null && lista.size()>0)
         {
             lista.get(0).getPulsante().setBackground(lista.get(0).getPulsante().getBackground().darker().darker());
-            pulsanteAttuale=lista.get(0);
+            //pulsanteAttuale=lista.get(0);
+            indicePulsanteAttuale=0;
         }
     }
-
-    public static PulsanteData getPulsanteAttuale() {
-        return pulsanteAttuale;
-    }
-    public static void setPulsanteAttualeNull()
+    public boolean settaSelezionatoIesimo(int i)
     {
-        pulsanteAttuale=null;
+        if(lista!=null && lista.size()>i && i>=0)
+        {
+            for(int k=0;k<lista.size();k++)
+            {
+                lista.get(k).getPulsante().setBackground(pane.getBackground());
+            }
+            lista.get(i).getPulsante().setBackground(lista.get(i).getPulsante().getBackground().darker().darker());
+            parent.pressionePulsanteBarra(lista.get(i).getID(),lista.get(i).getData() , false);
+            indicePulsanteAttuale=i;
+            return true;
+        }
+        return false;
     }
-    
+    public Integer getIndicePulsanteAttuale() {
+        return indicePulsanteAttuale;
+    }
+    public void setIndicePulsanteAttuale(Integer indicePulsanteAttuale) {
+        this.indicePulsanteAttuale = indicePulsanteAttuale;
+    }
+    public PulsanteData getPulsanteAttuale()
+    {
+        if(indicePulsanteAttuale!=null && indicePulsanteAttuale<lista.size())
+            return lista.get(indicePulsanteAttuale);
+        return null;
+    }
     public void aggiorna(ArrayList<Date> d)
     {
-        
-        
         lista.clear();
         pane.removeAll();
         aggiornaUI();
@@ -88,8 +112,6 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
         
         for(int i=0;i<numeroEtichette;i++)
         {
-            
-            
             SimpleDateFormat sdf = new SimpleDateFormat(); // creo l'oggetto
             sdf.applyPattern("dd/MM/yyyy");  
             String dataStr = sdf.format(d.get(i)); // data corrente (20 febbraio 2014)
@@ -106,19 +128,8 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
                     if(e.getSource() instanceof JButton && parent!=null)
                     {
                         JButton p=(JButton)e.getSource();
-                        for(int i=0;i<lista.size();i++)
-                        {
-                            lista.get(i).getPulsante().setBackground(pane.getBackground());
-                        }
-                        p.setBackground(pane.getBackground().darker().darker());
                         int press=Integer.parseInt(p.getName());
-                        int idPaz=lista.get(press).getID();
-                        Date data=lista.get(press).getData();
-                        
-                        pulsanteAttuale=lista.get(press);
-                        
-                        parent.pressionePulsanteBarra(idPaz,data,false);
-                        
+                        settaSelezionatoIesimo(press);    
                     }
                 }
             }); 
@@ -156,6 +167,7 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
             }
         });
 
+        su.setBackground(new java.awt.Color(255, 204, 102));
         su.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         su.setText("<html>&uarr;</html>");
         su.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +176,7 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
             }
         });
 
+        giu.setBackground(new java.awt.Color(255, 204, 102));
         giu.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         giu.setText("<html>&darr;</html>");
         giu.addActionListener(new java.awt.event.ActionListener() {
@@ -192,11 +205,13 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void suActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suActionPerformed
-        // TODO add your handling code here:
+        if(indicePulsanteAttuale!=null)
+            settaSelezionatoIesimo(indicePulsanteAttuale-1);
     }//GEN-LAST:event_suActionPerformed
 
     private void giuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giuActionPerformed
-        // TODO add your handling code here:
+        if(indicePulsanteAttuale!=null)
+            settaSelezionatoIesimo(indicePulsanteAttuale+1);
     }//GEN-LAST:event_giuActionPerformed
 
     private void aggiungiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggiungiActionPerformed
