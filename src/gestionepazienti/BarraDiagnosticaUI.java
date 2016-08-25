@@ -1,24 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gestionepazienti;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-/**
- *
- * @author Riccardo
- */
 public class BarraDiagnosticaUI extends javax.swing.JPanel {
 
     private static PulsanteData pulsanteAttuale=null;
@@ -44,15 +39,12 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
         giu.setBounds(0, (int)hei-(int)(10*hei/100),(int) wid, (int)(10*hei/100));
         pane=new JPanel();
         pane.setBounds(0, su.getY()+su.getHeight(),(int)totWidth, giu.getY()-(su.getY()+su.getHeight()));
+        pane.setOpaque(false);
         pane.setLayout(null);
         this.add(pane);
         this.setVisible(true);
     }
-    public void settaColori(Color bg)
-    {
-        this.setBackground(bg);
-        pane.setBackground(bg);
-    }
+    
     private void aggiornaUI()
     {
         pane.setVisible(false);
@@ -151,11 +143,18 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
         giu = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 51));
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(50, 383));
 
+        aggiungi.setBackground(new java.awt.Color(102, 255, 51));
         aggiungi.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         aggiungi.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         aggiungi.setLabel("<html>+</html>");
+        aggiungi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aggiungiActionPerformed(evt);
+            }
+        });
 
         su.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         su.setText("<html>&uarr;</html>");
@@ -199,6 +198,24 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
     private void giuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_giuActionPerformed
+
+    private void aggiungiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggiungiActionPerformed
+        if(Pazienti.getCurrID()==null)
+            return;
+        int reply = JOptionPane.showConfirmDialog(null,"VUOI INSERIRE UNA NUOVA DIAGNOSI?", "Conferma nuova diagnosi", JOptionPane.YES_NO_OPTION);
+        if(reply==JOptionPane.NO_OPTION)
+            return;      
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Diagnosi_Paziente(Data_Diagnosi,ID_Paziente) VALUES (?,?)");
+            pst.setDate(1, Utilita.DateUtilToSQL(Utilita.removeTime(new java.util.Date(System.currentTimeMillis()))));
+            pst.setInt(2,Pazienti.getCurrID());
+            pst.executeUpdate();
+            parent.datiDiagnosi(Pazienti.getCurrID());
+        } catch (SQLException ex) {
+            Logger.getLogger(BarraDiagnosticaUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Esiste già una diagnosi con la data odierna");
+        }
+    }//GEN-LAST:event_aggiungiActionPerformed
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aggiungi;
