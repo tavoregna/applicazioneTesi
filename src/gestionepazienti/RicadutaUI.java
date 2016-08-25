@@ -14,12 +14,18 @@ import java.awt.Color;
 public class RicadutaUI extends javax.swing.JPanel {
     
     private PazienteUI parent;
+    private ControlloAmbulatorialeStandardUI standard;
+    private TerapiaPrincipaleUI terPrincipale;
     /**
      * Creates new form Ricaduta
      */
     public RicadutaUI(PazienteUI p) {
         initComponents();
         parent=p;
+        standard=new ControlloAmbulatorialeStandardUI(parent);
+        terPrincipale=new TerapiaPrincipaleUI(parent, 2);
+        panelStandard.add(standard);
+        panelTerPrincipale.add(terPrincipale);
         ricadTerap.setVisible(false);
     }
 
@@ -32,7 +38,7 @@ public class RicadutaUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        standard = new javax.swing.JPanel();
+        panelStandard = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         ricaduta = new javax.swing.JComboBox<>();
         ricadTerap = new javax.swing.JPanel();
@@ -41,21 +47,21 @@ public class RicadutaUI extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         note = new javax.swing.JTextArea();
-        terapiaPrinc = new javax.swing.JPanel();
+        panelTerPrincipale = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 242, 0));
 
-        standard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelStandard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout standardLayout = new javax.swing.GroupLayout(standard);
-        standard.setLayout(standardLayout);
-        standardLayout.setHorizontalGroup(
-            standardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelStandardLayout = new javax.swing.GroupLayout(panelStandard);
+        panelStandard.setLayout(panelStandardLayout);
+        panelStandardLayout.setHorizontalGroup(
+            panelStandardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 579, Short.MAX_VALUE)
         );
-        standardLayout.setVerticalGroup(
-            standardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelStandardLayout.setVerticalGroup(
+            panelStandardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 375, Short.MAX_VALUE)
         );
 
@@ -111,17 +117,17 @@ public class RicadutaUI extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        terapiaPrinc.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        terapiaPrinc.setOpaque(false);
+        panelTerPrincipale.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelTerPrincipale.setOpaque(false);
 
-        javax.swing.GroupLayout terapiaPrincLayout = new javax.swing.GroupLayout(terapiaPrinc);
-        terapiaPrinc.setLayout(terapiaPrincLayout);
-        terapiaPrincLayout.setHorizontalGroup(
-            terapiaPrincLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelTerPrincipaleLayout = new javax.swing.GroupLayout(panelTerPrincipale);
+        panelTerPrincipale.setLayout(panelTerPrincipaleLayout);
+        panelTerPrincipaleLayout.setHorizontalGroup(
+            panelTerPrincipaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        terapiaPrincLayout.setVerticalGroup(
-            terapiaPrincLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelTerPrincipaleLayout.setVerticalGroup(
+            panelTerPrincipaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
@@ -138,8 +144,8 @@ public class RicadutaUI extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(terapiaPrinc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(standard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panelTerPrincipale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelStandard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -160,11 +166,11 @@ public class RicadutaUI extends javax.swing.JPanel {
                             .addComponent(ricaduta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(ricadTerap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(standard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelStandard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(terapiaPrinc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelTerPrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -192,9 +198,9 @@ public class RicadutaUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea note;
+    private javax.swing.JPanel panelStandard;
+    private javax.swing.JPanel panelTerPrincipale;
     private javax.swing.JPanel ricadTerap;
     private javax.swing.JComboBox<String> ricaduta;
-    private javax.swing.JPanel standard;
-    private javax.swing.JPanel terapiaPrinc;
     // End of variables declaration//GEN-END:variables
 }

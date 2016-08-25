@@ -12,12 +12,18 @@ package gestionepazienti;
 public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
     
     private PazienteUI parent;
+    private ControlloAmbulatorialeStandardUI standard;
+    private TerapiaPrincipaleUI terPrincipale;
     /**
      * Creates new form AmbulatorioOrdinario
      */
     public AmbulatorioOrdinarioUI(PazienteUI p) {
         initComponents();
         parent=p;
+        standard=new ControlloAmbulatorialeStandardUI(parent);
+        terPrincipale=new TerapiaPrincipaleUI(parent, 1);
+        panelStandard.add(standard);
+        panelTerPrincipale.add(terPrincipale);
     }
 
     /**
@@ -30,38 +36,38 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
     private void initComponents() {
 
         gruppoTeraPrinc = new javax.swing.ButtonGroup();
-        standard = new javax.swing.JPanel();
+        panelStandard = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        terPrincipale = new javax.swing.JPanel();
+        panelTerPrincipale = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(181, 230, 29));
-        setPreferredSize(new java.awt.Dimension(0, 413));
+        setPreferredSize(new java.awt.Dimension(701, 510));
 
-        javax.swing.GroupLayout standardLayout = new javax.swing.GroupLayout(standard);
-        standard.setLayout(standardLayout);
-        standardLayout.setHorizontalGroup(
-            standardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelStandardLayout = new javax.swing.GroupLayout(panelStandard);
+        panelStandard.setLayout(panelStandardLayout);
+        panelStandardLayout.setHorizontalGroup(
+            panelStandardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 681, Short.MAX_VALUE)
         );
-        standardLayout.setVerticalGroup(
-            standardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelStandardLayout.setVerticalGroup(
+            panelStandardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 341, Short.MAX_VALUE)
         );
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Terapia Principale:");
 
-        terPrincipale.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        terPrincipale.setOpaque(false);
+        panelTerPrincipale.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelTerPrincipale.setOpaque(false);
 
-        javax.swing.GroupLayout terPrincipaleLayout = new javax.swing.GroupLayout(terPrincipale);
-        terPrincipale.setLayout(terPrincipaleLayout);
-        terPrincipaleLayout.setHorizontalGroup(
-            terPrincipaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelTerPrincipaleLayout = new javax.swing.GroupLayout(panelTerPrincipale);
+        panelTerPrincipale.setLayout(panelTerPrincipaleLayout);
+        panelTerPrincipaleLayout.setHorizontalGroup(
+            panelTerPrincipaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 529, Short.MAX_VALUE)
         );
-        terPrincipaleLayout.setVerticalGroup(
-            terPrincipaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelTerPrincipaleLayout.setVerticalGroup(
+            panelTerPrincipaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 135, Short.MAX_VALUE)
         );
 
@@ -72,27 +78,26 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(standard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelStandard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(terPrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panelTerPrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(standard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelStandard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(terPrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panelTerPrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -100,7 +105,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup gruppoTeraPrinc;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel standard;
-    private javax.swing.JPanel terPrincipale;
+    private javax.swing.JPanel panelStandard;
+    private javax.swing.JPanel panelTerPrincipale;
     // End of variables declaration//GEN-END:variables
 }

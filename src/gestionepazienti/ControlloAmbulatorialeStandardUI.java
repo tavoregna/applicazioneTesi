@@ -11,11 +11,13 @@ package gestionepazienti;
  */
 public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
 
+    private PazienteUI parent;
     /**
      * Creates new form ControlloAmbulatorialeStandard
      */
-    public ControlloAmbulatorialeStandardUI() {
+    public ControlloAmbulatorialeStandardUI(PazienteUI p) {
         initComponents();
+        parent=p;
     }
 
     /**
