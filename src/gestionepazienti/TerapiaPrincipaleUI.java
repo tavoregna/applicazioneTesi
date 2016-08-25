@@ -20,7 +20,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         {
             jRadioButton2.setVisible(false);
         }
-        aggiornaDatiTerap(Pazienti.getCurrID(),dataControllo);
+//        aggiornaDatiTerap(Pazienti.getCurrID(),dataControllo);
         this.setVisible(true);
     }
 

@@ -32,7 +32,7 @@ public class PazienteUI extends javax.swing.JFrame {
         pannelloDiagnostica.setVisible(false);
         AggiornaCampoDiagnosi();
                 
-        ambulatorio=new AmbulatorioOrdinarioUI(this);
+        ambulatorio=new AmbulatorioOrdinarioUI(this,new java.util.Date());
         panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
         panelControlloAmb.add(ambulatorio);
              
