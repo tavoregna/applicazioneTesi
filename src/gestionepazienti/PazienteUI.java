@@ -2345,6 +2345,50 @@ public class PazienteUI extends javax.swing.JFrame {
         else
             pannelloDiagnostica.setVisible(false);
     }
+    public void pressionePulsanteBarra(int idPaz,Date data,boolean first)
+    {
+        try{
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Diagnosi_Paziente WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setDate(1, data);
+            pst.setInt(2, idPaz);
+            ResultSet rs=pst.executeQuery();
+            if(rs.next())
+            {
+               
+                diagnosi.setSelectedItem(rs.getString("Diagnosi"));
+                dataDiagnosi.setDate(data);
+                ospedale.setText(rs.getString("Ospedale"));
+                controllo.setText(rs.getString("EON"));
+                caratteristicheCliniche.setSelectedItem(rs.getString("Caratteristiche_Cliniche"));
+                dataRMN.setDate(rs.getDate("Data_RMN"));
+                //MANCA RMN!!!!
+                dataPL.setDate(rs.getDate("Data_PL"));
+                iggIndex.setText(rs.getString("IgG_Index"));
+                iggLOC.setText(rs.getString("IgG_Loc"));
+                iggIF.setText(rs.getString("IgG_IF"));
+                boigg1.setSelectedItem(rs.getString("BoIgG"));
+                dataPEV.setDate(rs.getDate("Data_PEV"));
+                pev.setText(rs.getString("PEV"));
+                odPEV.setSelectedItem(rs.getString("OD"));
+                osPEV.setSelectedItem(rs.getString("OS"));
+                dataOCT.setDate(rs.getDate("Data_OCT"));
+                oct.setText(rs.getString("OCT"));
+                dataNPSI.setDate(rs.getDate("Data_NPSI"));
+                npsi.setText(rs.getString("NPSI"));
+                varie.setText(rs.getString("Varie"));
+                if(first)
+                {
+                    dataDiagno.setDate(data);
+                    formaClnAtt.setSelectedItem(rs.getString("Diagnosi"));
+                    
+                }
+            }
+        }
+        catch(Exception ex)
+        {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public void aggiornaTerapie(int id)
     {
         dataInizioTerapia.setText("");
@@ -2498,49 +2542,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 varie.setText(null);
     }
     
-   public void pressionePulsanteBarra(int idPaz,Date data,boolean first)
-    {
-        try{
-            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Diagnosi_Paziente WHERE Data_Diagnosi=? AND ID_Paziente=?");
-            pst.setDate(1, data);
-            pst.setInt(2, idPaz);
-            ResultSet rs=pst.executeQuery();
-            if(rs.next())
-            {
-                diagnosi.setSelectedItem(rs.getString("Diagnosi"));
-                dataDiagnosi.setDate(data);
-                ospedale.setText(rs.getString("Ospedale"));
-                controllo.setText(rs.getString("EON"));
-                caratteristicheCliniche.setSelectedItem(rs.getString("Caratteristiche_Cliniche"));
-                dataRMN.setDate(rs.getDate("Data_RMN"));
-                //MANCA RMN!!!!
-                dataPL.setDate(rs.getDate("Data_PL"));
-                iggIndex.setText(rs.getString("IgG_Index"));
-                iggLOC.setText(rs.getString("IgG_Loc"));
-                iggIF.setText(rs.getString("IgG_IF"));
-                boigg1.setSelectedItem(rs.getString("BoIgG"));
-                dataPEV.setDate(rs.getDate("Data_PEV"));
-                pev.setText(rs.getString("PEV"));
-                odPEV.setSelectedItem(rs.getString("OD"));
-                osPEV.setSelectedItem(rs.getString("OS"));
-                dataOCT.setDate(rs.getDate("Data_OCT"));
-                oct.setText(rs.getString("OCT"));
-                dataNPSI.setDate(rs.getDate("Data_NPSI"));
-                npsi.setText(rs.getString("NPSI"));
-                varie.setText(rs.getString("Varie"));
-                if(first)
-                {
-                    dataDiagno.setDate(data);
-                    formaClnAtt.setSelectedItem(rs.getString("Diagnosi"));
-                    
-                }
-            }
-        }
-        catch(Exception ex)
-        {
-            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+   
     /**
      * @param args the command line arguments
      */

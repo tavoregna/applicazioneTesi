@@ -211,6 +211,7 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
             pst.setInt(2,Pazienti.getCurrID());
             pst.executeUpdate();
             parent.datiDiagnosi(Pazienti.getCurrID());
+            settaPrimoSelezionato();
         } catch (SQLException ex) {
             Logger.getLogger(BarraDiagnosticaUI.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Esiste già una diagnosi con la data odierna");
