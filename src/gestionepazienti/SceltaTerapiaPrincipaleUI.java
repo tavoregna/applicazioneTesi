@@ -18,6 +18,7 @@ public class SceltaTerapiaPrincipaleUI extends javax.swing.JFrame {
     public SceltaTerapiaPrincipaleUI(PazienteUI p) {
         initComponents();
         parent=p;
+        this.setVisible(true);
     }
 
     /**

@@ -5,22 +5,24 @@
  */
 package gestionepazienti;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author Utente
  */
 public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     private PazienteUI parent;
-    private int tipoControllo;
+    private AmbulatorioOrdinarioUI parentPanel;
     /**
      * Creates new form TerapiaPrincipale
      */
-    public TerapiaPrincipaleUI(PazienteUI p,int controllo) {
+    public TerapiaPrincipaleUI(PazienteUI p,AmbulatorioOrdinarioUI amb) {
         initComponents();
         unvisibleAll();
         parent=p;
-        tipoControllo=controllo;
-        if(controllo==2)
+        parentPanel=amb;
+        if(parentPanel==null)
         {
             jRadioButton2.setVisible(false);
         }
@@ -84,11 +86,9 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         });
 
         terapie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        terapie.setEnabled(false);
 
         buttonTer2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonTer2.setText(">");
-        buttonTer2.setEnabled(false);
         buttonTer2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonTer2ActionPerformed(evt);
@@ -97,7 +97,6 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
 
         buttonTer3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonTer3.setText(">");
-        buttonTer3.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -123,18 +122,18 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton2)
                     .addComponent(buttonTer2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton3)
                     .addComponent(terapie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonTer3))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -142,6 +141,10 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         // TODO add your handling code here:
         unvisibleAll();
         buttonTer2.setVisible(true);
+        if(parentPanel!=null)
+        {
+            parentPanel.coloreAmbulatoriOrdinari(2);
+        }
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
@@ -149,11 +152,19 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         unvisibleAll();
         buttonTer3.setVisible(true);
         terapie.setVisible(true);
+        if(parentPanel!=null)
+        {
+            parentPanel.coloreAmbulatoriOrdinari(3);
+        }
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
         unvisibleAll();
+        if(parentPanel!=null)
+        {
+            parentPanel.coloreAmbulatoriOrdinari(1);
+        }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void buttonTer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer2ActionPerformed

@@ -17,11 +17,9 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
     /**
      * Creates new form ControlloAmbulatorialeStandard
      */
-    public ControlloAmbulatorialeStandardUI(PazienteUI p,int wid,int hei) {
+    public ControlloAmbulatorialeStandardUI(PazienteUI p) {
         initComponents();
         parent=p;
-        this.setBounds(0, 0, wid, hei);
-        this.setBackground(Color.red);
         this.setVisible(true);
     }
 

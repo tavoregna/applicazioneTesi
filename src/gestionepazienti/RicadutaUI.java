@@ -6,6 +6,7 @@
 package gestionepazienti;
 
 import java.awt.Color;
+import javax.swing.BoxLayout;
 
 /**
  *
@@ -22,8 +23,10 @@ public class RicadutaUI extends javax.swing.JPanel {
     public RicadutaUI(PazienteUI p) {
         initComponents();
         parent=p;
-        standard=new ControlloAmbulatorialeStandardUI(parent,panelStandard.getWidth(),panelStandard.getHeight());
-        terPrincipale=new TerapiaPrincipaleUI(parent, 2);
+        standard=new ControlloAmbulatorialeStandardUI(parent);
+        terPrincipale=new TerapiaPrincipaleUI(parent, null);
+        panelStandard.setLayout(new BoxLayout(panelStandard, BoxLayout.LINE_AXIS));
+        panelTerPrincipale.setLayout(new BoxLayout(panelTerPrincipale, BoxLayout.LINE_AXIS));
         panelStandard.add(standard);
         panelTerPrincipale.add(terPrincipale);
         ricadTerap.setVisible(false);
