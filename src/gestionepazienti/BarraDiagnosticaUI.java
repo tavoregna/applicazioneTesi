@@ -156,6 +156,7 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
             }
         });
 
+        su.setBackground(new java.awt.Color(255, 204, 102));
         su.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         su.setText("<html>&uarr;</html>");
         su.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +165,7 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
             }
         });
 
+        giu.setBackground(new java.awt.Color(255, 204, 102));
         giu.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         giu.setText("<html>&darr;</html>");
         giu.addActionListener(new java.awt.event.ActionListener() {
