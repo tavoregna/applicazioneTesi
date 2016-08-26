@@ -7,12 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 
 public class PazienteUI extends javax.swing.JFrame {
@@ -258,7 +255,7 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        trovaPaziente = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         terapiePregresse = new javax.swing.JTextArea();
@@ -520,15 +517,38 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel74.setText("BoIgG:");
 
         boigg1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negarivo" }));
+        boigg1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boigg1ActionPerformed(evt);
+            }
+        });
 
         jLabel79.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel79.setText("IgG IF:");
 
+        iggIF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                iggIFKeyReleased(evt);
+            }
+        });
+
         jLabel80.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel80.setText("IgG Loc:");
 
+        iggLOC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                iggLOCKeyReleased(evt);
+            }
+        });
+
         jLabel81.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel81.setText("IgG Index:");
+
+        iggIndex.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                iggIndexKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelPLLayout = new javax.swing.GroupLayout(jPanelPL);
         jPanelPL.setLayout(jPanelPLLayout);
@@ -623,6 +643,12 @@ public class PazienteUI extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(239, 228, 176));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        dataPEV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataPEVActionPerformed(evt);
+            }
+        });
+
         jPanel2.setBackground(new java.awt.Color(255, 233, 157));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -633,11 +659,26 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel86.setText("OS:");
 
         odPEV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normale", "Ritardo conduzione", "Ridotta ampiezza", "Rit. conduz. + Rid. ampiezza" }));
+        odPEV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                odPEVActionPerformed(evt);
+            }
+        });
 
         osPEV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normale", "Ritardo conduzione", "Ridotta ampiezza", "Rit. conduz. + Rid. ampiezza" }));
+        osPEV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                osPEVActionPerformed(evt);
+            }
+        });
 
         pev.setColumns(1);
         pev.setRows(1);
+        pev.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                pevKeyReleased(evt);
+            }
+        });
         jScrollPane12.setViewportView(pev);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -717,6 +758,11 @@ public class PazienteUI extends javax.swing.JFrame {
 
         npsi.setColumns(1);
         npsi.setRows(1);
+        npsi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                npsiKeyReleased(evt);
+            }
+        });
         jScrollPane9.setViewportView(npsi);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -760,6 +806,11 @@ public class PazienteUI extends javax.swing.JFrame {
 
         varie.setColumns(1);
         varie.setRows(1);
+        varie.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                varieKeyReleased(evt);
+            }
+        });
         jScrollPane10.setViewportView(varie);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -889,6 +940,11 @@ public class PazienteUI extends javax.swing.JFrame {
 
         oct.setColumns(1);
         oct.setRows(1);
+        oct.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                octKeyReleased(evt);
+            }
+        });
         jScrollPane8.setViewportView(oct);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -928,7 +984,7 @@ public class PazienteUI extends javax.swing.JFrame {
         });
 
         jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel22.setText("EON::");
+        jLabel22.setText("EON:");
 
         javax.swing.GroupLayout pannelloDiagnosticaLayout = new javax.swing.GroupLayout(pannelloDiagnostica);
         pannelloDiagnostica.setLayout(pannelloDiagnosticaLayout);
@@ -1719,11 +1775,11 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Nome:");
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setText("Trova paziente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        trovaPaziente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        trovaPaziente.setText("Trova paziente");
+        trovaPaziente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                trovaPazienteActionPerformed(evt);
             }
         });
 
@@ -1850,7 +1906,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)
+                        .addComponent(trovaPaziente)
                         .addGap(18, 18, 18)
                         .addComponent(indietro)
                         .addGap(18, 18, 18)
@@ -1946,7 +2002,7 @@ public class PazienteUI extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(indietro)
                             .addComponent(avanti)
-                            .addComponent(jButton1)
+                            .addComponent(trovaPaziente)
                             .addComponent(buttonMod)
                             .addComponent(buttonAdd)
                             .addComponent(jLabel1))
@@ -2049,10 +2105,10 @@ public class PazienteUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_avantiActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void trovaPazienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trovaPazienteActionPerformed
         this.setVisible(false);
         new CercaPazienteUI(this);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_trovaPazienteActionPerformed
 
     private void gestioneTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestioneTelActionPerformed
         if(Pazienti.getCurrID()!=null)
@@ -2189,7 +2245,7 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_pulsanteTerapieActionPerformed
 
     private void diagnosiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosiActionPerformed
-        if(Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null)
+        if(!barra.isComboBoxDiagnosiAttiva() || Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null)
                 return;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Diagnosi=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
@@ -2197,6 +2253,8 @@ public class PazienteUI extends javax.swing.JFrame {
             pst.setDate(2, barra.getPulsanteAttuale().getData());
             pst.setInt(3,barra.getPulsanteAttuale().getID());
             pst.executeUpdate();
+            if(barra.getIndicePulsanteAttuale()==0)
+                formaClnAtt.setSelectedItem(diagnosi.getSelectedItem());
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
@@ -2212,19 +2270,79 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_caratteristicheClinicheActionPerformed
 
     private void dataRMNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRMNActionPerformed
-        // TODO add your handling code here:
+        if(!barra.isComboBoxDiagnosiAttiva() || Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Data_RMN=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            Date d=Utilita.DateUtilToSQL(dataRMN.getDate());
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+                pst.setDate(1, d);
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
     }//GEN-LAST:event_dataRMNActionPerformed
 
     private void dataPLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPLActionPerformed
-        // TODO add your handling code here:
+        if(!barra.isComboBoxDiagnosiAttiva() || Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Data_PL=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            Date d=Utilita.DateUtilToSQL(dataPL.getDate());
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+                pst.setDate(1, d);
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
     }//GEN-LAST:event_dataPLActionPerformed
 
     private void dataOCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataOCTActionPerformed
-        // TODO add your handling code here:
+        if(!barra.isComboBoxDiagnosiAttiva() || Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Data_OCT=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            Date d=Utilita.DateUtilToSQL(dataOCT.getDate());
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+                pst.setDate(1, d);
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
     }//GEN-LAST:event_dataOCTActionPerformed
 
     private void dataNPSIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNPSIActionPerformed
-        // TODO add your handling code here:
+        if(!barra.isComboBoxDiagnosiAttiva() || Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Data_NPSI=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            Date d=Utilita.DateUtilToSQL(dataNPSI.getDate());
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+                pst.setDate(1, d);
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
     }//GEN-LAST:event_dataNPSIActionPerformed
 
     private void nomeContrAmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeContrAmbActionPerformed
@@ -2286,6 +2404,181 @@ public class PazienteUI extends javax.swing.JFrame {
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_controlloKeyReleased
+
+    private void dataPEVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPEVActionPerformed
+       if(!barra.isComboBoxDiagnosiAttiva() || Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Data_PEV=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            Date d=Utilita.DateUtilToSQL(dataPEV.getDate());
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+                pst.setDate(1, d);
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_dataPEVActionPerformed
+
+    private void iggIndexKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_iggIndexKeyReleased
+        if(Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null || iggIndex.getText()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET IgG_Index=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,iggIndex.getText());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_iggIndexKeyReleased
+
+    private void iggLOCKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_iggLOCKeyReleased
+        if(Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null || iggLOC.getText()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET IgG_Loc=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,iggLOC.getText());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_iggLOCKeyReleased
+
+    private void iggIFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_iggIFKeyReleased
+        if(Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null || iggIF.getText()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET IgG_IF=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,iggIF.getText());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_iggIFKeyReleased
+
+    private void pevKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pevKeyReleased
+        if(Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null || pev.getText()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET PEV=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,pev.getText());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_pevKeyReleased
+
+    private void octKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_octKeyReleased
+        if(Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null || oct.getText()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET OCT=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,oct.getText());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_octKeyReleased
+
+    private void npsiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_npsiKeyReleased
+        if(Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null || npsi.getText()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET NPSI=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,npsi.getText());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_npsiKeyReleased
+
+    private void varieKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_varieKeyReleased
+        if(Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null || varie.getText()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Varie=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,varie.getText());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_varieKeyReleased
+
+    private void odPEVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_odPEVActionPerformed
+        if(!barra.isComboBoxDiagnosiAttiva() || Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET OD=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,(String)odPEV.getSelectedItem());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+            if(barra.getIndicePulsanteAttuale()==0)
+                formaClnAtt.setSelectedItem(diagnosi.getSelectedItem());
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_odPEVActionPerformed
+
+    private void osPEVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osPEVActionPerformed
+        if(!barra.isComboBoxDiagnosiAttiva() || Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET OS=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,(String)osPEV.getSelectedItem());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+            if(barra.getIndicePulsanteAttuale()==0)
+                formaClnAtt.setSelectedItem(diagnosi.getSelectedItem());
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_osPEVActionPerformed
+
+    private void boigg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boigg1ActionPerformed
+        if(!barra.isComboBoxDiagnosiAttiva() || Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET BoIgG=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,(String)boigg1.getSelectedItem());
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+            if(barra.getIndicePulsanteAttuale()==0)
+                formaClnAtt.setSelectedItem(diagnosi.getSelectedItem());
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_boigg1ActionPerformed
     //barra con i nomi delle diagnosi
     private void AggiornaCampoDiagnosi()
     {
@@ -2365,6 +2658,7 @@ public class PazienteUI extends javax.swing.JFrame {
     }
     public void pressionePulsanteBarra(int idPaz,Date data,boolean first)
     {
+        barra.setComboBoxDiagnosiAttiva(false);
         try{
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Diagnosi_Paziente WHERE Data_Diagnosi=? AND ID_Paziente=?");
             pst.setDate(1, data);
@@ -2406,6 +2700,7 @@ public class PazienteUI extends javax.swing.JFrame {
         {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+        barra.setComboBoxDiagnosiAttiva(true);
     }
     public void aggiornaTerapie(int id)
     {
@@ -2533,7 +2828,7 @@ public class PazienteUI extends javax.swing.JFrame {
     
     private void azzeraCampiDiagnosi()
     {
-                
+                barra.setComboBoxDiagnosiAttiva(false);
                 dataDiagno.setDate(null);
                 formaClnAtt.setSelectedItem(null);
                 jTabbedPane1.setTitleAt(1, "Diagnostica");
@@ -2558,13 +2853,14 @@ public class PazienteUI extends javax.swing.JFrame {
                 dataNPSI.setDate(null);
                 npsi.setText(null);
                 varie.setText(null);
+                barra.setComboBoxDiagnosiAttiva(true);
     }
     
    
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) throws Exception {
+    public static void main(String args[]){
         GestioneDatabase.connessione();
         //UIManager.setLookAndFeel("javax.swing.plaf.mac.MacLookAndFeel");
         new PazienteUI().setVisible(true);
@@ -2634,7 +2930,6 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JPanel immunu;
     private javax.swing.JButton indietro;
     private javax.swing.JTextField indirizzo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
@@ -2808,6 +3103,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextArea terapiePregresse;
     private javax.swing.JComboBox<String> tipoContol;
     private javax.swing.JComboBox<String> tipoControllo;
+    private javax.swing.JButton trovaPaziente;
     private javax.swing.JTextArea varie;
     // End of variables declaration//GEN-END:variables
 }

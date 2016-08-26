@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +17,7 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
 
     private Integer indicePulsanteAttuale;
     
+    private boolean comboBoxDiagnosiAttiva;
     
     private ArrayList<PulsanteData> lista;
     
@@ -29,7 +29,7 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
     public BarraDiagnosticaUI(PazienteUI p,double hei,double wid) {
         
         initComponents();
-                
+             comboBoxDiagnosiAttiva=true;   
         indicePulsanteAttuale=null;
         totHeight=hei;
         totWidth=wid;
@@ -112,9 +112,7 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
         
         for(int i=0;i<numeroEtichette;i++)
         {
-            SimpleDateFormat sdf = new SimpleDateFormat(); // creo l'oggetto
-            sdf.applyPattern("dd/MM/yyyy");  
-            String dataStr = sdf.format(d.get(i)); // data corrente (20 febbraio 2014)
+            String dataStr = Utilita.dataToString(d.get(i));
   
             JButton but=new JButton(Utilita.verticalizza(dataStr));
             but.setBounds(0, i*alt+initialY, larghezza, alt);
@@ -232,6 +230,14 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
             Utilita.mostraMessaggioErrore("Esiste già una diagnosi con la data odierna");
         }
     }//GEN-LAST:event_aggiungiActionPerformed
+
+    public boolean isComboBoxDiagnosiAttiva() {
+        return comboBoxDiagnosiAttiva;
+    }
+
+    public void setComboBoxDiagnosiAttiva(boolean comboBoxDiagnosiAttiva) {
+        this.comboBoxDiagnosiAttiva = comboBoxDiagnosiAttiva;
+    }
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aggiungi;
