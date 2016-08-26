@@ -2262,7 +2262,30 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_diagnosiActionPerformed
 
     private void dataDiagnosiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDiagnosiActionPerformed
-        // TODO add your handling code here:
+        if(!barra.isComboBoxDiagnosiAttiva() || Pazienti.getCurrID()==null || barra.getIndicePulsanteAttuale()==null)
+                return;
+        Date d=Utilita.DateUtilToSQL(dataDiagnosi.getDate());
+        if(d==null)
+        {
+            Utilita.mostraMessaggioErrore("Inserire una data valida");
+            dataDiagnosi.setDate(barra.getPulsanteAttuale().getData());
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Data_Diagnosi=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setDate(1, d);
+            pst.setDate(2, barra.getPulsanteAttuale().getData());
+            pst.setInt(3,barra.getPulsanteAttuale().getID());
+            pst.executeUpdate();
+            int id=barra.getPulsanteAttuale().getID();
+            datiDiagnosi(id);
+            barra.settaSelezionatoPerData(d);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);   
+            Utilita.mostraMessaggioErrore("C'è già una diagnosi in questa data");
+            dataDiagnosi.setDate(barra.getPulsanteAttuale().getData());
+        }
     }//GEN-LAST:event_dataDiagnosiActionPerformed
 
     private void caratteristicheClinicheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caratteristicheClinicheActionPerformed

@@ -81,6 +81,19 @@ public class BarraDiagnosticaUI extends javax.swing.JPanel {
         }
         return false;
     }
+    public void settaSelezionatoPerData(Date data)
+    {
+       if(data==null)
+           return;
+       for(int i=0;i<lista.size();i++)
+       {
+           if(lista.get(i).getData().equals(data))
+           {
+               settaSelezionatoIesimo(i);
+               return;
+           }
+       }
+    }
     public Integer getIndicePulsanteAttuale() {
         return indicePulsanteAttuale;
     }
