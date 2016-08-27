@@ -20,6 +20,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private BarraDiagnosticaUI barra;
     private AmbulatorioOrdinarioUI ambulatorio;
     private RicadutaUI ricaduta;
+    private BarraControlli barraControlli;
     
     public PazienteUI() {
         initComponents();
@@ -33,6 +34,8 @@ public class PazienteUI extends javax.swing.JFrame {
         pannelloDiagnostica.setVisible(false);
         AggiornaCampoDiagnosi();
 
+        barraControlli=new BarraControlli(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
+        pannelloBarra.add(barraControlli);
         this.setVisible(true);
     }
 
@@ -1096,7 +1099,7 @@ public class PazienteUI extends javax.swing.JFrame {
                         .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(pannelloDiagnostica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(212, 316, Short.MAX_VALUE))
+                .addGap(212, 346, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Diagnostica", diagnostica);
@@ -1245,7 +1248,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 .addComponent(panelContolloScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pannelloBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Controlli ambulatoriali", controlliAmb);

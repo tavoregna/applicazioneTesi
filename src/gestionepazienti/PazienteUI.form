@@ -389,7 +389,7 @@
                               <Component id="pannelloDiagnostica" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="212" pref="316" max="32767" attributes="0"/>
+                      <EmptySpace min="212" pref="346" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1531,7 +1531,7 @@
                       <Component id="panelContolloScroll" min="-2" pref="387" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pannelloBarra" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="236" max="32767" attributes="0"/>
+                      <EmptySpace pref="266" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

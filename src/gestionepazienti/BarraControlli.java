@@ -19,12 +19,21 @@ import javax.swing.JButton;
  */
 public class BarraControlli extends javax.swing.JPanel {
 
-    /**
-     * Creates new form BarraControlli
-     */
-    public BarraControlli() {
+    private double totHeight;
+    private double totWidth;
+    private PazienteUI parent;
+    
+    public BarraControlli(PazienteUI p,double hei,double wid) {
         initComponents();
+       
+        totHeight=hei;
+        totWidth=wid;
+        parent=p;
+        
+        this.setBounds(0, 0, (int)wid, (int)hei);
+        //this.setLayout(null); 
         pannello.setLayout(new FlowLayout());
+        
         aggiornaBarra(1);
     }
     
