@@ -26,8 +26,10 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         if(parentPanel==null)
         {
             jRadioButton2.setVisible(false);
+            aggiornaDatiTerap(idControllo,2);
         }
-        aggiornaDatiTerap(idControllo);
+        else
+            aggiornaDatiTerap(idControllo,1);
         this.setVisible(true);
     }
 
@@ -38,37 +40,41 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         terapie.setVisible(false);
     }
     
-    public void aggiornaDatiTerap(int id)
+    public void aggiornaDatiTerap(int idControllo,int i) //i=1 ordinario; i=2 ricaduta
     {
-        if(id==-1)
+        if(idControllo==-1)
         {
             return;
         }
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Ambulatorio_Ordinario WHERE ID_Controllo=?");
-            pst.setInt(1,id);
-            ResultSet rs=pst.executeQuery();
-            if(rs.next())
+            if(i==1)
             {
-                if(rs.getInt("Terapia_Principale")==1)
+                PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Ambulatorio_Ordinario WHERE Controllo_Standard=?");
+                pst.setInt(1,idControllo);
+                ResultSet rs=pst.executeQuery();
+                if(rs.next())
                 {
-                    jRadioButton1.setSelected(true);
-                }
-                else
-                {
-                    if(rs.getInt("Terapia_Principale")==2)
+                    if(rs.getInt("Terapia_Principale")==1)
                     {
-                        jRadioButton2.setSelected(true);
-                        /*dataAvvioTerapia=rs.getDate("Data_Avvio_Terapia");
-                        terapia_2=rs.getString("Terapia_2");*/
+                        jRadioButton1.setSelected(true);
                     }
                     else
                     {
-                        jRadioButton3.setSelected(true);
-                        terapie.setSelectedItem(rs.getString("Terapia_3"));
-                    }
+                        if(rs.getInt("Terapia_Principale")==2)
+                        {
+                            jRadioButton2.setSelected(true);
+                            buttonTer2.setVisible(true);
+                            dataAvvioTerapia=rs.getDate("Data_Avvio_Terapia");
+                            terapia_2=rs.getString("Terapia_2");
+                        }
+                        else
+                        {
+                            jRadioButton3.setSelected(true);
+                            terapie.setSelectedItem(rs.getString("Terapia_3"));
+                            buttonTer3.setVisible(true);
+                        }
+                    }   
                 }
-                
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -204,7 +210,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     private void buttonTer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer2ActionPerformed
         
         parent.setVisible(false);
-        new SceltaTerapiaPrincipaleUI(parent,idControllo);
+        new SceltaTerapiaPrincipaleUI(parent,idControllo,dataAvvioTerapia,terapia_2);
         
     }//GEN-LAST:event_buttonTer2ActionPerformed
 

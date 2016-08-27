@@ -35,7 +35,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
             ResultSet rs=pst.executeQuery();
             if(rs.next())
             {
-                
+                // non sono ancora presenti nel db i campi corrispondenti
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
