@@ -31,27 +31,20 @@ public class BarraControlli extends javax.swing.JPanel {
         parent=p;
         
         this.setBounds(0, 0, (int)wid, (int)hei);
-        //this.setLayout(null); 
-        pannello.setLayout(new FlowLayout());
-        
-        aggiornaBarra(1);
+        pannello.setLayout(new FlowLayout(FlowLayout.LEADING));
     }
     
     public void aggiornaBarra(int id)
     {
         pannello.removeAll();
         try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Controllo_Standard WHERE ID_Paziente="+id);
+            ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Controllo_Standard WHERE ID_Paziente="+id+" ORDER BY Data DESC");
             while(rs.next())
             {
                 System.out.println("1");
                 Date d=rs.getDate("Data");
                 int c=rs.getInt("ID_Controllo");
                 creaPulsante(d,c);
-            }
-            for(int i=0;i<100;i++)
-            {
-                creaPulsante(new Date(System.currentTimeMillis()),1);
             }
         } 
         catch (SQLException ex) {

@@ -2665,6 +2665,8 @@ public class PazienteUI extends javax.swing.JFrame {
         azzeraCampiDiagnosi();
         datiDiagnosi(id);
         barra.settaPrimoSelezionato();
+        
+        barraControlli.aggiornaBarra(id);
     }
     
     public void datiDiagnosi(int id)
