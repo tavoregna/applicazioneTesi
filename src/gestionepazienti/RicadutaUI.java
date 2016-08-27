@@ -11,25 +11,28 @@ public class RicadutaUI extends javax.swing.JPanel {
     private PazienteUI parent;
     private ControlloAmbulatorialeStandardUI standard;
     private TerapiaPrincipaleUI terPrincipale;
-    private Date dataControllo;
+    private int idControllo;
     
-    public RicadutaUI(PazienteUI p,Date data) {
+    public RicadutaUI(PazienteUI p,int id) {
         initComponents();
         parent=p;
-        dataControllo=data;
-        standard=new ControlloAmbulatorialeStandardUI(parent,dataControllo);
-        terPrincipale=new TerapiaPrincipaleUI(parent, null,dataControllo);
+        idControllo=id;
+        standard=new ControlloAmbulatorialeStandardUI(parent,idControllo);
+        terPrincipale=new TerapiaPrincipaleUI(parent, null,idControllo);
         panelStandard.setLayout(new BoxLayout(panelStandard, BoxLayout.LINE_AXIS));
         panelTerPrincipale.setLayout(new BoxLayout(panelTerPrincipale, BoxLayout.LINE_AXIS));
         panelStandard.add(standard);
         panelTerPrincipale.add(terPrincipale);
-        aggiornaDati(Pazienti.getCurrID(),dataControllo);
+        aggiornaDati(idControllo);
         ricadTerap.setVisible(false);
     }
     
-    public void aggiornaDati(int idPaz,Date date)
+    public void aggiornaDati(int id)
     {
-    
+        if(id==-1)
+        {
+            return;
+        }
     }
 
      public void coloreRicaduta(int i) //i=1 rosso, i=2 giallo

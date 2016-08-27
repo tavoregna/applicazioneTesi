@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="gruppoTeraPric">
+    <Component class="javax.swing.ButtonGroup" name="gruppoTeraPrinc">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -72,7 +72,7 @@
     <Component class="javax.swing.JRadioButton" name="jRadioButton1">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="gruppoTeraPric"/>
+          <ComponentRef name="gruppoTeraPrinc"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
@@ -87,7 +87,7 @@
     <Component class="javax.swing.JRadioButton" name="jRadioButton2">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="gruppoTeraPric"/>
+          <ComponentRef name="gruppoTeraPrinc"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
@@ -102,7 +102,7 @@
     <Component class="javax.swing.JRadioButton" name="jRadioButton3">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="gruppoTeraPric"/>
+          <ComponentRef name="gruppoTeraPrinc"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>

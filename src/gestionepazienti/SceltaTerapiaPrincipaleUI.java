@@ -7,21 +7,24 @@ import java.util.Date;
 public class SceltaTerapiaPrincipaleUI extends javax.swing.JFrame {
     
     private PazienteUI parent;
-    private Date dataControllo;
+    private int idControllo;
     /**
      * Creates new form SceltaTerapiaPrincipale
      */
-    public SceltaTerapiaPrincipaleUI(PazienteUI p, Date data) {
+    public SceltaTerapiaPrincipaleUI(PazienteUI p, int id) {
         initComponents();
         parent=p;
-        dataControllo=data;
-        aggiornaDatiScelta(Pazienti.getCurrID(), dataControllo);
+        idControllo=id;
+        aggiornaDatiScelta(idControllo);
         this.setVisible(true);
     }
 
-    public void aggiornaDatiScelta(int idPaz, Date data)
+    public void aggiornaDatiScelta(int id)
     {
-        
+        if(id==-1)
+        {
+            return;
+        }
     }
     
     @SuppressWarnings("unchecked")

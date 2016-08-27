@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -31,17 +32,7 @@ public class PazienteUI extends javax.swing.JFrame {
         panelBarra.add(barra);
         pannelloDiagnostica.setVisible(false);
         AggiornaCampoDiagnosi();
-                
-        //Il pannello conviene inserirlo quando viene selezionato un paziente, perchè deve "cambiare" a seconda del tipo di controllo(ricaduta; ambulatorio ordinario)
-        
-       /* ambulatorio=new AmbulatorioOrdinarioUI(this,new java.util.Date());
-        panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
-        panelControlloAmb.add(ambulatorio);*/
-       
-        /*ricaduta=new RicadutaUI(this,new java.util.Date());
-        panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
-        panelControlloAmb.add(ricaduta);*/
-             
+
         this.setVisible(true);
     }
 
@@ -1148,6 +1139,7 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel93.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel93.setText("Tipo di controllo:");
 
+        tipoControllo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Controllo ambulatoriale", "Ricaduta" }));
         tipoControllo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipoControlloActionPerformed(evt);
@@ -2769,6 +2761,48 @@ public class PazienteUI extends javax.swing.JFrame {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+    
+    public void aggiornaDatiControllo(int idControllo)
+    {
+       
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Data,Terapia,Medico,Tipo_Controllo,Note FROM Controllo_Standard WHERE ID_Controllo=?");
+            pst.setInt(1,idControllo);
+            ResultSet rs=pst.executeQuery();
+            if(rs.next())
+            {
+                dataContrAmb.setDate(rs.getDate("Data"));
+                terapiaPrinc.setText(rs.getString("Terapia"));
+                medicoEsamContrAmb.setSelectedItem(rs.getString("Medico"));
+                tipoControllo.setSelectedItem("Tipo_Controllo");
+                inserisciPannelloControllo(idControllo, tipoControllo.getSelectedIndex());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+    
+    public void inserisciPannelloControllo(int idControllo,int i) //i=0 ordinario, i=1 ricaduta
+    {
+        if(panelControlloAmb.getComponentCount()>0)
+        {
+            panelControlloAmb.removeAll();
+        }
+        switch(i)
+        {
+            case 0:
+                ambulatorio=new AmbulatorioOrdinarioUI(this,idControllo);
+                panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
+                panelControlloAmb.add(ambulatorio);
+                return;
+            case 1:
+                ricaduta=new RicadutaUI(this,idControllo);
+                panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
+                panelControlloAmb.add(ricaduta);
+                return;
+        }
+    }
+    
     public void infoPersonali(int id)
     {
        //azzero info precedenti

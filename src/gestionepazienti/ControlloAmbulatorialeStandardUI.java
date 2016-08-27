@@ -2,25 +2,44 @@
 package gestionepazienti;
 
 import java.awt.Color;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
 
     private PazienteUI parent;
-    private Date dataControllo;
+    private int idControllo;
     
-    public ControlloAmbulatorialeStandardUI(PazienteUI p, Date data) {
+    public ControlloAmbulatorialeStandardUI(PazienteUI p, int id) {
         initComponents();
         parent=p;
-        dataControllo=data;
-        aggiornaDatiAmb(Pazienti.getCurrID(),dataControllo);
+        idControllo=id;
+        aggiornaDatiAmb(idControllo);
         this.setVisible(true);
     }
 
-    public void aggiornaDatiAmb(int idPaz,Date data)
+    public void aggiornaDatiAmb(int id)
     {
-        
+        if(id==-1)
+        {
+            return;
+        }
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Controllo_Standard WHERE ID_Controllo=?");
+            pst.setInt(1,id);
+            ResultSet rs=pst.executeQuery();
+            if(rs.next())
+            {
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
     
     @SuppressWarnings("unchecked")
