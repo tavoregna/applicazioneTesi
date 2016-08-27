@@ -150,6 +150,7 @@ public class PazienteUI extends javax.swing.JFrame {
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 32767));
         panelContolloScroll = new javax.swing.JScrollPane();
         panelControlloAmb = new javax.swing.JPanel();
+        pannelloBarra = new javax.swing.JPanel();
         immunu = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         dataControl = new org.jdesktop.swingx.JXDatePicker();
@@ -1172,6 +1173,19 @@ public class PazienteUI extends javax.swing.JFrame {
 
         panelContolloScroll.setViewportView(panelControlloAmb);
 
+        pannelloBarra.setOpaque(false);
+
+        javax.swing.GroupLayout pannelloBarraLayout = new javax.swing.GroupLayout(pannelloBarra);
+        pannelloBarra.setLayout(pannelloBarraLayout);
+        pannelloBarraLayout.setHorizontalGroup(
+            pannelloBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pannelloBarraLayout.setVerticalGroup(
+            pannelloBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 36, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout controlliAmbLayout = new javax.swing.GroupLayout(controlliAmb);
         controlliAmb.setLayout(controlliAmbLayout);
         controlliAmbLayout.setHorizontalGroup(
@@ -1179,6 +1193,7 @@ public class PazienteUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlliAmbLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(controlliAmbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pannelloBarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelContolloScroll, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(controlliAmbLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -1236,7 +1251,9 @@ public class PazienteUI extends javax.swing.JFrame {
                 .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(panelContolloScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pannelloBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(236, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Controlli ambulatoriali", controlliAmb);
@@ -3101,6 +3118,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JPanel panelBarra;
     private javax.swing.JScrollPane panelContolloScroll;
     private javax.swing.JPanel panelControlloAmb;
+    private javax.swing.JPanel pannelloBarra;
     private javax.swing.JPanel pannelloDiagnostica;
     private javax.swing.JTextField pbg;
     private javax.swing.JTextArea pev;
