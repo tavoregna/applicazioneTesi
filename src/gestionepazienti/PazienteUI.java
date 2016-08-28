@@ -20,7 +20,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private BarraDiagnosticaUI barra;
     private AmbulatorioOrdinarioUI ambulatorio;
     private RicadutaUI ricaduta;
-    private BarraControlli barraControlli;
+    private BarraControlliUI barraControlli;
     
     public PazienteUI() {
         initComponents();
@@ -34,7 +34,7 @@ public class PazienteUI extends javax.swing.JFrame {
         pannelloDiagnostica.setVisible(false);
         AggiornaCampoDiagnosi();
 
-        barraControlli=new BarraControlli(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
+        barraControlli=new BarraControlliUI(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
         pannelloBarra.add(barraControlli);
         this.setVisible(true);
     }
