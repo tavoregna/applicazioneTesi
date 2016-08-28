@@ -8,23 +8,32 @@ public class SceltaTerapiaPrincipaleUI extends javax.swing.JFrame {
     
     private PazienteUI parent;
     private int idControllo;
+    private Date dataAvvioTer;
+    private String terapia_2;
     /**
      * Creates new form SceltaTerapiaPrincipale
      */
-    public SceltaTerapiaPrincipaleUI(PazienteUI p, int id) {
+    public SceltaTerapiaPrincipaleUI(PazienteUI p,int id, Date data, String ter) {
         initComponents();
         parent=p;
-        idControllo=id;
-        aggiornaDatiScelta(idControllo);
+        dataAvvioTer=data;
+        terapia_2=ter;
+        aggiornaDatiScelta(idControllo,dataAvvioTer,terapia_2);
         this.setVisible(true);
     }
 
-    public void aggiornaDatiScelta(int id)
+    public void aggiornaDatiScelta(int id, Date data, String ter)
     {
         if(id==-1)
         {
             return;
         }
+        if(data!=null && ter!=null)
+        {
+            dataAvvio.setDate(data);
+            terapia.setSelectedItem(ter);
+        }
+        return;
     }
     
     @SuppressWarnings("unchecked")

@@ -1152,6 +1152,7 @@ public class PazienteUI extends javax.swing.JFrame {
         filler3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         panelContolloScroll.setBackground(new java.awt.Color(239, 228, 176));
+        panelContolloScroll.setOpaque(false);
 
         panelControlloAmb.setBackground(new java.awt.Color(239, 228, 176));
 
@@ -1247,10 +1248,10 @@ public class PazienteUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(panelContolloScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelContolloScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pannelloBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Controlli ambulatoriali", controlliAmb);
@@ -2388,6 +2389,7 @@ public class PazienteUI extends javax.swing.JFrame {
 
     private void tipoControlloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoControlloActionPerformed
         // TODO add your handling code here:
+        aggiornaDatiControllo(1);
     }//GEN-LAST:event_tipoControlloActionPerformed
 
     private void dataEsord_DiagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsord_DiagnActionPerformed
@@ -2778,6 +2780,8 @@ public class PazienteUI extends javax.swing.JFrame {
             ResultSet rs=pst.executeQuery();
             if(rs.next())
             {
+                cognomeContrAmb.setText(cognome.getText());
+                nomeContrAmb.setText(nome.getText());
                 dataContrAmb.setDate(rs.getDate("Data"));
                 terapiaPrinc.setText(rs.getString("Terapia"));
                 medicoEsamContrAmb.setSelectedItem(rs.getString("Medico"));
@@ -2801,11 +2805,15 @@ public class PazienteUI extends javax.swing.JFrame {
                 ambulatorio=new AmbulatorioOrdinarioUI(this,idControllo);
                 panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
                 panelControlloAmb.add(ambulatorio);
+                panelControlloAmb.setVisible(false);
+                panelControlloAmb.setVisible(true);
                 return;
             case 1:
                 ricaduta=new RicadutaUI(this,idControllo);
                 panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
                 panelControlloAmb.add(ricaduta);
+                panelControlloAmb.setVisible(false);
+                panelControlloAmb.setVisible(true);
                 return;
         }
     }

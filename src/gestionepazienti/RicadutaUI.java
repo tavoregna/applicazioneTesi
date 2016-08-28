@@ -25,6 +25,7 @@ public class RicadutaUI extends javax.swing.JPanel {
         panelTerPrincipale.add(terPrincipale);
         aggiornaDati(idControllo);
         ricadTerap.setVisible(false);
+        this.setVisible(true);
     }
     
     public void aggiornaDati(int id)
