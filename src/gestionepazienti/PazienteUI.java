@@ -2771,7 +2771,11 @@ public class PazienteUI extends javax.swing.JFrame {
     
     public void aggiornaDatiControllo(int idControllo)
     {
-       
+       if(idControllo==-1)
+       {
+           inserisciPannelloControllo(idControllo, tipoControllo.getSelectedIndex());
+           return;
+       }
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Data,Terapia,Medico,Tipo_Controllo,Note FROM Controllo_Standard WHERE ID_Controllo=?");
             pst.setInt(1,idControllo);
@@ -2784,8 +2788,8 @@ public class PazienteUI extends javax.swing.JFrame {
                 terapiaPrinc.setText(rs.getString("Terapia"));
                 medicoEsamContrAmb.setSelectedItem(rs.getString("Medico"));
                 tipoControllo.setSelectedItem("Tipo_Controllo");
-                inserisciPannelloControllo(idControllo, tipoControllo.getSelectedIndex());
             }
+            inserisciPannelloControllo(idControllo, tipoControllo.getSelectedIndex());
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
