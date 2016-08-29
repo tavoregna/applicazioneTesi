@@ -116,7 +116,7 @@ public class RicadutaUI extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Ricaduta:");
 
-        ricaduta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "clinica", "??", "pseudoricaduta", "no", " " }));
+        ricaduta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "clinica", "??", "pseudoricaduta", "no" }));
         ricaduta.setSelectedIndex(3);
         ricaduta.setToolTipText("");
         ricaduta.addActionListener(new java.awt.event.ActionListener() {

@@ -103,12 +103,11 @@
     <Component class="javax.swing.JComboBox" name="ricaduta">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
+          <StringArray count="4">
             <StringItem index="0" value="clinica"/>
             <StringItem index="1" value="??"/>
             <StringItem index="2" value="pseudoricaduta"/>
             <StringItem index="3" value="no"/>
-            <StringItem index="4" value=" "/>
           </StringArray>
         </Property>
         <Property name="selectedIndex" type="int" value="3"/>

@@ -25,7 +25,6 @@ public class BarraControlliUI extends javax.swing.JPanel {
 
     private PazienteUI parent;
     
-    private ArrayList<PulsanteBarraControlli> pulsanti;
     private Integer indiceCorrente;
     
     public BarraControlliUI(PazienteUI p,double hei,double wid) {
@@ -33,7 +32,6 @@ public class BarraControlliUI extends javax.swing.JPanel {
        
         parent=p;
         
-        pulsanti=new ArrayList<PulsanteBarraControlli>();
         indiceCorrente=null;
         
         this.setBounds(0, 0, (int)wid, (int)hei);
@@ -43,15 +41,15 @@ public class BarraControlliUI extends javax.swing.JPanel {
     public void aggiornaBarra(int id)
     {
         pannello.removeAll();
-        pulsanti.clear();
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Controllo_Standard WHERE ID_Paziente="+id+" ORDER BY Data DESC");
+            int i=0;
             while(rs.next())
             {
-                System.out.println("1");///////////////////////////////////////// rimuovere
                 Date d=rs.getDate("Data");
                 int c=rs.getInt("ID_Controllo");
-                creaPulsante(d,c);
+                creaPulsante(i,d,c);
+                i++;
             }
         } 
         catch (SQLException ex) {
@@ -66,32 +64,24 @@ public class BarraControlliUI extends javax.swing.JPanel {
         this.setVisible(true);
     }
     
-    private void creaPulsante(Date d,int cod)
+    private void creaPulsante(int i,Date d,int cod)
     {
-        JButton b=new JButton();
+        PulsanteBarraControlli b=new PulsanteBarraControlli(i,cod);
         b.setText(Utilita.dataToString(d));
-        b.setName(Integer.toString(cod));
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!(e.getSource() instanceof JButton))
+                if(!(e.getSource() instanceof PulsanteBarraControlli))
                     return;
-                pressionePulsanteBarra((JButton)(e.getSource())); 
+                pressionePulsanteBarra((PulsanteBarraControlli)(e.getSource())); 
             }
         }); 
-        pulsanti.add(new PulsanteBarraControlli(b, Color.blue));
         pannello.add(b);
     }
     
-    public void pressionePulsanteBarra(JButton premuto)
+    public void pressionePulsanteBarra(PulsanteBarraControlli premuto)
     {
-        try{
-            int value=Integer.parseInt(premuto.getName());
-            //int vd=pannello.
-        }
-        catch(Exception ex)
-        {
-            return;
-        }
+        indiceCorrente=premuto.getIndicePulsante();
+        //metodo che dato l'id mi da informazioni sul controllo
     }
     
     @SuppressWarnings("unchecked")
@@ -107,8 +97,18 @@ public class BarraControlliUI extends javax.swing.JPanel {
         jButton1.setText("+");
 
         jButton3.setText("<");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText(">");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
@@ -146,6 +146,20 @@ public class BarraControlliUI extends javax.swing.JPanel {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(indiceCorrente!=null && indiceCorrente>=1)
+        {
+            indiceCorrente--;
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if(indiceCorrente!=null && indiceCorrente<pannello.getComponentCount()-1)
+        {
+            indiceCorrente++;
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

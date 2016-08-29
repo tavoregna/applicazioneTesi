@@ -1,37 +1,40 @@
 package gestionepazienti;
 
-import java.awt.Color;
 import javax.swing.JButton;
 
-public class PulsanteBarraControlli {
-    private JButton pulsante;
-    private Color colore;
+public class PulsanteBarraControlli extends JButton{
+    private int indicePulsante;
+    private int idControllo;
+
+    public PulsanteBarraControlli(int indicePulsante, int idControllo) {
+        super();
+        this.indicePulsante = indicePulsante;
+        this.idControllo = idControllo;
+    }
+
+    public PulsanteBarraControlli(int indicePulsante, int idControllo, String text) {
+        super(text);
+        this.indicePulsante = indicePulsante;
+        this.idControllo = idControllo;
+    }
     
-    public void ripristinaColore()
-    {
-        if(colore!=null)
-            pulsante.setBackground(colore);
+    public int getIndicePulsante() {
+        return indicePulsante;
     }
 
-    public JButton getPulsante() {
-        return pulsante;
+    public void setIndicePulsante(int indicePulsante) {
+        this.indicePulsante = indicePulsante;
     }
 
-    public void setPulsante(JButton pulsante) {
-        this.pulsante = pulsante;
+    public int getIdControllo() {
+        return idControllo;
     }
 
-    public Color getColore() {
-        return colore;
+    public void setIdControllo(int idControllo) {
+        this.idControllo = idControllo;
     }
 
-    public void setColore(Color colore) {
-        this.colore = colore;
-    }
-
-    public PulsanteBarraControlli(JButton pulsante, Color colore) {
-        this.pulsante = pulsante;
-        this.colore = colore;
-        ripristinaColore();
-    }
+    
+    
+    
 }
