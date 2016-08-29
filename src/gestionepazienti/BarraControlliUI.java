@@ -12,10 +12,10 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -80,6 +80,10 @@ public class BarraControlliUI extends javax.swing.JPanel {
     
     public void pressionePulsanteBarra(PulsanteBarraControlli premuto)
     {
+        if(!(indiceCorrente!=null && pannello.getComponent(indiceCorrente)!=null))
+            return;
+        ((PulsanteBarraControlli)(pannello.getComponent(indiceCorrente))).setBorder(new JButton().getBorder());
+        premuto.setBorder(new LineBorder(Color.ORANGE));
         indiceCorrente=premuto.getIndicePulsante();
         //metodo che dato l'id mi da informazioni sul controllo
     }
