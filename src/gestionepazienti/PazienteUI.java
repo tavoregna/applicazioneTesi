@@ -2855,7 +2855,9 @@ public class PazienteUI extends javax.swing.JFrame {
             if(rs.next())
             {
                 nome.setText(rs.getString("Nome"));
+                nomeContrAmb.setText(rs.getString("Nome"));
                 cognome.setText(rs.getString("Cognome"));
+                cognomeContrAmb.setText(rs.getString("Cognome"));
                 cf.setText(rs.getString("CF"));
                 sex.setSelectedItem(rs.getString("Sesso"));
                 dataNascita.setDate(rs.getDate("DataNascita"));
