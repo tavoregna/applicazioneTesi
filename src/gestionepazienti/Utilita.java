@@ -69,6 +69,19 @@ public final class Utilita {
         return res;
         
     }
+    
+    public static String virgolaToPunto(String s)
+    {
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)==';')
+            {
+                return rimpiazzaCarattere(s,'.',i);
+            }
+        }
+        return s;
+    }
+    
     public static Date removeTime(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
