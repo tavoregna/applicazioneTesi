@@ -1,7 +1,5 @@
-
 package gestionepazienti;
 
-import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -103,6 +101,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         diarioClinico.setColumns(1);
         diarioClinico.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         diarioClinico.setRows(1);
+        diarioClinico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                diarioClinicoKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(diarioClinico);
 
         jLabel3.setBackground(java.awt.Color.blue);
@@ -115,15 +118,31 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         rmEncefalica.setColumns(1);
         rmEncefalica.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rmEncefalica.setRows(1);
+        rmEncefalica.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                rmEncefalicaKeyReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(rmEncefalica);
 
         esameObbNeuro.setBackground(new java.awt.Color(149, 238, 234));
         esameObbNeuro.setColumns(20);
         esameObbNeuro.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         esameObbNeuro.setRows(5);
+        esameObbNeuro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                esameObbNeuroKeyReleased(evt);
+            }
+        });
         jScrollPane3.setViewportView(esameObbNeuro);
 
         jPanel1.setBackground(java.awt.Color.blue);
+
+        dataRMEncefalo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataRMEncefaloActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setForeground(java.awt.Color.red);
@@ -147,6 +166,12 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         );
 
         jPanel2.setBackground(java.awt.Color.blue);
+
+        dataRMCervDors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataRMCervDorsActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setForeground(java.awt.Color.red);
@@ -173,6 +198,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         rmCervDors.setColumns(1);
         rmCervDors.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rmCervDors.setRows(1);
+        rmCervDors.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                rmCervDorsKeyReleased(evt);
+            }
+        });
         jScrollPane4.setViewportView(rmCervDors);
 
         jLabel5.setBackground(java.awt.Color.blue);
@@ -185,9 +215,20 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         esamiEmatoChim.setColumns(1);
         esamiEmatoChim.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         esamiEmatoChim.setRows(1);
+        esamiEmatoChim.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                esamiEmatoChimKeyReleased(evt);
+            }
+        });
         jScrollPane5.setViewportView(esamiEmatoChim);
 
         jPanel3.setBackground(java.awt.Color.blue);
+
+        dataTerSintomatica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataTerSintomaticaActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setForeground(java.awt.Color.red);
@@ -213,6 +254,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         terSinto.setBackground(new java.awt.Color(149, 238, 234));
         terSinto.setColumns(1);
         terSinto.setRows(1);
+        terSinto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                terSintoKeyReleased(evt);
+            }
+        });
         jScrollPane6.setViewportView(terSinto);
 
         jPanel4.setBackground(new java.awt.Color(149, 238, 234));
@@ -422,6 +468,117 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jScrollPane2, jScrollPane4, jScrollPane6});
 
     }// </editor-fold>//GEN-END:initComponents
+
+    private void diarioClinicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diarioClinicoKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Diario_Clinico=? WHERE ID_Controllo=?");
+            pst.setString(1,diarioClinico.getText());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_diarioClinicoKeyReleased
+
+    private void rmEncefalicaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rmEncefalicaKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET RM_Encefalica=? WHERE ID_Controllo=?");
+            pst.setString(1,rmEncefalica.getText());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_rmEncefalicaKeyReleased
+
+    private void esameObbNeuroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esameObbNeuroKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET EON=? WHERE ID_Controllo=?");
+            pst.setString(1,esameObbNeuro.getText());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_esameObbNeuroKeyReleased
+
+    private void rmCervDorsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rmCervDorsKeyReleased
+       try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET RM_Cervico_Dorsale=? WHERE ID_Controllo=?");
+            pst.setString(1,rmCervDors.getText());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_rmCervDorsKeyReleased
+
+    private void esamiEmatoChimKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esamiEmatoChimKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Esami_Ematochimici=? WHERE ID_Controllo=?");
+            pst.setString(1,esamiEmatoChim.getText());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_esamiEmatoChimKeyReleased
+
+    private void terSintoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_terSintoKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Terapia_Sintomatica=? WHERE ID_Controllo=?");
+            pst.setString(1,terSinto.getText());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_terSintoKeyReleased
+
+    private void dataRMEncefaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRMEncefaloActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Data_RM_Encefalica=? WHERE ID_Controllo=?");
+            Date d=dataRMEncefalo.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataRMEncefaloActionPerformed
+
+    private void dataRMCervDorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRMCervDorsActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Data_RM_Cervico_Dorsale=? WHERE ID_Controllo=?");
+            Date d=dataRMCervDors.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataRMCervDorsActionPerformed
+
+    private void dataTerSintomaticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataTerSintomaticaActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Data_Terapia_Sintomatica=? WHERE ID_Controllo=?");
+            Date d=dataTerSintomatica.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataTerSintomaticaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

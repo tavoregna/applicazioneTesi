@@ -143,6 +143,9 @@
             </Property>
             <Property name="rows" type="int" value="1"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="diarioClinicoKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -179,6 +182,9 @@
             </Property>
             <Property name="rows" type="int" value="1"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rmEncefalicaKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -200,6 +206,9 @@
             </Property>
             <Property name="rows" type="int" value="5"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="esameObbNeuroKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -232,6 +241,9 @@
       </Layout>
       <SubComponents>
         <Component class="org.jdesktop.swingx.JXDatePicker" name="dataRMEncefalo">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataRMEncefaloActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -275,6 +287,9 @@
       </Layout>
       <SubComponents>
         <Component class="org.jdesktop.swingx.JXDatePicker" name="dataRMCervDors">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataRMCervDorsActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -307,6 +322,9 @@
             </Property>
             <Property name="rows" type="int" value="1"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rmCervDorsKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -343,6 +361,9 @@
             </Property>
             <Property name="rows" type="int" value="1"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="esamiEmatoChimKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -375,6 +396,9 @@
       </Layout>
       <SubComponents>
         <Component class="org.jdesktop.swingx.JXDatePicker" name="dataTerSintomatica">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataTerSintomaticaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
@@ -404,6 +428,9 @@
             <Property name="columns" type="int" value="1"/>
             <Property name="rows" type="int" value="1"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="terSintoKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
