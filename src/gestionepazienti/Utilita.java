@@ -1,8 +1,14 @@
 package gestionepazienti;
 
+import java.awt.Color;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public final class Utilita {
@@ -123,4 +129,58 @@ public final class Utilita {
         return sdf.format(d); 
     }
 
+    public static Color colorePulsante(int idControllo,int i) //i=0 Ordinario; i=1 Ricaduta
+    {
+        PreparedStatement pst;
+        Color colore;
+        if(i==0)
+        {
+            try {
+                pst=GestioneDatabase.preparedStatement("SELECT Terapia_Principale FROM Ambulatorio_Ordinario WHERE Controllo_Standard=?");
+                pst.setInt(1, idControllo);
+                ResultSet rs=pst.executeQuery();
+                if(rs.next())
+                {
+                    if(rs.getInt("Terapia_Principale")==1)
+                    {
+                        return new Color(181,230,29);
+                    }
+                    if(rs.getInt("Terapia_Principale")==2)
+                    {
+                       return new Color(153,217,234);
+                    }
+                    if(rs.getInt("Terapia_Principale")==3)
+                    {
+                       return new Color(0,162,232); 
+                    }   
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else
+        {
+            try {
+                pst=GestioneDatabase.preparedStatement("SELECT Ricaduta FROM Ricaduta WHERE Controllo_Standard=?");
+                pst.setInt(1, idControllo);
+                ResultSet rs=pst.executeQuery();
+                if(rs.next())
+                {
+                    if(rs.getString("Ricaduta").compareTo("clinica")==0 || rs.getString("Ricaduta").compareTo("radiologica")==0)
+                    {
+                        return new Color(237,28,36);
+                    }
+                    if(rs.getString("Ricaduta").compareTo("pseudoricaduta")==0 || rs.getString("Ricaduta").compareTo("no")==0)
+                    {
+                       return new Color(255,241,0);
+                    }
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
+    }
+    
+    
 }
