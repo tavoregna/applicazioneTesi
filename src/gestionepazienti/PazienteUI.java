@@ -33,7 +33,9 @@ public class PazienteUI extends javax.swing.JFrame {
         panelBarra.add(barra);
         pannelloDiagnostica.setVisible(false);
         AggiornaCampoDiagnosi();
-
+        AggiornaMedico();
+        azzeraCampi();
+                
         barraControlli=new BarraControlliUI(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
         pannelloBarra.add(barraControlli);
         this.setVisible(true);
@@ -1140,6 +1142,7 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel92.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel92.setText("Medico Esaminatore:");
 
+        medicoEsamContrAmb.setEnabled(false);
         medicoEsamContrAmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 medicoEsamContrAmbActionPerformed(evt);
@@ -1150,6 +1153,7 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel93.setText("Tipo di controllo:");
 
         tipoControllo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Controllo ambulatoriale", "Ricaduta" }));
+        tipoControllo.setEnabled(false);
         tipoControllo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipoControlloActionPerformed(evt);
@@ -1222,7 +1226,7 @@ public class PazienteUI extends javax.swing.JFrame {
                     .addComponent(panelContolloScroll)
                     .addComponent(filler3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pannelloBarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 191, Short.MAX_VALUE))
+                .addGap(0, 185, Short.MAX_VALUE))
         );
 
         controlliAmbLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cognomeContrAmb, nomeContrAmb});
@@ -2400,7 +2404,7 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_dataContrAmbActionPerformed
 
     private void tipoControlloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoControlloActionPerformed
-     aggiornaDatiControllo(1);
+     //aggiornaDatiControllo(1);
     }//GEN-LAST:event_tipoControlloActionPerformed
 
     private void dataEsord_DiagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsord_DiagnActionPerformed
@@ -2643,6 +2647,25 @@ public class PazienteUI extends javax.swing.JFrame {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    private void AggiornaMedico()
+    {
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Cognome FROM MEDICO");
+            while(rs.next())
+            {
+                medicoEsamContrAmb.addItem(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    private void azzeraCampi()
+    {
+        medicoEsamContrAmb.setSelectedItem(null);
+        tipoControllo.setSelectedItem(null);
+        formaClnAtt.setSelectedItem(null);
+                
+    }
     private void abilitaComponentiPaziente(boolean ab)
     {
         nome.setEnabled(ab);
@@ -2804,7 +2827,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 dataContrAmb.setDate(rs.getDate("Data"));
                 terapiaPrinc.setText(rs.getString("Terapia"));
                 medicoEsamContrAmb.setSelectedItem(rs.getString("Medico"));
-                tipoControllo.setSelectedItem("Tipo_Controllo");
+                tipoControllo.setSelectedIndex(Integer.parseInt(rs.getString("Tipo_Controllo")));
             }
             inserisciPannelloControllo(idControllo, tipoControllo.getSelectedIndex());
         } catch (SQLException ex) {

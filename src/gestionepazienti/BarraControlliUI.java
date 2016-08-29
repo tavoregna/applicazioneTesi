@@ -42,7 +42,7 @@ public class BarraControlliUI extends javax.swing.JPanel {
     {
         pannello.removeAll();
         try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Controllo_Standard WHERE ID_Paziente="+id+" ORDER BY Data DESC");
+            ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Controllo_Standard WHERE ID_Paziente="+id+" ORDER BY Data ASC");
             int i=0;
             while(rs.next())
             {
@@ -80,12 +80,17 @@ public class BarraControlliUI extends javax.swing.JPanel {
     
     public void pressionePulsanteBarra(PulsanteBarraControlli premuto)
     {
-        if(!(indiceCorrente!=null && pannello.getComponent(indiceCorrente)!=null))
-            return;
-        ((PulsanteBarraControlli)(pannello.getComponent(indiceCorrente))).setBorder(new JButton().getBorder());
-        premuto.setBorder(new LineBorder(Color.ORANGE));
-        indiceCorrente=premuto.getIndicePulsante();
+        
+         aggiornaPulsante(premuto.getIndicePulsante());
+         indiceCorrente=premuto.getIndicePulsante();
+         parent.aggiornaDatiControllo(premuto.getIdControllo());
         //metodo che dato l'id mi da informazioni sul controllo
+    }
+    private void aggiornaPulsante(int ind)
+    {
+        if((indiceCorrente!=null && pannello.getComponent(indiceCorrente)!=null))
+            ((PulsanteBarraControlli)(pannello.getComponent(indiceCorrente))).setBackground(new JButton().getBackground());
+        ((PulsanteBarraControlli)(pannello.getComponent(ind))).setBackground(Color.ORANGE);
     }
     
     @SuppressWarnings("unchecked")
@@ -154,6 +159,7 @@ public class BarraControlliUI extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(indiceCorrente!=null && indiceCorrente>=1)
         {
+            aggiornaPulsante(indiceCorrente-1);
             indiceCorrente--;
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -161,6 +167,7 @@ public class BarraControlliUI extends javax.swing.JPanel {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if(indiceCorrente!=null && indiceCorrente<pannello.getComponentCount()-1)
         {
+            aggiornaPulsante(indiceCorrente+1);
             indiceCorrente++;
         }
     }//GEN-LAST:event_jButton4ActionPerformed
