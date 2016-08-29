@@ -1,5 +1,6 @@
 package gestionepazienti;
 
+import java.awt.Color;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -2107,8 +2109,8 @@ public class PazienteUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTabbedPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -2954,7 +2956,14 @@ public class PazienteUI extends javax.swing.JFrame {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    public void tipoControlloAbilitato(boolean t)
+    {
+        tipoControllo.setEnabled(t);
+        if(t)
+            tipoControllo.setBackground(Color.red);
+        else
+            tipoControllo.setBackground(new JComboBox().getBackground());
+    }
     private void azzeraCampiDiagnosi()
     {
                 barra.setComboBoxDiagnosiAttiva(false);
