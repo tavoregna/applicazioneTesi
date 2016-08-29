@@ -2,7 +2,12 @@
 package gestionepazienti;
 
 import java.awt.Color;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 
 
@@ -34,6 +39,23 @@ public class RicadutaUI extends javax.swing.JPanel {
         {
             return;
         }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Ricaduta WHERE Controllo_Standard=?");
+            pst.setInt(1,idControllo);
+            ResultSet rs=pst.executeQuery();
+            if(rs.next())
+            {
+                ricaduta.setSelectedItem(rs.getString("Ricaduta"));
+                gestioneRicaduta();
+                //if(rs.getString("Terapia_Ricaduta")!=null)
+                //{
+                    terapiaRicaduta.setSelectedItem(rs.getString("Terapia_Ricaduta"));
+                //}
+                //note.setText(rs.getString("Note"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
 
      public void coloreRicaduta(int i) //i=1 rosso, i=2 giallo
@@ -45,6 +67,20 @@ public class RicadutaUI extends javax.swing.JPanel {
         }
         this.setBackground(new Color(255,241,0));
     }
+     
+     public void gestioneRicaduta()
+     {
+        if((ricaduta.getSelectedIndex()==0) || ricaduta.getSelectedIndex()==1)
+        {
+            ricadTerap.setVisible(true);
+            coloreRicaduta(1);
+        }
+        else
+        {
+            ricadTerap.setVisible(false);
+            coloreRicaduta(2);
+        }
+     }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -55,7 +91,7 @@ public class RicadutaUI extends javax.swing.JPanel {
         ricaduta = new javax.swing.JComboBox<>();
         ricadTerap = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        terapiaRicaduta = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         note = new javax.swing.JTextArea();
@@ -94,7 +130,7 @@ public class RicadutaUI extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Terapia ??");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "in altro centro", "per 3 giorni", "per 5 giorni", "altro" }));
+        terapiaRicaduta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "in altro centro", "per 3 giorni", "per 5 giorni", "altro" }));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Note:");
@@ -113,7 +149,7 @@ public class RicadutaUI extends javax.swing.JPanel {
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(ricadTerapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox2, 0, 165, Short.MAX_VALUE)
+                    .addComponent(terapiaRicaduta, 0, 165, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
                 .addGap(0, 14, Short.MAX_VALUE))
         );
@@ -122,7 +158,7 @@ public class RicadutaUI extends javax.swing.JPanel {
             .addGroup(ricadTerapLayout.createSequentialGroup()
                 .addGroup(ricadTerapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(terapiaRicaduta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ricadTerapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,22 +225,11 @@ public class RicadutaUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ricadutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ricadutaActionPerformed
-        // TODO add your handling code here:
-        if((ricaduta.getSelectedIndex()==0) || ricaduta.getSelectedIndex()==1)
-        {
-            ricadTerap.setVisible(true);
-            coloreRicaduta(1);
-        }
-        else
-        {
-            ricadTerap.setVisible(false);
-            coloreRicaduta(2);
-        }
+        gestioneRicaduta();
     }//GEN-LAST:event_ricadutaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -215,5 +240,6 @@ public class RicadutaUI extends javax.swing.JPanel {
     private javax.swing.JPanel panelTerPrincipale;
     private javax.swing.JPanel ricadTerap;
     private javax.swing.JComboBox<String> ricaduta;
+    private javax.swing.JComboBox<String> terapiaRicaduta;
     // End of variables declaration//GEN-END:variables
 }

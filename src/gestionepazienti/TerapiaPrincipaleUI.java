@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JPanel;
 
 
 public class TerapiaPrincipaleUI extends javax.swing.JPanel {
@@ -47,9 +46,42 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             return;
         }
         try {
+            PreparedStatement pst;
             if(i==1)
             {
-                PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Ambulatorio_Ordinario WHERE Controllo_Standard=?");
+                pst=GestioneDatabase.preparedStatement("SELECT * FROM Ambulatorio_Ordinario WHERE Controllo_Standard=?");
+                pst.setInt(1,idControllo);
+                ResultSet rs=pst.executeQuery();
+                if(rs.next())
+                {
+                    if(rs.getInt("Terapia_Principale")==1)
+                    {
+                        jRadioButton1.setSelected(true);
+                        parentPanel.coloreAmbulatoriOrdinari(1);
+                    }
+                    else
+                    {
+                        if(rs.getInt("Terapia_Principale")==2)
+                        {
+                            jRadioButton2.setSelected(true);
+                            buttonTer2.setVisible(true);
+                            dataAvvioTerapia=rs.getDate("Data_Avvio_Terapia");
+                            terapia_2=rs.getString("Terapia_2");
+                            parentPanel.coloreAmbulatoriOrdinari(2);
+                        }
+                        else
+                        {
+                            jRadioButton3.setSelected(true);
+                            terapie.setSelectedItem(rs.getString("Terapia_3"));
+                            buttonTer3.setVisible(true);
+                            parentPanel.coloreAmbulatoriOrdinari(3);
+                        }
+                    }   
+                }
+            }
+            else
+            {
+                pst=GestioneDatabase.preparedStatement("SELECT Terapia_Principale,Terapia_3 FROM Ricaduta WHERE Controllo_Standard=?");
                 pst.setInt(1,idControllo);
                 ResultSet rs=pst.executeQuery();
                 if(rs.next())
@@ -60,19 +92,9 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                     }
                     else
                     {
-                        if(rs.getInt("Terapia_Principale")==2)
-                        {
-                            jRadioButton2.setSelected(true);
-                            buttonTer2.setVisible(true);
-                            dataAvvioTerapia=rs.getDate("Data_Avvio_Terapia");
-                            terapia_2=rs.getString("Terapia_2");
-                        }
-                        else
-                        {
-                            jRadioButton3.setSelected(true);
-                            terapie.setSelectedItem(rs.getString("Terapia_3"));
-                            buttonTer3.setVisible(true);
-                        }
+                        jRadioButton3.setSelected(true);
+                        terapie.setSelectedItem(rs.getString("Terapia_3"));
+                        buttonTer3.setVisible(true);
                     }   
                 }
             }
@@ -124,8 +146,6 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                 jRadioButton3ActionPerformed(evt);
             }
         });
-
-        terapie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "terapia1", "terapia2", "..." }));
 
         buttonTer2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonTer2.setText(">");
