@@ -1139,6 +1139,12 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel92.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel92.setText("Medico Esaminatore:");
 
+        medicoEsamContrAmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medicoEsamContrAmbActionPerformed(evt);
+            }
+        });
+
         jLabel93.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel93.setText("Tipo di controllo:");
 
@@ -2380,8 +2386,7 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_dataContrAmbActionPerformed
 
     private void tipoControlloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoControlloActionPerformed
-        // TODO add your handling code here:
-        aggiornaDatiControllo(1);
+     aggiornaDatiControllo(1);
     }//GEN-LAST:event_tipoControlloActionPerformed
 
     private void dataEsord_DiagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsord_DiagnActionPerformed
@@ -2606,6 +2611,10 @@ public class PazienteUI extends javax.swing.JFrame {
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_boigg1ActionPerformed
+
+    private void medicoEsamContrAmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicoEsamContrAmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_medicoEsamContrAmbActionPerformed
     //barra con i nomi delle diagnosi
     private void AggiornaCampoDiagnosi()
     {
@@ -2938,9 +2947,7 @@ public class PazienteUI extends javax.swing.JFrame {
     }
     
    
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]){
         GestioneDatabase.connessione();
         //UIManager.setLookAndFeel("javax.swing.plaf.mac.MacLookAndFeel");
