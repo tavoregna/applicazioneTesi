@@ -48,7 +48,7 @@ public class BarraControlliUI extends javax.swing.JPanel {
             ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Controllo_Standard WHERE ID_Paziente="+id+" ORDER BY Data DESC");
             while(rs.next())
             {
-                System.out.println("1");
+                System.out.println("1");///////////////////////////////////////// rimuovere
                 Date d=rs.getDate("Data");
                 int c=rs.getInt("ID_Controllo");
                 creaPulsante(d,c);
