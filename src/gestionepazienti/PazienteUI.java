@@ -2406,7 +2406,29 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_dataContrAmbActionPerformed
 
     private void tipoControlloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoControlloActionPerformed
-     //aggiornaDatiControllo(1);
+     if(barraControlli==null || !barraControlli.isInserimentoAttivo())
+         return;
+     int reply = JOptionPane.showConfirmDialog(null,"Inserire la scheda "+((String)(tipoControllo.getSelectedItem())).toUpperCase()+"?","Inserimento nuova scheda", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {    
+         try {
+             PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Controllo_Standard(ID_Paziente,Data,Tipo_Controllo) VALUES (?,?,?)");
+             pst.setInt(1, Pazienti.getCurrID());
+             pst.setDate(2, Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
+             pst.setString(3,Integer.toString(tipoControllo.getSelectedIndex()));
+             pst.executeUpdate();
+             ResultSet rs=GestioneDatabase.querySelect("SELECT MAX(ID_Controllo) FROM Controllo_Standard");
+             if(rs.next())
+             {
+                 barraControlli.aggiornaBarra(Pazienti.getCurrID());
+                 aggiornaDatiControllo(rs.getInt(1));
+             }
+                     
+         } catch (SQLException ex) {
+             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+         }
+            tipoControlloAbilitato(false);
+          
+        }
     }//GEN-LAST:event_tipoControlloActionPerformed
 
     private void dataEsord_DiagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsord_DiagnActionPerformed

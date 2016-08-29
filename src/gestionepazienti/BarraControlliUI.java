@@ -35,10 +35,16 @@ public class BarraControlliUI extends javax.swing.JPanel {
         this.setBounds(0, 0, (int)wid, (int)hei);
         pannello.setLayout(new FlowLayout(FlowLayout.LEADING));
     }
+
+    public boolean isInserimentoAttivo() {
+        return inserimentoAttivo;
+    }
+    
     
     public void aggiornaBarra(int id)
     {
         disabilitaInserimento();
+        indiceCorrente=null;
         pannello.removeAll();
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Controllo_Standard WHERE ID_Paziente="+id+" ORDER BY Data ASC");
