@@ -1142,6 +1142,11 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel91.setText("Terapia Principale:");
 
         terapiaPrinc.setEnabled(false);
+        terapiaPrinc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terapiaPrincActionPerformed(evt);
+            }
+        });
 
         jLabel92.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel92.setText("Medico Esaminatore:");
@@ -2684,6 +2689,10 @@ public class PazienteUI extends javax.swing.JFrame {
     private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeActionPerformed
+
+    private void terapiaPrincActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaPrincActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_terapiaPrincActionPerformed
     //barra con i nomi delle diagnosi
     private void AggiornaCampoDiagnosi()
     {

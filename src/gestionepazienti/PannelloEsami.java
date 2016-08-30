@@ -45,7 +45,37 @@ public class PannelloEsami extends javax.swing.JPanel {
                     public void keyTyped(KeyEvent e) {}          
                     public void keyPressed(KeyEvent e) {}         
                     public void keyReleased(KeyEvent e) { 
-                        //Completare
+                        if(!(e.getSource() instanceof JTextField))
+                            return;
+                        JTextField dato=(JTextField)e.getSource();           
+                        try {
+                            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Controllo_Esame WHERE Controllo=? AND Esame=?");
+                            pst.setInt(1, idControllo);
+                            pst.setString(2,dato.getName());
+                            ResultSet rs=pst.executeQuery();
+                            if(rs.next())
+                            {
+                                PreparedStatement pst1=GestioneDatabase.preparedStatement("UPDATE Controllo_Esame SET Valore=? WHERE Controllo=? AND Esame=?");
+                                //SISTEMARE
+                                pst.setDouble(1,Double.parseDouble(dato.getText()));
+                                pst.setInt(2, idControllo);
+                                pst.setString(3,dato.getName());
+                                pst.executeUpdate();
+                            }
+                            else
+                            {
+                                PreparedStatement pst1=GestioneDatabase.preparedStatement("INSERT INTO Controllo_Esame(Controllo,Esame,Valore) VALUES (?,?,?)");
+                                //SISTEMARE
+                                pst.setInt(1, idControllo);
+                                pst.setString(2,dato.getName());
+                                pst.setDouble(3,0.1);
+                                //pst.setDouble(3,Double.parseDouble(dato.getText()));
+                                pst.executeUpdate();
+                            }
+                        } catch (SQLException ex) {
+                            Logger.getLogger(PannelloEsami.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
                     }
                 });
                 pannello.add(fi);
