@@ -1,5 +1,6 @@
 package gestionepazienti;
 
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,6 +8,10 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
 
 
 public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
@@ -110,6 +115,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         edss = new javax.swing.JTextField();
         panelEsami = new javax.swing.JPanel();
         panelGrafico = new javax.swing.JPanel();
+        graficoEDSS = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 153));
 
@@ -426,15 +432,28 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        graficoEDSS.setText("graficoEDSS");
+        graficoEDSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                graficoEDSSActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelGraficoLayout = new javax.swing.GroupLayout(panelGrafico);
         panelGrafico.setLayout(panelGraficoLayout);
         panelGraficoLayout.setHorizontalGroup(
             panelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 549, Short.MAX_VALUE)
+            .addGroup(panelGraficoLayout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addComponent(graficoEDSS, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(306, Short.MAX_VALUE))
         );
         panelGraficoLayout.setVerticalGroup(
             panelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelGraficoLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(graficoEDSS)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -647,6 +666,18 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_edssKeyTyped
 
+    private void graficoEDSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficoEDSSActionPerformed
+        JFreeChart chart = ChartFactory.createXYLineChart(
+  "Istogramma", "Anno", "Numero di iscritti",
+  null, PlotOrientation.VERTICAL,
+  true, true, true);
+        try {
+            ChartUtilities.saveChartAsPNG(new java.io.File("function.png"), chart, 400, 500);
+        } catch (IOException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_graficoEDSSActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cerebellare;
@@ -659,6 +690,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
     private javax.swing.JTextField edss;
     private javax.swing.JTextArea esameObbNeuro;
     private javax.swing.JTextArea esamiEmatoChim;
+    private javax.swing.JButton graficoEDSS;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
