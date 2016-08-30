@@ -23,9 +23,11 @@ public class PazienteUI extends javax.swing.JFrame {
     private AmbulatorioOrdinarioUI ambulatorio;
     private RicadutaUI ricaduta;
     private BarraControlliUI barraControlli;
+    private Integer idControlloCorrente;
     
     public PazienteUI() {
         initComponents();
+        idControlloCorrente=null;
         
         ripristinaPulsanti();
         dataIns.setDate(null);
@@ -2423,7 +2425,9 @@ public class PazienteUI extends javax.swing.JFrame {
              {
                  barraControlli.aggiornaBarra(Pazienti.getCurrID());
                  aggiornaDatiControllo(rs.getInt(1));
+                 idControlloCorrente=rs.getInt(1);
              }
+             abilitaMedico(true);
                      
          } catch (SQLException ex) {
              Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -2657,7 +2661,19 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_boigg1ActionPerformed
 
     private void medicoEsamContrAmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicoEsamContrAmbActionPerformed
-        // TODO add your handling code here:
+        if(Pazienti.getCurrID()==null || idControlloCorrente==null || !medicoEsamContrAmb.isEnabled())
+            return;
+        try
+        {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Medico=? WHERE ID_Controllo=?");
+            pst.setString(1, (String)(medicoEsamContrAmb.getSelectedItem()));
+            pst.setInt(2, idControlloCorrente);
+            pst.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_medicoEsamContrAmbActionPerformed
     //barra con i nomi delle diagnosi
     private void AggiornaCampoDiagnosi()
@@ -2733,6 +2749,8 @@ public class PazienteUI extends javax.swing.JFrame {
         barra.settaPrimoSelezionato();
         
         barraControlli.aggiornaBarra(id);
+        
+        abilitaMedico(false);
     }
     
     public void datiDiagnosi(int id)
@@ -2842,6 +2860,7 @@ public class PazienteUI extends javax.swing.JFrame {
            inserisciPannelloControllo(idControllo, tipoControllo.getSelectedIndex());
            return;
        }
+       idControlloCorrente=idControllo;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Data,Terapia,Medico,Tipo_Controllo,Note FROM Controllo_Standard WHERE ID_Controllo=?");
             pst.setInt(1,idControllo);
@@ -3029,6 +3048,11 @@ public class PazienteUI extends javax.swing.JFrame {
                 varie.setText(null);
                 barra.setComboBoxDiagnosiAttiva(true);
     }
+    
+    public void abilitaMedico(boolean b)
+    {
+        medicoEsamContrAmb.setEnabled(b);
+    }    
     
    
 

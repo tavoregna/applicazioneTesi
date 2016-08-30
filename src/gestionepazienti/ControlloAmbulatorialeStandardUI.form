@@ -657,6 +657,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="edss">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edssKeyTyped"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

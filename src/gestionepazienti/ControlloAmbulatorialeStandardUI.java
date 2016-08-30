@@ -37,8 +37,8 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                dataRMEncefalo.setDate(rs.getDate("Data_RM_Encefalica"));
                rmEncefalica.setText(rs.getString("RM_Encefalica"));
                dataRMCervDors.setDate(rs.getDate("Data_RM_Cervico_Dorsale"));
-               rmCervDors.setText("RM_Cervico_Dorsale");
-               esamiEmatoChim.setText("Esami_Ematochimici");
+               rmCervDors.setText(rs.getString("RM_Cervico_Dorsale"));
+               esamiEmatoChim.setText(rs.getString("Esami_Ematochimici"));
                dataTerSintomatica.setDate(rs.getDate("Data_Terapia_Sintomatica"));
                terSinto.setText(rs.getString("Terapia_Sintomatica"));
                esameObbNeuro.setText(rs.getString("EON"));
@@ -386,6 +386,12 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jLabel7.setForeground(java.awt.Color.red);
         jLabel7.setText("EDSS:");
 
+        edss.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                edssKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -596,6 +602,26 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataTerSintomaticaActionPerformed
+
+    private void edssKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edssKeyTyped
+     //FINIREE
+        if(edss.getText().length()!=0 && !Utilita.isNumeric(edss.getText()))
+       {
+           edss.setText(edss.getText().substring(0, edss.getText().length()-1));
+           return;
+       }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET EDSS=? WHERE ID_Controllo=?");
+            if(edss.getText().length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(edss.getText()));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_edssKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
