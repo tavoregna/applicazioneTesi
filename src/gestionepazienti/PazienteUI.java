@@ -2122,6 +2122,7 @@ public class PazienteUI extends javax.swing.JFrame {
         {
             ripristinaPulsanti();
             visualizzaDati(prec);
+            avantiIndietroPazControllo();
         }
     }//GEN-LAST:event_indietroActionPerformed
 
@@ -2131,6 +2132,7 @@ public class PazienteUI extends javax.swing.JFrame {
         {
             ripristinaPulsanti();
             visualizzaDati(succ);
+            avantiIndietroPazControllo();
         }
     }//GEN-LAST:event_avantiActionPerformed
 
@@ -2882,6 +2884,18 @@ public class PazienteUI extends javax.swing.JFrame {
                 panelControlloAmb.setVisible(true);
                 return;
         }
+    }
+    
+    public void avantiIndietroPazControllo()
+    {
+        if(panelControlloAmb.getComponentCount()>0)
+        {
+            panelControlloAmb.removeAll();
+        }
+        dataContrAmb.setDate(null);
+        terapiaPrinc.setText("");
+        medicoEsamContrAmb.setSelectedItem(null);
+        tipoControllo.setSelectedItem(null);
     }
     
     public void infoPersonali(int id)

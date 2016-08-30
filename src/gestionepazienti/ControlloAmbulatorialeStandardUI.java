@@ -33,7 +33,24 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
             ResultSet rs=pst.executeQuery();
             if(rs.next())
             {
-                // non sono ancora presenti nel db i campi corrispondenti
+               diarioClinico.setText(rs.getString("Diario_Clinico"));
+               dataRMEncefalo.setDate(rs.getDate("Data_RM_Encefalica"));
+               rmEncefalica.setText(rs.getString("RM_Encefalica"));
+               dataRMCervDors.setDate(rs.getDate("Data_RM_Cervico_Dorsale"));
+               rmCervDors.setText("RM_Cervico_Dorsale");
+               esamiEmatoChim.setText("Esami_Ematochimici");
+               dataTerSintomatica.setDate(rs.getDate("Data_Terapia_Sintomatica"));
+               terSinto.setText(rs.getString("Terapia_Sintomatica"));
+               esameObbNeuro.setText(rs.getString("EON"));
+               piramidale.setText(""+rs.getDouble("Piramidale"));
+               sensitivo.setText(""+rs.getDouble("Sensitivo"));
+               visivo.setText(""+rs.getDouble("Visivo"));
+               troncoEnc.setText(""+rs.getDouble("Tronco_Enc"));
+               cerebellare.setText(""+rs.getDouble("Cerebellare"));
+               sfinteriche.setText(""+rs.getDouble("Sfinteriche"));
+               cerebrale.setText(""+rs.getDouble("Cerebrale"));
+               deambulazione.setText(""+rs.getDouble("Deambulazione"));
+               edss.setText(""+rs.getDouble("EDSS"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);

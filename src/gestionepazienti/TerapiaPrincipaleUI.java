@@ -38,6 +38,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         buttonTer3.setVisible(false);
         terapiaOra.setVisible(false);
         terapiaDH.setVisible(false);
+        dataAvvio.setVisible(false);
     }
     
     public void aggiornaDatiTerap(int idControllo,int i) //i=1 ordinario; i=2 ricaduta
@@ -66,6 +67,8 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                         {
                             jRadioButton2.setSelected(true);
                             buttonTer2.setVisible(true);
+                            dataAvvio.setVisible(true);
+                            terapiaDH.setVisible(true);
                             dataAvvioTerapia=rs.getDate("Data_Avvio_Terapia");
                             terapia_2=rs.getString("Terapia_2");
                             parentPanel.coloreAmbulatoriOrdinari(2);
