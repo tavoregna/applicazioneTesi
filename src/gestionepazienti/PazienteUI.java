@@ -3105,7 +3105,7 @@ public class PazienteUI extends javax.swing.JFrame {
     {
         medicoEsamContrAmb.setEnabled(b);
         terapiaPrinc.setEnabled(b);
-        dataContrAmb.setEnabled(b);
+        dataContrAmb.setEditable(b);
     }    
     
    
