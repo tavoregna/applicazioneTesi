@@ -1583,6 +1583,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Terapia Principale:"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="terapiaPrincActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel92">
               <Properties>

@@ -1141,6 +1141,13 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel91.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel91.setText("Terapia Principale:");
 
+        terapiaPrinc.setEnabled(false);
+        terapiaPrinc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terapiaPrincActionPerformed(evt);
+            }
+        });
+
         jLabel92.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel92.setText("Medico Esaminatore:");
 
