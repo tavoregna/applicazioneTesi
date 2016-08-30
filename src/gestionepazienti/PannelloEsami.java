@@ -1,5 +1,7 @@
 package gestionepazienti;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -24,10 +26,11 @@ public class PannelloEsami extends javax.swing.JPanel {
         terapia=terapy;
         
         pannello.setLayout(new GridLayout(0,2));
+        aggiornaPannello();
     }
-    
     private void aggiornaPannello()
     {
+        pannello.removeAll();
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Terapia_Esame WHERE Terapia=?");
             pst.setString(1, terapia);
@@ -37,7 +40,7 @@ public class PannelloEsami extends javax.swing.JPanel {
                 JLabel eti=new JLabel(rs.getString("Esame"));
                 pannello.add(eti);
                 JTextField fi=new JTextField();
-                fi.setName(rs.getString(rs.getString("Esame")));
+                fi.setName(rs.getString("Esame"));
                 fi.addKeyListener(new KeyListener() {   
                     public void keyTyped(KeyEvent e) {}          
                     public void keyPressed(KeyEvent e) {}         
@@ -50,7 +53,13 @@ public class PannelloEsami extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(PannelloEsami.class.getName()).log(Level.SEVERE, null, ex);
         }
+        aggiornaUI();
         
+    }
+    private void aggiornaUI()
+    {
+        pannello.setVisible(false);
+        pannello.setVisible(true);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -58,6 +67,10 @@ public class PannelloEsami extends javax.swing.JPanel {
 
         scroll = new javax.swing.JScrollPane();
         pannello = new javax.swing.JPanel();
+
+        setOpaque(false);
+
+        pannello.setOpaque(false);
 
         javax.swing.GroupLayout pannelloLayout = new javax.swing.GroupLayout(pannello);
         pannello.setLayout(pannelloLayout);
@@ -76,11 +89,17 @@ public class PannelloEsami extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
     }// </editor-fold>//GEN-END:initComponents
 
