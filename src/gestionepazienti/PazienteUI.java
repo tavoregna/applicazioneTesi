@@ -40,7 +40,7 @@ public class PazienteUI extends javax.swing.JFrame {
         AggiornaCampoTerapia();
         AggiornaMedico();
         azzeraCampi();
-                
+        abilitaBarraSuperioreControllo(false);
         barraControlli=new BarraControlliUI(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
         pannelloBarra.add(barraControlli);
         this.setVisible(true);
@@ -2416,7 +2416,23 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_nomeContrAmbActionPerformed
 
     private void dataContrAmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataContrAmbActionPerformed
-        // TODO add your handling code here:
+        if(Pazienti.getCurrID()==null || idControlloCorrente==null || !dataContrAmb.isEnabled())
+            return;
+        try
+        {
+            if(dataContrAmb.getDate()==null)
+            {
+                JOptionPane.showMessageDialog(null,"Devi inserire la data del CONTROLLO", "DATA MANCANTE", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Data=? WHERE ID_Controllo=?");
+            pst.setDate(1, Utilita.DateUtilToSQL(dataContrAmb.getDate()));
+            pst.setInt(2, idControlloCorrente);
+            pst.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_dataContrAmbActionPerformed
 
     private void tipoControlloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoControlloActionPerformed
@@ -3105,7 +3121,7 @@ public class PazienteUI extends javax.swing.JFrame {
     {
         medicoEsamContrAmb.setEnabled(b);
         terapiaPrinc.setEnabled(b);
-        dataContrAmb.setEnabled(b);
+        dataContrAmb.setEditable(b);
     }    
     
    
