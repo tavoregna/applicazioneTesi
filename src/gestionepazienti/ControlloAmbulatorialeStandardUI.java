@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BoxLayout;
 
 
 public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
@@ -17,6 +18,8 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         initComponents();
         parent=p;
         idControllo=id;
+        panelEsami.setLayout(new BoxLayout(panelEsami, BoxLayout.LINE_AXIS));
+        panelEsami.add(new PannelloEsami(parent,1,"Gilenya"));
         aggiornaDatiAmb(idControllo);
         this.setVisible(true);
     }
