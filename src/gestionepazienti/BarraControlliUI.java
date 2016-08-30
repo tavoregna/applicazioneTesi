@@ -80,7 +80,7 @@ public class BarraControlliUI extends javax.swing.JPanel {
     
     public void pressionePulsanteBarra(PulsanteBarraControlli premuto)
     {
-        parent.abilitaMedico(true);
+        parent.abilitaBarraSuperioreControllo(true);
         parent.tipoControlloAbilitato(false);
          aggiornaPulsante(premuto.getIndicePulsante());
          indiceCorrente=premuto.getIndicePulsante();
@@ -165,7 +165,7 @@ public class BarraControlliUI extends javax.swing.JPanel {
     private void indietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroActionPerformed
         if(indiceCorrente!=null && indiceCorrente>=1)
         {
-            parent.abilitaMedico(true);
+            parent.abilitaBarraSuperioreControllo(true);
             parent.tipoControlloAbilitato(false);
             aggiornaPulsante(indiceCorrente-1);
             indiceCorrente--;
@@ -185,7 +185,7 @@ public class BarraControlliUI extends javax.swing.JPanel {
     private void avantiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiActionPerformed
         if(indiceCorrente!=null && indiceCorrente<pannello.getComponentCount()-1)
         {
-            parent.abilitaMedico(true);
+            parent.abilitaBarraSuperioreControllo(true);
             parent.tipoControlloAbilitato(false);
             aggiornaPulsante(indiceCorrente+1);
             indiceCorrente++;

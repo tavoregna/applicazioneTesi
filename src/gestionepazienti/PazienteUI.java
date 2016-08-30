@@ -37,6 +37,7 @@ public class PazienteUI extends javax.swing.JFrame {
         panelBarra.add(barra);
         pannelloDiagnostica.setVisible(false);
         AggiornaCampoDiagnosi();
+        AggiornaCampoTerapia();
         AggiornaMedico();
         azzeraCampi();
                 
@@ -1141,13 +1142,6 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel91.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel91.setText("Terapia Principale:");
 
-        terapiaPrinc.setEnabled(false);
-        terapiaPrinc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                terapiaPrincActionPerformed(evt);
-            }
-        });
-
         jLabel92.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel92.setText("Medico Esaminatore:");
 
@@ -2128,7 +2122,7 @@ public class PazienteUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -2443,7 +2437,7 @@ public class PazienteUI extends javax.swing.JFrame {
                  aggiornaDatiControllo(rs.getInt(1));
                  idControlloCorrente=rs.getInt(1);
              }
-             abilitaMedico(true);
+             abilitaBarraSuperioreControllo(true);
                      
          } catch (SQLException ex) {
              Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -2798,7 +2792,7 @@ public class PazienteUI extends javax.swing.JFrame {
         
         barraControlli.aggiornaBarra(id);
         
-        abilitaMedico(false);
+        abilitaBarraSuperioreControllo(false);
     }
     
     public void datiDiagnosi(int id)
@@ -3102,9 +3096,11 @@ public class PazienteUI extends javax.swing.JFrame {
                 barra.setComboBoxDiagnosiAttiva(true);
     }
     
-    public void abilitaMedico(boolean b)
+    public void abilitaBarraSuperioreControllo(boolean b)
     {
         medicoEsamContrAmb.setEnabled(b);
+        terapiaPrinc.setEnabled(b);
+        dataContrAmb.setEnabled(b);
     }    
     
    
