@@ -100,8 +100,6 @@ public class RicadutaUI extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 153));
 
-        panelStandard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         javax.swing.GroupLayout panelStandardLayout = new javax.swing.GroupLayout(panelStandard);
         panelStandard.setLayout(panelStandardLayout);
         panelStandardLayout.setHorizontalGroup(
