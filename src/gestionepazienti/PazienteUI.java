@@ -142,7 +142,6 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel90 = new javax.swing.JLabel();
         dataContrAmb = new org.jdesktop.swingx.JXDatePicker();
         jLabel91 = new javax.swing.JLabel();
-        terapiaPrinc = new javax.swing.JTextField();
         jLabel92 = new javax.swing.JLabel();
         medicoEsamContrAmb = new javax.swing.JComboBox<>();
         jLabel93 = new javax.swing.JLabel();
@@ -151,6 +150,7 @@ public class PazienteUI extends javax.swing.JFrame {
         panelContolloScroll = new javax.swing.JScrollPane();
         panelControlloAmb = new javax.swing.JPanel();
         pannelloBarra = new javax.swing.JPanel();
+        terapiaPrinc = new javax.swing.JComboBox<>();
         immunu = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         dataControl = new org.jdesktop.swingx.JXDatePicker();
@@ -1141,8 +1141,6 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel91.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel91.setText("Terapia Principale:");
 
-        terapiaPrinc.setEnabled(false);
-
         jLabel92.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel92.setText("Medico Esaminatore:");
 
@@ -1197,6 +1195,12 @@ public class PazienteUI extends javax.swing.JFrame {
             .addGap(0, 52, Short.MAX_VALUE)
         );
 
+        terapiaPrinc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terapiaPrincActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout controlliAmbLayout = new javax.swing.GroupLayout(controlliAmb);
         controlliAmb.setLayout(controlliAmbLayout);
         controlliAmbLayout.setHorizontalGroup(
@@ -1230,7 +1234,7 @@ public class PazienteUI extends javax.swing.JFrame {
                     .addComponent(panelContolloScroll)
                     .addComponent(filler3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pannelloBarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 185, Short.MAX_VALUE))
+                .addGap(0, 181, Short.MAX_VALUE))
         );
 
         controlliAmbLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cognomeContrAmb, nomeContrAmb});
@@ -1247,11 +1251,11 @@ public class PazienteUI extends javax.swing.JFrame {
                     .addComponent(jLabel90)
                     .addComponent(dataContrAmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel91)
-                    .addComponent(terapiaPrinc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel92)
                     .addComponent(medicoEsamContrAmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel93)
-                    .addComponent(tipoControllo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tipoControllo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(terapiaPrinc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
@@ -2684,6 +2688,20 @@ public class PazienteUI extends javax.swing.JFrame {
     private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeActionPerformed
+
+    private void terapiaPrincActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaPrincActionPerformed
+        if(Pazienti.getCurrID()==null || idControlloCorrente==null || !terapiaPrinc.isEnabled())
+            return;
+        try
+        {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Terapia=? WHERE ID_Controllo=?");
+            pst.setString(1, (String)terapiaPrinc.getSelectedItem());
+            pst.setInt(2, idControlloCorrente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_terapiaPrincActionPerformed
     //barra con i nomi delle diagnosi
     private void AggiornaCampoDiagnosi()
     {
@@ -2698,6 +2716,20 @@ public class PazienteUI extends javax.swing.JFrame {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    private void AggiornaCampoTerapia()
+    {
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome FROM Terapia");
+            while(rs.next())
+            {
+                terapiaPrinc.addItem(rs.getString("Nome"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void AggiornaMedico()
     {
         try {
@@ -2879,7 +2911,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 cognomeContrAmb.setText(cognome.getText());
                 nomeContrAmb.setText(nome.getText());
                 dataContrAmb.setDate(rs.getDate("Data"));
-                terapiaPrinc.setText(rs.getString("Terapia"));
+                terapiaPrinc.setSelectedItem(rs.getString("Terapia"));
                 medicoEsamContrAmb.setSelectedItem(rs.getString("Medico"));
                 tipoControllo.setSelectedIndex(Integer.parseInt(rs.getString("Tipo_Controllo")));
             }
@@ -2920,8 +2952,13 @@ public class PazienteUI extends javax.swing.JFrame {
         {
             panelControlloAmb.removeAll();
         }
+        azzeraCampiControllo();
+    }
+    
+    public void azzeraCampiControllo()
+    {
         dataContrAmb.setDate(null);
-        terapiaPrinc.setText("");
+        terapiaPrinc.setSelectedItem(null);
         medicoEsamContrAmb.setSelectedItem(null);
         tipoControllo.setSelectedItem(null);
     }
@@ -3305,7 +3342,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextField supCorpo;
     private javax.swing.JList<String> telefono;
     private javax.swing.JTextField terapiaAttuale;
-    private javax.swing.JTextField terapiaPrinc;
+    private javax.swing.JComboBox<String> terapiaPrinc;
     private javax.swing.JTextArea terapieConcomit;
     private javax.swing.JTextArea terapiePregresse;
     private javax.swing.JComboBox<String> tipoContol;

@@ -1,7 +1,11 @@
 
 package gestionepazienti;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class SceltaTerapiaPrincipaleUI extends javax.swing.JFrame {
@@ -34,6 +38,19 @@ public class SceltaTerapiaPrincipaleUI extends javax.swing.JFrame {
             terapia.setSelectedItem(ter);
         }
         return;
+    }
+    
+    private void AggiornaCampoTerapia()
+    {
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome FROM Terapia");
+            while(rs.next())
+            {
+                terapia.addItem(rs.getString("Nome"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @SuppressWarnings("unchecked")

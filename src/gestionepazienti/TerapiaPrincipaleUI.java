@@ -107,6 +107,20 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         } 
     }
     
+    private void AggiornaCampoTerapia()
+    {
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome FROM Terapia");
+            while(rs.next())
+            {
+                terapiaDH.addItem(rs.getString("Nome"));
+                terapiaOra.addItem(rs.getString("Nome"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

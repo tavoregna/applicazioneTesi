@@ -1497,7 +1497,7 @@
                           <Component id="filler3" alignment="0" max="32767" attributes="0"/>
                           <Component id="pannelloBarra" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="185" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="181" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1513,11 +1513,11 @@
                           <Component id="jLabel90" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="dataContrAmb" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel91" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="terapiaPrinc" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel92" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="medicoEsamContrAmb" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel93" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="tipoControllo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="terapiaPrinc" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="filler3" min="-2" pref="1" max="-2" attributes="0"/>
@@ -1582,11 +1582,6 @@
                   <Font name="Times New Roman" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Terapia Principale:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="terapiaPrinc">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel92">
@@ -1707,6 +1702,19 @@
                 </DimensionLayout>
               </Layout>
             </Container>
+            <Component class="javax.swing.JComboBox" name="terapiaPrinc">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="terapiaPrincActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="immunu">
