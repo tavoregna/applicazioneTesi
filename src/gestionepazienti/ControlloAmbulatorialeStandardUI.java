@@ -19,7 +19,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         parent=p;
         idControllo=id;
         panelEsami.setLayout(new BoxLayout(panelEsami, BoxLayout.LINE_AXIS));
-        panelEsami.add(new PannelloEsami(parent,1,"Gilenya"));
+        panelEsami.add(new PannelloEsami(parent));
         aggiornaDatiAmb(idControllo);
         this.setVisible(true);
     }

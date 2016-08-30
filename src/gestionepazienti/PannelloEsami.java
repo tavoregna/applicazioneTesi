@@ -14,32 +14,47 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class PannelloEsami extends javax.swing.JPanel {
-
-    private PazienteUI parent;
-    private int idControllo;
-    private String terapia;
+    private static PannelloEsami pannelloCorrente;
     
-    public PannelloEsami(PazienteUI p,int idCon,String terapy) {
+    private PazienteUI parent;
+    
+    public PannelloEsami(PazienteUI p) {
         initComponents();
         parent=p;
-        idControllo=idCon;
-        terapia=terapy;
         
         pannello.setLayout(new GridLayout(0,2));
-        aggiornaPannello();
+        pannelloCorrente=this;
     }
-    private void aggiornaPannello()
+    public static void aggiorna(int idCon,String terapy)
     {
+        if(pannelloCorrente==null)
+            return;
+        pannelloCorrente.aggiornaPannello(idCon,terapy);
+    }
+    private void aggiornaPannello(int idCo,String terapy)
+    {
+        final int idCon=idCo;
         pannello.removeAll();
+        if(terapy==null || terapy.length()==0)
+        {
+            aggiornaUI();
+            return;
+        }
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Terapia_Esame WHERE Terapia=?");
-            pst.setString(1, terapia);
+            pst.setString(1, terapy);
             ResultSet rs=pst.executeQuery();
             while(rs.next())
             {
                 JLabel eti=new JLabel(rs.getString("Esame"));
                 pannello.add(eti);
                 JTextField fi=new JTextField();
+                PreparedStatement p=GestioneDatabase.preparedStatement("SELECT Valore FROM Controllo_Esame WHERE Controllo=? AND Esame=?");
+                p.setInt(1, idCon);
+                p.setString(2,rs.getString("Esame"));
+                ResultSet r=p.executeQuery();
+                if(r.next())
+                    fi.setText(Double.toString(r.getDouble(1)));
                 fi.setName(rs.getString("Esame"));
                 fi.addKeyListener(new KeyListener() {   
                     public void keyTyped(KeyEvent e) {}          
@@ -50,7 +65,7 @@ public class PannelloEsami extends javax.swing.JPanel {
                         JTextField dato=(JTextField)e.getSource();           
                         try {
                             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Controllo_Esame WHERE Controllo=? AND Esame=?");
-                            pst.setInt(1, idControllo);
+                            pst.setInt(1, idCon);
                             pst.setString(2,dato.getName());
                             ResultSet rs=pst.executeQuery();
                             if(rs.next())
@@ -58,7 +73,7 @@ public class PannelloEsami extends javax.swing.JPanel {
                                 pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Esame SET Valore=? WHERE Controllo=? AND Esame=?");
                                 //SISTEMARE
                                 pst.setDouble(1,Double.parseDouble(dato.getText()));
-                                pst.setInt(2, idControllo);
+                                pst.setInt(2, idCon);
                                 pst.setString(3,dato.getName());
                                 pst.executeUpdate();
                             }
@@ -66,7 +81,7 @@ public class PannelloEsami extends javax.swing.JPanel {
                             {
                                 pst=GestioneDatabase.preparedStatement("INSERT INTO Controllo_Esame(Controllo,Esame,Valore) VALUES (?,?,?)");
                                 //SISTEMARE
-                                pst.setInt(1, idControllo);
+                                pst.setInt(1, idCon);
                                 pst.setString(2,dato.getName());
                                 pst.setDouble(3,0.1);
                                 //pst.setDouble(3,Double.parseDouble(dato.getText()));
