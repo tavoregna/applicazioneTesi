@@ -1887,6 +1887,11 @@ public class PazienteUI extends javax.swing.JFrame {
 
         nome.setBackground(java.awt.Color.orange);
         nome.setName(""); // NOI18N
+        nome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeActionPerformed(evt);
+            }
+        });
 
         supCorpo.setName(""); // NOI18N
 
@@ -2675,6 +2680,10 @@ public class PazienteUI extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_medicoEsamContrAmbActionPerformed
+
+    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeActionPerformed
     //barra con i nomi delle diagnosi
     private void AggiornaCampoDiagnosi()
     {
