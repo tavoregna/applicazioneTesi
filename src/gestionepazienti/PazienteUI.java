@@ -43,6 +43,7 @@ public class PazienteUI extends javax.swing.JFrame {
         abilitaBarraSuperioreControllo(false);
         barraControlli=new BarraControlliUI(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
         pannelloBarra.add(barraControlli);
+        inserisciPannelloTerapiaDH(0);
         this.setVisible(true);
     }
 
@@ -252,7 +253,23 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel71 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
-        jPanel4 = new javax.swing.JPanel();
+        terapieDH = new javax.swing.JPanel();
+        jLabel94 = new javax.swing.JLabel();
+        jLabel95 = new javax.swing.JLabel();
+        dataDH = new org.jdesktop.swingx.JXDatePicker();
+        jLabel96 = new javax.swing.JLabel();
+        medicoEsamDH = new javax.swing.JComboBox<>();
+        jLabel98 = new javax.swing.JLabel();
+        pannelloBarra1 = new javax.swing.JPanel();
+        cognomeDH = new javax.swing.JTextField();
+        terapiaPrincDH = new javax.swing.JComboBox<>();
+        jLabel99 = new javax.swing.JLabel();
+        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 32767));
+        panelDHScroll = new javax.swing.JScrollPane();
+        panelDH = new javax.swing.JPanel();
+        nomeDH = new javax.swing.JTextField();
+        jLabel100 = new javax.swing.JLabel();
+        numSom = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         indietro = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -1780,18 +1797,153 @@ public class PazienteUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Immunosoppressione", immunu);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1407, Short.MAX_VALUE)
+        terapieDH.setBackground(new java.awt.Color(239, 228, 176));
+
+        jLabel94.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel94.setText("Medico Esaminatore:");
+
+        jLabel95.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel95.setText("Terapia Principale:");
+
+        dataDH.setEditable(false);
+        dataDH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataDHActionPerformed(evt);
+            }
+        });
+
+        jLabel96.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel96.setText("Data:");
+
+        medicoEsamDH.setEnabled(false);
+        medicoEsamDH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medicoEsamDHActionPerformed(evt);
+            }
+        });
+
+        jLabel98.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel98.setText("Cognome:");
+
+        pannelloBarra1.setOpaque(false);
+
+        javax.swing.GroupLayout pannelloBarra1Layout = new javax.swing.GroupLayout(pannelloBarra1);
+        pannelloBarra1.setLayout(pannelloBarra1Layout);
+        pannelloBarra1Layout.setHorizontalGroup(
+            pannelloBarra1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 736, Short.MAX_VALUE)
+        pannelloBarra1Layout.setVerticalGroup(
+            pannelloBarra1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 52, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Terapie infusive in DH", jPanel4);
+        cognomeDH.setEnabled(false);
+
+        terapiaPrincDH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terapiaPrincDHActionPerformed(evt);
+            }
+        });
+
+        jLabel99.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel99.setText("Nome:");
+
+        filler4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        panelDHScroll.setBackground(new java.awt.Color(239, 228, 176));
+        panelDHScroll.setOpaque(false);
+
+        panelDH.setBackground(new java.awt.Color(239, 228, 176));
+
+        javax.swing.GroupLayout panelDHLayout = new javax.swing.GroupLayout(panelDH);
+        panelDH.setLayout(panelDHLayout);
+        panelDHLayout.setHorizontalGroup(
+            panelDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelDHLayout.setVerticalGroup(
+            panelDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        panelDHScroll.setViewportView(panelDH);
+
+        nomeDH.setEnabled(false);
+        nomeDH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeDHActionPerformed(evt);
+            }
+        });
+
+        jLabel100.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel100.setText("Somministrazione N.");
+
+        javax.swing.GroupLayout terapieDHLayout = new javax.swing.GroupLayout(terapieDH);
+        terapieDH.setLayout(terapieDHLayout);
+        terapieDHLayout.setHorizontalGroup(
+            terapieDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(terapieDHLayout.createSequentialGroup()
+                .addGroup(terapieDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(filler4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pannelloBarra1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, terapieDHLayout.createSequentialGroup()
+                        .addComponent(jLabel98)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cognomeDH, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel99)
+                        .addGap(2, 2, 2)
+                        .addComponent(nomeDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel96)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dataDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel95)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(terapiaPrincDH, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel94)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(medicoEsamDH, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel100)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(numSom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelDHScroll, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(0, 234, Short.MAX_VALUE))
+        );
+
+        terapieDHLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cognomeDH, nomeDH});
+
+        terapieDHLayout.setVerticalGroup(
+            terapieDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(terapieDHLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(terapieDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel98)
+                    .addComponent(cognomeDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel99)
+                    .addComponent(nomeDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel96)
+                    .addComponent(dataDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel95)
+                    .addComponent(jLabel94)
+                    .addComponent(medicoEsamDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(terapiaPrincDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel100)
+                    .addComponent(numSom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(filler4, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(panelDHScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pannelloBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(299, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Terapie infusive in DH", terapieDH);
 
         jPanel1.setBackground(new java.awt.Color(112, 146, 190));
 
@@ -2729,6 +2881,22 @@ public class PazienteUI extends javax.swing.JFrame {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_terapiaPrincActionPerformed
+
+    private void dataDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataDHActionPerformed
+
+    private void medicoEsamDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicoEsamDHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_medicoEsamDHActionPerformed
+
+    private void terapiaPrincDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaPrincDHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_terapiaPrincDHActionPerformed
+
+    private void nomeDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeDHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeDHActionPerformed
     //barra con i nomi delle diagnosi
     private void AggiornaCampoDiagnosi()
     {
@@ -2977,6 +3145,29 @@ public class PazienteUI extends javax.swing.JFrame {
         }
     }
     
+    public void inserisciPannelloTerapiaDH(int i) //i=0 Tisabry, i=1 Gilenya
+    {
+        if(panelControlloAmb.getComponentCount()>0)
+        {
+            panelControlloAmb.removeAll();
+        }
+        switch(i)
+        {
+            case 0:
+                panelDH.setLayout(new BoxLayout(panelDH, BoxLayout.LINE_AXIS));
+                panelDH.add(new TysabriUI(this));
+                panelDH.setVisible(false);
+                panelDH.setVisible(true);
+                return;
+            case 1:
+                panelDH.setLayout(new BoxLayout(panelDH, BoxLayout.LINE_AXIS));
+                panelDH.add(new GilenyaUI(this));
+                panelDH.setVisible(false);
+                panelDH.setVisible(true);
+                return;
+        }
+    }
+    
     public void avantiIndietroPazControllo()
     {
         if(panelControlloAmb!=null && panelControlloAmb.getComponentCount()>0)
@@ -3157,12 +3348,14 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextField citologiaUrin;
     private javax.swing.JTextField cognome;
     private javax.swing.JTextField cognomeContrAmb;
+    private javax.swing.JTextField cognomeDH;
     private javax.swing.JPanel controlliAmb;
     private javax.swing.JTextArea controllo;
     private org.jdesktop.swingx.JXDatePicker data1;
     private org.jdesktop.swingx.JXDatePicker data2;
     private org.jdesktop.swingx.JXDatePicker dataContrAmb;
     private org.jdesktop.swingx.JXDatePicker dataControl;
+    private org.jdesktop.swingx.JXDatePicker dataDH;
     private org.jdesktop.swingx.JXDatePicker dataDiagno;
     private org.jdesktop.swingx.JXDatePicker dataDiagnosi;
     private org.jdesktop.swingx.JXDatePicker dataEsamiBaseLine;
@@ -3191,6 +3384,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
+    private javax.swing.Box.Filler filler4;
     private javax.swing.JComboBox<String> formaClnAtt;
     private javax.swing.JTextField gb;
     private javax.swing.JTextField gb1;
@@ -3213,6 +3407,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -3304,10 +3499,14 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -3337,6 +3536,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextField linfAss2;
     private javax.swing.JComboBox<String> medicoEsam;
     private javax.swing.JComboBox<String> medicoEsamContrAmb;
+    private javax.swing.JComboBox<String> medicoEsamDH;
     private javax.swing.JComboBox<String> modEsord;
     private javax.swing.JComboBox<String> modEsord_Diagn;
     private javax.swing.JTextField mon;
@@ -3347,10 +3547,12 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextField neu2;
     private javax.swing.JTextField nome;
     private javax.swing.JTextField nomeContrAmb;
+    private javax.swing.JTextField nomeDH;
     private javax.swing.JTextArea note;
     private javax.swing.JScrollPane noteScroll;
     private javax.swing.JTextArea npsi;
     private javax.swing.JTextField numCiclo;
+    private javax.swing.JTextField numSom;
     private javax.swing.JTextArea oct;
     private javax.swing.JComboBox<String> odPEV;
     private javax.swing.JComboBox<String> osPEV;
@@ -3358,7 +3560,10 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JPanel panelBarra;
     private javax.swing.JScrollPane panelContolloScroll;
     private javax.swing.JPanel panelControlloAmb;
+    private javax.swing.JPanel panelDH;
+    private javax.swing.JScrollPane panelDHScroll;
     private javax.swing.JPanel pannelloBarra;
+    private javax.swing.JPanel pannelloBarra1;
     private javax.swing.JPanel pannelloDiagnostica;
     private javax.swing.JTextField pbg;
     private javax.swing.JTextArea pev;
@@ -3376,7 +3581,9 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JList<String> telefono;
     private javax.swing.JTextField terapiaAttuale;
     private javax.swing.JComboBox<String> terapiaPrinc;
+    private javax.swing.JComboBox<String> terapiaPrincDH;
     private javax.swing.JTextArea terapieConcomit;
+    private javax.swing.JPanel terapieDH;
     private javax.swing.JTextArea terapiePregresse;
     private javax.swing.JComboBox<String> tipoContol;
     private javax.swing.JComboBox<String> tipoControllo;
