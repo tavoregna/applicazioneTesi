@@ -15,10 +15,12 @@ import static javax.swing.JComponent.TOOL_TIP_TEXT_KEY;
 
 public class GilenyaUI extends javax.swing.JPanel {
     
-    PazienteUI parent;
-   
-    public GilenyaUI(PazienteUI p) {
+    private PazienteUI parent;
+    private int idGilenya;
+    public GilenyaUI(PazienteUI p,int id) {
         initComponents();
+        idGilenya=id;
+        aggiornaDatiGilenya(idGilenya);
     }
 
     public void aggiornaDatiGilenya(int id)
@@ -28,7 +30,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             return;
         }
          try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM ///// WHERE /////=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Gilenya WHERE ID_Gilenya=?");
             pst.setInt(1,id);
             ResultSet rs=pst.executeQuery();
             if(rs.next())
@@ -365,12 +367,12 @@ public class GilenyaUI extends javax.swing.JPanel {
                 return;
             }
         try{  
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE //// SET EDSS=? WHERE ////=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET EDSS=? WHERE ID_Gilenya=?");
             if(edss.getText().length()==0)
                 pst.setDouble(1,0);
             else
                 pst.setDouble(1,Double.parseDouble(edss.getText()));
-            //pst.setInt(2, idControllo);
+            pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(GilenyaUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -380,9 +382,9 @@ public class GilenyaUI extends javax.swing.JPanel {
 
     private void esameObbNeuroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esameObbNeuroKeyReleased
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE //// SET EON=? WHERE ////=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET EON=? WHERE ID_Gilenya=?");
             pst.setString(1,esameObbNeuro.getText());
-            //pst.setInt(2, idControllo);
+            pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -391,9 +393,9 @@ public class GilenyaUI extends javax.swing.JPanel {
 
     private void diarioClinicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diarioClinicoKeyReleased
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE /// SET Diario_Clinico=? WHERE ///=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Diario_Clinico=? WHERE ID_Gilenya=?");
             pst.setString(1,diarioClinico.getText());
-            //pst.setInt(2, idControllo);
+            pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -402,9 +404,9 @@ public class GilenyaUI extends javax.swing.JPanel {
 
     private void terSintoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_terSintoKeyReleased
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE /// SET Terapia_Sintomatica=? WHERE ///=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Terapia_Sintomatica=? WHERE ID_Gilenya=?");
             pst.setString(1,terSinto.getText());
-            //pst.setInt(2, idControllo);
+            pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
