@@ -24,7 +24,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private RicadutaUI ricaduta;
     private BarraControlliUI barraControlli;
     private Integer idControlloCorrente;
-    
+    private Integer idDHCorrente;
     public PazienteUI() {
         initComponents();
         idControlloCorrente=null;
@@ -1840,6 +1840,7 @@ public class PazienteUI extends javax.swing.JFrame {
 
         cognomeDH.setEnabled(false);
 
+        terapiaPrincDH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tysabri", "Gilenya" }));
         terapiaPrincDH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 terapiaPrincDHActionPerformed(evt);
@@ -1895,24 +1896,24 @@ public class PazienteUI extends javax.swing.JFrame {
                         .addComponent(jLabel99)
                         .addGap(2, 2, 2)
                         .addComponent(nomeDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(10, 10, 10)
                         .addComponent(jLabel96)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dataDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel95)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(terapiaPrincDH, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel94)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(medicoEsamDH, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel100)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(numSom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(panelDHScroll, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(0, 234, Short.MAX_VALUE))
+                .addGap(0, 190, Short.MAX_VALUE))
         );
 
         terapieDHLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cognomeDH, nomeDH});
@@ -2891,7 +2892,7 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_medicoEsamDHActionPerformed
 
     private void terapiaPrincDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaPrincDHActionPerformed
-        // TODO add your handling code here:
+        inserisciPannelloTerapiaDH(terapiaPrincDH.getSelectedIndex());
     }//GEN-LAST:event_terapiaPrincDHActionPerformed
 
     private void nomeDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeDHActionPerformed
@@ -3145,23 +3146,54 @@ public class PazienteUI extends javax.swing.JFrame {
         }
     }
     
+    public void aggiornaDatiDH(int idDH)
+    {
+       /*if(idDH==-1)
+       {
+           inserisciPannelloControllo(idDH, tipoControllo.getSelectedIndex());
+           return;
+       }
+       idDHCorrente=idDH;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Data,Medico,Tipo_Controllo,Note FROM Controllo_Standard WHERE ID_Controllo=?");
+            pst.setInt(1,idDH);
+            ResultSet rs=pst.executeQuery();
+            String terapy="";
+            if(rs.next())
+            {
+                cognomeContrAmb.setText(cognome.getText());
+                nomeContrAmb.setText(nome.getText());
+                dataContrAmb.setDate(rs.getDate("Data"));
+                terapiaPrinc.setSelectedItem(rs.getString("Terapia"));
+                terapy=rs.getString("Terapia");
+                
+                medicoEsamContrAmb.setSelectedItem(rs.getString("Medico"));
+                tipoControllo.setSelectedIndex(Integer.parseInt(rs.getString("Tipo_Controllo"))-1);
+            }
+            inserisciPannelloControllo(idDH, tipoControllo.getSelectedIndex());
+            PannelloEsami.aggiorna(idDH, terapy);
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }*/ 
+    }
+    
     public void inserisciPannelloTerapiaDH(int i) //i=0 Tisabry, i=1 Gilenya
     {
-        if(panelControlloAmb.getComponentCount()>0)
+        if(panelDH.getComponentCount()>0)
         {
-            panelControlloAmb.removeAll();
+            panelDH.removeAll();
         }
         switch(i)
         {
             case 0:
                 panelDH.setLayout(new BoxLayout(panelDH, BoxLayout.LINE_AXIS));
-                panelDH.add(new TysabriUI(this));
+                panelDH.add(new TysabriUI(this,1));
                 panelDH.setVisible(false);
                 panelDH.setVisible(true);
                 return;
             case 1:
                 panelDH.setLayout(new BoxLayout(panelDH, BoxLayout.LINE_AXIS));
-                panelDH.add(new GilenyaUI(this));
+                panelDH.add(new GilenyaUI(this,1));
                 panelDH.setVisible(false);
                 panelDH.setVisible(true);
                 return;
@@ -3183,6 +3215,14 @@ public class PazienteUI extends javax.swing.JFrame {
         terapiaPrinc.setSelectedItem(null);
         medicoEsamContrAmb.setSelectedItem(null);
         tipoControllo.setSelectedItem(null);
+    }
+    
+    public void azzeraCampiDH()
+    {
+        dataDH.setDate(null);
+        terapiaPrincDH.setSelectedItem(null);
+        medicoEsamDH.setSelectedItem(null);
+        numSom.setText("");
     }
     
     public void infoPersonali(int id)
