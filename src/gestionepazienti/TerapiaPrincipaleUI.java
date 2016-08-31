@@ -16,6 +16,8 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     private Date dataAvvioTerapia;
     private String terapia_2;
     
+    private int tipoControllo;
+    
     public TerapiaPrincipaleUI(PazienteUI p,AmbulatorioOrdinarioUI amb,int id) {
         initComponents();
         unvisibleAll();
@@ -48,6 +50,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             return;
         }
         try {
+            tipoControllo=i;
             PreparedStatement pst;
             String query;
             if(i==1)
@@ -212,6 +215,8 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         if(parentPanel!=null)
         {
             //parentPanel.coloreAmbulatoriOrdinari(2);
+            aggiornaTipoControllo(2);
+            
         }
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
@@ -223,6 +228,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         if(parentPanel!=null)
         {
             //parentPanel.coloreAmbulatoriOrdinari(3);
+            aggiornaTipoControllo(3);
         }
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
@@ -232,9 +238,26 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         if(parentPanel!=null)
         {
             //parentPanel.coloreAmbulatoriOrdinari(1);
+            aggiornaTipoControllo(1);
+            
         }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
-
+    private void aggiornaTipoControllo(int i)
+    {
+        String query;
+        if(tipoControllo==0)
+            query="UPDATE Ambulatorio_Ordinario SET Terapia_Principale=? WHERE Controllo_Standard=?";
+        else
+            query="UPDATE Ricaduta SET Terapia_Principale=? WHERE Controllo_Standard=?";
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement(query);
+            pst.setInt(1, i);
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonTer2;
