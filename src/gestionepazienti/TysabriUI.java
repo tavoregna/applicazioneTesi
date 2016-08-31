@@ -18,10 +18,13 @@ import org.jfree.chart.plot.PlotOrientation;
 public class TysabriUI extends javax.swing.JPanel {
 
     private PazienteUI parent;
+    private int idTysabri;
     
-    public TysabriUI(PazienteUI p) {
+    public TysabriUI(PazienteUI p,int id) {
         initComponents();
         abilitaJCV(false);
+        idTysabri=id;
+        aggiornaDatiTysabri(idTysabri);
     }
 
     public void abilitaJCV(boolean b)
@@ -38,7 +41,7 @@ public class TysabriUI extends javax.swing.JPanel {
             return;
         }
          try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM ///// WHERE /////=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Tysabri WHERE ID_Tysabri=?");
             pst.setInt(1,id);
             ResultSet rs=pst.executeQuery();
             if(rs.next())
@@ -61,7 +64,7 @@ public class TysabriUI extends javax.swing.JPanel {
                cerebrale.setText(""+rs.getDouble("Cerebrale"));
                deambulazione.setText(""+rs.getDouble("Deambulazione"));
                edss.setText(""+rs.getDouble("EDSS"));
-               dataJCV.setDate(rs.getDate(TOOL_TIP_TEXT_KEY));
+               dataJCV.setDate(rs.getDate("Data_JCV"));
                posNegJCV.setSelectedItem(rs.getString("JCV"));
                index.setText(""+rs.getDouble("Index"));
                note.setText(rs.getString("Note"));
@@ -636,9 +639,9 @@ public class TysabriUI extends javax.swing.JPanel {
     private void terSintoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_terSintoKeyReleased
         
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE //// SET Terapia_Sintomatica=? WHERE ////=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Terapia_Sintomatica=? WHERE ID_Tysabri=?");
             pst.setString(1,terSinto.getText());
-            //pst.setInt(2, idTysabri);
+            pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(TysabriUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -647,9 +650,9 @@ public class TysabriUI extends javax.swing.JPanel {
 
     private void esameObbNeuroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esameObbNeuroKeyReleased
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ///// SET EON=? WHERE ////=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET EON=? WHERE ID_Tysabri=?");
             pst.setString(1,esameObbNeuro.getText());
-            //pst.setInt(2, idControllo);
+            pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -658,13 +661,13 @@ public class TysabriUI extends javax.swing.JPanel {
 
     private void dataEsamEmatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmatoActionPerformed
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE //// SET Data_Esami_Ematochimici=? WHERE /////=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Data_Esami_Ematochimici=? WHERE ID_Tysabri=?");
             Date d=dataEsamEmato.getDate();
             if(d==null)
             pst.setNull(1, java.sql.Types.DATE);
             else
             pst.setDate(1, Utilita.DateUtilToSQL(d));
-            //pst.setInt(2, idControllo);
+            pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -691,12 +694,12 @@ public class TysabriUI extends javax.swing.JPanel {
             return;
         }
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE //// SET EDSS=? WHERE ////=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET EDSS=? WHERE ID_Tysabri=?");
             if(edss.getText().length()==0)
             pst.setDouble(1,0);
             else
             pst.setDouble(1,Double.parseDouble(edss.getText()));
-            //pst.setInt(2, idControllo);
+            pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -705,9 +708,9 @@ public class TysabriUI extends javax.swing.JPanel {
 
     private void rmCervDorsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rmCervDorsKeyReleased
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE //// SET RM_Cervico_Dorsale=? WHERE ///=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET RM_Cervico_Dorsale=? WHERE ID_Tysabri=?");
             pst.setString(1,rmCervDors.getText());
-            //pst.setInt(2, idControllo);
+            pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -716,9 +719,9 @@ public class TysabriUI extends javax.swing.JPanel {
 
     private void diarioClinicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diarioClinicoKeyReleased
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE //// SET Diario_Clinico=? WHERE ////=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Diario_Clinico=? WHERE ID_Tysabri=?");
             pst.setString(1,diarioClinico.getText());
-         //   pst.setInt(2, idControllo);
+            pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -727,9 +730,9 @@ public class TysabriUI extends javax.swing.JPanel {
 
     private void esamiEmatoChimKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esamiEmatoChimKeyReleased
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE /// SET Esami_Ematochimici=? WHERE ////=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Esami_Ematochimici=? WHERE ID_Tysabri=?");
             pst.setString(1,esamiEmatoChim.getText());
-            //pst.setInt(2, idControllo);
+            pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -738,13 +741,13 @@ public class TysabriUI extends javax.swing.JPanel {
 
     private void dataRMCervDorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRMCervDorsActionPerformed
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE /// SET Data_RM_Cervico_Dorsale=? WHERE ////=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Data_RM_Cervico_Dorsale=? WHERE ID_Tysabri=?");
             Date d=dataRMCervDors.getDate();
             if(d==null)
             pst.setNull(1, java.sql.Types.DATE);
             else
             pst.setDate(1, Utilita.DateUtilToSQL(d));
-            //pst.setInt(2, idControllo);
+            pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -753,9 +756,9 @@ public class TysabriUI extends javax.swing.JPanel {
 
     private void rmEncefalicaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rmEncefalicaKeyReleased
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE /// SET RM_Encefalica=? WHERE ////=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET RM_Encefalica=? WHERE ID_Tysabri=?");
             pst.setString(1,rmEncefalica.getText());
-            //pst.setInt(2, idControllo);
+            pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -764,13 +767,13 @@ public class TysabriUI extends javax.swing.JPanel {
 
     private void dataRMEncefaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRMEncefaloActionPerformed
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE //// SET Data_RM_Encefalica=? WHERE ///=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Data_RM_Encefalica=? WHERE ID_Tysabri=?");
             Date d=dataRMEncefalo.getDate();
             if(d==null)
             pst.setNull(1, java.sql.Types.DATE);
             else
             pst.setDate(1, Utilita.DateUtilToSQL(d));
-         //   pst.setInt(2, idControllo);
+            pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
