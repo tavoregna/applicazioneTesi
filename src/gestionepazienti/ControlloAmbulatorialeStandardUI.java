@@ -1,6 +1,5 @@
 package gestionepazienti;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,12 +9,9 @@ import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 
 
 public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
@@ -28,7 +24,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         parent=p;
         idControllo=id;
         panelEsami.setLayout(new BoxLayout(panelEsami, BoxLayout.LINE_AXIS));
-        panelEsami.add(new PannelloEsami(parent));
+        panelEsami.add(new PannelloEsami(parent,panelGrafico));
         aggiornaDatiAmb(idControllo);
         this.setVisible(true);
     }
