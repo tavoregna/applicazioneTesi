@@ -2695,7 +2695,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="numSom" min="-2" pref="55" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="panelContolloScroll1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="panelDHScroll" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="234" max="32767" attributes="0"/>
                   </Group>
@@ -2722,7 +2722,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="filler4" min="-2" pref="1" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                      <Component id="panelContolloScroll1" min="-2" pref="338" max="-2" attributes="0"/>
+                      <Component id="panelDHScroll" min="-2" pref="338" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pannelloBarra1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="299" max="32767" attributes="0"/>
@@ -2850,7 +2850,7 @@
                 <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.HorizontalStrut"/>
               </AuxValues>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="panelContolloScroll1">
+            <Container class="javax.swing.JScrollPane" name="panelDHScroll">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="b0" green="e4" red="ef" type="rgb"/>
@@ -2860,7 +2860,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="panelControlloAmb1">
+                <Container class="javax.swing.JPanel" name="panelDH">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="b0" green="e4" red="ef" type="rgb"/>

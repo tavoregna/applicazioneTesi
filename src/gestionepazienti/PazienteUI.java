@@ -43,6 +43,7 @@ public class PazienteUI extends javax.swing.JFrame {
         abilitaBarraSuperioreControllo(false);
         barraControlli=new BarraControlliUI(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
         pannelloBarra.add(barraControlli);
+        inserisciPannelloTerapiaDH(0);
         this.setVisible(true);
     }
 
@@ -264,8 +265,8 @@ public class PazienteUI extends javax.swing.JFrame {
         terapiaPrincDH = new javax.swing.JComboBox<>();
         jLabel99 = new javax.swing.JLabel();
         filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 32767));
-        panelContolloScroll1 = new javax.swing.JScrollPane();
-        panelControlloAmb1 = new javax.swing.JPanel();
+        panelDHScroll = new javax.swing.JScrollPane();
+        panelDH = new javax.swing.JPanel();
         nomeDH = new javax.swing.JTextField();
         jLabel100 = new javax.swing.JLabel();
         numSom = new javax.swing.JTextField();
@@ -941,7 +942,7 @@ public class PazienteUI extends javax.swing.JFrame {
                     .addComponent(jLabel72)
                     .addComponent(dataRMN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelRMN, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jPanelRMN, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1079,7 +1080,7 @@ public class PazienteUI extends javax.swing.JFrame {
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1850,23 +1851,23 @@ public class PazienteUI extends javax.swing.JFrame {
 
         filler4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        panelContolloScroll1.setBackground(new java.awt.Color(239, 228, 176));
-        panelContolloScroll1.setOpaque(false);
+        panelDHScroll.setBackground(new java.awt.Color(239, 228, 176));
+        panelDHScroll.setOpaque(false);
 
-        panelControlloAmb1.setBackground(new java.awt.Color(239, 228, 176));
+        panelDH.setBackground(new java.awt.Color(239, 228, 176));
 
-        javax.swing.GroupLayout panelControlloAmb1Layout = new javax.swing.GroupLayout(panelControlloAmb1);
-        panelControlloAmb1.setLayout(panelControlloAmb1Layout);
-        panelControlloAmb1Layout.setHorizontalGroup(
-            panelControlloAmb1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelDHLayout = new javax.swing.GroupLayout(panelDH);
+        panelDH.setLayout(panelDHLayout);
+        panelDHLayout.setHorizontalGroup(
+            panelDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        panelControlloAmb1Layout.setVerticalGroup(
-            panelControlloAmb1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelDHLayout.setVerticalGroup(
+            panelDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        panelContolloScroll1.setViewportView(panelControlloAmb1);
+        panelDHScroll.setViewportView(panelDH);
 
         nomeDH.setEnabled(false);
         nomeDH.addActionListener(new java.awt.event.ActionListener() {
@@ -1910,7 +1911,7 @@ public class PazienteUI extends javax.swing.JFrame {
                         .addComponent(jLabel100)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(numSom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelContolloScroll1, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(panelDHScroll, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(0, 234, Short.MAX_VALUE))
         );
 
@@ -1936,7 +1937,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(filler4, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(panelContolloScroll1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelDHScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pannelloBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(299, Short.MAX_VALUE))
@@ -3144,6 +3145,29 @@ public class PazienteUI extends javax.swing.JFrame {
         }
     }
     
+    public void inserisciPannelloTerapiaDH(int i) //i=0 Tisabry, i=1 Gilenya
+    {
+        if(panelControlloAmb.getComponentCount()>0)
+        {
+            panelControlloAmb.removeAll();
+        }
+        switch(i)
+        {
+            case 0:
+                panelDH.setLayout(new BoxLayout(panelDH, BoxLayout.LINE_AXIS));
+                panelDH.add(new TysabriUI(this));
+                panelDH.setVisible(false);
+                panelDH.setVisible(true);
+                return;
+            case 1:
+                panelDH.setLayout(new BoxLayout(panelDH, BoxLayout.LINE_AXIS));
+                panelDH.add(new GilenyaUI(this));
+                panelDH.setVisible(false);
+                panelDH.setVisible(true);
+                return;
+        }
+    }
+    
     public void avantiIndietroPazControllo()
     {
         if(panelControlloAmb!=null && panelControlloAmb.getComponentCount()>0)
@@ -3535,9 +3559,9 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextField ospedale;
     private javax.swing.JPanel panelBarra;
     private javax.swing.JScrollPane panelContolloScroll;
-    private javax.swing.JScrollPane panelContolloScroll1;
     private javax.swing.JPanel panelControlloAmb;
-    private javax.swing.JPanel panelControlloAmb1;
+    private javax.swing.JPanel panelDH;
+    private javax.swing.JScrollPane panelDHScroll;
     private javax.swing.JPanel pannelloBarra;
     private javax.swing.JPanel pannelloBarra1;
     private javax.swing.JPanel pannelloDiagnostica;
