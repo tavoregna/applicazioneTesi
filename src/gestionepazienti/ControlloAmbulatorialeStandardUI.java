@@ -47,7 +47,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                dataRMCervDors.setDate(rs.getDate("Data_RM_Cervico_Dorsale"));
                rmCervDors.setText(rs.getString("RM_Cervico_Dorsale"));
                esamiEmatoChim.setText(rs.getString("Esami_Ematochimici"));
-               dataTerSintomatica.setDate(rs.getDate("Data_Terapia_Sintomatica"));
+               dataTerSintomatica.setDate(rs.getDate("Data_Esami_Ematochimici"));
                terSinto.setText(rs.getString("Terapia_Sintomatica"));
                esameObbNeuro.setText(rs.getString("EON"));
                piramidale.setText(""+rs.getDouble("Piramidale"));
@@ -642,7 +642,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
 
     private void dataTerSintomaticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataTerSintomaticaActionPerformed
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Data_Terapia_Sintomatica=? WHERE ID_Controllo=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Data_Esami_Ematochimici=? WHERE ID_Controllo=?");
             Date d=dataTerSintomatica.getDate();
             if(d==null)
                 pst.setNull(1, java.sql.Types.DATE);
