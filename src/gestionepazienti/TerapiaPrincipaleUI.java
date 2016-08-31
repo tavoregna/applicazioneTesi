@@ -24,6 +24,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         parent=p;
         parentPanel=amb;
         idControllo=id;
+        AggiornaCampoTerapia();
         if(parentPanel==null)
         {
             jRadioButton2.setVisible(false);
@@ -41,6 +42,9 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         terapiaOra.setVisible(false);
         terapiaDH.setVisible(false);
         dataAvvio.setVisible(false);
+        terapiaOra.setEnabled(false);
+        terapiaDH.setEnabled(false);
+        dataAvvio.setEnabled(false);
     }
     
     public void aggiornaDatiTerap(int idControllo,int i) //i=1 ordinario; i=2 ricaduta
@@ -73,7 +77,9 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                             jRadioButton2.setSelected(true);
                             buttonTer2.setVisible(true);
                             dataAvvio.setVisible(true);
+                            dataAvvio.setEnabled(true);
                             terapiaDH.setVisible(true);
+                            terapiaDH.setEnabled(true);
                             dataAvvioTerapia=rs.getDate("Data_Avvio_Terapia");
                             terapia_2=rs.getString("Terapia_2");
                             //parentPanel.coloreAmbulatoriOrdinari(2);
@@ -82,6 +88,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                         {
                             jRadioButton3.setSelected(true);
                             terapiaOra.setSelectedItem(rs.getString("Terapia_3"));
+                            terapiaOra.setEnabled(true);
                             buttonTer3.setVisible(true);
                         }
                     }   
@@ -151,11 +158,29 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             }
         });
 
+        terapiaOra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terapiaOraActionPerformed(evt);
+            }
+        });
+
         buttonTer2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonTer2.setText(">");
 
         buttonTer3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonTer3.setText(">");
+
+        dataAvvio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataAvvioActionPerformed(evt);
+            }
+        });
+
+        terapiaDH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terapiaDHActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -211,7 +236,9 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         unvisibleAll();
         buttonTer2.setVisible(true);
         dataAvvio.setVisible(true);
+        dataAvvio.setEnabled(true);
         terapiaDH.setVisible(true);
+        terapiaDH.setEnabled(true);
         aggiornaTipoControllo(2);
         if(parentPanel!=null)
         {
@@ -226,6 +253,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         unvisibleAll();
         buttonTer3.setVisible(true);
         terapiaOra.setVisible(true);
+        terapiaOra.setEnabled(true);
         aggiornaTipoControllo(3);
         if(parentPanel!=null)
         {
@@ -245,6 +273,60 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void dataAvvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataAvvioActionPerformed
+        if(!dataAvvio.isEnabled() || tipoControllo!=2)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Ambulatorio_Ordinario SET Data_Avvio_Terapia=? WHERE Controllo_Standard=?");
+            Date d=dataAvvio.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_dataAvvioActionPerformed
+
+    private void terapiaDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaDHActionPerformed
+        if(!terapiaDH.isEnabled())
+                return;
+        try {
+            String q;
+            if(tipoControllo==1)
+                q="Ambulatorio_Ordinario";
+            else
+                q="Ricaduta";
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE "+q+" SET Terapia_2=? WHERE Controllo_Standard=?");
+            pst.setString(1, (String)terapiaDH.getSelectedItem());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_terapiaDHActionPerformed
+
+    private void terapiaOraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaOraActionPerformed
+        if(!terapiaOra.isEnabled())
+                return;
+        try {
+            String q;
+            if(tipoControllo==1)
+                q="Ambulatorio_Ordinario";
+            else
+                q="Ricaduta";
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE "+q+" SET Terapia_3=? WHERE Controllo_Standard=?");
+            pst.setString(1, (String)terapiaOra.getSelectedItem());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_terapiaOraActionPerformed
     private void aggiornaTipoControllo(int i)
     {
         String query;
