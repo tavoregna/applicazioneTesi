@@ -59,7 +59,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                     if(rs.getInt("Terapia_Principale")==1)
                     {
                         jRadioButton1.setSelected(true);
-                        parentPanel.coloreAmbulatoriOrdinari(1);
+                        //parentPanel.coloreAmbulatoriOrdinari(1);
                     }
                     else
                     {
@@ -71,14 +71,14 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                             terapiaDH.setVisible(true);
                             dataAvvioTerapia=rs.getDate("Data_Avvio_Terapia");
                             terapia_2=rs.getString("Terapia_2");
-                            parentPanel.coloreAmbulatoriOrdinari(2);
+                            //parentPanel.coloreAmbulatoriOrdinari(2);
                         }
                         else
                         {
                             jRadioButton3.setSelected(true);
                             terapiaOra.setSelectedItem(rs.getString("Terapia_3"));
                             buttonTer3.setVisible(true);
-                            parentPanel.coloreAmbulatoriOrdinari(3);
+                            //parentPanel.coloreAmbulatoriOrdinari(3);
                         }
                     }   
                 }
@@ -235,7 +235,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         terapiaDH.setVisible(true);
         if(parentPanel!=null)
         {
-            parentPanel.coloreAmbulatoriOrdinari(2);
+            //parentPanel.coloreAmbulatoriOrdinari(2);
         }
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
@@ -246,7 +246,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         terapiaOra.setVisible(true);
         if(parentPanel!=null)
         {
-            parentPanel.coloreAmbulatoriOrdinari(3);
+            //parentPanel.coloreAmbulatoriOrdinari(3);
         }
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
@@ -255,7 +255,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         unvisibleAll();
         if(parentPanel!=null)
         {
-            parentPanel.coloreAmbulatoriOrdinari(1);
+            //parentPanel.coloreAmbulatoriOrdinari(1);
         }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 

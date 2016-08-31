@@ -73,12 +73,12 @@ public class RicadutaUI extends javax.swing.JPanel {
         if((ricaduta.getSelectedIndex()==0) || ricaduta.getSelectedIndex()==1)
         {
             ricadTerap.setVisible(true);
-            coloreRicaduta(1);
+            //coloreRicaduta(1);
         }
         else
         {
             ricadTerap.setVisible(false);
-            coloreRicaduta(2);
+            //coloreRicaduta(2);
         }
      }
     
