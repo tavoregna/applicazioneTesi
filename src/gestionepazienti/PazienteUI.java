@@ -2595,11 +2595,20 @@ public class PazienteUI extends javax.swing.JFrame {
              PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Controllo_Standard(ID_Paziente,Data,Tipo_Controllo) VALUES (?,?,?)");
              pst.setInt(1, Pazienti.getCurrID());
              pst.setDate(2, Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
-             pst.setString(3,Integer.toString(tipoControllo.getSelectedIndex()));
+             pst.setString(3,Integer.toString(tipoControllo.getSelectedIndex()+1));
              pst.executeUpdate();
              ResultSet rs=GestioneDatabase.querySelect("SELECT MAX(ID_Controllo) FROM Controllo_Standard");
              if(rs.next())
              {
+                 String q;
+                 if(tipoControllo.getSelectedIndex()==0)
+                     q="INSERT INTO Ambulatorio_Ordinario(Controllo_Standard,Terapia_Principale)  VALUES (?,?)";
+                 else
+                     q="INSERT INTO Ricaduta(Controllo_Standard,Terapia_Principale)  VALUES (?,?)";
+                 PreparedStatement p=GestioneDatabase.preparedStatement(q);
+                 p.setInt(1,rs.getInt(1));
+                 p.setInt(2,1);
+                 p.executeUpdate();
                  barraControlli.aggiornaBarra(Pazienti.getCurrID());
                  aggiornaDatiControllo(rs.getInt(1));
                  idControlloCorrente=rs.getInt(1);
@@ -3101,7 +3110,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 terapy=rs.getString("Terapia");
                 
                 medicoEsamContrAmb.setSelectedItem(rs.getString("Medico"));
-                tipoControllo.setSelectedIndex(Integer.parseInt(rs.getString("Tipo_Controllo")));
+                tipoControllo.setSelectedIndex(Integer.parseInt(rs.getString("Tipo_Controllo"))-1);
             }
             inserisciPannelloControllo(idControllo, tipoControllo.getSelectedIndex());
             PannelloEsami.aggiorna(idControllo, terapy);
@@ -3137,7 +3146,7 @@ public class PazienteUI extends javax.swing.JFrame {
     
     public void avantiIndietroPazControllo()
     {
-        if(panelControlloAmb.getComponentCount()>0)
+        if(panelControlloAmb!=null && panelControlloAmb.getComponentCount()>0)
         {
             panelControlloAmb.removeAll();
         }

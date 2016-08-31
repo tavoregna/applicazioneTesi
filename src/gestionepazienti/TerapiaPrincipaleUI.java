@@ -212,10 +212,11 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         buttonTer2.setVisible(true);
         dataAvvio.setVisible(true);
         terapiaDH.setVisible(true);
+        aggiornaTipoControllo(2);
         if(parentPanel!=null)
         {
             //parentPanel.coloreAmbulatoriOrdinari(2);
-            aggiornaTipoControllo(2);
+            
             
         }
     }//GEN-LAST:event_jRadioButton2ActionPerformed
@@ -225,27 +226,29 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         unvisibleAll();
         buttonTer3.setVisible(true);
         terapiaOra.setVisible(true);
+        aggiornaTipoControllo(3);
         if(parentPanel!=null)
         {
             //parentPanel.coloreAmbulatoriOrdinari(3);
-            aggiornaTipoControllo(3);
+            
         }
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         
         unvisibleAll();
+        aggiornaTipoControllo(1);
         if(parentPanel!=null)
         {
             //parentPanel.coloreAmbulatoriOrdinari(1);
-            aggiornaTipoControllo(1);
+            
             
         }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
     private void aggiornaTipoControllo(int i)
     {
         String query;
-        if(tipoControllo==0)
+        if(tipoControllo==1)
             query="UPDATE Ambulatorio_Ordinario SET Terapia_Principale=? WHERE Controllo_Standard=?";
         else
             query="UPDATE Ricaduta SET Terapia_Principale=? WHERE Controllo_Standard=?";

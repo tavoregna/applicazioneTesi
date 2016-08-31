@@ -172,6 +172,7 @@ public class CercaPazienteUI extends javax.swing.JFrame {
         }
         else
         {
+            parent.avantiIndietroPazControllo();
             parent.visualizzaDati(listaID.get(lista.getSelectedIndex()));
             this.dispose();
         } 
