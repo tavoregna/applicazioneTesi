@@ -43,7 +43,6 @@ public class PazienteUI extends javax.swing.JFrame {
         abilitaBarraSuperioreControllo(false);
         barraControlli=new BarraControlliUI(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
         pannelloBarra.add(barraControlli);
-        inserisciPannelloTerapiaDH(0);
         this.setVisible(true);
     }
 
@@ -2892,7 +2891,7 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_medicoEsamDHActionPerformed
 
     private void terapiaPrincDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaPrincDHActionPerformed
-        inserisciPannelloTerapiaDH(terapiaPrincDH.getSelectedIndex());
+        inserisciPannelloTerapiaDH(1,terapiaPrincDH.getSelectedIndex());
     }//GEN-LAST:event_terapiaPrincDHActionPerformed
 
     private void nomeDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeDHActionPerformed
@@ -2933,6 +2932,7 @@ public class PazienteUI extends javax.swing.JFrame {
             while(rs.next())
             {
                 medicoEsamContrAmb.addItem(rs.getString(1));
+                medicoEsamDH.addItem(rs.getString(1));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -3146,38 +3146,23 @@ public class PazienteUI extends javax.swing.JFrame {
         }
     }
     
-    public void aggiornaDatiDH(int idDH)
+    public void aggiornaDatiDH(Date data,int terapia,String medico,int numero)
     {
-       /*if(idDH==-1)
-       {
-           inserisciPannelloControllo(idDH, tipoControllo.getSelectedIndex());
-           return;
-       }
-       idDHCorrente=idDH;
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Data,Medico,Tipo_Controllo,Note FROM Controllo_Standard WHERE ID_Controllo=?");
-            pst.setInt(1,idDH);
-            ResultSet rs=pst.executeQuery();
-            String terapy="";
-            if(rs.next())
-            {
-                cognomeContrAmb.setText(cognome.getText());
-                nomeContrAmb.setText(nome.getText());
-                dataContrAmb.setDate(rs.getDate("Data"));
-                terapiaPrinc.setSelectedItem(rs.getString("Terapia"));
-                terapy=rs.getString("Terapia");
-                
-                medicoEsamContrAmb.setSelectedItem(rs.getString("Medico"));
-                tipoControllo.setSelectedIndex(Integer.parseInt(rs.getString("Tipo_Controllo"))-1);
-            }
-            inserisciPannelloControllo(idDH, tipoControllo.getSelectedIndex());
-            PannelloEsami.aggiorna(idDH, terapy);
-        } catch (SQLException ex) {
-            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
-        }*/ 
+        dataDH.setDate(data);
+        terapiaPrincDH.setSelectedIndex(terapia);
+        medicoEsamDH.setSelectedItem(medico);
+        numSom.setText(""+numero);
+        /*if(terapia==0)     deipende se vogliono cambiare il nome dell'etichetta
+        {
+            jLabel100.setText("Somministrazione N.");
+        }
+        else
+        {
+             jLabel100.setText("N.");
+        }*/
     }
     
-    public void inserisciPannelloTerapiaDH(int i) //i=0 Tisabry, i=1 Gilenya
+    public void inserisciPannelloTerapiaDH(int idDH,int i) //i=0 Tisabry, i=1 Gilenya
     {
         if(panelDH.getComponentCount()>0)
         {
