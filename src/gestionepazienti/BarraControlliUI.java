@@ -220,6 +220,7 @@ public class BarraControlliUI extends javax.swing.JPanel {
                 
                 aggiornaBarra(Pazienti.getCurrID());
                 parent.aggiornaDatiControllo(rs.getInt(1));
+                parent.abilitaBarraSuperioreControllo(true);
             }
         }
         catch (SQLException ex) {
