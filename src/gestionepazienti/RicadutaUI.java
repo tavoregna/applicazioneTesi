@@ -21,7 +21,7 @@ public class RicadutaUI extends javax.swing.JPanel {
         parent=p;
         idControllo=id;
         standard=new ControlloAmbulatorialeStandardUI(parent,idControllo);
-        terPrincipale=new TerapiaPrincipaleUI(parent, null,idControllo);
+        terPrincipale=new TerapiaPrincipaleUI(parent, 1,idControllo);
         panelStandard.setLayout(new BoxLayout(panelStandard, BoxLayout.LINE_AXIS));
         panelTerPrincipale.setLayout(new BoxLayout(panelTerPrincipale, BoxLayout.LINE_AXIS));
         panelStandard.add(standard);
