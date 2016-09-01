@@ -3123,23 +3123,20 @@ public class PazienteUI extends javax.swing.JFrame {
         {
             panelControlloAmb.removeAll();
         }
+        panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
         switch(i)
         {
             case 0:
                 ambulatorio=new AmbulatorioOrdinarioUI(this,idControllo);
-                panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
                 panelControlloAmb.add(ambulatorio);
-                panelControlloAmb.setVisible(false);
-                panelControlloAmb.setVisible(true);
-                return;
+                break;
             case 1:
                 ricaduta=new RicadutaUI(this,idControllo);
-                panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
                 panelControlloAmb.add(ricaduta);
-                panelControlloAmb.setVisible(false);
-                panelControlloAmb.setVisible(true);
-                return;
+                break;
         }
+        panelControlloAmb.setVisible(false);
+        panelControlloAmb.setVisible(true);
     }
     
     public void aggiornaDatiDH(Date data,int terapia,String medico,int numero)
@@ -3158,27 +3155,24 @@ public class PazienteUI extends javax.swing.JFrame {
         }*/
     }
     
-    public void inserisciPannelloTerapiaDH(int idDH,int i) //i=0 Tisabry, i=1 Gilenya
+    public void inserisciPannelloTerapiaDH(int idDH,int i) //i=0 Tisabry, i=1 Gilenya, i=2 Lematrada
     {
         if(panelDH.getComponentCount()>0)
         {
             panelDH.removeAll();
         }
+        panelDH.setLayout(new BoxLayout(panelDH, BoxLayout.LINE_AXIS));
         switch(i)
         {
-            case 0:
-                panelDH.setLayout(new BoxLayout(panelDH, BoxLayout.LINE_AXIS));
+            case 0:            
                 panelDH.add(new TysabriUI(this,1));
-                panelDH.setVisible(false);
-                panelDH.setVisible(true);
-                return;
+                break;
             case 1:
-                panelDH.setLayout(new BoxLayout(panelDH, BoxLayout.LINE_AXIS));
                 panelDH.add(new GilenyaUI(this,1));
-                panelDH.setVisible(false);
-                panelDH.setVisible(true);
-                return;
+                break;
         }
+        panelDH.setVisible(false);
+        panelDH.setVisible(true);
     }
     
     public void avantiIndietroPazControllo()

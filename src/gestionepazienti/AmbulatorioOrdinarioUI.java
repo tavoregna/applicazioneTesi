@@ -16,7 +16,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
         parent=p;
         idControllo=id;
         standard=new ControlloAmbulatorialeStandardUI(parent,idControllo);
-        terPrincipale=new TerapiaPrincipaleUI(parent, this,idControllo);
+        terPrincipale=new TerapiaPrincipaleUI(parent, 0,idControllo);
         
         panelStandard.setLayout(new BoxLayout(panelStandard, BoxLayout.LINE_AXIS));
         panelTerPrincipale.setLayout(new BoxLayout(panelTerPrincipale, BoxLayout.LINE_AXIS));
