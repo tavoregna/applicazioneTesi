@@ -36,10 +36,6 @@ public class TysabriUI extends javax.swing.JPanel {
     
     public void aggiornaDatiTysabri(int id)
     {
-        if(id==-1)
-        {
-            return;
-        }
          try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Tysabri WHERE ID_Tysabri=?");
             pst.setInt(1,id);
