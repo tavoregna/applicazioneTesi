@@ -19,7 +19,7 @@ public class BarraControlliUI extends javax.swing.JPanel {
     
     private boolean inserimentoAttivo;
     
-    public BarraControlliUI(PazienteUI p,double hei,double wid) {
+    public BarraControlliUI(PazienteUI p,int hei,int wid) {
         initComponents();
        
         parent=p;
@@ -27,18 +27,19 @@ public class BarraControlliUI extends javax.swing.JPanel {
         indiceCorrente=null;
         inserimentoAttivo=false;
         
-        this.setBounds(0, 0, (int)wid, (int)hei);
+        this.setBounds(0, 0, wid, hei);
+        
         pannello.setLayout(new FlowLayout(FlowLayout.LEADING));
     }
 
-    public boolean isInserimentoAttivo() {
+    public boolean isInserimentoAttivo() {  ////////////
         return inserimentoAttivo;
     }
     
     
     public void aggiornaBarra(int id)
     {
-        disabilitaInserimento();
+        abilitaInserimento(false);
         indiceCorrente=null;
         pannello.removeAll();
         try {
@@ -80,11 +81,11 @@ public class BarraControlliUI extends javax.swing.JPanel {
     
     public void pressionePulsanteBarra(PulsanteBarraControlli premuto)
     {
-        parent.abilitaBarraSuperioreControllo(true);
-        parent.tipoControlloAbilitato(false);
-         aggiornaPulsante(premuto.getIndicePulsante());
-         indiceCorrente=premuto.getIndicePulsante();
-         parent.aggiornaDatiControllo(premuto.getIdControllo());
+        parent.abilitaBarraSuperioreControllo(true); //////////////////////
+        parent.tipoControlloAbilitato(false); //////////////////////////
+        aggiornaPulsante(premuto.getIndicePulsante());
+        indiceCorrente=premuto.getIndicePulsante();
+        parent.aggiornaDatiControllo(premuto.getIdControllo());
         //metodo che dato l'id mi da informazioni sul controllo
     }
     private void aggiornaPulsante(int ind)
@@ -92,6 +93,11 @@ public class BarraControlliUI extends javax.swing.JPanel {
         if((indiceCorrente!=null && pannello.getComponent(indiceCorrente)!=null))
             ((PulsanteBarraControlli)(pannello.getComponent(indiceCorrente))).setBackground(new JButton().getBackground());
         ((PulsanteBarraControlli)(pannello.getComponent(ind))).setBackground(Color.ORANGE);
+    }
+    private void abilitaInserimento(boolean b) ///////////////////////////7
+    {
+        parent.tipoControlloAbilitato(b);
+        inserimentoAttivo=b;
     }
     
     @SuppressWarnings("unchecked")
@@ -172,16 +178,6 @@ public class BarraControlliUI extends javax.swing.JPanel {
             parent.aggiornaDatiControllo(((PulsanteBarraControlli)(pannello.getComponent(indiceCorrente))).getIdControllo());
         }
     }//GEN-LAST:event_indietroActionPerformed
-    private void disabilitaInserimento()
-    {
-        parent.tipoControlloAbilitato(false);
-        inserimentoAttivo=false;
-    }
-    private void abilitaInserimento()
-    {
-        parent.tipoControlloAbilitato(true);
-        inserimentoAttivo=true;
-    }
     private void avantiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiActionPerformed
         if(indiceCorrente!=null && indiceCorrente<pannello.getComponentCount()-1)
         {
@@ -197,7 +193,7 @@ public class BarraControlliUI extends javax.swing.JPanel {
         if(Pazienti.getCurrID()==null)
             return;
         Utilita.mostraMessaggio("Stai per eseguire l'inserimento di una nuova scheda\n 1 - scegliere il tipo di controllo");
-        abilitaInserimento();
+        abilitaInserimento(true);
         
     }//GEN-LAST:event_aggiungiActionPerformed
 

@@ -60,7 +60,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             if(i==1)
                 query="SELECT * FROM Ambulatorio_Ordinario WHERE Controllo_Standard=?";
             else
-                query="SELECT Terapia_Principale,Terapia_3 FROM Ricaduta WHERE Controllo_Standard=?";
+                query="SELECT * FROM Ricaduta WHERE Controllo_Standard=?";
             pst=GestioneDatabase.preparedStatement(query);
             pst.setInt(1,idControllo);
             ResultSet rs=pst.executeQuery();
@@ -75,19 +75,20 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                     if(rs.getInt("Terapia_Principale")==2 && i==1)
                         {
                             jRadioButton2.setSelected(true);
+                            dataAvvio.setDate(rs.getDate("Data_Avvio_Terapia"));
+                            terapiaDH.setSelectedItem(rs.getString("Terapia_2"));
                             buttonTer2.setVisible(true);
                             dataAvvio.setVisible(true);
                             dataAvvio.setEnabled(true);
                             terapiaDH.setVisible(true);
                             terapiaDH.setEnabled(true);
-                            dataAvvioTerapia=rs.getDate("Data_Avvio_Terapia");
-                            terapia_2=rs.getString("Terapia_2");
                             //parentPanel.coloreAmbulatoriOrdinari(2);
                         }
                         else
                         {
                             jRadioButton3.setSelected(true);
                             terapiaOra.setSelectedItem(rs.getString("Terapia_3"));
+                            terapiaOra.setVisible(true);
                             terapiaOra.setEnabled(true);
                             buttonTer3.setVisible(true);
                         }
@@ -275,7 +276,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void dataAvvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataAvvioActionPerformed
-        if(!dataAvvio.isEnabled() || tipoControllo!=2)
+        if(!dataAvvio.isEnabled() || tipoControllo!=1)
                 return;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Ambulatorio_Ordinario SET Data_Avvio_Terapia=? WHERE Controllo_Standard=?");

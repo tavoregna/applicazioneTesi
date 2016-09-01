@@ -33,8 +33,4 @@ public class PulsanteBarraControlli extends JButton{
     public void setIdControllo(int idControllo) {
         this.idControllo = idControllo;
     }
-
-    
-    
-    
 }

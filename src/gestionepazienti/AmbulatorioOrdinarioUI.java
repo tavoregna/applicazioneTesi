@@ -1,8 +1,6 @@
-
 package gestionepazienti;
 
 import java.awt.Color;
-import java.util.Date;
 import javax.swing.BoxLayout;
 
 
@@ -19,11 +17,12 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
         idControllo=id;
         standard=new ControlloAmbulatorialeStandardUI(parent,idControllo);
         terPrincipale=new TerapiaPrincipaleUI(parent, this,idControllo);
+        
         panelStandard.setLayout(new BoxLayout(panelStandard, BoxLayout.LINE_AXIS));
         panelTerPrincipale.setLayout(new BoxLayout(panelTerPrincipale, BoxLayout.LINE_AXIS));
         panelStandard.add(standard);
         panelTerPrincipale.add(terPrincipale);
-        //aggiornaDati(idControllo);
+        
         this.setVisible(true);
     }
     
@@ -31,24 +30,16 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
     {
         if(i==1)
         {
-         this.setBackground(new Color(181,230,29));
-         return;
+            this.setBackground(new Color(181,230,29));
+            return;
         }
         if(i==2)
         {
             this.setBackground(new Color(153,217,234));
             return;
         }
-        this.setBackground(new Color(0,162,232));
+        this.setBackground(new Color(0,162,232)); //if(i==3)
     }
-
-    /*public void aggiornaDati(int id)
-    {
-        if(id==-1)
-        {
-            return;
-        }
-    }*/
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

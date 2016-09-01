@@ -43,6 +43,7 @@ public class PazienteUI extends javax.swing.JFrame {
         abilitaBarraSuperioreControllo(false);
         barraControlli=new BarraControlliUI(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
         pannelloBarra.add(barraControlli);
+        jTabbedPane1.setSelectedIndex(2);
         this.setVisible(true);
     }
 
