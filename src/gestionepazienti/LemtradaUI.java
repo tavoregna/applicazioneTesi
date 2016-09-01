@@ -1783,7 +1783,7 @@ public class LemtradaUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void dataEsamEmatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmatoActionPerformed
-        try {
+       /* try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Data_Esami_Ematochimici=? WHERE ID_Controllo=?");
             Date d=dataEsamEmato.getDate();
             if(d==null)
@@ -1794,7 +1794,7 @@ public class LemtradaUI extends javax.swing.JPanel {
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_dataEsamEmatoActionPerformed
 
     private void dataEsamEmato1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmato1ActionPerformed
