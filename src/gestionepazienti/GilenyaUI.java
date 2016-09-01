@@ -21,10 +21,6 @@ public class GilenyaUI extends javax.swing.JPanel {
 
     public void aggiornaDatiGilenya(int id)
     {
-        if(id==-1)
-        {
-            return;
-        }
          try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Gilenya WHERE ID_Gilenya=?");
             pst.setInt(1,id);
