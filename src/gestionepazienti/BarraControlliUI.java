@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class BarraControlliUI extends javax.swing.JPanel {
 
@@ -193,7 +195,17 @@ public class BarraControlliUI extends javax.swing.JPanel {
         if(Pazienti.getCurrID()==null)
             return;
         Utilita.mostraMessaggio("Stai per eseguire l'inserimento di una nuova scheda\n 1 - scegliere il tipo di controllo");
-        abilitaInserimento(true);
+        String[] controlli = { "Controllo Ordinario", "Controllo per ricaduta"};
+        JFrame frame = new JFrame("Input Dialog Example 3");
+        String controlloScelto = (String) JOptionPane.showInputDialog(frame, "Scegli il tipo di controllo che vuoi inserire",
+        "Tipo di controllo",
+        JOptionPane.QUESTION_MESSAGE, 
+        null, 
+        controlli, 
+        controlli[0]);
+        // favoritePizza will be null if the user clicks Cancel
+        //System.out.printf("Favorite pizza is %s.\n", controlloScelto);
+        //abilitaInserimento(true);
         
     }//GEN-LAST:event_aggiungiActionPerformed
 

@@ -21,20 +21,20 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
     
     public ControlloAmbulatorialeStandardUI(PazienteUI p, int id) {
         initComponents();
+        
         parent=p;
         idControllo=id;
+        
         panelEsami.setLayout(new BoxLayout(panelEsami, BoxLayout.LINE_AXIS));
         panelEsami.add(new PannelloEsami(parent,panelGrafico));
+        
         aggiornaDatiAmb(idControllo);
+        
         this.setVisible(true);
     }
 
     public void aggiornaDatiAmb(int id)
     {
-        if(id==-1)
-        {
-            return;
-        }
          try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Controllo_Standard WHERE ID_Controllo=?");
             pst.setInt(1,id);
@@ -111,7 +111,6 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         deambulazione = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         edss = new javax.swing.JTextField();
         graficoEDSS = new javax.swing.JButton();
         panelGrafico = new javax.swing.JPanel();
@@ -355,9 +354,9 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                         .addComponent(deambulazione, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                         .addComponent(troncoEnc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 68, Short.MAX_VALUE))
+                .addGap(0, 80, Short.MAX_VALUE))
         );
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cerebrale, deambulazione, piramidale, sensitivo, troncoEnc, visivo});
@@ -392,17 +391,16 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
 
         jPanel5.setBackground(java.awt.Color.blue);
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel7.setForeground(java.awt.Color.red);
-        jLabel7.setText("EDSS:");
-
         edss.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 edssKeyTyped(evt);
             }
         });
 
-        graficoEDSS.setText("graficoEDSS");
+        graficoEDSS.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        graficoEDSS.setForeground(java.awt.Color.red);
+        graficoEDSS.setText("EDSS:");
+        graficoEDSS.setOpaque(false);
         graficoEDSS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 graficoEDSSActionPerformed(evt);
@@ -414,17 +412,14 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel7)
+                .addComponent(graficoEDSS)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(edss, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(graficoEDSS, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(edss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(graficoEDSS))
         );
@@ -489,7 +484,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panelGrafico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -647,7 +642,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
     }//GEN-LAST:event_dataEsamEmatoActionPerformed
 
     private void edssKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edssKeyTyped
-     //FINIREE
+     //FINIREE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if(edss.getText().length()!=0 && !Utilita.isNumeric(edss.getText()))
        {
            edss.setText(edss.getText().substring(0, edss.getText().length()-1));
@@ -667,31 +662,31 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
     }//GEN-LAST:event_edssKeyTyped
 
     private void graficoEDSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficoEDSSActionPerformed
-        JFreeChart chart = ChartFactory.createLineChart("EDSS", "", "",datiGrafico(), PlotOrientation.VERTICAL,true, true, true);
+        JFreeChart chart = ChartFactory.createLineChart("EDSS", "", "",datiGrafico(), PlotOrientation.VERTICAL,false, true, true);
+        
         ChartPanel pannelloGrafico=new ChartPanel(chart);
-        pannelloGrafico.setPreferredSize( new java.awt.Dimension( panelGrafico.getWidth() , panelGrafico.getHeight() ) );
-        pannelloGrafico.setBounds(0,0,panelGrafico.getWidth() , panelGrafico.getHeight());
+        pannelloGrafico.setPreferredSize(new java.awt.Dimension(panelGrafico.getWidth(), panelGrafico.getHeight()));
+        pannelloGrafico.setBounds(0,0,panelGrafico.getWidth(),panelGrafico.getHeight());
+        
         panelGrafico.setLayout(null);
         panelGrafico.add(pannelloGrafico);
+        
         panelGrafico.setVisible(false);
         panelGrafico.setVisible(true);  
     }//GEN-LAST:event_graficoEDSSActionPerformed
-private DefaultCategoryDataset datiGrafico()
+    private DefaultCategoryDataset datiGrafico()
     {
-       
-            DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
-            ResultSet rs=GestioneDatabase.querySelect("SELECT EDSS,Data FROM Controllo_Standard WHERE ID_Paziente="+Pazienti.getCurrID()+" ORDER BY Data ASC");
-            try {
-                while(rs.next())
-                {
-                    dataset.addValue(rs.getDouble(1), "",Utilita.dataToString(rs.getDate(2)));
-                }
-            } catch (SQLException ex) {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
+        ResultSet rs=GestioneDatabase.querySelect("SELECT EDSS,Data FROM Controllo_Standard WHERE ID_Paziente="+Pazienti.getCurrID()+" ORDER BY Data ASC");
+        try {
+            while(rs.next())
+            {
+                dataset.addValue(rs.getDouble(1), "",Utilita.dataToString(rs.getDate(2)));
+            }
+        } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-            return dataset;
-        
+        }      
+        return dataset;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cerebellare;
@@ -717,7 +712,6 @@ private DefaultCategoryDataset datiGrafico()
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

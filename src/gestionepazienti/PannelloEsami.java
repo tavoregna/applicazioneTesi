@@ -1,7 +1,5 @@
 package gestionepazienti;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +11,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import org.jfree.chart.ChartFactory;
@@ -30,13 +27,15 @@ public class PannelloEsami extends javax.swing.JPanel {
     
     public PannelloEsami(PazienteUI p,JPanel pa) {
         initComponents();
+        
         parent=p;
         panelGrafico=pa;
         
         pannello.setLayout(new GridLayout(0,2));
         pannelloCorrente=this;
     }
-    public static void aggiorna(int idCon,String terapy)
+    
+    public static void aggiorna(int idCon,String terapy) //viene richiamato da PazienteUI
     {
         if(pannelloCorrente==null)
             return;
@@ -52,12 +51,13 @@ public class PannelloEsami extends javax.swing.JPanel {
             return;
         }
         try {
+            //trovo esami data la terapia
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Terapia_Esame WHERE Terapia=?");
             pst.setString(1, terapy);
             ResultSet rs=pst.executeQuery();
             while(rs.next())
             {
-                //JLabel eti=new JLabel(rs.getString("Esame"));
+                //genero pulsante la cui pressione crea il grafico
                 JButton eti=new JButton(rs.getString("Esame"));
                 eti.addActionListener(new ActionListener() {
                     @Override
@@ -69,14 +69,17 @@ public class PannelloEsami extends javax.swing.JPanel {
                     }
                 });
                 pannello.add(eti);
+                //campo di testo in cui inserire il risultato dell'esame
                 JTextField fi=new JTextField();
+                fi.setName(rs.getString("Esame"));
+                //estraggo valore esame
                 PreparedStatement p=GestioneDatabase.preparedStatement("SELECT Valore FROM Controllo_Esame WHERE Controllo=? AND Esame=?");
                 p.setInt(1, idCon);
                 p.setString(2,rs.getString("Esame"));
                 ResultSet r=p.executeQuery();
                 if(r.next())
                     fi.setText(Double.toString(r.getDouble(1)));
-                fi.setName(rs.getString("Esame"));
+                //INIZIO LISTENER
                 fi.addKeyListener(new KeyListener() {   
                     public void keyTyped(KeyEvent e) {}          
                     public void keyPressed(KeyEvent e) {}         
@@ -89,6 +92,8 @@ public class PannelloEsami extends javax.swing.JPanel {
                             pst.setInt(1, idCon);
                             pst.setString(2,dato.getName());
                             ResultSet rs=pst.executeQuery();
+                            //se c'è un risultato vuol dire che il record già esiste e lo aggiorno
+                            //altrimenti lo creo
                             if(rs.next())
                             {
                                 pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Esame SET Valore=? WHERE Controllo=? AND Esame=?");
@@ -104,8 +109,7 @@ public class PannelloEsami extends javax.swing.JPanel {
                                 //SISTEMARE
                                 pst.setInt(1, idCon);
                                 pst.setString(2,dato.getName());
-                                pst.setDouble(3,0.1);
-                                //pst.setDouble(3,Double.parseDouble(dato.getText()));
+                                pst.setDouble(3,Double.parseDouble(dato.getText()));
                                 pst.executeUpdate();
                             }
                         } catch (SQLException ex) {
@@ -114,6 +118,7 @@ public class PannelloEsami extends javax.swing.JPanel {
                         
                     }
                 });
+                //FINE LISTENER
                 pannello.add(fi);
             }
         } catch (SQLException ex) {
@@ -125,6 +130,7 @@ public class PannelloEsami extends javax.swing.JPanel {
     private void generaGrafico(String name)
     {
         JFreeChart chart = ChartFactory.createLineChart(name, "", "",datiGrafico(name), PlotOrientation.VERTICAL,false, true, true);
+        
         ChartPanel pannelloGrafico=new ChartPanel(chart);
         pannelloGrafico.setPreferredSize( new java.awt.Dimension( panelGrafico.getWidth() , panelGrafico.getHeight() ) );
         pannelloGrafico.setBounds(0,0,panelGrafico.getWidth() , panelGrafico.getHeight());
@@ -137,22 +143,20 @@ public class PannelloEsami extends javax.swing.JPanel {
     private DefaultCategoryDataset datiGrafico(String name)
     {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
-            
-            
-            try {
-                PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT E.Valore,C.Data FROM Controllo_Standard AS C JOIN Controllo_Esame AS E ON C.ID_Controllo=E.Controllo WHERE C.ID_Paziente=? AND E.Esame=? ORDER BY C.Data ASC");
-                pst.setInt(1,Pazienti.getCurrID());
-                pst.setString(2, name);
-                ResultSet rs=pst.executeQuery();
-                while(rs.next())
-                {
-                    dataset.addValue(rs.getDouble(1), "",Utilita.dataToString(rs.getDate(2)));
-                }
-            } catch (SQLException ex) {
+           
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT E.Valore,C.Data FROM Controllo_Standard AS C JOIN Controllo_Esame AS E ON C.ID_Controllo=E.Controllo WHERE C.ID_Paziente=? AND E.Esame=? ORDER BY C.Data ASC");
+            pst.setInt(1,Pazienti.getCurrID());
+            pst.setString(2, name);
+            ResultSet rs=pst.executeQuery();
+            while(rs.next())
+            {
+               dataset.addValue(rs.getDouble(1), "",Utilita.dataToString(rs.getDate(2)));
+            }
+        } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-            return dataset;
+        }   
+        return dataset;
     }
     private void aggiornaUI()
     {
