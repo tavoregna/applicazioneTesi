@@ -36,7 +36,17 @@ public class LemtradaUI extends javax.swing.JPanel {
                diarioClinicoGG5.setText(rs.getString("Diario_Clinico5"));
                dataDC5.setDate(rs.getDate("Data_DC5"));
                dataEsamEmato1.setDate(rs.getDate("Data_Esame1"));
-               leucociti.setText("");
+               leucociti.setText(""+rs.getInt("Leucociti"));
+               pioschine.setText(""+rs.getInt("Pioschine"));
+               linfTot.setText(""+rs.getInt("Linfociti_Totali"));
+               linfoTPer.setText(""+rs.getInt("Linfociti_Totali"));
+               linfoHelperPer.setText(""+rs.getInt("Linfociti_T_Helper"));
+               linfoTCitoPer.setText(""+rs.getInt("Linfociti_T_Citotossici"));
+               linfoBPer.setText(""+rs.getInt("Linfociti_B"));
+               linfoNKPer.setText(""+rs.getInt("Linfociti_NK"));
+               esUrine.setText(""+rs.getInt("Es_Urine"));
+               urea.setText(""+rs.getInt("Urea"));
+               creatinina.setText(""+rs.getInt("Creatinina"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
