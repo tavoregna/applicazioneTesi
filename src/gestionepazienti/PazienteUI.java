@@ -1174,11 +1174,6 @@ public class PazienteUI extends javax.swing.JFrame {
 
         tipoControllo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Controllo ambulatoriale", "Ricaduta" }));
         tipoControllo.setEnabled(false);
-        tipoControllo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tipoControlloActionPerformed(evt);
-            }
-        });
 
         filler3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -2588,43 +2583,6 @@ public class PazienteUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_dataContrAmbActionPerformed
 
-    private void tipoControlloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoControlloActionPerformed
-     if(barraControlli==null || !barraControlli.isInserimentoAttivo())
-         return;
-     int reply = JOptionPane.showConfirmDialog(null,"Inserire la scheda "+((String)(tipoControllo.getSelectedItem())).toUpperCase()+"?","Inserimento nuova scheda", JOptionPane.YES_NO_OPTION);
-        if (reply == JOptionPane.YES_OPTION) {    
-         try {
-             PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Controllo_Standard(ID_Paziente,Data,Tipo_Controllo) VALUES (?,?,?)");
-             pst.setInt(1, Pazienti.getCurrID());
-             pst.setDate(2, Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
-             pst.setString(3,Integer.toString(tipoControllo.getSelectedIndex()+1));
-             pst.executeUpdate();
-             ResultSet rs=GestioneDatabase.querySelect("SELECT MAX(ID_Controllo) FROM Controllo_Standard");
-             if(rs.next())
-             {
-                 String q;
-                 if(tipoControllo.getSelectedIndex()==0)
-                     q="INSERT INTO Ambulatorio_Ordinario(Controllo_Standard,Terapia_Principale)  VALUES (?,?)";
-                 else
-                     q="INSERT INTO Ricaduta(Controllo_Standard,Terapia_Principale)  VALUES (?,?)";
-                 PreparedStatement p=GestioneDatabase.preparedStatement(q);
-                 p.setInt(1,rs.getInt(1));
-                 p.setInt(2,1);
-                 p.executeUpdate();
-                 barraControlli.aggiornaBarra(Pazienti.getCurrID());
-                 aggiornaDatiControllo(rs.getInt(1));
-                 idControlloCorrente=rs.getInt(1);
-             }
-             abilitaBarraSuperioreControllo(true);
-                     
-         } catch (SQLException ex) {
-             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
-         }
-            tipoControlloAbilitato(false);
-          
-        }
-    }//GEN-LAST:event_tipoControlloActionPerformed
-
     private void dataEsord_DiagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsord_DiagnActionPerformed
        if(Pazienti.getCurrID()==null)
                 return;
@@ -3294,14 +3252,14 @@ public class PazienteUI extends javax.swing.JFrame {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void tipoControlloAbilitato(boolean t)
+    /*public void tipoControlloAbilitato(boolean t)
     {
         tipoControllo.setEnabled(t);
         if(t)
             tipoControllo.setBackground(Color.red);
         else
             tipoControllo.setBackground(new JComboBox().getBackground());
-    }
+    }*/
     private void azzeraCampiDiagnosi()
     {
                 barra.setComboBoxDiagnosiAttiva(false);
@@ -3331,15 +3289,12 @@ public class PazienteUI extends javax.swing.JFrame {
                 varie.setText(null);
                 barra.setComboBoxDiagnosiAttiva(true);
     }
-    
     public void abilitaBarraSuperioreControllo(boolean b)
     {
-        medicoEsamContrAmb.setEnabled(b);
+        dataContrAmb.setEnabled(b);
         terapiaPrinc.setEnabled(b);
-        dataContrAmb.setEditable(b);
-    }    
-    
-   
+        medicoEsamContrAmb.setEnabled(b);
+    }
 
     public static void main(String args[]){
         GestioneDatabase.connessione();

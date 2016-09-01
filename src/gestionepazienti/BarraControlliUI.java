@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -19,29 +20,20 @@ public class BarraControlliUI extends javax.swing.JPanel {
     
     private Integer indiceCorrente;
     
-    private boolean inserimentoAttivo;
-    
     public BarraControlliUI(PazienteUI p,int hei,int wid) {
         initComponents();
        
         parent=p;
         
         indiceCorrente=null;
-        inserimentoAttivo=false;
         
         this.setBounds(0, 0, wid, hei);
         
         pannello.setLayout(new FlowLayout(FlowLayout.LEADING));
     }
-
-    public boolean isInserimentoAttivo() {  ////////////
-        return inserimentoAttivo;
-    }
-    
     
     public void aggiornaBarra(int id)
     {
-        abilitaInserimento(false);
         indiceCorrente=null;
         pannello.removeAll();
         try {
@@ -84,7 +76,6 @@ public class BarraControlliUI extends javax.swing.JPanel {
     public void pressionePulsanteBarra(PulsanteBarraControlli premuto)
     {
         parent.abilitaBarraSuperioreControllo(true); //////////////////////
-        parent.tipoControlloAbilitato(false); //////////////////////////
         aggiornaPulsante(premuto.getIndicePulsante());
         indiceCorrente=premuto.getIndicePulsante();
         parent.aggiornaDatiControllo(premuto.getIdControllo());
@@ -95,11 +86,6 @@ public class BarraControlliUI extends javax.swing.JPanel {
         if((indiceCorrente!=null && pannello.getComponent(indiceCorrente)!=null))
             ((PulsanteBarraControlli)(pannello.getComponent(indiceCorrente))).setBackground(new JButton().getBackground());
         ((PulsanteBarraControlli)(pannello.getComponent(ind))).setBackground(Color.ORANGE);
-    }
-    private void abilitaInserimento(boolean b) ///////////////////////////7
-    {
-        parent.tipoControlloAbilitato(b);
-        inserimentoAttivo=b;
     }
     
     @SuppressWarnings("unchecked")
@@ -174,7 +160,6 @@ public class BarraControlliUI extends javax.swing.JPanel {
         if(indiceCorrente!=null && indiceCorrente>=1)
         {
             parent.abilitaBarraSuperioreControllo(true);
-            parent.tipoControlloAbilitato(false);
             aggiornaPulsante(indiceCorrente-1);
             indiceCorrente--;
             parent.aggiornaDatiControllo(((PulsanteBarraControlli)(pannello.getComponent(indiceCorrente))).getIdControllo());
@@ -184,7 +169,6 @@ public class BarraControlliUI extends javax.swing.JPanel {
         if(indiceCorrente!=null && indiceCorrente<pannello.getComponentCount()-1)
         {
             parent.abilitaBarraSuperioreControllo(true);
-            parent.tipoControlloAbilitato(false);
             aggiornaPulsante(indiceCorrente+1);
             indiceCorrente++;
             parent.aggiornaDatiControllo(((PulsanteBarraControlli)(pannello.getComponent(indiceCorrente))).getIdControllo());
@@ -194,19 +178,53 @@ public class BarraControlliUI extends javax.swing.JPanel {
     private void aggiungiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggiungiActionPerformed
         if(Pazienti.getCurrID()==null)
             return;
-        Utilita.mostraMessaggio("Stai per eseguire l'inserimento di una nuova scheda\n 1 - scegliere il tipo di controllo");
         String[] controlli = { "Controllo Ordinario", "Controllo per ricaduta"};
-        JFrame frame = new JFrame("Input Dialog Example 3");
+        JFrame frame = new JFrame("Nuova scheda controllo");
         String controlloScelto = (String) JOptionPane.showInputDialog(frame, "Scegli il tipo di controllo che vuoi inserire",
         "Tipo di controllo",
         JOptionPane.QUESTION_MESSAGE, 
         null, 
         controlli, 
         controlli[0]);
-        // favoritePizza will be null if the user clicks Cancel
-        //System.out.printf("Favorite pizza is %s.\n", controlloScelto);
-        //abilitaInserimento(true);
         
+        if(controlloScelto==null)
+            return;
+        
+        int tipoControllo=0;
+        for(int i=0;i<controlli.length;i++)
+        {
+            if(controlli[i].equals(controlloScelto))
+            {
+                tipoControllo=i;
+                break;
+            }
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Controllo_Standard(ID_Paziente,Data,Tipo_Controllo) VALUES (?,?,?)");
+            pst.setInt(1, Pazienti.getCurrID());
+            pst.setDate(2, Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
+            pst.setString(3,Integer.toString(tipoControllo+1));
+            pst.executeUpdate();
+            ResultSet rs=GestioneDatabase.querySelect("SELECT MAX(ID_Controllo) FROM Controllo_Standard");
+            if(rs.next())
+            {
+                String q;
+                if(tipoControllo==1)
+                    q="INSERT INTO Ambulatorio_Ordinario(Controllo_Standard,Terapia_Principale)  VALUES (?,?)";
+                else
+                    q="INSERT INTO Ricaduta(Controllo_Standard,Terapia_Principale)  VALUES (?,?)";
+                PreparedStatement p=GestioneDatabase.preparedStatement(q);
+                p.setInt(1,rs.getInt(1));
+                p.setInt(2,1);
+                p.executeUpdate();
+                
+                aggiornaBarra(Pazienti.getCurrID());
+                parent.aggiornaDatiControllo(rs.getInt(1));
+            }
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_aggiungiActionPerformed
 
 
