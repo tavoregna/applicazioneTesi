@@ -51,7 +51,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
         panelTerPrincipale = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 153));
-        setPreferredSize(new java.awt.Dimension(910, 656));
+        setPreferredSize(new java.awt.Dimension(1100, 733));
 
         javax.swing.GroupLayout panelStandardLayout = new javax.swing.GroupLayout(panelStandard);
         panelStandard.setLayout(panelStandardLayout);
@@ -94,7 +94,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelTerPrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(409, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +108,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(panelTerPrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
