@@ -3093,12 +3093,7 @@ public class PazienteUI extends javax.swing.JFrame {
     
     public void aggiornaDatiControllo(int idControllo)
     {
-       if(idControllo==-1)
-       {
-           inserisciPannelloControllo(idControllo, tipoControllo.getSelectedIndex());
-           return;
-       }
-       idControlloCorrente=idControllo;
+        idControlloCorrente=idControllo;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Data,Terapia,Medico,Tipo_Controllo,Note FROM Controllo_Standard WHERE ID_Controllo=?");
             pst.setInt(1,idControllo);
