@@ -172,10 +172,20 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         buttonTer2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         buttonTer2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
         buttonTer2.setText("L");
+        buttonTer2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTer2ActionPerformed(evt);
+            }
+        });
 
         buttonTer3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         buttonTer3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
         buttonTer3.setText("L");
+        buttonTer3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTer3ActionPerformed(evt);
+            }
+        });
 
         dataAvvio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,11 +270,12 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                     .addComponent(terapiaDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonTer2F))
                 .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton3)
-                    .addComponent(terapiaOra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonTer3)
-                    .addComponent(buttonTer3F, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonTer3F, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jRadioButton3)
+                        .addComponent(terapiaOra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonTer3)))
                 .addGap(11, 11, 11))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -357,6 +368,16 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     private void buttonTerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonTerActionPerformed
+
+    private void buttonTer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer2ActionPerformed
+        parent.setVisible(false);
+        new finestraDatiLetteraAvvio(parent, "Marco", "Rossi", "Avonex", "M", Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
+    }//GEN-LAST:event_buttonTer2ActionPerformed
+
+    private void buttonTer3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer3ActionPerformed
+        parent.setVisible(false);
+        new finestraDatiLetteraAvvio(parent, "Marco", "Rossi", "Avonex", "M", Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
+    }//GEN-LAST:event_buttonTer3ActionPerformed
     private void aggiornaRadioButtonControllo(int i)
     {
         String query;

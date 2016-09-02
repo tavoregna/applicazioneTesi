@@ -79,11 +79,13 @@
                   <Component id="buttonTer2F" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="terapiaOra" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonTer3" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="buttonTer3F" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="terapiaOra" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonTer3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
           </Group>
@@ -159,6 +161,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="L"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonTer2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonTer3">
       <Properties>
@@ -170,6 +175,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="L"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonTer3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="org.jdesktop.swingx.JXDatePicker" name="dataAvvio">
       <Events>
