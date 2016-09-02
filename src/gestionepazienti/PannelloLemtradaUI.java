@@ -63,6 +63,8 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel35 = new javax.swing.JLabel();
         creatinina = new javax.swing.JTextField();
 
+        setOpaque(false);
+
         diarioClinicoGG1.setBackground(new java.awt.Color(149, 238, 234));
         diarioClinicoGG1.setColumns(20);
         diarioClinicoGG1.setRows(5);
@@ -117,7 +119,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addGap(28, 28, 28)
                 .addComponent(dataDC1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +252,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
                             .addComponent(jLabel5)
                             .addComponent(jLabel16)
                             .addComponent(jLabel17))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                 .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(linfoTCito)
                     .addComponent(linfoHelper, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -265,7 +267,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
                         .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         esEmatoGG1Layout.setVerticalGroup(
             esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,12 +344,12 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,8 +359,8 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
