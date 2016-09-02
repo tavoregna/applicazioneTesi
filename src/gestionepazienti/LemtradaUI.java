@@ -12,8 +12,8 @@ public class LemtradaUI extends javax.swing.JPanel {
     public LemtradaUI(PazienteUI p,int id) {
         initComponents();
         parent=p;
-        /*jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.LINE_AXIS));   
-        jPanel1.add(new PannelloLemtradaUI());*/
+        jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.LINE_AXIS));   
+        jPanel1.add(new PannelloLemtradaUI(1,id));
     }
 
   /* public void aggiornaDatiLemtrada(int id)
