@@ -189,8 +189,10 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         jPanel5.setOpaque(false);
 
         hsv1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
+        hsv1.setSelectedIndex(-1);
 
         jcv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
+        jcv.setSelectedIndex(-1);
 
         comboPPTest.setText("Pap-Test");
         comboPPTest.setOpaque(false);
@@ -199,6 +201,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboHCV.setOpaque(false);
 
         tbc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
+        tbc.setSelectedIndex(-1);
 
         comboEBV.setText("IgG anti-EBV");
         comboEBV.setOpaque(false);
@@ -207,21 +210,25 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboHBV.setOpaque(false);
 
         hiv2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
+        hiv2.setSelectedIndex(-1);
 
         comboVZV.setText("IgG anti-VZV");
         comboVZV.setOpaque(false);
 
         hcv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
+        hcv.setSelectedIndex(-1);
 
         comboHIV2.setText("IgG anti-HIV 2");
         comboHIV2.setOpaque(false);
 
         ebv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
+        ebv.setSelectedIndex(-1);
 
         comboHSV2.setText("IgG anti-HSV 2");
         comboHSV2.setOpaque(false);
 
         cmv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
+        cmv.setSelectedIndex(-1);
 
         comboCMV.setText("IgG anti-CMV");
         comboCMV.setOpaque(false);
@@ -230,11 +237,13 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboJCV.setOpaque(false);
 
         hiv1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
+        hiv1.setSelectedIndex(-1);
 
         comboTBC.setText("TBC");
         comboTBC.setOpaque(false);
 
         hsv2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
+        hsv2.setSelectedIndex(-1);
 
         comboHIV1.setText("IgG anti-HIV 1");
         comboHIV1.setOpaque(false);
@@ -243,10 +252,13 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboHSV1.setOpaque(false);
 
         hbv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
+        hbv.setSelectedIndex(-1);
 
         vzv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
+        vzv.setSelectedIndex(-1);
 
         ppTest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
+        ppTest.setSelectedIndex(-1);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);

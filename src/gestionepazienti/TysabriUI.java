@@ -468,6 +468,12 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel16.setText("JCV:");
 
+        dataJCV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataJCVActionPerformed(evt);
+            }
+        });
+
         posNegJCV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         posNegJCV.setSelectedItem(null);
 
@@ -783,6 +789,10 @@ public class TysabriUI extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_addJCVActionPerformed
+
+    private void dataJCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataJCVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataJCVActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

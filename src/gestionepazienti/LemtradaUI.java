@@ -1,5 +1,6 @@
 package gestionepazienti;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,14 +13,36 @@ import javax.swing.JOptionPane;
 public class LemtradaUI extends javax.swing.JPanel {
 
     private PazienteUI parent;
-   
+    private int idStandardDH;
+    
     public LemtradaUI(PazienteUI p,int id) {
         initComponents();
         parent=p;
+        idStandardDH=id;
         pannello.setLayout(new BoxLayout(pannello, BoxLayout.Y_AXIS));
+        //aggiornaDati(idStandardDH);
+    }
+    
+    public void aggiornaDati(int id)
+    {
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Lemtrada WHERE ID_Standard=?");
+            pst.setInt(1,id);
+            ResultSet rs=pst.executeQuery();
+            while(rs.next())
+            {
+                inserisciPannello(id,rs.getDate("Data_DC"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LemtradaUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-   
+    public void inserisciPannello(int id,Date data)
+    {
+        pannello.add(new PannelloLemtradaUI(id,data));
+        aggiornaUI();
+    }
    
     public void aggiornaUI()
     {
@@ -85,8 +108,7 @@ public class LemtradaUI extends javax.swing.JPanel {
         int reply=JOptionPane.showConfirmDialog(null, "Sei sicuro di vole inserire un nuovo giorno ?","CONFERMA AGGIUNTA",JOptionPane.YES_NO_OPTION);
         if(reply==JOptionPane.YES_OPTION)
         {
-            pannello.add(new PannelloLemtradaUI(1, 1));
-            aggiornaUI();
+            inserisciPannello(1,null);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
