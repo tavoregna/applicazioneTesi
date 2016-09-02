@@ -1,6 +1,5 @@
 package gestionepazienti;
 
-import java.awt.Color;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
-import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -3105,14 +3103,14 @@ public class PazienteUI extends javax.swing.JFrame {
                 medicoEsamContrAmb.setSelectedItem(rs.getString("Medico"));
                 tipoControllo.setSelectedIndex(Integer.parseInt(rs.getString("Tipo_Controllo"))-1);
             }
-            inserisciPannelloControllo(idControllo, tipoControllo.getSelectedIndex());
+            inserisciPannelloControllo(idControllo, tipoControllo.getSelectedIndex()+1);
             PannelloEsami.aggiorna(idControllo, terapy);
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
     
-    public void inserisciPannelloControllo(int idControllo,int i) //i=0 ordinario, i=1 ricaduta
+    public void inserisciPannelloControllo(int idControllo,int i) //i=1 ordinario, i=2 ricaduta
     {
         if(panelControlloAmb.getComponentCount()>0)
         {
@@ -3121,11 +3119,11 @@ public class PazienteUI extends javax.swing.JFrame {
         panelControlloAmb.setLayout(new BoxLayout(panelControlloAmb, BoxLayout.LINE_AXIS));
         switch(i)
         {
-            case 0:
+            case 1:
                 ambulatorio=new AmbulatorioOrdinarioUI(this,idControllo);
                 panelControlloAmb.add(ambulatorio);
                 break;
-            case 1:
+            case 2:
                 ricaduta=new RicadutaUI(this,idControllo);
                 panelControlloAmb.add(ricaduta);
                 break;

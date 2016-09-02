@@ -195,15 +195,17 @@ public class BarraControlliUI extends javax.swing.JPanel {
         {
             if(controlli[i].equals(controlloScelto))
             {
-                tipoControllo=i;
+                tipoControllo=i+1;
                 break;
             }
         }
+        if(tipoControllo==0)
+            return;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Controllo_Standard(ID_Paziente,Data,Tipo_Controllo) VALUES (?,?,?)");
             pst.setInt(1, Pazienti.getCurrID());
             pst.setDate(2, Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
-            pst.setString(3,Integer.toString(tipoControllo+1));
+            pst.setString(3,Integer.toString(tipoControllo));
             pst.executeUpdate();
             ResultSet rs=GestioneDatabase.querySelect("SELECT MAX(ID_Controllo) FROM Controllo_Standard");
             if(rs.next())

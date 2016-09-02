@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+//1 = ORDINARIO, 2 = RICADUTA
 public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     private PazienteUI parent;
     
@@ -21,7 +21,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         idControllo=id;
         tipoControllo=tipo;
         AggiornaCampoTerapia();
-        if(tipo==1)
+        if(tipo==2)
             jRadioButton2.setVisible(false);
         aggiornaDatiTerap(idControllo);
         this.setVisible(true);
@@ -238,7 +238,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         terapiaDH.setVisible(true);
         terapiaDH.setEnabled(true);
         
-        aggiornaTipoControllo(2);
+        aggiornaRadioButtonControllo(2);
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
@@ -249,13 +249,13 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         terapiaOra.setVisible(true);
         terapiaOra.setEnabled(true);
         
-        aggiornaTipoControllo(3);
+        aggiornaRadioButtonControllo(3);
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         unvisibleAll();
         
-        aggiornaTipoControllo(1);
+        aggiornaRadioButtonControllo(1);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void dataAvvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataAvvioActionPerformed
@@ -311,7 +311,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_terapiaOraActionPerformed
-    private void aggiornaTipoControllo(int i)
+    private void aggiornaRadioButtonControllo(int i)
     {
         String query;
         if(tipoControllo==1)
