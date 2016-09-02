@@ -1827,7 +1827,7 @@ public class PazienteUI extends javax.swing.JFrame {
         pannelloBarra1.setLayout(pannelloBarra1Layout);
         pannelloBarra1Layout.setHorizontalGroup(
             pannelloBarra1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1221, Short.MAX_VALUE)
         );
         pannelloBarra1Layout.setVerticalGroup(
             pannelloBarra1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1881,10 +1881,13 @@ public class PazienteUI extends javax.swing.JFrame {
         terapieDHLayout.setHorizontalGroup(
             terapieDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(terapieDHLayout.createSequentialGroup()
-                .addGroup(terapieDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(filler4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pannelloBarra1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, terapieDHLayout.createSequentialGroup()
+                .addComponent(pannelloBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 186, Short.MAX_VALUE))
+            .addGroup(terapieDHLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(terapieDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(filler4, javax.swing.GroupLayout.DEFAULT_SIZE, 1296, Short.MAX_VALUE)
+                    .addGroup(terapieDHLayout.createSequentialGroup()
                         .addComponent(jLabel98)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cognomeDH, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1908,8 +1911,8 @@ public class PazienteUI extends javax.swing.JFrame {
                         .addComponent(jLabel100)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(numSom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelDHScroll, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(0, 190, Short.MAX_VALUE))
+                    .addComponent(panelDHScroll))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         terapieDHLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cognomeDH, nomeDH});
