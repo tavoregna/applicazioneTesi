@@ -97,38 +97,33 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="comboLinfociti" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="comboGR" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="comboGR" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="dataGR" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="gr" max="32767" attributes="0"/>
+                                      <Component id="gr" pref="81" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="dataLinfociti" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="linf" min="-2" pref="55" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="jXDatePicker5" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jTextField4" min="-2" pref="55" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="comboLinfociti" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="dataLinfociti" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="linf" min="-2" pref="55" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="609" max="32767" attributes="0"/>
+                      <EmptySpace pref="581" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="comboCMV" min="-2" max="-2" attributes="0"/>
@@ -331,7 +326,7 @@
                           <Component id="dataHSV2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="hsv2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="55" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -369,7 +364,7 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckBox4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="??"/>
+                <Property name="text" type="java.lang.String" value="Piastrine"/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -382,7 +377,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Enoroma+Formula"/>
+                <Property name="text" type="java.lang.String" value="Emocromo+Formula"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
@@ -653,7 +648,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="VOL. SPEC...."/>
+            <TitledBorder title="VALUTAZIONE SPECIALISTICA"/>
           </Border>
         </Property>
         <Property name="opaque" type="boolean" value="false"/>
