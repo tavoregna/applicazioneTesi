@@ -1,11 +1,37 @@
 package gestionepazienti;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     
     public PannelloLemtradaUI(int gg,int id) {
         initComponents();
+        
+    }
+    
+    public void aggiornaDatiLemtrada(int id)
+    {
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Lemtrada WHERE ID_Lemtrada=?");
+            pst.setInt(1,id);
+            ResultSet rs=pst.executeQuery();
+            if(rs.next())
+            {
+                //parent.aggiornaDatiDH(rs.getDate("Data"), 1, rs.getString("Medico"), rs.getInt("Somministrazione_N"));
+                diarioClinico.setText(rs.getString("Diario_Clinico"));
+                dataDC.setDate(rs.getDate("Data_DC"));
+                dataEsamEmato.setDate(rs.getDate("Data_Esame"));
+                leucociti.setText("");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PannelloLemtradaUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     
@@ -14,15 +40,15 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        diarioClinicoGG1 = new javax.swing.JTextArea();
+        diarioClinico = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
-        dataEsamEmato1 = new org.jdesktop.swingx.JXDatePicker();
+        dataEsamEmato = new org.jdesktop.swingx.JXDatePicker();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        dataDC1 = new org.jdesktop.swingx.JXDatePicker();
+        dataDC = new org.jdesktop.swingx.JXDatePicker();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        esEmatoGG1 = new javax.swing.JPanel();
+        esEmato = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -67,16 +93,16 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(877, 146));
 
-        diarioClinicoGG1.setBackground(new java.awt.Color(149, 238, 234));
-        diarioClinicoGG1.setColumns(20);
-        diarioClinicoGG1.setRows(5);
-        jScrollPane1.setViewportView(diarioClinicoGG1);
+        diarioClinico.setBackground(new java.awt.Color(149, 238, 234));
+        diarioClinico.setColumns(20);
+        diarioClinico.setRows(5);
+        jScrollPane1.setViewportView(diarioClinico);
 
         jPanel4.setBackground(java.awt.Color.blue);
 
-        dataEsamEmato1.addActionListener(new java.awt.event.ActionListener() {
+        dataEsamEmato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataEsamEmato1ActionPerformed(evt);
+                dataEsamEmatoActionPerformed(evt);
             }
         });
 
@@ -91,21 +117,21 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel7)
                 .addGap(28, 28, 28)
-                .addComponent(dataEsamEmato1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dataEsamEmato, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(dataEsamEmato1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dataEsamEmato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel7))
         );
 
         jPanel3.setBackground(java.awt.Color.blue);
 
-        dataDC1.addActionListener(new java.awt.event.ActionListener() {
+        dataDC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataDC1ActionPerformed(evt);
+                dataDCActionPerformed(evt);
             }
         });
 
@@ -120,19 +146,19 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel6)
                 .addGap(28, 28, 28)
-                .addComponent(dataDC1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dataDC, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(150, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(dataDC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dataDC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel6))
         );
 
         jScrollPane2.setPreferredSize(new java.awt.Dimension(390, 96));
 
-        esEmatoGG1.setBackground(new java.awt.Color(149, 238, 234));
+        esEmato.setBackground(new java.awt.Color(149, 238, 234));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Leucociti:");
@@ -201,15 +227,15 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel35.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel35.setText("Creatinina:");
 
-        javax.swing.GroupLayout esEmatoGG1Layout = new javax.swing.GroupLayout(esEmatoGG1);
-        esEmatoGG1.setLayout(esEmatoGG1Layout);
-        esEmatoGG1Layout.setHorizontalGroup(
-            esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(esEmatoGG1Layout.createSequentialGroup()
+        javax.swing.GroupLayout esEmatoLayout = new javax.swing.GroupLayout(esEmato);
+        esEmato.setLayout(esEmatoLayout);
+        esEmatoLayout.setHorizontalGroup(
+            esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(esEmatoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(esEmatoGG1Layout.createSequentialGroup()
-                        .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(esEmatoLayout.createSequentialGroup()
+                        .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
                             .addComponent(jLabel24)
                             .addComponent(jLabel26)
@@ -218,18 +244,18 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
                             .addComponent(jLabel34)
                             .addComponent(jLabel35))
                         .addGap(18, 18, 18)
-                        .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(esUrine)
-                            .addGroup(esEmatoGG1Layout.createSequentialGroup()
-                                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(esEmatoGG1Layout.createSequentialGroup()
-                                        .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(esEmatoLayout.createSequentialGroup()
+                                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(esEmatoLayout.createSequentialGroup()
+                                        .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(linfoHelperPer, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                                             .addComponent(linfoTCitoPer)
                                             .addComponent(linfoBPer)
                                             .addComponent(linfoNKPer))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel21)
                                             .addComponent(jLabel25)
                                             .addComponent(jLabel28)
@@ -237,108 +263,108 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
                                     .addComponent(urea, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(creatinina, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 30, Short.MAX_VALUE))))
-                    .addGroup(esEmatoGG1Layout.createSequentialGroup()
-                        .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(esEmatoLayout.createSequentialGroup()
+                        .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4))
                         .addGap(61, 61, 61)
-                        .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(leucociti, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                             .addComponent(pioschine, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(linfTot, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(linfoTPer, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel16)
                             .addComponent(jLabel17))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(linfoTCito)
                     .addComponent(linfoHelper, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(linfoT, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                     .addComponent(linfoB)
                     .addComponent(linfoNK))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel20)
-                    .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.TRAILING)))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
-        esEmatoGG1Layout.setVerticalGroup(
-            esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(esEmatoGG1Layout.createSequentialGroup()
+        esEmatoLayout.setVerticalGroup(
+            esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(esEmatoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(leucociti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(pioschine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(linfTot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(linfoTPer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17)
                     .addComponent(linfoT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(linfoHelperPer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
                     .addComponent(jLabel21)
                     .addComponent(linfoHelper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(linfoTCitoPer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24)
                     .addComponent(jLabel25)
                     .addComponent(linfoTCito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(linfoBPer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26)
                     .addComponent(jLabel28)
                     .addComponent(linfoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel29))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(linfoNKPer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel30)
                     .addComponent(jLabel31)
                     .addComponent(linfoNK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(esUrine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel33))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(urea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel34))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(esEmatoGG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(esEmatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(creatinina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel35))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jScrollPane2.setViewportView(esEmatoGG1);
+        jScrollPane2.setViewportView(esEmato);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -366,11 +392,11 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void dataEsamEmato1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmato1ActionPerformed
+    private void dataEsamEmatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmatoActionPerformed
         // TODO add your handling code here--:
-    }//GEN-LAST:event_dataEsamEmato1ActionPerformed
+    }//GEN-LAST:event_dataEsamEmatoActionPerformed
 
-    private void dataDC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDC1ActionPerformed
+    private void dataDCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDCActionPerformed
         /* try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Data_Esami_Ematochimici=? WHERE ID_Controllo=?");
             Date d=dataEsamEmato.getDate();
@@ -383,15 +409,15 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }*/
-    }//GEN-LAST:event_dataDC1ActionPerformed
+    }//GEN-LAST:event_dataDCActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField creatinina;
-    private org.jdesktop.swingx.JXDatePicker dataDC1;
-    private org.jdesktop.swingx.JXDatePicker dataEsamEmato1;
-    private javax.swing.JTextArea diarioClinicoGG1;
-    private javax.swing.JPanel esEmatoGG1;
+    private org.jdesktop.swingx.JXDatePicker dataDC;
+    private org.jdesktop.swingx.JXDatePicker dataEsamEmato;
+    private javax.swing.JTextArea diarioClinico;
+    private javax.swing.JPanel esEmato;
     private javax.swing.JTextField esUrine;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;

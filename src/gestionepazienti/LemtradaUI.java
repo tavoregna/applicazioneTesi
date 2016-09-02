@@ -19,32 +19,7 @@ public class LemtradaUI extends javax.swing.JPanel {
         pannello.setLayout(new BoxLayout(pannello, BoxLayout.Y_AXIS));
     }
 
-   public void aggiornaDatiLemtrada(int id)
-    {
-         /*try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Lemtrada WHERE ID_Lemtrada=?");
-            pst.setInt(1,id);
-            ResultSet rs=pst.executeQuery();
-            if(rs.next())
-            {
-               parent.aggiornaDatiDH(rs.getDate("Data"), 1, rs.getString("Medico"), rs.getInt("Somministrazione_N"));
-               diarioClinicoGG1.setText(rs.getString("Diario_Clinico1"));
-               dataDC1.setDate(rs.getDate("Data_DC1"));
-               diarioClinicoGG2.setText(rs.getString("Diario_Clinico2"));
-               dataDC2.setDate(rs.getDate("Data_DC2"));
-               diarioClinicoGG3.setText(rs.getString("Diario_Clinico3"));
-               dataDC3.setDate(rs.getDate("Data_DC3"));
-               diarioClinicoGG4.setText(rs.getString("Diario_Clinico4"));
-               dataDC4.setDate(rs.getDate("Data_DC4"));
-               diarioClinicoGG5.setText(rs.getString("Diario_Clinico5"));
-               dataDC5.setDate(rs.getDate("Data_DC5"));
-               dataEsamEmato1.setDate(rs.getDate("Data_Esame1"));
-               leucociti.setText("");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
-        } */
-    }
+   
    
     public void aggiornaUI()
     {
