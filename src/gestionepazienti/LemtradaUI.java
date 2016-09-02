@@ -2,9 +2,7 @@ package gestionepazienti;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.BoxLayout;
 
 
 public class LemtradaUI extends javax.swing.JPanel {
@@ -14,9 +12,11 @@ public class LemtradaUI extends javax.swing.JPanel {
     public LemtradaUI(PazienteUI p,int id) {
         initComponents();
         parent=p;
+        /*jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.LINE_AXIS));   
+        jPanel1.add(new PannelloLemtradaUI());*/
     }
 
-   public void aggiornaDatiLemtrada(int id)
+  /* public void aggiornaDatiLemtrada(int id)
     {
          try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Lemtrada WHERE ID_Lemtrada=?");
@@ -51,7 +51,7 @@ public class LemtradaUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
-    }
+    }*/
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -307,6 +307,7 @@ public class LemtradaUI extends javax.swing.JPanel {
         urea4 = new javax.swing.JTextField();
         jLabel125 = new javax.swing.JLabel();
         creatinina4 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 153));
 
@@ -932,7 +933,7 @@ public class LemtradaUI extends javax.swing.JPanel {
                 .addComponent(jLabel10)
                 .addGap(28, 28, 28)
                 .addComponent(dataDC3, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1196,7 +1197,7 @@ public class LemtradaUI extends javax.swing.JPanel {
             .addGroup(panelGG3Layout.createSequentialGroup()
                 .addGroup(panelGG3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
                 .addGroup(panelGG3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1772,7 +1773,7 @@ public class LemtradaUI extends javax.swing.JPanel {
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panelGG5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         panelGG5Layout.setVerticalGroup(
@@ -1784,8 +1785,19 @@ public class LemtradaUI extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panelGG5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 134, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -1799,7 +1811,10 @@ public class LemtradaUI extends javax.swing.JPanel {
                     .addComponent(panelGG2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelGG3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelGG4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelGG5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelGG5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -1815,39 +1830,14 @@ public class LemtradaUI extends javax.swing.JPanel {
                 .addComponent(panelGG4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelGG5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {panelGG1, panelGG2, panelGG3, panelGG4, panelGG5});
 
     }// </editor-fold>//GEN-END:initComponents
-
-    private void dataDC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDC1ActionPerformed
-       /* try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Data_Esami_Ematochimici=? WHERE ID_Controllo=?");
-            Date d=dataEsamEmato.getDate();
-            if(d==null)
-            pst.setNull(1, java.sql.Types.DATE);
-            else
-            pst.setDate(1, Utilita.DateUtilToSQL(d));
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    }//GEN-LAST:event_dataDC1ActionPerformed
-
-    private void dataEsamEmato1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmato1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataEsamEmato1ActionPerformed
-
-    private void dataDC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDC2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataDC2ActionPerformed
-
-    private void dataEsamEmato2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmato2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataEsamEmato2ActionPerformed
 
     private void dataDC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDC3ActionPerformed
         // TODO add your handling code here:
@@ -1872,6 +1862,33 @@ public class LemtradaUI extends javax.swing.JPanel {
     private void dataEsamEmato5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmato5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dataEsamEmato5ActionPerformed
+
+    private void dataEsamEmato2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmato2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataEsamEmato2ActionPerformed
+
+    private void dataDC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDC2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataDC2ActionPerformed
+
+    private void dataEsamEmato1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmato1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataEsamEmato1ActionPerformed
+
+    private void dataDC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDC1ActionPerformed
+        /* try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Data_Esami_Ematochimici=? WHERE ID_Controllo=?");
+            Date d=dataEsamEmato.getDate();
+            if(d==null)
+            pst.setNull(1, java.sql.Types.DATE);
+            else
+            pst.setDate(1, Utilita.DateUtilToSQL(d));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }//GEN-LAST:event_dataDC1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2030,6 +2047,7 @@ public class LemtradaUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
