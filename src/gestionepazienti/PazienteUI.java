@@ -44,6 +44,7 @@ public class PazienteUI extends javax.swing.JFrame {
         barraControlli=new BarraControlliUI(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
         pannelloBarra.add(barraControlli);
         jTabbedPane1.setSelectedIndex(2);
+        inserisciPannelloSchedaEsam(1);
         this.setVisible(true);
     }
 
@@ -270,6 +271,8 @@ public class PazienteUI extends javax.swing.JFrame {
         nomeDH = new javax.swing.JTextField();
         jLabel100 = new javax.swing.JLabel();
         numSom = new javax.swing.JTextField();
+        schedaEsami = new javax.swing.JPanel();
+        panelSchedaEsam = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         indietro = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -1835,7 +1838,7 @@ public class PazienteUI extends javax.swing.JFrame {
 
         cognomeDH.setEnabled(false);
 
-        terapiaPrincDH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tysabri", "Gilenya" }));
+        terapiaPrincDH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tysabri", "Gilenya", "Lemtrada" }));
         terapiaPrincDH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 terapiaPrincDHActionPerformed(evt);
@@ -1940,6 +1943,40 @@ public class PazienteUI extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Terapie infusive in DH", terapieDH);
+
+        schedaEsami.setBackground(new java.awt.Color(239, 228, 176));
+
+        panelSchedaEsam.setBackground(new java.awt.Color(239, 228, 176));
+
+        javax.swing.GroupLayout panelSchedaEsamLayout = new javax.swing.GroupLayout(panelSchedaEsam);
+        panelSchedaEsam.setLayout(panelSchedaEsamLayout);
+        panelSchedaEsamLayout.setHorizontalGroup(
+            panelSchedaEsamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1387, Short.MAX_VALUE)
+        );
+        panelSchedaEsamLayout.setVerticalGroup(
+            panelSchedaEsamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 444, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout schedaEsamiLayout = new javax.swing.GroupLayout(schedaEsami);
+        schedaEsami.setLayout(schedaEsamiLayout);
+        schedaEsamiLayout.setHorizontalGroup(
+            schedaEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(schedaEsamiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSchedaEsam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        schedaEsamiLayout.setVerticalGroup(
+            schedaEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(schedaEsamiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSchedaEsam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(281, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Scheda Esami", schedaEsami);
 
         jPanel1.setBackground(new java.awt.Color(112, 146, 190));
 
@@ -3113,7 +3150,7 @@ public class PazienteUI extends javax.swing.JFrame {
         }*/
     }
     
-    public void inserisciPannelloTerapiaDH(int idDH,int i) //i=0 Tisabry, i=1 Gilenya, i=2 Lematrada
+    public void inserisciPannelloTerapiaDH(int idDH,int i) //i=0 Tisabry, i=1 Gilenya, i=2 Lemtrada
     {
         if(panelDH.getComponentCount()>0)
         {
@@ -3123,14 +3160,29 @@ public class PazienteUI extends javax.swing.JFrame {
         switch(i)
         {
             case 0:            
-                panelDH.add(new TysabriUI(this,1));
+                panelDH.add(new TysabriUI(this,idDH));
                 break;
             case 1:
-                panelDH.add(new GilenyaUI(this,1));
+                panelDH.add(new GilenyaUI(this,idDH));
+                break;
+            case 2:
+                panelDH.add(new LemtradaUI(this,idDH));
                 break;
         }
         panelDH.setVisible(false);
         panelDH.setVisible(true);
+    }
+    
+    public void inserisciPannelloSchedaEsam(int idSchedaEsami) 
+    {
+        if(panelSchedaEsam.getComponentCount()>0)
+        {
+            panelSchedaEsam.removeAll();
+        }
+        panelSchedaEsam.setLayout(new BoxLayout(panelSchedaEsam, BoxLayout.LINE_AXIS));            
+        panelSchedaEsam.add(new SchedaEsamiUI(this,idSchedaEsami));
+        panelSchedaEsam.setVisible(false);
+        panelSchedaEsam.setVisible(true);
     }
     
     public void avantiIndietroPazControllo()
@@ -3532,6 +3584,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JPanel panelControlloAmb;
     private javax.swing.JPanel panelDH;
     private javax.swing.JScrollPane panelDHScroll;
+    private javax.swing.JPanel panelSchedaEsam;
     private javax.swing.JPanel pannelloBarra;
     private javax.swing.JPanel pannelloBarra1;
     private javax.swing.JPanel pannelloDiagnostica;
@@ -3544,6 +3597,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextField sSfinterico;
     private javax.swing.JTextField sTroncoEncefalico;
     private javax.swing.JTextField sVisivo;
+    private javax.swing.JPanel schedaEsami;
     private javax.swing.JComboBox<String> sex;
     private javax.swing.JScrollPane storiaMal;
     private javax.swing.JTextArea storicoArea;
