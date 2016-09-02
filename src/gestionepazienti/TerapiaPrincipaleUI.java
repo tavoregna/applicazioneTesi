@@ -29,8 +29,11 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
 
     private void unvisibleAll()
     {
+        buttonTer.setVisible(false);
         buttonTer2.setVisible(false);
         buttonTer3.setVisible(false);
+        buttonTer2F.setVisible(false);
+        buttonTer3F.setVisible(false);
         terapiaOra.setVisible(false);
         terapiaDH.setVisible(false);
         dataAvvio.setVisible(false);
@@ -56,6 +59,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                 if(rs.getInt("Terapia_Principale")==1)
                 {
                     jRadioButton1.setSelected(true);
+                    buttonTer.setVisible(true);
                 }
                 else
                 {
@@ -72,6 +76,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                             terapiaDH.setEnabled(true);
                             
                             buttonTer2.setVisible(true);
+                            buttonTer2F.setVisible(true);
                         }
                         else
                         {
@@ -82,6 +87,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                             terapiaOra.setEnabled(true);
                             
                             buttonTer3.setVisible(true);
+                            buttonTer3F.setVisible(true);
                         }
                     }   
                 }
@@ -121,6 +127,9 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         buttonTer3 = new javax.swing.JButton();
         dataAvvio = new org.jdesktop.swingx.JXDatePicker();
         terapiaDH = new javax.swing.JComboBox<>();
+        buttonTer3F = new javax.swing.JButton();
+        buttonTer = new javax.swing.JButton();
+        buttonTer2F = new javax.swing.JButton();
 
         setOpaque(false);
 
@@ -160,11 +169,13 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             }
         });
 
-        buttonTer2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        buttonTer2.setText(">");
+        buttonTer2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        buttonTer2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
+        buttonTer2.setText("L");
 
-        buttonTer3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        buttonTer3.setText(">");
+        buttonTer3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        buttonTer3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
+        buttonTer3.setText("L");
 
         dataAvvio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +189,24 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             }
         });
 
+        buttonTer3F.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        buttonTer3F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
+        buttonTer3F.setText("F");
+
+        buttonTer.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        buttonTer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
+        buttonTer.setText("F");
+        buttonTer.setOpaque(false);
+        buttonTer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTerActionPerformed(evt);
+            }
+        });
+
+        buttonTer2F.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        buttonTer2F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
+        buttonTer2F.setText("F");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -185,24 +214,33 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dataAvvio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jRadioButton1)
                                 .addGap(18, 18, 18)
-                                .addComponent(terapiaDH, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(buttonTer, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jRadioButton3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(terapiaOra, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(buttonTer3)))
+                                .addComponent(buttonTer3)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonTer3F, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap(188, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jRadioButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dataAvvio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonTer2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(terapiaDH, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonTer2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonTer2F)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {terapiaDH, terapiaOra});
@@ -211,19 +249,23 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton1)
-                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(buttonTer, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton2)
                     .addComponent(buttonTer2)
                     .addComponent(dataAvvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(terapiaDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(terapiaDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonTer2F))
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton3)
                     .addComponent(terapiaOra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonTer3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonTer3)
+                    .addComponent(buttonTer3F, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -231,7 +273,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         
         unvisibleAll();
         buttonTer2.setVisible(true);
-        
+        buttonTer2F.setVisible(true);
         dataAvvio.setVisible(true);
         dataAvvio.setEnabled(true);
         
@@ -245,7 +287,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         
         unvisibleAll();
         buttonTer3.setVisible(true);
-        
+        buttonTer3F.setVisible(true);
         terapiaOra.setVisible(true);
         terapiaOra.setEnabled(true);
         
@@ -254,7 +296,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         unvisibleAll();
-        
+        buttonTer.setVisible(true);
         aggiornaRadioButtonControllo(1);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
@@ -311,6 +353,10 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_terapiaOraActionPerformed
+
+    private void buttonTerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonTerActionPerformed
     private void aggiornaRadioButtonControllo(int i)
     {
         String query;
@@ -329,8 +375,11 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonTer;
     private javax.swing.JButton buttonTer2;
+    private javax.swing.JButton buttonTer2F;
     private javax.swing.JButton buttonTer3;
+    private javax.swing.JButton buttonTer3F;
     private org.jdesktop.swingx.JXDatePicker dataAvvio;
     private javax.swing.ButtonGroup gruppoTeraPrinc;
     private javax.swing.JRadioButton jRadioButton1;
