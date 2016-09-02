@@ -10,8 +10,8 @@ import java.util.logging.Logger;
 
 public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     private PazienteUI parent;
-    private int idControllo;
     
+    private int idControllo;
     private int tipoControllo;
     
     public TerapiaPrincipaleUI(PazienteUI p,int tipo,int id) {
