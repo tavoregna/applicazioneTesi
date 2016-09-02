@@ -364,7 +364,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void dataEsamEmato1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmato1ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here--:
     }//GEN-LAST:event_dataEsamEmato1ActionPerformed
 
     private void dataDC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDC1ActionPerformed
