@@ -273,6 +273,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel2.setOpaque(true);
 
         note.setBackground(new java.awt.Color(149, 238, 234));
+        note.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                noteKeyReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(note);
 
         jLabel4.setBackground(java.awt.Color.blue);
@@ -284,6 +289,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         acConsigliati.setBackground(new java.awt.Color(149, 238, 234));
         acConsigliati.setColumns(20);
         acConsigliati.setRows(5);
+        acConsigliati.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                acConsigliatiKeyReleased(evt);
+            }
+        });
         jScrollPane4.setViewportView(acConsigliati);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -406,6 +416,28 @@ public class GilenyaUI extends javax.swing.JPanel {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_terSintoKeyReleased
+
+    private void acConsigliatiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_acConsigliatiKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Accertamenti_Consigliati=? WHERE ID_Gilenya=?");
+            pst.setString(1,acConsigliati.getText());
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_acConsigliatiKeyReleased
+
+    private void noteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noteKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Note=? WHERE ID_Gilenya=?");
+            pst.setString(1,note.getText());
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_noteKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

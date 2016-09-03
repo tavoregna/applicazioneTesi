@@ -293,6 +293,12 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Piramidale:");
 
+        piramidale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                piramidaleActionPerformed(evt);
+            }
+        });
+
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Sensitivo:");
 
@@ -391,6 +397,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
 
         jPanel5.setBackground(java.awt.Color.blue);
 
+        edss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edssActionPerformed(evt);
+            }
+        });
         edss.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 edssKeyTyped(evt);
@@ -674,6 +685,14 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         panelGrafico.setVisible(false);
         panelGrafico.setVisible(true);  
     }//GEN-LAST:event_graficoEDSSActionPerformed
+
+    private void edssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edssActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edssActionPerformed
+
+    private void piramidaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_piramidaleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_piramidaleActionPerformed
     private DefaultCategoryDataset datiGrafico()
     {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset( );

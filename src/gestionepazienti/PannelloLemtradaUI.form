@@ -72,6 +72,9 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="diarioClinicoKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -384,12 +387,24 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="leucociti">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="leucocitiKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="piastrine">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="piastrineKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="linfTot">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfTotKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="linfoTPer">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfoTPerKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
@@ -415,6 +430,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="linfoHelperPer">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfoHelperPerKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="linfoT">
               <Properties>
@@ -450,6 +468,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="linfoTCitoPer">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfoTCitoPerKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel25">
               <Properties>
@@ -475,6 +496,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="linfoBPer">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfoBPerKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel28">
               <Properties>
@@ -500,6 +524,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="linfoNKPer">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfoNKPerKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel31">
               <Properties>
@@ -525,6 +552,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="esUrine">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="esUrineKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel34">
               <Properties>
@@ -535,6 +565,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="urea">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ureaKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel35">
               <Properties>
@@ -545,6 +578,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="creatinina">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="creatininaKeyReleased"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

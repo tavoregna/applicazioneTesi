@@ -123,6 +123,11 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         diarioClinico.setBackground(new java.awt.Color(149, 238, 234));
         diarioClinico.setColumns(20);
         diarioClinico.setRows(5);
+        diarioClinico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                diarioClinicoKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(diarioClinico);
 
         jPanel4.setBackground(java.awt.Color.blue);
@@ -199,6 +204,30 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Linfociti T:");
 
+        leucociti.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                leucocitiKeyReleased(evt);
+            }
+        });
+
+        piastrine.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                piastrineKeyReleased(evt);
+            }
+        });
+
+        linfTot.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfTotKeyReleased(evt);
+            }
+        });
+
+        linfoTPer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfoTPerKeyReleased(evt);
+            }
+        });
+
         jLabel5.setText("x10^9/L");
 
         jLabel16.setText("x10^9/L");
@@ -207,6 +236,12 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel18.setText("Linfociti T helper:");
+
+        linfoHelperPer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfoHelperPerKeyReleased(evt);
+            }
+        });
 
         linfoT.setEnabled(false);
 
@@ -221,6 +256,12 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel24.setText("Linfociti T citotossici:");
 
+        linfoTCitoPer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfoTCitoPerKeyReleased(evt);
+            }
+        });
+
         jLabel25.setText("%");
 
         linfoTCito.setEnabled(false);
@@ -229,6 +270,12 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
         jLabel26.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel26.setText("Linfociti B:");
+
+        linfoBPer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfoBPerKeyReleased(evt);
+            }
+        });
 
         jLabel28.setText("%");
 
@@ -239,6 +286,12 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel30.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel30.setText("Linfociti NK:");
 
+        linfoNKPer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfoNKPerKeyReleased(evt);
+            }
+        });
+
         jLabel31.setText("%");
 
         linfoNK.setEnabled(false);
@@ -248,11 +301,29 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel33.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel33.setText("Es. Urine:");
 
+        esUrine.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                esUrineKeyReleased(evt);
+            }
+        });
+
         jLabel34.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel34.setText("Urea:");
 
+        urea.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ureaKeyReleased(evt);
+            }
+        });
+
         jLabel35.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel35.setText("Creatinina:");
+
+        creatinina.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                creatininaKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout esEmatoLayout = new javax.swing.GroupLayout(esEmato);
         esEmato.setLayout(esEmatoLayout);
@@ -591,8 +662,8 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_creatininaActionPerformed
 
-     private void diarioClinicoActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        try {
+    private void diarioClinicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diarioClinicoKeyReleased
+         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Diario_Clinico=? WHERE ID_Standard=? AND Data=");
             pst.setString(1,diarioClinico.getText());
             pst.setInt(2, idLemtrada);
@@ -601,7 +672,52 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }      
+    }//GEN-LAST:event_diarioClinicoKeyReleased
+
+    private void leucocitiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_leucocitiKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_leucocitiKeyReleased
+
+    private void piastrineKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_piastrineKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_piastrineKeyReleased
+
+    private void linfTotKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfTotKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_linfTotKeyReleased
+
+    private void linfoTPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoTPerKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_linfoTPerKeyReleased
+
+    private void linfoHelperPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoHelperPerKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_linfoHelperPerKeyReleased
+
+    private void linfoTCitoPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoTCitoPerKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_linfoTCitoPerKeyReleased
+
+    private void linfoBPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoBPerKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_linfoBPerKeyReleased
+
+    private void linfoNKPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoNKPerKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_linfoNKPerKeyReleased
+
+    private void esUrineKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esUrineKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_esUrineKeyReleased
+
+    private void ureaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ureaKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ureaKeyReleased
+
+    private void creatininaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_creatininaKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_creatininaKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField creatinina;

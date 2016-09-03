@@ -204,32 +204,74 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Piramidale:");
 
-        piramidale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                piramidaleActionPerformed(evt);
+        piramidale.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                piramidaleKeyReleased(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Sensitivo:");
 
+        sensitivo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                sensitivoKeyReleased(evt);
+            }
+        });
+
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setText("Visivo:");
+
+        visivo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                visivoKeyReleased(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel11.setText("Tronco Enc.:");
 
+        troncoEnc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                troncoEncKeyReleased(evt);
+            }
+        });
+
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel12.setText("Cerebellare:");
+
+        cerebellare.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cerebellareKeyReleased(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel13.setText("Sfinteriche:");
 
+        sfinteriche.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                sfintericheKeyReleased(evt);
+            }
+        });
+
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel14.setText("Cerebrale:");
 
+        cerebrale.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cerebraleKeyReleased(evt);
+            }
+        });
+
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel15.setText("Deambulazione:");
+
+        deambulazione.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                deambulazioneKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -271,9 +313,9 @@ public class TysabriUI extends javax.swing.JPanel {
                         .addComponent(deambulazione, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(troncoEnc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cerebrale, deambulazione, piramidale, sensitivo, sfinteriche, troncoEnc, visivo});
@@ -306,11 +348,6 @@ public class TysabriUI extends javax.swing.JPanel {
 
         jPanel5.setBackground(java.awt.Color.blue);
 
-        edss.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edssActionPerformed(evt);
-            }
-        });
         edss.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 edssKeyTyped(evt);
@@ -474,11 +511,6 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel16.setText("JCV:");
 
         dataJCV.setEnabled(false);
-        dataJCV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataJCVActionPerformed(evt);
-            }
-        });
 
         posNegJCV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         posNegJCV.setSelectedIndex(-1);
@@ -878,18 +910,96 @@ public class TysabriUI extends javax.swing.JPanel {
         } 
     }//GEN-LAST:event_indexNewActionPerformed
 
-    private void edssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edssActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edssActionPerformed
+    private void piramidaleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_piramidaleKeyReleased
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Piramidale=? WHERE ID_Tysabri=?");
+            pst.setDouble(1,Double.parseDouble(piramidale.getText()));
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_piramidaleKeyReleased
 
-    private void piramidaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_piramidaleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_piramidaleActionPerformed
+    private void sensitivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sensitivoKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Sensitivo=? WHERE ID_Tysabri=?");
+            pst.setDouble(1,Double.parseDouble(sensitivo.getText()));
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sensitivoKeyReleased
 
-    private void dataJCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataJCVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataJCVActionPerformed
+    private void visivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_visivoKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Visivo=? WHERE ID_Tysabri=?");
+            pst.setDouble(1,Double.parseDouble(visivo.getText()));
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_visivoKeyReleased
 
+    private void troncoEncKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_troncoEncKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Tronco_Enc=? WHERE ID_Tysabri=?");
+            pst.setDouble(1,Double.parseDouble(troncoEnc.getText()));
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_troncoEncKeyReleased
+
+    private void cerebellareKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cerebellareKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Cerebellare=? WHERE ID_Tysabri=?");
+            pst.setDouble(1,Double.parseDouble(cerebellare.getText()));
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cerebellareKeyReleased
+
+    private void sfintericheKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sfintericheKeyReleased
+       try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Sfinteriche=? WHERE ID_Tysabri=?");
+            pst.setDouble(1,Double.parseDouble(sfinteriche.getText()));
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sfintericheKeyReleased
+
+    private void cerebraleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cerebraleKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Cerebrale=? WHERE ID_Tysabri=?");
+            pst.setDouble(1,Double.parseDouble(cerebrale.getText()));
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cerebraleKeyReleased
+
+    private void deambulazioneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_deambulazioneKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Deambulazione=? WHERE ID_Tysabri=?");
+            pst.setDouble(1,Double.parseDouble(deambulazione.getText()));
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deambulazioneKeyReleased
+
+    
+    
     public void inserisciJCV(boolean b)
     {
         try {
