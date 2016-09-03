@@ -23,6 +23,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private BarraControlliUI barraControlli;
     private Integer idControlloCorrente;
     private Integer idDHCorrente;
+    
     public PazienteUI() {
         initComponents();
         idControlloCorrente=null;
@@ -39,6 +40,7 @@ public class PazienteUI extends javax.swing.JFrame {
         AggiornaMedico();
         azzeraCampi();
         abilitaBarraSuperioreControllo(false);
+        abilitaBarraSuperioreDH(false);
         barraControlli=new BarraControlliUI(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
         pannelloBarra.add(barraControlli);
         jTabbedPane1.setSelectedIndex(2);
@@ -2888,7 +2890,7 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_medicoEsamDHActionPerformed
 
     private void terapiaPrincDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaPrincDHActionPerformed
-        inserisciPannelloTerapiaDH(1,terapiaPrincDH.getSelectedIndex());
+        
     }//GEN-LAST:event_terapiaPrincDHActionPerformed
 
     private void nomeDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeDHActionPerformed
@@ -3135,9 +3137,9 @@ public class PazienteUI extends javax.swing.JFrame {
         panelControlloAmb.setVisible(true);
     }
     
-    public void aggiornaDatiDH(Date data,int terapia,String medico,int numero)
+    public void aggiornaDatiDH(int idDH)
     {
-        dataDH.setDate(data);
+        /*dataDH.setDate(data);
         terapiaPrincDH.setSelectedIndex(terapia);
         medicoEsamDH.setSelectedItem(medico);
         numSom.setText(""+numero);
@@ -3149,9 +3151,28 @@ public class PazienteUI extends javax.swing.JFrame {
         {
              jLabel100.setText("N.");
         }*/
+        idDHCorrente=idDH;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Data,Terapia,Medico,Somministrazione_N FROM DH_Standard WHERE ID_DH=?");
+            pst.setInt(1,idDHCorrente);
+            ResultSet rs=pst.executeQuery();
+            String terapy="";
+            if(rs.next())
+            {
+                cognomeContrAmb.setText(cognome.getText());
+                nomeContrAmb.setText(nome.getText());
+                dataDH.setDate(rs.getDate("Data"));
+                terapiaPrincDH.setSelectedItem(rs.getString("Terapia"));
+                medicoEsamDH.setSelectedItem(rs.getString("Medico"));
+                numSom.setText(""+rs.getInt("Somministrazione_N"));
+            }
+            inserisciPannelloTerapiaDH(idDHCorrente, terapiaPrincDH.getSelectedIndex()+1);
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
     
-    public void inserisciPannelloTerapiaDH(int idDH,int i) //i=0 Tisabry, i=1 Gilenya, i=2 Lemtrada
+    public void inserisciPannelloTerapiaDH(int idDH,int i) //i=1 Tisabry, i=2 Gilenya, i=3 Lemtrada
     {
         if(panelDH.getComponentCount()>0)
         {
@@ -3160,13 +3181,13 @@ public class PazienteUI extends javax.swing.JFrame {
         panelDH.setLayout(new BoxLayout(panelDH, BoxLayout.LINE_AXIS));
         switch(i)
         {
-            case 0:            
+            case 1:            
                 panelDH.add(new TysabriUI(this,idDH));
                 break;
-            case 1:
+            case 2:
                 panelDH.add(new GilenyaUI(this,idDH));
                 break;
-            case 2:
+            case 3:
                 panelDH.add(new LemtradaUI(this,idDH));
                 break;
         }
@@ -3193,6 +3214,7 @@ public class PazienteUI extends javax.swing.JFrame {
             panelControlloAmb.removeAll();
         }
         azzeraCampiControllo();
+        azzeraCampiDH();
     }
     
     public void azzeraCampiControllo()
@@ -3345,8 +3367,18 @@ public class PazienteUI extends javax.swing.JFrame {
     public void abilitaBarraSuperioreControllo(boolean b)
     {
         dataContrAmb.setEnabled(b);
+        dataContrAmb.setEditable(b);
         terapiaPrinc.setEnabled(b);
         medicoEsamContrAmb.setEnabled(b);
+    }
+    
+    public void abilitaBarraSuperioreDH(boolean b)
+    {
+        dataDH.setEnabled(b);
+        dataDH.setEditable(b);
+        terapiaPrincDH.setEnabled(b);
+        medicoEsamDH.setEnabled(b);
+        numSom.setEnabled(b);
     }
 
     public static void main(String args[]){

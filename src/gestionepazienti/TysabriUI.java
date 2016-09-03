@@ -42,7 +42,7 @@ public class TysabriUI extends javax.swing.JPanel {
             ResultSet rs=pst.executeQuery();
             if(rs.next())
             {
-               parent.aggiornaDatiDH(rs.getDate("Data"), 0, rs.getString("Medico"), rs.getInt("Somministrazione_N"));
+               //parent.aggiornaDatiDH(rs.getDate("Data"), 0, rs.getString("Medico"), rs.getInt("Somministrazione_N"));
                diarioClinico.setText(rs.getString("Diario_Clinico"));
                dataRMEncefalo.setDate(rs.getDate("Data_RM_Encefalica"));
                rmEncefalica.setText(rs.getString("RM_Encefalica"));
