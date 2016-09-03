@@ -9,9 +9,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 
 public class TysabriUI extends javax.swing.JPanel {
@@ -84,7 +86,6 @@ public class TysabriUI extends javax.swing.JPanel {
         dataEsamEmato = new org.jdesktop.swingx.JXDatePicker();
         jLabel6 = new javax.swing.JLabel();
         panelGrafico = new javax.swing.JPanel();
-        graficoEDSS = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         piramidale = new javax.swing.JTextField();
@@ -103,8 +104,8 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         deambulazione = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         edss = new javax.swing.JTextField();
+        graficoEDSS = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         rmCervDors = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -186,28 +187,15 @@ public class TysabriUI extends javax.swing.JPanel {
                 .addComponent(jLabel6))
         );
 
-        graficoEDSS.setText("graficoEDSS");
-        graficoEDSS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                graficoEDSSActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panelGraficoLayout = new javax.swing.GroupLayout(panelGrafico);
         panelGrafico.setLayout(panelGraficoLayout);
         panelGraficoLayout.setHorizontalGroup(
             panelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGraficoLayout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(graficoEDSS, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 562, Short.MAX_VALUE)
         );
         panelGraficoLayout.setVerticalGroup(
             panelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGraficoLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(graficoEDSS)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel4.setBackground(new java.awt.Color(149, 238, 234));
@@ -215,6 +203,12 @@ public class TysabriUI extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Piramidale:");
+
+        piramidale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                piramidaleActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Sensitivo:");
@@ -312,13 +306,23 @@ public class TysabriUI extends javax.swing.JPanel {
 
         jPanel5.setBackground(java.awt.Color.blue);
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel7.setForeground(java.awt.Color.red);
-        jLabel7.setText("EDSS:");
-
+        edss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edssActionPerformed(evt);
+            }
+        });
         edss.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 edssKeyTyped(evt);
+            }
+        });
+
+        graficoEDSS.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        graficoEDSS.setForeground(java.awt.Color.red);
+        graficoEDSS.setText("EDSS:");
+        graficoEDSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                graficoEDSSActionPerformed(evt);
             }
         });
 
@@ -327,7 +331,7 @@ public class TysabriUI extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel7)
+                .addComponent(graficoEDSS)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(edss, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -335,8 +339,8 @@ public class TysabriUI extends javax.swing.JPanel {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(edss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(edss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(graficoEDSS))
         );
 
         rmCervDors.setBackground(new java.awt.Color(149, 238, 234));
@@ -470,6 +474,11 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel16.setText("JCV:");
 
         dataJCV.setEnabled(false);
+        dataJCV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataJCVActionPerformed(evt);
+            }
+        });
 
         posNegJCV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         posNegJCV.setSelectedIndex(-1);
@@ -495,7 +504,6 @@ public class TysabriUI extends javax.swing.JPanel {
             }
         });
 
-        indexNew.setEnabled(false);
         indexNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 indexNewActionPerformed(evt);
@@ -509,25 +517,26 @@ public class TysabriUI extends javax.swing.JPanel {
             .addGroup(panelEsamiLayout.createSequentialGroup()
                 .addGroup(panelEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEsamiLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dataJCV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(136, 136, 136)
+                        .addComponent(addJCV))
                     .addGroup(panelEsamiLayout.createSequentialGroup()
-                        .addComponent(addJCV)
-                        .addGap(2, 2, 2)
-                        .addComponent(dataJCVNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelEsamiLayout.createSequentialGroup()
-                        .addComponent(posNegJCV, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(index))
-                    .addGroup(panelEsamiLayout.createSequentialGroup()
-                        .addComponent(posNegJCVNew, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(indexNew, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(4, 4, 4)
+                        .addGroup(panelEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelEsamiLayout.createSequentialGroup()
+                                .addComponent(dataJCVNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(posNegJCVNew, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(indexNew, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelEsamiLayout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dataJCV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(posNegJCV, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(index, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         panelEsamiLayout.setVerticalGroup(
             panelEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -542,9 +551,10 @@ public class TysabriUI extends javax.swing.JPanel {
                 .addGroup(panelEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dataJCVNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(posNegJCVNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(indexNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addJCV))
-                .addContainerGap(62, Short.MAX_VALUE))
+                    .addComponent(indexNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addJCV)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         jScrollPane7.setViewportView(panelEsami);
@@ -687,7 +697,19 @@ public class TysabriUI extends javax.swing.JPanel {
     }//GEN-LAST:event_dataEsamEmatoActionPerformed
 
     private void graficoEDSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficoEDSSActionPerformed
-        JFreeChart chart = ChartFactory.createXYLineChart(
+        JFreeChart chart = ChartFactory.createLineChart("EDSS", "", "",datiGrafico(), PlotOrientation.VERTICAL,false, true, true);
+        
+        ChartPanel pannelloGrafico=new ChartPanel(chart);
+        pannelloGrafico.setPreferredSize(new java.awt.Dimension(panelGrafico.getWidth(), panelGrafico.getHeight()));
+        pannelloGrafico.setBounds(0,0,panelGrafico.getWidth(),panelGrafico.getHeight());
+        
+        panelGrafico.setLayout(null);
+        panelGrafico.add(pannelloGrafico);
+        
+        panelGrafico.setVisible(false);
+        panelGrafico.setVisible(true);
+        
+        /*JFreeChart chart = ChartFactory.createXYLineChart(
             "Istogramma", "Anno", "Numero di iscritti",
             null, PlotOrientation.VERTICAL,
             true, true, true);
@@ -695,9 +717,24 @@ public class TysabriUI extends javax.swing.JPanel {
             ChartUtilities.saveChartAsPNG(new java.io.File("function.png"), chart, 400, 500);
         } catch (IOException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_graficoEDSSActionPerformed
-
+                                           
+    private DefaultCategoryDataset datiGrafico()
+    {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
+        ResultSet rs=GestioneDatabase.querySelect("SELECT EDSS,Data FROM Tysabri INNER JOIN DH_Standard ON ID_Tysabri=ID_DH WHERE ID_DH="+idTysabri+" ORDER BY Data ASC");
+        try {
+            while(rs.next())
+            {
+                dataset.addValue(rs.getDouble(1), "",Utilita.dataToString(rs.getDate(2)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }      
+        return dataset;
+    }
+    
     private void edssKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edssKeyTyped
         //FINIREE
         if(edss.getText().length()!=0 && !Utilita.isNumeric(edss.getText()))
@@ -798,6 +835,7 @@ public class TysabriUI extends javax.swing.JPanel {
         {  
             addJCV.setEnabled(false);
             abilitaJCV(true);
+            indexNew.setEnabled(false);
         }
     }//GEN-LAST:event_addJCVActionPerformed
 
@@ -811,12 +849,12 @@ public class TysabriUI extends javax.swing.JPanel {
         }
         if(posNegJCVNew.getSelectedIndex()==0)
         {
-            indexNew.setVisible(true);
+            indexNew.setEnabled(true);
         }
         else
         {
             inserisciJCV(false);
-            indexNew.setVisible(false);
+            indexNew.setEnabled(false);
             indexNew.setText("-1");
         }
     }//GEN-LAST:event_posNegJCVNewActionPerformed
@@ -839,6 +877,18 @@ public class TysabriUI extends javax.swing.JPanel {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_indexNewActionPerformed
+
+    private void edssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edssActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edssActionPerformed
+
+    private void piramidaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_piramidaleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_piramidaleActionPerformed
+
+    private void dataJCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataJCVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataJCVActionPerformed
 
     public void inserisciJCV(boolean b)
     {
@@ -888,7 +938,6 @@ public class TysabriUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
