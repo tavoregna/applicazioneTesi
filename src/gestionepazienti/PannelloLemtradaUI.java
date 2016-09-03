@@ -25,7 +25,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
     public void aggiornaDatiLemtrada(int id,Date data)
     {
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Lemtrada WHERE ID_Standard=? AND Data=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Lemtrada WHERE ID_Standard=? AND Data_DC=?");
             pst.setInt(1,id);
             pst.setDate(2, Utilita.DateUtilToSQL(data));
             ResultSet rs=pst.executeQuery();

@@ -26,8 +26,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(1,id);
             ResultSet rs=pst.executeQuery();
             if(rs.next())
-            {
-               //parent.aggiornaDatiDH(rs.getDate("Data"), 1, rs.getString("Medico"), rs.getInt("Somministrazione_N"));
+            {               
                diarioClinico.setText(rs.getString("Diario_Clinico"));
                terSinto.setText(rs.getString("Terapia_Sintomatica"));
                esameObbNeuro.setText(rs.getString("EON"));

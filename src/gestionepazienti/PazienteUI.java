@@ -3139,18 +3139,6 @@ public class PazienteUI extends javax.swing.JFrame {
     
     public void aggiornaDatiDH(int idDH)
     {
-        /*dataDH.setDate(data);
-        terapiaPrincDH.setSelectedIndex(terapia);
-        medicoEsamDH.setSelectedItem(medico);
-        numSom.setText(""+numero);
-        /*if(terapia==0)     deipende se vogliono cambiare il nome dell'etichetta
-        {
-            jLabel100.setText("Somministrazione N.");
-        }
-        else
-        {
-             jLabel100.setText("N.");
-        }*/
         idDHCorrente=idDH;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Data,Terapia,Medico,Somministrazione_N FROM DH_Standard WHERE ID_DH=?");
@@ -3170,6 +3158,14 @@ public class PazienteUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
+        /*if(terapia==0)     deipende se vogliono cambiare il nome dell'etichetta
+        {
+            jLabel100.setText("Somministrazione N.");
+        }
+        else
+        {
+             jLabel100.setText("N.");
+        }*/
     }
     
     public void inserisciPannelloTerapiaDH(int idDH,int i) //i=1 Tisabry, i=2 Gilenya, i=3 Lemtrada
