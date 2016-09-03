@@ -17,7 +17,7 @@ import org.apache.poi.hwpf.usermodel.Section;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
 public class GenerazioneWord {
-    public static boolean genera(String nome,String cognome,String terapia,String sesso,Date d,String medico,String mail)
+    public static boolean generaLettera(String nome,String cognome,String terapia,String sesso,Date d,String medico,String mail)
     {
         String filePath = "./ModelloLetteraAvvio/"+Utilita.standardizzaNomi(terapia)+sesso.toUpperCase()+".doc";
         POIFSFileSystem fs = null;        
@@ -34,7 +34,34 @@ public class GenerazioneWord {
                 mail="";
             doc = replaceText(doc, "@@@", mail);
             
-            filePath="./LettereGenerate/"+cognome+nome+terapia+".doc";
+            filePath="./LettereGenerate/"+cognome+nome+terapia+Utilita.dataToStringNoSeparator(d)+".doc";
+            saveWord(filePath, doc);
+            
+            if(Desktop.getDesktop()!=null)
+                Desktop.getDesktop().open(new File(filePath));
+            return true;
+        }
+        catch(FileNotFoundException e){
+            Utilita.mostraMessaggioErrore("Modello Lettera non trovato");
+            e.printStackTrace();
+            return false;
+        }
+        catch(IOException e){
+            Utilita.mostraMessaggioErrore("Creazione file non riuscita");
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public static boolean generaFileF(String terapia)
+    {
+        String filePath = "./ModelloFileF/"+"FILEF"+terapia.toUpperCase()+".doc";
+        POIFSFileSystem fs = null;        
+        try {            
+            fs = new POIFSFileSystem(new FileInputStream(filePath));            
+            HWPFDocument doc = new HWPFDocument(fs);
+        
+            Paziente p=Utilita.oggettoPaziente(Pazienti.getCurrID());
+            filePath="./LettereGenerate/FILE_F_"+p.getCognome()+p.getNome()+Utilita.dataToStringNoSeparator(new Date(System.currentTimeMillis()))+".doc";
             saveWord(filePath, doc);
             
             if(Desktop.getDesktop()!=null)

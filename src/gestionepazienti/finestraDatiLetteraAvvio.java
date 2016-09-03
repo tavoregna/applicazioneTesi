@@ -180,7 +180,7 @@ public class finestraDatiLetteraAvvio extends javax.swing.JFrame {
             Utilita.mostraMessaggio("Inserire una data valida");
             return;
         }
-        if(GenerazioneWord.genera(nomee, cognomee, terapiaa, sessoo, dataa, (String)medico.getSelectedItem(), (String)mail.getSelectedItem()))
+        if(GenerazioneWord.generaLettera(nomee, cognomee, terapiaa, sessoo, dataa, (String)medico.getSelectedItem(), (String)mail.getSelectedItem()))
             this.dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed

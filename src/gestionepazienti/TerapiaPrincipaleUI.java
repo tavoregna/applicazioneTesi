@@ -216,6 +216,11 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         buttonTer2F.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         buttonTer2F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
         buttonTer2F.setText("F");
+        buttonTer2F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTer2FActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -370,14 +375,30 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonTerActionPerformed
 
     private void buttonTer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer2ActionPerformed
+        if(terapiaDH.getSelectedIndex()==-1)
+        {
+            Utilita.mostraMessaggio("Nessuna terapia selezionata");
+            return;
+        }
         parent.setVisible(false);
-        new finestraDatiLetteraAvvio(parent, "Marco", "Rossi", "Avonex", "M", Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
+        Paziente p=Utilita.oggettoPaziente(WIDTH);
+        new finestraDatiLetteraAvvio(parent, p.getNome(), p.getCognome(), (String)terapiaDH.getSelectedItem(), p.getSesso(),Utilita.DateUtilToSQL(dataAvvio.getDate()));
     }//GEN-LAST:event_buttonTer2ActionPerformed
 
     private void buttonTer3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer3ActionPerformed
+        if(terapiaOra.getSelectedIndex()==-1)
+        {
+            Utilita.mostraMessaggio("Nessuna terapia selezionata");
+            return;
+        }
         parent.setVisible(false);
-        new finestraDatiLetteraAvvio(parent, "Marco", "Rossi", "Avonex", "M", Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
+        Paziente p=Utilita.oggettoPaziente(WIDTH);
+        new finestraDatiLetteraAvvio(parent, p.getNome(), p.getCognome(), (String)terapiaOra.getSelectedItem(), p.getSesso(), Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
     }//GEN-LAST:event_buttonTer3ActionPerformed
+
+    private void buttonTer2FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer2FActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonTer2FActionPerformed
     private void aggiornaRadioButtonControllo(int i)
     {
         String query;

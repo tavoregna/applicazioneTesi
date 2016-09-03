@@ -141,6 +141,14 @@ public final class Utilita {
         sdf.applyPattern("dd/MM/yyyy"); 
         return sdf.format(d); 
     }
+    public static String dataToStringNoSeparator(Date d) //     dd/MM/yyyy
+    {
+        if(d==null)
+            return "";
+        SimpleDateFormat sdf = new SimpleDateFormat(); // creo l'oggetto
+        sdf.applyPattern("yyyyMMdd"); 
+        return sdf.format(d); 
+    }
 
     public static Color colorePulsante(int idControllo,int i) //i=0 Ordinario; i=1 Ricaduta
     {
@@ -205,6 +213,19 @@ public final class Utilita {
          return false;  
      }  
       return true;  
-}
+    }
+    public static Paziente oggettoPaziente(int id)
+    {
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome,Cognome,Sesso FROM Paziente WHERE ID="+id);
+            if(rs.next())
+            {
+                return new Paziente(rs.getString("Nome"), rs.getString("Cognome"), rs.getString("Sesso"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     
 }
