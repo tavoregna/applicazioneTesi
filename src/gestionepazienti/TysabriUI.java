@@ -62,6 +62,8 @@ public class TysabriUI extends javax.swing.JPanel {
                edss.setText(""+rs.getDouble("EDSS"));
                dataJCV.setDate(rs.getDate("Data_JCV"));
                posNegJCV.setSelectedItem(rs.getString("JCV"));
+               if(posNegJCV.getSelectedIndex()==1)
+                   index.setVisible(false);
                index.setText(""+rs.getDouble("Index"));
                note.setText(rs.getString("Note"));
             }
@@ -467,8 +469,13 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel16.setText("JCV:");
 
+        dataJCV.setEnabled(false);
+
         posNegJCV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
-        posNegJCV.setSelectedItem(null);
+        posNegJCV.setSelectedIndex(-1);
+        posNegJCV.setEnabled(false);
+
+        index.setEnabled(false);
 
         addJCV.setBackground(java.awt.Color.green);
         addJCV.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -481,7 +488,19 @@ public class TysabriUI extends javax.swing.JPanel {
         });
 
         posNegJCVNew.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
-        posNegJCVNew.setSelectedItem(null);
+        posNegJCVNew.setSelectedIndex(-1);
+        posNegJCVNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                posNegJCVNewActionPerformed(evt);
+            }
+        });
+
+        indexNew.setEnabled(false);
+        indexNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indexNewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelEsamiLayout = new javax.swing.GroupLayout(panelEsami);
         panelEsami.setLayout(panelEsamiLayout);
@@ -779,10 +798,64 @@ public class TysabriUI extends javax.swing.JPanel {
         {  
             addJCV.setEnabled(false);
             abilitaJCV(true);
-            
         }
     }//GEN-LAST:event_addJCVActionPerformed
 
+    private void posNegJCVNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posNegJCVNewActionPerformed
+        Date d=dataJCVNew.getDate();
+        if(d==null)
+        {
+            posNegJCVNew.setSelectedIndex(-1);
+            Utilita.mostraMessaggio("Devi inserire la data prima");
+            return;
+        }
+        if(posNegJCVNew.getSelectedIndex()==0)
+        {
+            indexNew.setVisible(true);
+        }
+        else
+        {
+            inserisciJCV(false);
+            indexNew.setVisible(false);
+            indexNew.setText("-1");
+        }
+    }//GEN-LAST:event_posNegJCVNewActionPerformed
+
+    private void indexNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indexNewActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Tysabri WHERE ID_Tysabri=?");
+            pst.setInt(1,idTysabri);
+            ResultSet rs=pst.executeQuery();
+            double ind;
+            if(rs.next())
+            {
+               ind=Double.parseDouble(indexNew.getText());
+               if(ind>=rs.getDouble("Index"))
+               {
+                   inserisciJCV(true);
+               }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_indexNewActionPerformed
+
+    public void inserisciJCV(boolean b)
+    {
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Data_JCV=?,JCV=?,Index=? WHERE ID_Tysabri=?");
+            pst.setDate(1, Utilita.DateUtilToSQL(dataJCVNew.getDate()));
+            pst.setString(2, (String)posNegJCVNew.getSelectedItem());
+            if(b)
+                pst.setDouble(3,Double.parseDouble(indexNew.getText()));
+            else
+                pst.setDouble(3,-1);
+            pst.setInt(4, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addJCV;
