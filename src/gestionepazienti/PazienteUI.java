@@ -44,7 +44,6 @@ public class PazienteUI extends javax.swing.JFrame {
         barraControlli=new BarraControlliUI(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
         pannelloBarra.add(barraControlli);
         jTabbedPane1.setSelectedIndex(2);
-        inserisciPannelloSchedaEsam(1);
         this.setVisible(true);
     }
 
@@ -1839,6 +1838,7 @@ public class PazienteUI extends javax.swing.JFrame {
         cognomeDH.setEnabled(false);
 
         terapiaPrincDH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tysabri", "Gilenya", "Lemtrada" }));
+        terapiaPrincDH.setSelectedIndex(-1);
         terapiaPrincDH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 terapiaPrincDHActionPerformed(evt);
