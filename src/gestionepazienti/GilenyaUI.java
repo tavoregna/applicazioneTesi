@@ -26,8 +26,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(1,id);
             ResultSet rs=pst.executeQuery();
             if(rs.next())
-            {
-               //parent.aggiornaDatiDH(rs.getDate("Data"), 1, rs.getString("Medico"), rs.getInt("Somministrazione_N"));
+            {               
                diarioClinico.setText(rs.getString("Diario_Clinico"));
                terSinto.setText(rs.getString("Terapia_Sintomatica"));
                esameObbNeuro.setText(rs.getString("EON"));
@@ -157,26 +156,74 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Piramidale:");
 
+        piramidale.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                piramidaleKeyReleased(evt);
+            }
+        });
+
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Sensitivo:");
+
+        sensitivo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                sensitivoKeyReleased(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setText("Visivo:");
 
+        visivo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                visivoKeyReleased(evt);
+            }
+        });
+
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel11.setText("Tronco Enc.:");
+
+        troncoEnc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                troncoEncKeyReleased(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel12.setText("Cerebellare:");
 
+        cerebellare.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cerebellareKeyReleased(evt);
+            }
+        });
+
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel13.setText("Sfinteriche:");
+
+        sfinteriche.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                sfintericheKeyReleased(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel14.setText("Cerebrale:");
 
+        cerebrale.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cerebraleKeyReleased(evt);
+            }
+        });
+
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel15.setText("Deambulazione:");
+
+        deambulazione.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                deambulazioneKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -274,6 +321,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel2.setOpaque(true);
 
         note.setBackground(new java.awt.Color(149, 238, 234));
+        note.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                noteKeyReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(note);
 
         jLabel4.setBackground(java.awt.Color.blue);
@@ -285,6 +337,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         acConsigliati.setBackground(new java.awt.Color(149, 238, 234));
         acConsigliati.setColumns(20);
         acConsigliati.setRows(5);
+        acConsigliati.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                acConsigliatiKeyReleased(evt);
+            }
+        });
         jScrollPane4.setViewportView(acConsigliati);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -408,7 +465,116 @@ public class GilenyaUI extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_terSintoKeyReleased
 
+    private void acConsigliatiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_acConsigliatiKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Accertamenti_Consigliati=? WHERE ID_Gilenya=?");
+            pst.setString(1,acConsigliati.getText());
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_acConsigliatiKeyReleased
 
+    private void noteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noteKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Note=? WHERE ID_Gilenya=?");
+            pst.setString(1,note.getText());
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_noteKeyReleased
+
+    private void piramidaleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_piramidaleKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Piramidale=? WHERE ID_Gilenya=?");
+            pst.setDouble(1,Double.parseDouble(piramidale.getText()));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_piramidaleKeyReleased
+
+    private void sensitivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sensitivoKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Sensitivo=? WHERE ID_Gilenya=?");
+            pst.setDouble(1,Double.parseDouble(sensitivo.getText()));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sensitivoKeyReleased
+
+    private void visivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_visivoKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Visivo=? WHERE ID_Gilenya=?");
+            pst.setDouble(1,Double.parseDouble(visivo.getText()));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_visivoKeyReleased
+
+    private void troncoEncKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_troncoEncKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Tronco_Enc=? WHERE ID_Gilenya=?");
+            pst.setDouble(1,Double.parseDouble(troncoEnc.getText()));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_troncoEncKeyReleased
+
+    private void cerebellareKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cerebellareKeyReleased
+       try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Cerebellare=? WHERE ID_Gilenya=?");
+            pst.setDouble(1,Double.parseDouble(cerebellare.getText()));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cerebellareKeyReleased
+
+    private void sfintericheKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sfintericheKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Sfinteriche=? WHERE ID_Gilenya=?");
+            pst.setDouble(1,Double.parseDouble(sfinteriche.getText()));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sfintericheKeyReleased
+
+    private void cerebraleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cerebraleKeyReleased
+       try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Cerebrale=? WHERE ID_Gilenya=?");
+            pst.setDouble(1,Double.parseDouble(cerebrale.getText()));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cerebraleKeyReleased
+
+    private void deambulazioneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_deambulazioneKeyReleased
+       try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Deambulazione=? WHERE ID_Gilenya=?");
+            pst.setDouble(1,Double.parseDouble(deambulazione.getText()));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deambulazioneKeyReleased
+                                                                        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea acConsigliati;
     private javax.swing.JTextField cerebellare;
