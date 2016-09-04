@@ -125,22 +125,12 @@ public class RicadutaUI extends javax.swing.JPanel {
         jLabel2.setText("Terapia Steroidea:");
 
         terapiaRicaduta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "in altro centro", "per 3 giorni", "per 5 giorni", "altro" }));
-        terapiaRicaduta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                terapiaRicadutaActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Note:");
 
         note.setColumns(1);
         note.setRows(1);
-        note.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                noteKeyReleased(evt);
-            }
-        });
         jScrollPane1.setViewportView(note);
 
         javax.swing.GroupLayout ricadTerapLayout = new javax.swing.GroupLayout(ricadTerap);
