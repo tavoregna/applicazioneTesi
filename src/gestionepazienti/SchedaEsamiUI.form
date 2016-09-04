@@ -132,7 +132,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="comboGR" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboPiastrine" min="-2" max="-2" attributes="0"/>
                                       <Component id="comboLinfociti" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -148,9 +148,9 @@
                                           <Component id="linf" min="-2" pref="55" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jXDatePicker5" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dataPiastrine" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jTextField4" min="-2" pref="55" max="-2" attributes="0"/>
+                                          <Component id="pia" min="-2" pref="55" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -182,9 +182,9 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jCheckBox4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jXDatePicker5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboPiastrine" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="dataPiastrine" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="pia" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -198,13 +198,16 @@
                     <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker5">
+                <Component class="org.jdesktop.swingx.JXDatePicker" name="dataPiastrine">
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataGR">
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataLinfociti">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataLinfocitiActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+                <Component class="javax.swing.JCheckBox" name="comboPiastrine">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Piastrine"/>
                     <Property name="opaque" type="boolean" value="false"/>
@@ -212,7 +215,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="linf">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField4">
+                <Component class="javax.swing.JTextField" name="pia">
                 </Component>
                 <Component class="javax.swing.JTextField" name="leu">
                 </Component>
@@ -225,6 +228,9 @@
                 <Component class="javax.swing.JTextField" name="gr">
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataLeucociti">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataLeucocitiActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="comboGR">
                   <Properties>
@@ -726,32 +732,32 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jCheckBox25" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboDerma" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jXDatePicker26" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataDerma" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="jCheckBox26" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboCardio" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jXDatePicker27" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataCardio" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="jCheckBox27" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboPneu" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jXDatePicker28" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataPneu" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="jCheckBox28" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboInfet" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jXDatePicker29" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataInfet" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTextField13" linkSize="4" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField14" linkSize="4" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField12" linkSize="4" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                      <Component id="jTextField15" linkSize="4" min="-2" max="-2" attributes="0"/>
+                      <Component id="cardio" linkSize="4" min="-2" max="-2" attributes="0"/>
+                      <Component id="pneu" linkSize="4" min="-2" max="-2" attributes="0"/>
+                      <Component id="derma" linkSize="4" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                      <Component id="infet" linkSize="4" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -762,27 +768,27 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jCheckBox25" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jXDatePicker26" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboDerma" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dataDerma" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="derma" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jCheckBox26" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jXDatePicker27" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboCardio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dataCardio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cardio" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jCheckBox27" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jXDatePicker28" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboPneu" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dataPneu" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pneu" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jCheckBox28" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jXDatePicker29" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField15" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboInfet" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dataInfet" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="infet" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
@@ -790,45 +796,45 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox25">
+        <Component class="javax.swing.JCheckBox" name="comboDerma">
           <Properties>
             <Property name="text" type="java.lang.String" value="Dermatologica"/>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker26">
+        <Component class="org.jdesktop.swingx.JXDatePicker" name="dataDerma">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField12">
+        <Component class="javax.swing.JTextField" name="derma">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox26">
+        <Component class="javax.swing.JCheckBox" name="comboCardio">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cardiologica"/>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker27">
+        <Component class="org.jdesktop.swingx.JXDatePicker" name="dataCardio">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField13">
+        <Component class="javax.swing.JTextField" name="cardio">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox27">
+        <Component class="javax.swing.JCheckBox" name="comboPneu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pneumologica"/>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker28">
+        <Component class="org.jdesktop.swingx.JXDatePicker" name="dataPneu">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField14">
+        <Component class="javax.swing.JTextField" name="pneu">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox28">
+        <Component class="javax.swing.JCheckBox" name="comboInfet">
           <Properties>
             <Property name="text" type="java.lang.String" value="Infettivologica"/>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker29">
+        <Component class="org.jdesktop.swingx.JXDatePicker" name="dataInfet">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField15">
+        <Component class="javax.swing.JTextField" name="infet">
         </Component>
       </SubComponents>
     </Container>
@@ -866,43 +872,43 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jCheckBox20" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboRX" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jXDatePicker21" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dataRX" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jTextField7" linkSize="5" min="-2" pref="69" max="-2" attributes="0"/>
+                                  <Component id="rx" linkSize="5" min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jCheckBox21" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboEcocardio" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jXDatePicker22" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dataEcocardio" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jTextField8" linkSize="5" min="-2" pref="69" max="-2" attributes="0"/>
+                                  <Component id="ecocardio" linkSize="5" min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jCheckBox22" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboEcografia" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="3" max="32767" attributes="0"/>
-                                  <Component id="jXDatePicker23" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dataEcografia" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jTextField9" linkSize="5" min="-2" pref="69" max="-2" attributes="0"/>
+                                  <Component id="ecografia" linkSize="5" min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jCheckBox19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboOCT" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboECG" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jXDatePicker20" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dataOCT" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jTextField6" linkSize="5" min="-2" pref="69" max="-2" attributes="0"/>
+                                      <Component id="oct" linkSize="5" min="-2" pref="69" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jXDatePicker19" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dataECG" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jTextField5" linkSize="5" min="-2" pref="154" max="-2" attributes="0"/>
+                                      <Component id="ecg" linkSize="5" min="-2" pref="154" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -916,33 +922,33 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jXDatePicker19" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox18" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataECG" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ecg" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboECG" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jXDatePicker20" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox19" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataOCT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="oct" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboOCT" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jXDatePicker21" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox20" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataRX" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rx" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboRX" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jXDatePicker22" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox21" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataEcocardio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ecocardio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboEcocardio" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jXDatePicker23" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox22" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataEcografia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ecografia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboEcografia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -950,51 +956,51 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker19">
+            <Component class="org.jdesktop.swingx.JXDatePicker" name="dataECG">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
+            <Component class="javax.swing.JTextField" name="ecg">
             </Component>
-            <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker20">
+            <Component class="org.jdesktop.swingx.JXDatePicker" name="dataOCT">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="oct">
             </Component>
-            <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker21">
+            <Component class="org.jdesktop.swingx.JXDatePicker" name="dataRX">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="rx">
             </Component>
-            <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker22">
+            <Component class="org.jdesktop.swingx.JXDatePicker" name="dataEcocardio">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
+            <Component class="javax.swing.JTextField" name="ecocardio">
             </Component>
-            <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker23">
+            <Component class="org.jdesktop.swingx.JXDatePicker" name="dataEcografia">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField9">
+            <Component class="javax.swing.JTextField" name="ecografia">
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox18">
+            <Component class="javax.swing.JCheckBox" name="comboECG">
               <Properties>
                 <Property name="text" type="java.lang.String" value="ECG"/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox19">
+            <Component class="javax.swing.JCheckBox" name="comboOCT">
               <Properties>
                 <Property name="text" type="java.lang.String" value="OCT"/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox20">
+            <Component class="javax.swing.JCheckBox" name="comboRX">
               <Properties>
                 <Property name="text" type="java.lang.String" value="RX torace"/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox21">
+            <Component class="javax.swing.JCheckBox" name="comboEcocardio">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ecocardiogramma"/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox22">
+            <Component class="javax.swing.JCheckBox" name="comboEcografia">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ecografia vescicale"/>
                 <Property name="opaque" type="boolean" value="false"/>
