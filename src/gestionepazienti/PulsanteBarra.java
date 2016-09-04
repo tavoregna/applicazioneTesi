@@ -13,7 +13,7 @@ import javax.swing.JButton;
  *
  * @author Riccardo
  */
-public class PulsanteBarra extends JButton{
+public class PulsanteBarra extends JButton implements Comparable<PulsanteBarra>{
     private int indicePulsante;
     private Integer idControllo;
     private Color colore;
@@ -60,5 +60,10 @@ public class PulsanteBarra extends JButton{
     public void setData(Date data) {
         this.data = data;
         this.setText(Utilita.dataToString(data));
+    }
+
+    @Override
+    public int compareTo(PulsanteBarra o) {
+        return this.data.compareTo(o.getData());
     }
 }

@@ -19,7 +19,7 @@ public class PROVA3 extends javax.swing.JFrame {
     public PROVA3() {
         initComponents();
         this.setLayout(new FlowLayout());
-       // this.add(new Barra(null, this.getHeight(), this.getWidth()));
+        this.add(new Barra(null, this.getHeight(), this.getWidth()));
         this.setVisible(true);
     }
 

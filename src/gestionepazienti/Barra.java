@@ -8,15 +8,18 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 
 
 public class Barra extends javax.swing.JPanel {
-
+    private static int var=1;
     private PazienteUI parent;
     private ArrayList<PulsanteBarra> pulsanti;
+    
     public Barra(PazienteUI p,int hei,int wid) {
         initComponents();
         parent=p;
@@ -34,6 +37,7 @@ public class Barra extends javax.swing.JPanel {
     {
         //indiceCorrente=null;
         pannelloBarra.removeAll();
+        pulsanti.clear();
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Controllo_Standard WHERE ID_Paziente="+id+" ORDER BY Data ASC");
             int i=0;
@@ -75,9 +79,23 @@ public class Barra extends javax.swing.JPanel {
         catch (SQLException ex) {
             Logger.getLogger(BarraControlliUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+         ordinaPulsanti();
+         for(int k=0;k<pulsanti.size();k++)
+             pannelloBarra.add(pulsanti.get(k));
         aggiornaUI();
     }
-    
+    private void ordinaPulsanti()
+    {
+        Collections.sort(pulsanti);
+        /* pulsanti.sort(new Comparator<PulsanteBarra>(){
+            @Override
+            public int compare(PulsanteBarra o1, PulsanteBarra o2) {
+                System.out.println((var++)+"");
+                return (int)(o1.getData().getTime()-o2.getData().getTime());
+            }
+            
+        });*/
+    }
     private void aggiornaUI()
     {
         this.setVisible(false);
@@ -95,8 +113,9 @@ public class Barra extends javax.swing.JPanel {
                     return;
              //   pressionePulsanteBarra((PulsanteBarra)(e.getSource())); 
             }
-        }); 
-        pannelloBarra.add(b);
+        });
+        pulsanti.add(b);
+        //pannelloBarra.add(b);
     }
  /*   
     public void pressionePulsanteBarra(PulsanteBarra premuto)
