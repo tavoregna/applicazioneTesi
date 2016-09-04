@@ -199,8 +199,14 @@
                   </Properties>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataPiastrine">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataPiastrineActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataGR">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataGRActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataLinfociti">
                   <Events>
@@ -214,10 +220,19 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="linf">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="pia">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="leu">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="comboLinfociti">
                   <Properties>
@@ -226,6 +241,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="gr">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataLeucociti">
                   <Events>
@@ -454,6 +472,7 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -468,16 +487,26 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataTBC">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataTBCActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataHSV2">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataHSV2ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataHBV">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataHBVActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="comboPPTest">
                   <Properties>
@@ -500,6 +529,7 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -518,8 +548,14 @@
                   </Properties>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataCMV">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataCMVActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataPT">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataPTActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="hiv2">
                   <Properties>
@@ -530,6 +566,7 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -550,16 +587,26 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataHIV2">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataHIV2ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataHCV">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataHCVActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataEBV">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataEBVActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="comboHIV2">
                   <Properties>
@@ -576,12 +623,16 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataHSV1">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataHSV1ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="comboHSV2">
                   <Properties>
@@ -598,6 +649,7 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -624,6 +676,7 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -644,6 +697,7 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -662,6 +716,9 @@
                   </Properties>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataHIV1">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataHIV1ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="hbv">
                   <Properties>
@@ -672,12 +729,16 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataVZV">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataVZVActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="vzv">
                   <Properties>
@@ -688,12 +749,16 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dataJCV">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataJCVActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="ppTest">
                   <Properties>
@@ -704,6 +769,7 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -805,6 +871,9 @@
         <Component class="org.jdesktop.swingx.JXDatePicker" name="dataDerma">
         </Component>
         <Component class="javax.swing.JTextField" name="derma">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="comboCardio">
           <Properties>
@@ -815,6 +884,9 @@
         <Component class="org.jdesktop.swingx.JXDatePicker" name="dataCardio">
         </Component>
         <Component class="javax.swing.JTextField" name="cardio">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="comboPneu">
           <Properties>
@@ -825,6 +897,9 @@
         <Component class="org.jdesktop.swingx.JXDatePicker" name="dataPneu">
         </Component>
         <Component class="javax.swing.JTextField" name="pneu">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="comboInfet">
           <Properties>
@@ -835,6 +910,9 @@
         <Component class="org.jdesktop.swingx.JXDatePicker" name="dataInfet">
         </Component>
         <Component class="javax.swing.JTextField" name="infet">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -957,24 +1035,54 @@
           </Layout>
           <SubComponents>
             <Component class="org.jdesktop.swingx.JXDatePicker" name="dataECG">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataECGActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ecg">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="org.jdesktop.swingx.JXDatePicker" name="dataOCT">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataOCTActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="oct">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="org.jdesktop.swingx.JXDatePicker" name="dataRX">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataRXActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="rx">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="org.jdesktop.swingx.JXDatePicker" name="dataEcocardio">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataEcocardioActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ecocardio">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="org.jdesktop.swingx.JXDatePicker" name="dataEcografia">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataEcografiaActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ecografia">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="comboECG">
               <Properties>

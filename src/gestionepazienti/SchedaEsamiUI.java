@@ -192,6 +192,18 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboLeucociti.setText("Leucociti");
         comboLeucociti.setOpaque(false);
 
+        dataPiastrine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataPiastrineActionPerformed(evt);
+            }
+        });
+
+        dataGR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataGRActionPerformed(evt);
+            }
+        });
+
         dataLinfociti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dataLinfocitiActionPerformed(evt);
@@ -201,8 +213,16 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboPiastrine.setText("Piastrine");
         comboPiastrine.setOpaque(false);
 
+        linf.setEnabled(false);
+
+        pia.setEnabled(false);
+
+        leu.setEnabled(false);
+
         comboLinfociti.setText("Linfociti");
         comboLinfociti.setOpaque(false);
+
+        gr.setEnabled(false);
 
         dataLeucociti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,9 +298,29 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
 
         hsv1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         hsv1.setSelectedIndex(-1);
+        hsv1.setEnabled(false);
 
         jcv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         jcv.setSelectedIndex(-1);
+        jcv.setEnabled(false);
+
+        dataTBC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataTBCActionPerformed(evt);
+            }
+        });
+
+        dataHSV2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataHSV2ActionPerformed(evt);
+            }
+        });
+
+        dataHBV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataHBVActionPerformed(evt);
+            }
+        });
 
         comboPPTest.setText("Pap-Test");
         comboPPTest.setOpaque(false);
@@ -290,6 +330,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
 
         tbc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         tbc.setSelectedIndex(-1);
+        tbc.setEnabled(false);
 
         comboEBV.setText("IgG anti-EBV");
         comboEBV.setOpaque(false);
@@ -297,26 +338,66 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboHBV.setText("IgG anti-HBV");
         comboHBV.setOpaque(false);
 
+        dataCMV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataCMVActionPerformed(evt);
+            }
+        });
+
+        dataPT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataPTActionPerformed(evt);
+            }
+        });
+
         hiv2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         hiv2.setSelectedIndex(-1);
+        hiv2.setEnabled(false);
 
         comboVZV.setText("IgG anti-VZV");
         comboVZV.setOpaque(false);
 
         hcv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         hcv.setSelectedIndex(-1);
+        hcv.setEnabled(false);
+
+        dataHIV2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataHIV2ActionPerformed(evt);
+            }
+        });
+
+        dataHCV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataHCVActionPerformed(evt);
+            }
+        });
+
+        dataEBV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataEBVActionPerformed(evt);
+            }
+        });
 
         comboHIV2.setText("IgG anti-HIV 2");
         comboHIV2.setOpaque(false);
 
         ebv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         ebv.setSelectedIndex(-1);
+        ebv.setEnabled(false);
+
+        dataHSV1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataHSV1ActionPerformed(evt);
+            }
+        });
 
         comboHSV2.setText("IgG anti-HSV 2");
         comboHSV2.setOpaque(false);
 
         cmv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         cmv.setSelectedIndex(-1);
+        cmv.setEnabled(false);
 
         comboCMV.setText("IgG anti-CMV");
         comboCMV.setOpaque(false);
@@ -326,12 +407,14 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
 
         hiv1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         hiv1.setSelectedIndex(-1);
+        hiv1.setEnabled(false);
 
         comboTBC.setText("TBC");
         comboTBC.setOpaque(false);
 
         hsv2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         hsv2.setSelectedIndex(-1);
+        hsv2.setEnabled(false);
 
         comboHIV1.setText("IgG anti-HIV 1");
         comboHIV1.setOpaque(false);
@@ -339,14 +422,35 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboHSV1.setText("IgG anti-HSV 1");
         comboHSV1.setOpaque(false);
 
+        dataHIV1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataHIV1ActionPerformed(evt);
+            }
+        });
+
         hbv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         hbv.setSelectedIndex(-1);
+        hbv.setEnabled(false);
+
+        dataVZV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataVZVActionPerformed(evt);
+            }
+        });
 
         vzv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         vzv.setSelectedIndex(-1);
+        vzv.setEnabled(false);
+
+        dataJCV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataJCVActionPerformed(evt);
+            }
+        });
 
         ppTest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         ppTest.setSelectedIndex(-1);
+        ppTest.setEnabled(false);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -535,14 +639,22 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboDerma.setText("Dermatologica");
         comboDerma.setOpaque(false);
 
+        derma.setEnabled(false);
+
         comboCardio.setText("Cardiologica");
         comboCardio.setOpaque(false);
+
+        cardio.setEnabled(false);
 
         comboPneu.setText("Pneumologica");
         comboPneu.setOpaque(false);
 
+        pneu.setEnabled(false);
+
         comboInfet.setText("Infettivologica");
         comboInfet.setOpaque(false);
+
+        infet.setEnabled(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -611,6 +723,46 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         jScrollPane2.setPreferredSize(new java.awt.Dimension(470, 156));
 
         jPanel2.setBackground(new java.awt.Color(239, 228, 176));
+
+        dataECG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataECGActionPerformed(evt);
+            }
+        });
+
+        ecg.setEnabled(false);
+
+        dataOCT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataOCTActionPerformed(evt);
+            }
+        });
+
+        oct.setEnabled(false);
+
+        dataRX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataRXActionPerformed(evt);
+            }
+        });
+
+        rx.setEnabled(false);
+
+        dataEcocardio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataEcocardioActionPerformed(evt);
+            }
+        });
+
+        ecocardio.setEnabled(false);
+
+        dataEcografia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataEcografiaActionPerformed(evt);
+            }
+        });
+
+        ecografia.setEnabled(false);
 
         comboECG.setText("ECG");
         comboECG.setOpaque(false);
@@ -739,9 +891,12 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
                 pst.setNull(1, java.sql.Types.DATE);
             else
+            {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboLeucociti.setSelected(true);
+                leu.setEnabled(true);
+            }
             pst.setInt(2, idPaziente);
-            comboLeucociti.setSelected(true);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -766,6 +921,367 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataLinfocitiActionPerformed
+
+    private void dataGRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataGRActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_GR=? WHERE ID_Paziente=?");
+            Date d=dataGR.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboGR.setSelected(true);
+                gr.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataGRActionPerformed
+
+    private void dataPiastrineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPiastrineActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Piastrine=? WHERE ID_Paziente=?");
+            Date d=dataPiastrine.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboPiastrine.setSelected(true);
+                pia.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataPiastrineActionPerformed
+
+    private void dataCMVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataCMVActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_CMV=? WHERE ID_Paziente=?");
+            Date d=dataCMV.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboCMV.setSelected(true);
+                cmv.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataCMVActionPerformed
+
+    private void dataHBVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataHBVActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_HBV=? WHERE ID_Paziente=?");
+            Date d=dataHBV.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboHBV.setSelected(true);
+                hbv.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataHBVActionPerformed
+
+    private void dataHCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataHCVActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_HCV=? WHERE ID_Paziente=?");
+            Date d=dataHCV.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboHCV.setSelected(true);
+                hcv.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataHCVActionPerformed
+
+    private void dataHIV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataHIV1ActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_HIV_1=? WHERE ID_Paziente=?");
+            Date d=dataHIV1.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboHIV1.setSelected(true);
+                hiv1.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataHIV1ActionPerformed
+
+    private void dataHIV2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataHIV2ActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_HIV_2=? WHERE ID_Paziente=?");
+            Date d=dataHIV2.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboHIV2.setSelected(true);
+                hiv2.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataHIV2ActionPerformed
+
+    private void dataTBCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataTBCActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_TBC=? WHERE ID_Paziente=?");
+            Date d=dataTBC.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboTBC.setSelected(true);
+                tbc.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataTBCActionPerformed
+
+    private void dataPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPTActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Pap_Test=? WHERE ID_Paziente=?");
+            Date d=dataPT.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboPPTest.setSelected(true);
+                ppTest.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataPTActionPerformed
+
+    private void dataJCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataJCVActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_JCV=? WHERE ID_Paziente=?");
+            Date d=dataJCV.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboJCV.setSelected(true);
+                jcv.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataJCVActionPerformed
+
+    private void dataVZVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataVZVActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_VZV=? WHERE ID_Paziente=?");
+            Date d=dataVZV.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboVZV.setSelected(true);
+                vzv.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataVZVActionPerformed
+
+    private void dataEBVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEBVActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_EBV=? WHERE ID_Paziente=?");
+            Date d=dataEBV.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboEBV.setSelected(true);
+                ebv.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataEBVActionPerformed
+
+    private void dataHSV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataHSV1ActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_HSV_1=? WHERE ID_Paziente=?");
+            Date d=dataHSV1.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboHSV1.setSelected(true);
+                hsv1.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataHSV1ActionPerformed
+
+    private void dataHSV2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataHSV2ActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_HSV_2=? WHERE ID_Paziente=?");
+            Date d=dataHSV2.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboHSV2.setSelected(true);
+                hsv2.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataHSV2ActionPerformed
+
+    private void dataECGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataECGActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_ECG=? WHERE ID_Paziente=?");
+            Date d=dataECG.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboECG.setSelected(true);
+                ecg.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataECGActionPerformed
+
+    private void dataOCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataOCTActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_OCT=? WHERE ID_Paziente=?");
+            Date d=dataOCT.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboOCT.setSelected(true);
+                oct.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataOCTActionPerformed
+
+    private void dataRXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRXActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_RX=? WHERE ID_Paziente=?");
+            Date d=dataRX.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboRX.setSelected(true);
+                rx.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataRXActionPerformed
+
+    private void dataEcocardioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEcocardioActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Ecocardiogramma=? WHERE ID_Paziente=?");
+            Date d=dataEcocardio.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboEcocardio.setSelected(true);
+                ecocardio.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataEcocardioActionPerformed
+
+    private void dataEcografiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEcografiaActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Ecografia_Vescicale=? WHERE ID_Paziente=?");
+            Date d=dataEcografia.getDate();
+            if(d==null)
+                pst.setNull(1, java.sql.Types.DATE);
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboEcografia.setSelected(true);
+                ecografia.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataEcografiaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
