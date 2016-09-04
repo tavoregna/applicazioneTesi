@@ -130,7 +130,7 @@ public class Barra extends javax.swing.JPanel {
         {
             parent.aggiornaDatiDH(premuto.getIdControllo());
             parent.abilitaBarraSuperioreDH(true);
-            parent.selezionaScheda(4);
+            parent.selezionaScheda(3);
             return;
         }
         

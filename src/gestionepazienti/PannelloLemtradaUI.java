@@ -11,23 +11,23 @@ import java.util.logging.Logger;
 public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private PazienteUI parent;
-    private Date dataGiorno;
+    private int giorno;
     private int idLemtrada;
     private double linfociti;
     
-    public PannelloLemtradaUI(int id, Date data) {
+    public PannelloLemtradaUI(int id, int giorno) {
         initComponents();
         idLemtrada=id;
-        dataGiorno=data;
-        aggiornaDatiLemtrada(idLemtrada,dataGiorno);
+        this.giorno=giorno;
+        aggiornaDatiLemtrada(idLemtrada,giorno);
     }
     
-    public void aggiornaDatiLemtrada(int id,Date data)
+    public void aggiornaDatiLemtrada(int id,int giorno)
     {
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Lemtrada WHERE ID_Standard=? AND Data_DC=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Lemtrada WHERE ID_Standard=? AND Giorno=?");
             pst.setInt(1,id);
-            pst.setDate(2, Utilita.DateUtilToSQL(data));
+            pst.setInt(2,giorno);
             ResultSet rs=pst.executeQuery();
             if(rs.next())
             {
@@ -492,14 +492,14 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void dataEsamEmatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmatoActionPerformed
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Data_Esami=? WHERE ID_Standard=? AND Data=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Data_Esami=? WHERE ID_Standard=? AND Giorno=?");
             Date d=dataEsamEmato.getDate();
             if(d==null)
                 pst.setNull(1, java.sql.Types.DATE);
             else
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3, giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -508,14 +508,14 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void dataDCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDCActionPerformed
          try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Data_DC=? WHERE ID_Standard=? AND Data=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Data_DC=? WHERE ID_Standard=? AND Giorno=?");
             Date d=dataDC.getDate();
             if(d==null)
             pst.setNull(1, java.sql.Types.DATE);
             else
             pst.setDate(1, Utilita.DateUtilToSQL(d));
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3, giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -525,10 +525,10 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void diarioClinicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diarioClinicoKeyReleased
          try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Diario_Clinico=? WHERE ID_Standard=? AND Data=");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Diario_Clinico=? WHERE ID_Standard=? AND Giorno=?");
             pst.setString(1,diarioClinico.getText());
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -537,10 +537,10 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void leucocitiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_leucocitiKeyReleased
          try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Leucociti=? WHERE ID_Standard=? AND Data=");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Leucociti=? WHERE ID_Standard=? AND Giorno=?");
             pst.setDouble(1,Double.parseDouble(leucociti.getText()));
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -549,10 +549,10 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void piastrineKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_piastrineKeyReleased
          try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Piatrine=? WHERE ID_Standard=? AND Data=");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Piatrine=? WHERE ID_Standard=? AND Giorno=?");
             pst.setDouble(1,Double.parseDouble(piastrine.getText()));
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -561,11 +561,11 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void linfTotKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfTotKeyReleased
          try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_Totali=? WHERE ID_Standard=? AND Data=");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_Totali=? WHERE ID_Standard=? AND Giorno=?");
             linfociti=Double.parseDouble(linfTot.getText());
             pst.setDouble(1,linfociti);
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3,giorno);
             //linfoT.setText(""+calcoloLinfociti(linfociti, rs.getDouble("Linfociti_T")));
             pst.executeUpdate();
         } catch (SQLException ex) {
@@ -575,10 +575,10 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void linfoTPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoTPerKeyReleased
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_T=? WHERE ID_Standard=? AND Data=");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_T=? WHERE ID_Standard=? AND Giorno=?");
             pst.setDouble(1,Double.parseDouble(linfoTPer.getText()));
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3,giorno);
             linfoT.setText(""+calcoloLinfociti(linfociti,Double.parseDouble(linfoTPer.getText())));
             pst.executeUpdate();
         } catch (SQLException ex) {
@@ -588,10 +588,10 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void linfoHelperPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoHelperPerKeyReleased
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_T_Helper=? WHERE ID_Standard=? AND Data=");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_T_Helper=? WHERE ID_Standard=? AND Giorno=?");
             pst.setDouble(1,Double.parseDouble(linfoHelperPer.getText()));
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3,giorno);
             linfoHelper.setText(""+calcoloLinfociti(linfociti,Double.parseDouble(linfoHelperPer.getText())));
             pst.executeUpdate();
         } catch (SQLException ex) {
@@ -601,10 +601,10 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void linfoTCitoPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoTCitoPerKeyReleased
          try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_T_Citotossici=? WHERE ID_Standard=? AND Data=");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_T_Citotossici=? WHERE ID_Standard=? AND Giorno=?");
             pst.setDouble(1,Double.parseDouble(linfoTCitoPer.getText()));
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3,giorno);
             linfoTCito.setText(""+calcoloLinfociti(linfociti,Double.parseDouble(linfoTCitoPer.getText())));
             pst.executeUpdate();
         } catch (SQLException ex) {
@@ -614,10 +614,10 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void linfoBPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoBPerKeyReleased
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_B=? WHERE ID_Standard=? AND Data=");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_B=? WHERE ID_Standard=? AND Giorno=?");
             pst.setDouble(1,Double.parseDouble(linfoBPer.getText()));
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3,giorno);
             linfoB.setText(""+calcoloLinfociti(linfociti,Double.parseDouble(linfoBPer.getText())));
             pst.executeUpdate();
         } catch (SQLException ex) {
@@ -627,10 +627,10 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void linfoNKPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoNKPerKeyReleased
          try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_NK=? WHERE ID_Standard=? AND Data=");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_NK=? WHERE ID_Standard=? AND Giorno=?");
             pst.setDouble(1,Double.parseDouble(linfoNKPer.getText()));
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3,giorno);
             linfoNK.setText(""+calcoloLinfociti(linfociti,Double.parseDouble(linfoNKPer.getText())));
             pst.executeUpdate();
         } catch (SQLException ex) {
@@ -640,10 +640,10 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void esUrineKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esUrineKeyReleased
        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Es_Urine=? WHERE ID_Standard=? AND Data=");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Es_Urine=? WHERE ID_Standard=? AND Giorno=?");
             pst.setString(1,esUrine.getText());
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -652,10 +652,10 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void ureaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ureaKeyReleased
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Urea=? WHERE ID_Standard=? AND Data=");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Urea=? WHERE ID_Standard=? AND Giorno=?");
             pst.setString(1,urea.getText());
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -664,10 +664,10 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
     private void creatininaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_creatininaKeyReleased
           try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Creatinina=? WHERE ID_Standard=? AND Data=");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Creatinina=? WHERE ID_Standard=? AND AND Giorno=?");
             pst.setString(1,creatinina.getText());
             pst.setInt(2, idLemtrada);
-            pst.setDate(3, Utilita.DateUtilToSQL(dataGiorno));
+            pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);

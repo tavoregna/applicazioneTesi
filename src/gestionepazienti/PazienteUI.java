@@ -1277,6 +1277,7 @@ public class PazienteUI extends javax.swing.JFrame {
         cognomeDH.setEnabled(false);
 
         terapiaPrincDH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tysabri", "Gilenya", "Lemtrada" }));
+        terapiaPrincDH.setEnabled(false);
         terapiaPrincDH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 terapiaPrincDHActionPerformed(evt);
@@ -2363,7 +2364,6 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_medicoEsamDHActionPerformed
 
     private void terapiaPrincDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaPrincDHActionPerformed
-        
     }//GEN-LAST:event_terapiaPrincDHActionPerformed
 
     private void nomeDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeDHActionPerformed
@@ -2490,10 +2490,12 @@ public class PazienteUI extends javax.swing.JFrame {
                 }
                 if(terapiaScelta.equals("Lemtrada"))
                 {
-                    q="INSERT INTO Lemtrada(ID_Standard) VALUES (?)";
+                    q="INSERT INTO Lemtrada(ID_Standard,Giorno,Data_DC) VALUES (?,1,?)";
                 }
                 PreparedStatement p=GestioneDatabase.preparedStatement(q);
                 p.setInt(1,rs.getInt(1));
+                if((terapiaScelta.equals("Lemtrada")))
+                    p.setDate(2, Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
                 p.executeUpdate();
                 
                 abilitaBarraSuperioreDH(true);
@@ -2753,18 +2755,6 @@ public class PazienteUI extends javax.swing.JFrame {
     
     public void aggiornaDatiDH(int idDH)
     {
-        /*dataDH.setDate(data);
-        terapiaPrincDH.setSelectedIndex(terapia);
-        medicoEsamDH.setSelectedItem(medico);
-        numSom.setText(""+numero);
-        /*if(terapia==0)     deipende se vogliono cambiare il nome dell'etichetta
-        {
-            jLabel100.setText("Somministrazione N.");
-        }
-        else
-        {
-             jLabel100.setText("N.");
-        }*/
         idDHCorrente=idDH;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Data,Terapia,Medico,Somministrazione_N FROM DH_Standard WHERE ID_DH=?");
@@ -2826,6 +2816,10 @@ public class PazienteUI extends javax.swing.JFrame {
         if(panelControlloAmb!=null && panelControlloAmb.getComponentCount()>0)
         {
             panelControlloAmb.removeAll();
+        }
+        if(panelDH!=null && panelDH.getComponentCount()>0)
+        {
+            panelDH.removeAll();
         }
         azzeraCampiControllo();
         azzeraCampiDH();

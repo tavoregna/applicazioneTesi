@@ -12,13 +12,14 @@ import javax.swing.JOptionPane;
 
 public class LemtradaUI extends javax.swing.JPanel {
 
-     private PazienteUI parent;
+    private PazienteUI parent;
     private int idStandardDH;
-    private int numero=0;
+    private int numero;
     
     public LemtradaUI(PazienteUI p,int id) {
         initComponents();
         parent=p;
+        numero=0;
         idStandardDH=id;
         pannello.setLayout(new BoxLayout(pannello, BoxLayout.Y_AXIS));
         aggiornaDati(idStandardDH);
@@ -32,7 +33,7 @@ public class LemtradaUI extends javax.swing.JPanel {
             ResultSet rs=pst.executeQuery();
             while(rs.next())
             {
-                inserisciPannello(id,rs.getDate("Data_DC"));
+                inserisciPannello(id,rs.getInt("Giorno"));
                 numero++;
             }
             num.setText(""+numero);
@@ -41,9 +42,9 @@ public class LemtradaUI extends javax.swing.JPanel {
         }
     }
 
-    public void inserisciPannello(int id,Date data)
+    public void inserisciPannello(int id,int giorno)
     {
-        pannello.add(new PannelloLemtradaUI(id,data));
+        pannello.add(new PannelloLemtradaUI(id,giorno));
         aggiornaUI();
     }
    
@@ -119,11 +120,20 @@ public class LemtradaUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int reply=JOptionPane.showConfirmDialog(null, "Sei sicuro di vole inserire un nuovo giorno ?","CONFERMA AGGIUNTA",JOptionPane.YES_NO_OPTION);
+        int reply=JOptionPane.showConfirmDialog(null, "Sei sicuro di vole inserire un nuovo giorno?","CONFERMA AGGIUNTA",JOptionPane.YES_NO_OPTION);
         if(reply==JOptionPane.YES_OPTION)
         {
-            pannello.add(new PannelloLemtradaUI(1, null));
             numero++;
+            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Lemtrada(ID_Standard,Giorno) VALUES (?,?)");
+            try {
+                pst.setInt(1, idStandardDH);
+                pst.setInt(2,numero);
+                pst.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(LemtradaUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            pannello.add(new PannelloLemtradaUI(idStandardDH,numero));
             num.setText(""+numero);
             aggiornaUI();
         }
