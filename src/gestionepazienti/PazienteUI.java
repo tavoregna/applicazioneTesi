@@ -153,106 +153,6 @@ public class PazienteUI extends javax.swing.JFrame {
         panelControlloAmb = new javax.swing.JPanel();
         pannelloBarra = new javax.swing.JPanel();
         terapiaPrinc = new javax.swing.JComboBox<>();
-        immunu = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
-        dataControl = new org.jdesktop.swingx.JXDatePicker();
-        jLabel25 = new javax.swing.JLabel();
-        dosaggio = new javax.swing.JTextField();
-        jLabel26 = new javax.swing.JLabel();
-        numCiclo = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
-        tipoContol = new javax.swing.JComboBox<>();
-        jLabel28 = new javax.swing.JLabel();
-        medicoEsam = new javax.swing.JComboBox<>();
-        jLabel29 = new javax.swing.JLabel();
-        gr = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
-        hb = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
-        hct = new javax.swing.JTextField();
-        jLabel32 = new javax.swing.JLabel();
-        pbg = new javax.swing.JTextField();
-        jLabel33 = new javax.swing.JLabel();
-        esUrine = new javax.swing.JTextField();
-        jLabel34 = new javax.swing.JLabel();
-        citologiaUrin = new javax.swing.JTextField();
-        jLabel35 = new javax.swing.JLabel();
-        ecg = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
-        ecografiaVescic = new javax.swing.JTextField();
-        jLabel37 = new javax.swing.JLabel();
-        ecocardio = new javax.swing.JTextField();
-        jLabel38 = new javax.swing.JLabel();
-        dataEsamiBaseLine = new org.jdesktop.swingx.JXDatePicker();
-        jLabel39 = new javax.swing.JLabel();
-        gb = new javax.swing.JTextField();
-        jLabel40 = new javax.swing.JLabel();
-        neu = new javax.swing.JTextField();
-        jLabel41 = new javax.swing.JLabel();
-        linf = new javax.swing.JTextField();
-        jLabel42 = new javax.swing.JLabel();
-        linfAss = new javax.swing.JTextField();
-        jLabel43 = new javax.swing.JLabel();
-        mon = new javax.swing.JTextField();
-        jLabel44 = new javax.swing.JLabel();
-        eo = new javax.swing.JTextField();
-        jLabel45 = new javax.swing.JLabel();
-        bas = new javax.swing.JTextField();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        data1 = new org.jdesktop.swingx.JXDatePicker();
-        jLabel48 = new javax.swing.JLabel();
-        gb1 = new javax.swing.JTextField();
-        jLabel49 = new javax.swing.JLabel();
-        neu1 = new javax.swing.JTextField();
-        jLabel50 = new javax.swing.JLabel();
-        linf1 = new javax.swing.JTextField();
-        jLabel51 = new javax.swing.JLabel();
-        linfAss1 = new javax.swing.JTextField();
-        jLabel52 = new javax.swing.JLabel();
-        mon1 = new javax.swing.JTextField();
-        jLabel53 = new javax.swing.JLabel();
-        eo1 = new javax.swing.JTextField();
-        jLabel54 = new javax.swing.JLabel();
-        bas1 = new javax.swing.JTextField();
-        data2 = new org.jdesktop.swingx.JXDatePicker();
-        jLabel55 = new javax.swing.JLabel();
-        gb2 = new javax.swing.JTextField();
-        jLabel56 = new javax.swing.JLabel();
-        neu2 = new javax.swing.JTextField();
-        jLabel57 = new javax.swing.JLabel();
-        linf2 = new javax.swing.JTextField();
-        jLabel58 = new javax.swing.JLabel();
-        linfAss2 = new javax.swing.JTextField();
-        jLabel59 = new javax.swing.JLabel();
-        mon2 = new javax.swing.JTextField();
-        jLabel60 = new javax.swing.JLabel();
-        eo2 = new javax.swing.JTextField();
-        jLabel61 = new javax.swing.JLabel();
-        bas2 = new javax.swing.JTextField();
-        jLabel62 = new javax.swing.JLabel();
-        sPiramidale = new javax.swing.JTextField();
-        jLabel63 = new javax.swing.JLabel();
-        sCelebrale = new javax.swing.JTextField();
-        jLabel64 = new javax.swing.JLabel();
-        sVisivo = new javax.swing.JTextField();
-        sTroncoEncefalico = new javax.swing.JTextField();
-        jLabel65 = new javax.swing.JLabel();
-        sSensitivo = new javax.swing.JTextField();
-        jLabel66 = new javax.swing.JLabel();
-        sSfinterico = new javax.swing.JTextField();
-        jLabel67 = new javax.swing.JLabel();
-        jLabel68 = new javax.swing.JLabel();
-        edss = new javax.swing.JTextField();
-        jLabel69 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        en = new javax.swing.JTextArea();
-        jLabel70 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        terapieConcomit = new javax.swing.JTextArea();
-        jLabel71 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
         terapieDH = new javax.swing.JPanel();
         jLabel94 = new javax.swing.JLabel();
         jLabel95 = new javax.swing.JLabel();
@@ -1281,518 +1181,6 @@ public class PazienteUI extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Controlli ambulatoriali", controlliAmb);
-
-        jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel24.setText("Data del controllo:");
-
-        jLabel25.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel25.setText("Dosaggio:");
-
-        jLabel26.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel26.setText("Ciclo N°:");
-
-        jLabel27.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel27.setText("Tipo di Controllo:");
-
-        jLabel28.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel28.setText("Medico Esaminatore:");
-
-        jLabel29.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel29.setText("GR:");
-
-        jLabel30.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel30.setText("Hb:");
-
-        jLabel31.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel31.setText("Hct:");
-
-        jLabel32.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel32.setText("PBG:");
-
-        jLabel33.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel33.setText("Es Urine:");
-
-        jLabel34.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel34.setText("Citologia Urinaria:");
-
-        jLabel35.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel35.setText("ECG:");
-
-        jLabel36.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel36.setText("Ecografia Vescicolare:");
-
-        jLabel37.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel37.setText("Ecocardio:");
-
-        jLabel38.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel38.setText("Data Esami Baseline:");
-
-        jLabel39.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel39.setText("GB:");
-
-        jLabel40.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel40.setText("Neu:");
-
-        jLabel41.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel41.setText("Linf:");
-
-        jLabel42.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel42.setText("Linf Ass:");
-
-        linfAss.setToolTipText("");
-
-        jLabel43.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel43.setText("Mon:");
-
-        jLabel44.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel44.setText("Eo:");
-
-        jLabel45.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel45.setText("Bas:");
-        jLabel45.setToolTipText("");
-
-        jLabel46.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel46.setText("Data 1°:");
-
-        jLabel47.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel47.setText("Data 2°:");
-
-        jLabel48.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel48.setText("GB:");
-
-        jLabel49.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel49.setText("Neu:");
-
-        jLabel50.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel50.setText("Linf:");
-
-        jLabel51.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel51.setText("Linf Ass:");
-
-        linfAss1.setToolTipText("");
-
-        jLabel52.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel52.setText("Mon:");
-
-        jLabel53.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel53.setText("Eo:");
-
-        jLabel54.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel54.setText("Bas:");
-        jLabel54.setToolTipText("");
-
-        jLabel55.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel55.setText("GB:");
-
-        jLabel56.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel56.setText("Neu:");
-
-        jLabel57.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel57.setText("Linf:");
-
-        jLabel58.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel58.setText("Linf Ass:");
-
-        linfAss2.setToolTipText("");
-
-        jLabel59.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel59.setText("Mon:");
-
-        jLabel60.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel60.setText("Eo:");
-
-        jLabel61.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel61.setText("Bas:");
-        jLabel61.setToolTipText("");
-
-        jLabel62.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel62.setText("S. Piramidale:");
-
-        jLabel63.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel63.setText("S. Cerebellare:");
-
-        jLabel64.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel64.setText("S. Visivo:");
-
-        jLabel65.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel65.setText("S. Troncoencefalico:");
-
-        jLabel66.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel66.setText("S. Sensitivo:");
-
-        jLabel67.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel67.setText("S. Sfinterico:");
-
-        jLabel68.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel68.setText("EDSS:");
-
-        jLabel69.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel69.setText("EN:");
-
-        en.setColumns(20);
-        en.setRows(5);
-        jScrollPane2.setViewportView(en);
-
-        jLabel70.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel70.setText("Terapie Concomitanti:");
-
-        terapieConcomit.setColumns(20);
-        terapieConcomit.setRows(5);
-        jScrollPane3.setViewportView(terapieConcomit);
-
-        jLabel71.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel71.setText("Note:");
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane4.setViewportView(jTextArea2);
-
-        javax.swing.GroupLayout immunuLayout = new javax.swing.GroupLayout(immunu);
-        immunu.setLayout(immunuLayout);
-        immunuLayout.setHorizontalGroup(
-            immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(immunuLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(immunuLayout.createSequentialGroup()
-                        .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(immunuLayout.createSequentialGroup()
-                                .addComponent(jLabel62)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(sPiramidale, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(immunuLayout.createSequentialGroup()
-                                .addComponent(jLabel47)
-                                .addGap(130, 130, 130)))
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel63)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sCelebrale, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel65)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sTroncoEncefalico, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel64)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sVisivo, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel67)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sSfinterico, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel66)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sSensitivo, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel68)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edss))
-                    .addGroup(immunuLayout.createSequentialGroup()
-                        .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(immunuLayout.createSequentialGroup()
-                                .addComponent(jLabel69)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel70)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(immunuLayout.createSequentialGroup()
-                                .addComponent(jLabel24)
-                                .addGap(18, 18, 18)
-                                .addComponent(dataControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel25)
-                                .addGap(18, 18, 18)
-                                .addComponent(dosaggio, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(numCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel27)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tipoContol, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel28)
-                                .addGap(18, 18, 18)
-                                .addComponent(medicoEsam, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(immunuLayout.createSequentialGroup()
-                                .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(immunuLayout.createSequentialGroup()
-                                        .addComponent(jLabel36)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(ecografiaVescic, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel37)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(ecocardio))
-                                    .addGroup(immunuLayout.createSequentialGroup()
-                                        .addComponent(jLabel29)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(gr, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel30)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(hb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel31)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(hct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel32)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(pbg, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel33)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(esUrine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel34)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(citologiaUrin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel35)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ecg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(immunuLayout.createSequentialGroup()
-                                .addComponent(jLabel71)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 811, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(immunuLayout.createSequentialGroup()
-                                    .addComponent(data2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel55)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(gb2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel56)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(neu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel57)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(linf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel58)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(linfAss2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel59)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(mon2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel60)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(eo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel61)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(bas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, immunuLayout.createSequentialGroup()
-                                        .addComponent(jLabel46)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(data1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel48)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(gb1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel49)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(neu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel50)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(linf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel51)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(linfAss1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel52)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(mon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel53)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(eo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel54)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(bas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, immunuLayout.createSequentialGroup()
-                                        .addComponent(jLabel38)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(dataEsamiBaseLine, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel39)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(gb, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel40)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(neu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel41)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(linf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel42)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(linfAss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel43)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(mon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel44)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(eo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel45)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(bas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-
-        immunuLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {citologiaUrin, dosaggio, ecg, esUrine, numCiclo, pbg});
-
-        immunuLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bas, bas1, bas2, eo, eo1, eo2, gb, gb1, gb2, gr, hb, hct, linf, linf1, linf2, linfAss, linfAss1, linfAss2, mon, mon1, mon2, neu, neu1, neu2});
-
-        immunuLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jScrollPane2, jScrollPane3});
-
-        immunuLayout.setVerticalGroup(
-            immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(immunuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(dataControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25)
-                    .addComponent(dosaggio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26)
-                    .addComponent(numCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27)
-                    .addComponent(tipoContol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28)
-                    .addComponent(medicoEsam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(gr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel30)
-                    .addComponent(hb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel31)
-                    .addComponent(hct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32)
-                    .addComponent(pbg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel33)
-                    .addComponent(esUrine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel34)
-                    .addComponent(citologiaUrin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel35)
-                    .addComponent(ecg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel36)
-                    .addComponent(ecografiaVescic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel37)
-                    .addComponent(ecocardio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel38)
-                    .addComponent(dataEsamiBaseLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel39)
-                    .addComponent(gb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel40)
-                    .addComponent(neu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel41)
-                    .addComponent(linf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel42)
-                    .addComponent(linfAss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel43)
-                    .addComponent(mon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel44)
-                    .addComponent(eo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel45)
-                    .addComponent(bas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel46)
-                    .addComponent(data1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel48)
-                    .addComponent(gb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel49)
-                    .addComponent(neu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel50)
-                    .addComponent(linf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel51)
-                    .addComponent(linfAss1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel52)
-                    .addComponent(mon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel53)
-                    .addComponent(eo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel54)
-                    .addComponent(bas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(data2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel55)
-                    .addComponent(gb2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel56)
-                    .addComponent(neu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel57)
-                    .addComponent(linf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel58)
-                    .addComponent(linfAss2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel59)
-                    .addComponent(mon2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel60)
-                    .addComponent(eo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel61)
-                    .addComponent(bas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel47))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel62)
-                    .addComponent(sPiramidale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel63)
-                    .addComponent(sCelebrale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel65)
-                    .addComponent(sTroncoEncefalico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel64)
-                    .addComponent(sVisivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel67)
-                    .addComponent(sSfinterico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel66)
-                    .addComponent(sSensitivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel68)
-                    .addComponent(edss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(immunuLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel70))
-                    .addGroup(immunuLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel69)))
-                .addGroup(immunuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(immunuLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(immunuLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel71)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Immunosoppressione", immunu);
 
         terapieDH.setBackground(new java.awt.Color(239, 228, 176));
 
@@ -2979,6 +2367,8 @@ public class PazienteUI extends javax.swing.JFrame {
         
         aggiornaTerapie(id);
         
+        inserisciPannelloSchedaEsam(id);
+        
         barra.setIndicePulsanteAttuale(null);   //IMP
         azzeraCampiDiagnosi();
         datiDiagnosi(id);
@@ -3387,29 +2777,21 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextArea anamnesi;
     private javax.swing.JPanel anamnestica;
     private javax.swing.JButton avanti;
-    private javax.swing.JTextField bas;
-    private javax.swing.JTextField bas1;
-    private javax.swing.JTextField bas2;
     private javax.swing.JComboBox<String> boigg1;
     private javax.swing.JButton buttonAdd;
     private javax.swing.JButton buttonMod;
     private javax.swing.JComboBox<String> caratteristicheCliniche;
     private javax.swing.JButton caricaFile;
     private javax.swing.JTextField cf;
-    private javax.swing.JTextField citologiaUrin;
     private javax.swing.JTextField cognome;
     private javax.swing.JTextField cognomeContrAmb;
     private javax.swing.JTextField cognomeDH;
     private javax.swing.JPanel controlliAmb;
     private javax.swing.JTextArea controllo;
-    private org.jdesktop.swingx.JXDatePicker data1;
-    private org.jdesktop.swingx.JXDatePicker data2;
     private org.jdesktop.swingx.JXDatePicker dataContrAmb;
-    private org.jdesktop.swingx.JXDatePicker dataControl;
     private org.jdesktop.swingx.JXDatePicker dataDH;
     private org.jdesktop.swingx.JXDatePicker dataDiagno;
     private org.jdesktop.swingx.JXDatePicker dataDiagnosi;
-    private org.jdesktop.swingx.JXDatePicker dataEsamiBaseLine;
     private org.jdesktop.swingx.JXDatePicker dataEsord;
     private org.jdesktop.swingx.JXDatePicker dataEsord_Diagn;
     private javax.swing.JTextField dataInizioTerapia;
@@ -3422,32 +2804,15 @@ public class PazienteUI extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXDatePicker dataRMN;
     private javax.swing.JComboBox<String> diagnosi;
     private javax.swing.JPanel diagnostica;
-    private javax.swing.JTextField dosaggio;
-    private javax.swing.JTextField ecg;
-    private javax.swing.JTextField ecocardio;
-    private javax.swing.JTextField ecografiaVescic;
-    private javax.swing.JTextField edss;
-    private javax.swing.JTextArea en;
-    private javax.swing.JTextField eo;
-    private javax.swing.JTextField eo1;
-    private javax.swing.JTextField eo2;
-    private javax.swing.JTextField esUrine;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
     private javax.swing.Box.Filler filler4;
     private javax.swing.JComboBox<String> formaClnAtt;
-    private javax.swing.JTextField gb;
-    private javax.swing.JTextField gb1;
-    private javax.swing.JTextField gb2;
     private javax.swing.JButton gestioneTel;
-    private javax.swing.JTextField gr;
-    private javax.swing.JTextField hb;
-    private javax.swing.JTextField hct;
     private javax.swing.JTextField iggIF;
     private javax.swing.JTextField iggIndex;
     private javax.swing.JTextField iggLOC;
-    private javax.swing.JPanel immunu;
     private javax.swing.JButton indietro;
     private javax.swing.JTextField indirizzo;
     private javax.swing.JCheckBox jCheckBox1;
@@ -3473,59 +2838,11 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
@@ -3568,41 +2885,23 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea2;
     private java.awt.Label label5;
-    private javax.swing.JTextField linf;
-    private javax.swing.JTextField linf1;
-    private javax.swing.JTextField linf2;
-    private javax.swing.JTextField linfAss;
-    private javax.swing.JTextField linfAss1;
-    private javax.swing.JTextField linfAss2;
-    private javax.swing.JComboBox<String> medicoEsam;
     private javax.swing.JComboBox<String> medicoEsamContrAmb;
     private javax.swing.JComboBox<String> medicoEsamDH;
     private javax.swing.JComboBox<String> modEsord;
     private javax.swing.JComboBox<String> modEsord_Diagn;
-    private javax.swing.JTextField mon;
-    private javax.swing.JTextField mon1;
-    private javax.swing.JTextField mon2;
-    private javax.swing.JTextField neu;
-    private javax.swing.JTextField neu1;
-    private javax.swing.JTextField neu2;
     private javax.swing.JTextField nome;
     private javax.swing.JTextField nomeContrAmb;
     private javax.swing.JTextField nomeDH;
     private javax.swing.JTextArea note;
     private javax.swing.JScrollPane noteScroll;
     private javax.swing.JTextArea npsi;
-    private javax.swing.JTextField numCiclo;
     private javax.swing.JTextField numSom;
     private javax.swing.JTextArea oct;
     private javax.swing.JComboBox<String> odPEV;
@@ -3617,15 +2916,8 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JPanel pannelloBarra;
     private javax.swing.JPanel pannelloBarra1;
     private javax.swing.JPanel pannelloDiagnostica;
-    private javax.swing.JTextField pbg;
     private javax.swing.JTextArea pev;
     private javax.swing.JButton pulsanteTerapie;
-    private javax.swing.JTextField sCelebrale;
-    private javax.swing.JTextField sPiramidale;
-    private javax.swing.JTextField sSensitivo;
-    private javax.swing.JTextField sSfinterico;
-    private javax.swing.JTextField sTroncoEncefalico;
-    private javax.swing.JTextField sVisivo;
     private javax.swing.JPanel schedaEsami;
     private javax.swing.JComboBox<String> sex;
     private javax.swing.JScrollPane storiaMal;
@@ -3635,10 +2927,8 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextField terapiaAttuale;
     private javax.swing.JComboBox<String> terapiaPrinc;
     private javax.swing.JComboBox<String> terapiaPrincDH;
-    private javax.swing.JTextArea terapieConcomit;
     private javax.swing.JPanel terapieDH;
     private javax.swing.JTextArea terapiePregresse;
-    private javax.swing.JComboBox<String> tipoContol;
     private javax.swing.JComboBox<String> tipoControllo;
     private javax.swing.JButton trovaPaziente;
     private javax.swing.JTextArea varie;
