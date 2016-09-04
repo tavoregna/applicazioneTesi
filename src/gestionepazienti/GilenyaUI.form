@@ -318,6 +318,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="piramidale">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="piramidaleKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
@@ -328,6 +331,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="sensitivo">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sensitivoKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
@@ -338,6 +344,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="visivo">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="visivoKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
@@ -348,6 +357,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="troncoEnc">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="troncoEncKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
@@ -358,6 +370,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="cerebellare">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cerebellareKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
@@ -368,6 +383,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="sfinteriche">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sfintericheKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
           <Properties>
@@ -378,6 +396,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="cerebrale">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cerebraleKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
@@ -388,6 +409,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="deambulazione">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="deambulazioneKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
