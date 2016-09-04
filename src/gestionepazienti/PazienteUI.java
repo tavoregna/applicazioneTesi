@@ -1931,6 +1931,11 @@ public class PazienteUI extends javax.swing.JFrame {
 
         addButtonDH.setBackground(java.awt.Color.green);
         addButtonDH.setText("+");
+        addButtonDH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonDHActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout terapieDHLayout = new javax.swing.GroupLayout(terapieDH);
         terapieDH.setLayout(terapieDHLayout);
@@ -3050,6 +3055,66 @@ public class PazienteUI extends javax.swing.JFrame {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_addButtonContrActionPerformed
+
+    private void addButtonDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonDHActionPerformed
+       if(Pazienti.getCurrID()==null)
+            return;
+        String[] controlli = { "Tysabri", "Gilenya","Lemtrada"};
+        JFrame frame = new JFrame("Nuova terapia infusiva");
+        String terapiaScelta = (String) JOptionPane.showInputDialog(frame, "Scegli la terapia infusiva da inserire",
+        "Tipo di controllo",
+        JOptionPane.QUESTION_MESSAGE, 
+        null, 
+        controlli, 
+        controlli[0]);
+        
+        if(terapiaScelta==null)
+            return;
+        try {
+            PreparedStatement m=GestioneDatabase.preparedStatement("SELECT MAX(Somministrazione_N) FROM DH_Standard WHERE ID_Paziente=? AND Terapia=?");
+            m.setInt(1, Pazienti.getCurrID());
+            m.setString(2,terapiaScelta);
+            ResultSet r= m.executeQuery();
+            int numSom=1;
+            if(r.next())
+            {
+                numSom=r.getInt(1)+1;
+            }
+            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO DH_Standard(ID_Paziente,Data,Terapia,Somministrazione_N) VALUES (?,?,?,?)");
+            pst.setInt(1, Pazienti.getCurrID());
+            pst.setDate(2, Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
+            pst.setString(3,terapiaScelta);
+            pst.setInt(4, numSom);
+            pst.executeUpdate();
+            ResultSet rs=GestioneDatabase.querySelect("SELECT MAX(ID_DH) FROM DH_Standard");
+            if(rs.next())
+            {
+                String q="";
+                if(terapiaScelta.equals("Tysabri"))
+                {
+                    q="INSERT INTO Tysabri(ID_Tysabri)  VALUES (?)";
+                }
+                if(terapiaScelta.equals("Gilenya"))
+                {
+                    q="INSERT INTO Gilenya(ID_Gylenia)  VALUES (?)";
+                }
+                if(terapiaScelta.equals("Lemtrada"))
+                {
+                    q="INSERT INTO Lemtrada(ID_Standard) VALUES (?)";
+                }
+                PreparedStatement p=GestioneDatabase.preparedStatement(q);
+                p.setInt(1,rs.getInt(1));
+                p.executeUpdate();
+                
+                barr.aggiornaBarra(Pazienti.getCurrID());
+                //aggiornaDatiControllo(rs.getInt(1));
+                //abilitaBarraSuperioreControllo(true);
+            }
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addButtonDHActionPerformed
     //barra con i nomi delle diagnosi
     private void AggiornaCampoDiagnosi()
     {
