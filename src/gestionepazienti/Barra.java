@@ -129,6 +129,7 @@ public class Barra extends javax.swing.JPanel {
         if(tipo==3)
         {
             parent.aggiornaDatiDH(premuto.getIdControllo());
+            parent.abilitaBarraSuperioreDH(true);
             parent.selezionaScheda(4);
             return;
         }

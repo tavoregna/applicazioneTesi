@@ -3049,6 +3049,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 barr.aggiornaBarra(Pazienti.getCurrID());
                 aggiornaDatiControllo(rs.getInt(1));
                 abilitaBarraSuperioreControllo(true);
+                abilitaBarraSuperioreDH(true);
             }
         }
         catch (SQLException ex) {
@@ -3096,7 +3097,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 }
                 if(terapiaScelta.equals("Gilenya"))
                 {
-                    q="INSERT INTO Gilenya(ID_Gylenia)  VALUES (?)";
+                    q="INSERT INTO Gilenya(ID_Gilenya)  VALUES (?)";
                 }
                 if(terapiaScelta.equals("Lemtrada"))
                 {
@@ -3106,9 +3107,9 @@ public class PazienteUI extends javax.swing.JFrame {
                 p.setInt(1,rs.getInt(1));
                 p.executeUpdate();
                 
+                abilitaBarraSuperioreDH(true);
                 barr.aggiornaBarra(Pazienti.getCurrID());
-                //aggiornaDatiControllo(rs.getInt(1));
-                //abilitaBarraSuperioreControllo(true);
+                aggiornaDatiDH(rs.getInt(1));
             }
         }
         catch (SQLException ex) {
@@ -3208,6 +3209,7 @@ public class PazienteUI extends javax.swing.JFrame {
       //  barraControlli.aggiornaBarra(id);
         
         abilitaBarraSuperioreControllo(false);
+        abilitaBarraSuperioreInfusiva(false);
     }
     
     public void datiDiagnosi(int id)
@@ -3591,6 +3593,12 @@ public class PazienteUI extends javax.swing.JFrame {
         dataContrAmb.setEditable(b);
         terapiaPrinc.setEnabled(b);
         medicoEsamContrAmb.setEnabled(b);
+    }
+    public void abilitaBarraSuperioreInfusiva(boolean b)
+    {
+       dataDH.setEnabled(b);
+       dataDH.setEditable(b);
+       medicoEsamDH.setEnabled(b);
     }
     
     public void abilitaBarraSuperioreDH(boolean b)
