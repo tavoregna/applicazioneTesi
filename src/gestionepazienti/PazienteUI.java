@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
@@ -47,7 +48,10 @@ public class PazienteUI extends javax.swing.JFrame {
         barraControlli=new BarraControlliUI(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
         pannelloBarra.add(barraControlli);
         jTabbedPane1.setSelectedIndex(2);
+        
         pannelloBarra.setVisible(false);
+        barra.setVisible(false);
+        
         inserisciPannelloSchedaEsam(1);
         
         jPanel4.setLayout(new BoxLayout(jPanel4, BoxLayout.LINE_AXIS));
@@ -1108,6 +1112,11 @@ public class PazienteUI extends javax.swing.JFrame {
         addButtonDia.setBackground(java.awt.Color.green);
         addButtonDia.setFont(new java.awt.Font("Times New Roman", 1, 10)); // NOI18N
         addButtonDia.setText("+");
+        addButtonDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonDiaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout diagnosticaLayout = new javax.swing.GroupLayout(diagnostica);
         diagnostica.setLayout(diagnosticaLayout);
@@ -1245,6 +1254,11 @@ public class PazienteUI extends javax.swing.JFrame {
         addButtonContr.setBackground(java.awt.Color.green);
         addButtonContr.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         addButtonContr.setText("+");
+        addButtonContr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonContrActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout controlliAmbLayout = new javax.swing.GroupLayout(controlliAmb);
         controlliAmb.setLayout(controlliAmbLayout);
@@ -2961,6 +2975,81 @@ public class PazienteUI extends javax.swing.JFrame {
     private void nomeDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeDHActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeDHActionPerformed
+
+    private void addButtonDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonDiaActionPerformed
+        if(Pazienti.getCurrID()==null)
+            return;
+        int reply = JOptionPane.showConfirmDialog(null,"VUOI INSERIRE UNA NUOVA DIAGNOSI?", "Conferma nuova diagnosi", JOptionPane.YES_NO_OPTION);
+        if(reply==JOptionPane.NO_OPTION)
+            return;      
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Diagnosi_Paziente(Data_Diagnosi,ID_Paziente) VALUES (?,?)");
+            pst.setDate(1, Utilita.DateUtilToSQL(Utilita.removeTime(new java.util.Date(System.currentTimeMillis()))));
+            pst.setInt(2,Pazienti.getCurrID());
+            pst.executeUpdate();
+            barr.aggiornaBarra(Pazienti.getCurrID());
+          //  datiDiagnosi(Pazienti.getCurrID());
+            //settaPrimoSelezionato();
+        } catch (SQLException ex) {
+            Logger.getLogger(BarraDiagnosticaUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Esiste già una diagnosi con la data odierna");
+        }
+    }//GEN-LAST:event_addButtonDiaActionPerformed
+
+    private void addButtonContrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonContrActionPerformed
+        if(Pazienti.getCurrID()==null)
+            return;
+        String[] controlli = { "Controllo Ordinario", "Controllo per ricaduta"};
+        JFrame frame = new JFrame("Nuova scheda controllo");
+        String controlloScelto = (String) JOptionPane.showInputDialog(frame, "Scegli il tipo di controllo che vuoi inserire",
+        "Tipo di controllo",
+        JOptionPane.QUESTION_MESSAGE, 
+        null, 
+        controlli, 
+        controlli[0]);
+        
+        if(controlloScelto==null)
+            return;
+        
+        int tipoControllo=0;
+        for(int i=0;i<controlli.length;i++)
+        {
+            if(controlli[i].equals(controlloScelto))
+            {
+                tipoControllo=i+1;
+                break;
+            }
+        }
+        if(tipoControllo==0)
+            return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Controllo_Standard(ID_Paziente,Data,Tipo_Controllo) VALUES (?,?,?)");
+            pst.setInt(1, Pazienti.getCurrID());
+            pst.setDate(2, Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
+            pst.setString(3,Integer.toString(tipoControllo));
+            pst.executeUpdate();
+            ResultSet rs=GestioneDatabase.querySelect("SELECT MAX(ID_Controllo) FROM Controllo_Standard");
+            if(rs.next())
+            {
+                String q;
+                if(tipoControllo==1)
+                    q="INSERT INTO Ambulatorio_Ordinario(Controllo_Standard,Terapia_Principale)  VALUES (?,?)";
+                else
+                    q="INSERT INTO Ricaduta(Controllo_Standard,Terapia_Principale)  VALUES (?,?)";
+                PreparedStatement p=GestioneDatabase.preparedStatement(q);
+                p.setInt(1,rs.getInt(1));
+                p.setInt(2,1);
+                p.executeUpdate();
+                
+                barr.aggiornaBarra(Pazienti.getCurrID());
+                aggiornaDatiControllo(rs.getInt(1));
+                abilitaBarraSuperioreControllo(true);
+            }
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addButtonContrActionPerformed
     //barra con i nomi delle diagnosi
     private void AggiornaCampoDiagnosi()
     {
@@ -3045,12 +3134,13 @@ public class PazienteUI extends javax.swing.JFrame {
         aggiornaTerapie(id);
         
         barr.aggiornaBarra(id);
+        
         barra.setIndicePulsanteAttuale(null);   //IMP
         azzeraCampiDiagnosi();
         datiDiagnosi(id);
         barra.settaPrimoSelezionato();
         
-        barraControlli.aggiornaBarra(id);
+      //  barraControlli.aggiornaBarra(id);
         
         abilitaBarraSuperioreControllo(false);
     }
