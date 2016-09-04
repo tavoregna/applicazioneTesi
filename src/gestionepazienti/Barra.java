@@ -25,7 +25,7 @@ public class Barra extends javax.swing.JPanel {
         pulsanti=new ArrayList<PulsanteBarra>();
         prevButton=null;
         
-        this.setBounds(0, 0, wid, hei);
+        //this.setBounds(0, 0, wid, hei);
         
         pannelloBarra.setLayout(new FlowLayout(FlowLayout.LEADING));
         
@@ -163,7 +163,7 @@ public class Barra extends javax.swing.JPanel {
         pannelloBarra.setLayout(pannelloBarraLayout);
         pannelloBarraLayout.setHorizontalGroup(
             pannelloBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 726, Short.MAX_VALUE)
+            .addGap(0, 807, Short.MAX_VALUE)
         );
         pannelloBarraLayout.setVerticalGroup(
             pannelloBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,10 +176,7 @@ public class Barra extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

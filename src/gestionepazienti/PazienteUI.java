@@ -1,5 +1,6 @@
 package gestionepazienti;
 
+import java.awt.FlowLayout;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,6 +25,8 @@ public class PazienteUI extends javax.swing.JFrame {
     private Integer idControlloCorrente;
     private Integer idDHCorrente;
     
+    private Barra barr;
+    
     public PazienteUI() {
         initComponents();
         idControlloCorrente=null;
@@ -45,6 +48,10 @@ public class PazienteUI extends javax.swing.JFrame {
         pannelloBarra.add(barraControlli);
         jTabbedPane1.setSelectedIndex(2);
         inserisciPannelloSchedaEsam(1);
+        
+        jPanel4.setLayout(new BoxLayout(jPanel4, BoxLayout.LINE_AXIS));
+        barr=new Barra(this,jPanel4.getWidth(),jPanel4.getHeight());
+        jPanel4.add(barr);
         this.setVisible(true);
     }
 
