@@ -26,8 +26,8 @@ public class RicadutaUI extends javax.swing.JPanel {
         panelTerPrincipale.setLayout(new BoxLayout(panelTerPrincipale, BoxLayout.LINE_AXIS));
         panelStandard.add(standard);
         panelTerPrincipale.add(terPrincipale);
-        aggiornaDati(idControllo);
         ricadTerap.setVisible(false);
+        aggiornaDati(idControllo);
         this.setVisible(true);
     }
     
@@ -44,19 +44,16 @@ public class RicadutaUI extends javax.swing.JPanel {
             if(rs.next())
             {
                 ricaduta.setSelectedItem(rs.getString("Ricaduta"));
-                gestioneRicaduta();
-                //if(rs.getString("Terapia_Ricaduta")!=null)
-                //{
-                    terapiaRicaduta.setSelectedItem(rs.getString("Terapia_Ricaduta"));
-                //}
-                //note.setText(rs.getString("Note"));
+                terapiaRicaduta.setSelectedItem(rs.getString("Terapia_Ricaduta"));
+                note.setText(rs.getString("Note"));
+                //gestioneRicaduta();
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
 
-     public void coloreRicaduta(int i) //i=1 rosso, i=2 giallo
+    public void coloreRicaduta(int i) //i=1 rosso, i=2 giallo
     {
         if(i==1)
         {
@@ -68,6 +65,7 @@ public class RicadutaUI extends javax.swing.JPanel {
      
      public void gestioneRicaduta()
      {
+         
         if((ricaduta.getSelectedIndex()==0) || ricaduta.getSelectedIndex()==1)
         {
             ricadTerap.setVisible(true);
@@ -127,12 +125,22 @@ public class RicadutaUI extends javax.swing.JPanel {
         jLabel2.setText("Terapia Steroidea:");
 
         terapiaRicaduta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "in altro centro", "per 3 giorni", "per 5 giorni", "altro" }));
+        terapiaRicaduta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terapiaRicadutaActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Note:");
 
         note.setColumns(1);
         note.setRows(1);
+        note.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                noteKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(note);
 
         javax.swing.GroupLayout ricadTerapLayout = new javax.swing.GroupLayout(ricadTerap);
@@ -221,8 +229,38 @@ public class RicadutaUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ricadutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ricadutaActionPerformed
-        gestioneRicaduta();
+        try {
+            gestioneRicaduta();
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Ricaduta SET Ricaduta=? WHERE Controllo_Standard=?");
+            pst.setString(1,(String) ricaduta.getSelectedItem());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RicadutaUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ricadutaActionPerformed
+
+    private void terapiaRicadutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaRicadutaActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Ricaduta SET Terapia_Ricaduta=? WHERE Controllo_Standard=?");
+            pst.setString(1,(String) terapiaRicaduta.getSelectedItem());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RicadutaUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_terapiaRicadutaActionPerformed
+
+    private void noteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noteKeyReleased
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Ricaduta SET Note=? WHERE Controllo_Standard=?");
+            pst.setString(1,note.getText());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RicadutaUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_noteKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
