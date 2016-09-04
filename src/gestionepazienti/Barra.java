@@ -9,23 +9,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
 
 
 public class Barra extends javax.swing.JPanel {
-    private static int var=1;
     private PazienteUI parent;
     private ArrayList<PulsanteBarra> pulsanti;
+    
+    private PulsanteBarra prevButton;
     
     public Barra(PazienteUI p,int hei,int wid) {
         initComponents();
         parent=p;
         pulsanti=new ArrayList<PulsanteBarra>();
-        //pulsanti.so
-        //indiceCorrente=null;
+        prevButton=null;
         
         this.setBounds(0, 0, wid, hei);
         
@@ -38,14 +36,15 @@ public class Barra extends javax.swing.JPanel {
         //indiceCorrente=null;
         pannelloBarra.removeAll();
         pulsanti.clear();
+        int i=0;
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Controllo_Standard WHERE ID_Paziente="+id+" ORDER BY Data ASC");
-            int i=0;
+            
             while(rs.next())
             {
                 Date d=rs.getDate("Data");
                 int c=rs.getInt("ID_Controllo");
-                creaPulsante(i,d,c,Color.ORANGE);
+                creaPulsante(i,d,c,2,Color.ORANGE);
                 i++;
             }
         } 
@@ -54,12 +53,11 @@ public class Barra extends javax.swing.JPanel {
         }
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM DH_Standard WHERE ID_Paziente="+id+" ORDER BY Data ASC");
-            int i=0;
             while(rs.next())
             {
                 Date d=rs.getDate("Data");
                 int c=rs.getInt("ID_DH");
-                creaPulsante(i,d,c,Color.BLUE);
+                creaPulsante(i,d,c,3,Color.BLUE);
                 i++;
             }
         } 
@@ -68,33 +66,28 @@ public class Barra extends javax.swing.JPanel {
         }
          try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Diagnosi_Paziente WHERE ID_Paziente="+id+" ORDER BY Data_Diagnosi ASC");
-            int i=0;
             while(rs.next())
             {
                 Date d=rs.getDate("Data_Diagnosi");
-                creaPulsante(i,d,null,Color.PINK);
+                creaPulsante(i,d,null,1,Color.PINK);
                 i++;
             }
         } 
         catch (SQLException ex) {
             Logger.getLogger(BarraControlliUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-         ordinaPulsanti();
-         for(int k=0;k<pulsanti.size();k++)
-             pannelloBarra.add(pulsanti.get(k));
+        ordinaPulsanti();
+        aggiungiPulsantiAllaBarra();
         aggiornaUI();
+    }
+    private void aggiungiPulsantiAllaBarra()
+    {
+        for(int k=0;k<pulsanti.size();k++)
+             pannelloBarra.add(pulsanti.get(k));
     }
     private void ordinaPulsanti()
     {
         Collections.sort(pulsanti);
-        /* pulsanti.sort(new Comparator<PulsanteBarra>(){
-            @Override
-            public int compare(PulsanteBarra o1, PulsanteBarra o2) {
-                System.out.println((var++)+"");
-                return (int)(o1.getData().getTime()-o2.getData().getTime());
-            }
-            
-        });*/
     }
     private void aggiornaUI()
     {
@@ -102,37 +95,52 @@ public class Barra extends javax.swing.JPanel {
         this.setVisible(true);
     }
     
-    private void creaPulsante(int i,Date d,Integer cod,Color c)
+    private void creaPulsante(int i,Date d,Integer cod,int tipo,Color c)
     {
-        PulsanteBarra b=new PulsanteBarra(i,cod);
+        PulsanteBarra b=new PulsanteBarra(i,cod,tipo);
         b.setData(d);
         b.setColore(c);
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(!(e.getSource() instanceof PulsanteBarra))
                     return;
-             //   pressionePulsanteBarra((PulsanteBarra)(e.getSource())); 
-            }
+                PulsanteBarra premuto=(PulsanteBarra)(e.getSource());
+                aggiornaBordoPulsante(premuto);
+                pressionePulsanteBarra(premuto);     
+            }  
         });
         pulsanti.add(b);
-        //pannelloBarra.add(b);
     }
- /*   
+   
     public void pressionePulsanteBarra(PulsanteBarra premuto)
     {
-        parent.abilitaBarraSuperioreControllo(true); //////////////////////
-        aggiornaPulsante(premuto.getIndicePulsante());
-        indiceCorrente=premuto.getIndicePulsante();
-        parent.aggiornaDatiControllo(premuto.getIdControllo());
-        //metodo che dato l'id mi da informazioni sul controllo
+        if(parent==null)
+            return;
+        int tipo=premuto.getTipo();
+        if(tipo==1)
+        {
+            parent.selezionaScheda(1);
+            return;
+        }
+        if(tipo==2)
+        {
+            parent.selezionaScheda(2);
+            return;
+        }
+        if(tipo==3)
+        {
+            parent.selezionaScheda(4);
+            return;
+        }
+        
     }
-    private void aggiornaPulsante(int ind)
+   private void aggiornaBordoPulsante(PulsanteBarra premuto)
     {
-        if((indiceCorrente!=null && pannello.getComponent(indiceCorrente)!=null))
-            ((PulsanteBarra)(pannello.getComponent(indiceCorrente))).setBackground(new JButton().getBackground());
-        ((PulsanteBarra)(pannello.getComponent(ind))).setBackground(Color.ORANGE);
+        if(prevButton!=null)
+            prevButton.ripristinaBordo();
+        prevButton=premuto;
+        premuto.bordoSelezione();
     }
-*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

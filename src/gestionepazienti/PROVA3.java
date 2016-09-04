@@ -19,7 +19,7 @@ public class PROVA3 extends javax.swing.JFrame {
     public PROVA3() {
         initComponents();
         this.setLayout(new FlowLayout());
-        this.add(new Barra(null, this.getHeight(), this.getWidth()));
+        this.add(new Barra(new PazienteUI(), this.getHeight(), this.getWidth()));
         this.setVisible(true);
     }
 
@@ -42,7 +42,7 @@ public class PROVA3 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 98, Short.MAX_VALUE)
+            .addGap(0, 82, Short.MAX_VALUE)
         );
 
         pack();

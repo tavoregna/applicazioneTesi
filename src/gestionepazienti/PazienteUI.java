@@ -48,7 +48,12 @@ public class PazienteUI extends javax.swing.JFrame {
         this.setVisible(true);
     }
 
-   
+    public void selezionaScheda(int i)
+    {
+        if(i<0 || i>=jTabbedPane1.getTabCount())
+            return;
+        jTabbedPane1.setSelectedIndex(i);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -453,7 +458,7 @@ public class PazienteUI extends javax.swing.JFrame {
                     .addGroup(anamnesticaLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jLabel17)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Anamnestica", anamnestica);
