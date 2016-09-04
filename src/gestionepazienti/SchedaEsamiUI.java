@@ -214,15 +214,35 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboPiastrine.setOpaque(false);
 
         linf.setEnabled(false);
+        linf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfKeyReleased(evt);
+            }
+        });
 
         pia.setEnabled(false);
+        pia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                piaKeyReleased(evt);
+            }
+        });
 
         leu.setEnabled(false);
+        leu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                leuKeyReleased(evt);
+            }
+        });
 
         comboLinfociti.setText("Linfociti");
         comboLinfociti.setOpaque(false);
 
         gr.setEnabled(false);
+        gr.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                grKeyReleased(evt);
+            }
+        });
 
         dataLeucociti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,7 +265,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dataLeucociti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(leu, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(leu))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(comboGR)
@@ -264,8 +284,9 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(dataPiastrine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(pia, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(pia, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,10 +320,20 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         hsv1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         hsv1.setSelectedIndex(-1);
         hsv1.setEnabled(false);
+        hsv1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hsv1ActionPerformed(evt);
+            }
+        });
 
         jcv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         jcv.setSelectedIndex(-1);
         jcv.setEnabled(false);
+        jcv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcvActionPerformed(evt);
+            }
+        });
 
         dataTBC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -331,6 +362,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         tbc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         tbc.setSelectedIndex(-1);
         tbc.setEnabled(false);
+        tbc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbcActionPerformed(evt);
+            }
+        });
 
         comboEBV.setText("IgG anti-EBV");
         comboEBV.setOpaque(false);
@@ -353,6 +389,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         hiv2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         hiv2.setSelectedIndex(-1);
         hiv2.setEnabled(false);
+        hiv2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hiv2ActionPerformed(evt);
+            }
+        });
 
         comboVZV.setText("IgG anti-VZV");
         comboVZV.setOpaque(false);
@@ -360,6 +401,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         hcv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         hcv.setSelectedIndex(-1);
         hcv.setEnabled(false);
+        hcv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hcvActionPerformed(evt);
+            }
+        });
 
         dataHIV2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -385,6 +431,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         ebv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         ebv.setSelectedIndex(-1);
         ebv.setEnabled(false);
+        ebv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ebvActionPerformed(evt);
+            }
+        });
 
         dataHSV1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -398,6 +449,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         cmv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         cmv.setSelectedIndex(-1);
         cmv.setEnabled(false);
+        cmv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmvActionPerformed(evt);
+            }
+        });
 
         comboCMV.setText("IgG anti-CMV");
         comboCMV.setOpaque(false);
@@ -408,6 +464,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         hiv1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         hiv1.setSelectedIndex(-1);
         hiv1.setEnabled(false);
+        hiv1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hiv1ActionPerformed(evt);
+            }
+        });
 
         comboTBC.setText("TBC");
         comboTBC.setOpaque(false);
@@ -415,6 +476,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         hsv2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         hsv2.setSelectedIndex(-1);
         hsv2.setEnabled(false);
+        hsv2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hsv2ActionPerformed(evt);
+            }
+        });
 
         comboHIV1.setText("IgG anti-HIV 1");
         comboHIV1.setOpaque(false);
@@ -431,6 +497,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         hbv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         hbv.setSelectedIndex(-1);
         hbv.setEnabled(false);
+        hbv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hbvActionPerformed(evt);
+            }
+        });
 
         dataVZV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -441,6 +512,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         vzv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         vzv.setSelectedIndex(-1);
         vzv.setEnabled(false);
+        vzv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vzvActionPerformed(evt);
+            }
+        });
 
         dataJCV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -451,6 +527,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         ppTest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negativo" }));
         ppTest.setSelectedIndex(-1);
         ppTest.setEnabled(false);
+        ppTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ppTestActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -639,22 +720,66 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboDerma.setText("Dermatologica");
         comboDerma.setOpaque(false);
 
+        dataDerma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataDermaActionPerformed(evt);
+            }
+        });
+
         derma.setEnabled(false);
+        derma.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dermaKeyReleased(evt);
+            }
+        });
 
         comboCardio.setText("Cardiologica");
         comboCardio.setOpaque(false);
 
+        dataCardio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataCardioActionPerformed(evt);
+            }
+        });
+
         cardio.setEnabled(false);
+        cardio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cardioKeyReleased(evt);
+            }
+        });
 
         comboPneu.setText("Pneumologica");
         comboPneu.setOpaque(false);
 
+        dataPneu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataPneuActionPerformed(evt);
+            }
+        });
+
         pneu.setEnabled(false);
+        pneu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                pneuKeyReleased(evt);
+            }
+        });
 
         comboInfet.setText("Infettivologica");
         comboInfet.setOpaque(false);
 
+        dataInfet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataInfetActionPerformed(evt);
+            }
+        });
+
         infet.setEnabled(false);
+        infet.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                infetKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -731,6 +856,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         });
 
         ecg.setEnabled(false);
+        ecg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ecgKeyReleased(evt);
+            }
+        });
 
         dataOCT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -739,6 +869,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         });
 
         oct.setEnabled(false);
+        oct.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                octKeyReleased(evt);
+            }
+        });
 
         dataRX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -747,6 +882,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         });
 
         rx.setEnabled(false);
+        rx.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                rxKeyReleased(evt);
+            }
+        });
 
         dataEcocardio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -755,6 +895,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         });
 
         ecocardio.setEnabled(false);
+        ecocardio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ecocardioKeyReleased(evt);
+            }
+        });
 
         dataEcografia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -763,6 +908,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         });
 
         ecografia.setEnabled(false);
+        ecografia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ecografiaKeyReleased(evt);
+            }
+        });
 
         comboECG.setText("ECG");
         comboECG.setOpaque(false);
@@ -889,7 +1039,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Leucociti=? WHERE ID_Paziente=?");
             Date d=dataLeucociti.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                leu.setEnabled(false);
+                leu.setText("");
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -908,7 +1062,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Linfociti=? WHERE ID_Paziente=?");
             Date d=dataLinfociti.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                linf.setEnabled(false);
+                linf.setText("");
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -927,7 +1085,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_GR=? WHERE ID_Paziente=?");
             Date d=dataGR.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                gr.setEnabled(false);
+                gr.setText("");
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -946,7 +1108,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Piastrine=? WHERE ID_Paziente=?");
             Date d=dataPiastrine.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                pia.setEnabled(false);
+                pia.setText("");
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -965,7 +1131,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_CMV=? WHERE ID_Paziente=?");
             Date d=dataCMV.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                cmv.setEnabled(false);
+                cmv.setSelectedIndex(-1);
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -984,7 +1154,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_HBV=? WHERE ID_Paziente=?");
             Date d=dataHBV.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                hbv.setEnabled(false);
+                hbv.setSelectedIndex(-1);
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1003,7 +1177,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_HCV=? WHERE ID_Paziente=?");
             Date d=dataHCV.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                hcv.setEnabled(false);
+                hcv.setSelectedIndex(-1);
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1022,7 +1200,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_HIV_1=? WHERE ID_Paziente=?");
             Date d=dataHIV1.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                hiv1.setEnabled(false);
+                hiv1.setSelectedIndex(-1);
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1041,7 +1223,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_HIV_2=? WHERE ID_Paziente=?");
             Date d=dataHIV2.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                hiv2.setEnabled(false);
+                hiv2.setSelectedIndex(-1);
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1060,7 +1246,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_TBC=? WHERE ID_Paziente=?");
             Date d=dataTBC.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                tbc.setEnabled(false);
+                tbc.setSelectedIndex(-1);
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1079,7 +1269,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Pap_Test=? WHERE ID_Paziente=?");
             Date d=dataPT.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                ppTest.setEnabled(false);
+                ppTest.setSelectedIndex(-1);
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1098,7 +1292,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_JCV=? WHERE ID_Paziente=?");
             Date d=dataJCV.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                jcv.setEnabled(false);
+                jcv.setSelectedIndex(-1);
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1117,7 +1315,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_VZV=? WHERE ID_Paziente=?");
             Date d=dataVZV.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                vzv.setEnabled(false);
+                vzv.setSelectedIndex(-1);
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1136,7 +1338,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_EBV=? WHERE ID_Paziente=?");
             Date d=dataEBV.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                ebv.setEnabled(false);
+                ebv.setSelectedIndex(-1);
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1155,7 +1361,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_HSV_1=? WHERE ID_Paziente=?");
             Date d=dataHSV1.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                hsv1.setEnabled(false);
+                hsv1.setSelectedIndex(-1);
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1174,7 +1384,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_HSV_2=? WHERE ID_Paziente=?");
             Date d=dataHSV2.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                hsv2.setEnabled(false);
+                hsv2.setSelectedIndex(-1);
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1193,7 +1407,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_ECG=? WHERE ID_Paziente=?");
             Date d=dataECG.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                ecg.setEnabled(false);
+                ecg.setText("");
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1212,7 +1430,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_OCT=? WHERE ID_Paziente=?");
             Date d=dataOCT.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                oct.setEnabled(false);
+                oct.setText("");
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1231,7 +1453,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_RX=? WHERE ID_Paziente=?");
             Date d=dataRX.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                rx.setEnabled(false);
+                rx.setText("");
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1250,7 +1476,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Ecocardiogramma=? WHERE ID_Paziente=?");
             Date d=dataEcocardio.getDate();
             if(d==null)
+            {
                 pst.setNull(1, java.sql.Types.DATE);
+                ecocardio.setEnabled(false);
+                ecocardio.setText("");
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1269,7 +1499,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Ecografia_Vescicale=? WHERE ID_Paziente=?");
             Date d=dataEcografia.getDate();
             if(d==null)
+           {
                 pst.setNull(1, java.sql.Types.DATE);
+                ecografia.setEnabled(false);
+                ecografia.setText("");
+            }
             else
             {
                 pst.setDate(1, Utilita.DateUtilToSQL(d));
@@ -1282,6 +1516,373 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataEcografiaActionPerformed
+
+    private void dataDermaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDermaActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Dermatologica=? WHERE ID_Paziente=?");
+            Date d=dataDerma.getDate();
+            if(d==null)
+            {
+                pst.setNull(1, java.sql.Types.DATE);
+                derma.setEnabled(false);
+                derma.setText("");
+            }
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboDerma.setSelected(true);
+                derma.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataDermaActionPerformed
+
+    private void dataCardioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataCardioActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Cardiologica=? WHERE ID_Paziente=?");
+            Date d=dataCardio.getDate();
+            if(d==null)
+            {
+                pst.setNull(1, java.sql.Types.DATE);
+                cardio.setEnabled(false);
+                cardio.setText("");
+            }
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboCardio.setSelected(true);
+                cardio.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataCardioActionPerformed
+
+    private void dataPneuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPneuActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Pneumologica=? WHERE ID_Paziente=?");
+            Date d=dataPneu.getDate();
+            if(d==null)
+            {
+                pst.setNull(1, java.sql.Types.DATE);
+                pneu.setEnabled(false);
+                pneu.setText("");
+            }
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboPneu.setSelected(true);
+                pneu.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataPneuActionPerformed
+
+    private void dataInfetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataInfetActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Data_Infettivologica=? WHERE ID_Paziente=?");
+            Date d=dataInfet.getDate();
+            if(d==null)
+            {
+                pst.setNull(1, java.sql.Types.DATE);
+                infet.setEnabled(false);
+                infet.setText("");
+            }
+            else
+            {
+                pst.setDate(1, Utilita.DateUtilToSQL(d));
+                comboInfet.setSelected(true);
+                infet.setEnabled(true);
+            }
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataInfetActionPerformed
+
+    private void leuKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_leuKeyReleased
+       try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Leucociti=? WHERE ID_Paziente=?");
+            pst.setDouble(1, Double.parseDouble(leu.getText()));
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_leuKeyReleased
+
+    private void linfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Linfociti=? WHERE ID_Paziente=?");
+            pst.setDouble(1, Double.parseDouble(linf.getText()));
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_linfKeyReleased
+
+    private void grKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_grKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET GR=? WHERE ID_Paziente=?");
+            pst.setDouble(1, Double.parseDouble(gr.getText()));
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_grKeyReleased
+
+    private void piaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_piaKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Piastrine=? WHERE ID_Paziente=?");
+            pst.setDouble(1, Double.parseDouble(pia.getText()));
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_piaKeyReleased
+
+    private void cmvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmvActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET CMV=? WHERE ID_Paziente=?");
+            pst.setString(1, (String)cmv.getSelectedItem());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_cmvActionPerformed
+
+    private void hbvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hbvActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET HBV=? WHERE ID_Paziente=?");
+            pst.setString(1, (String)hbv.getSelectedItem());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_hbvActionPerformed
+
+    private void hcvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hcvActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET HCV=? WHERE ID_Paziente=?");
+            pst.setString(1, (String)hcv.getSelectedItem());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_hcvActionPerformed
+
+    private void hiv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hiv1ActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET HIV_1=? WHERE ID_Paziente=?");
+            pst.setString(1, (String)hiv1.getSelectedItem());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_hiv1ActionPerformed
+
+    private void hiv2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hiv2ActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET HIV_2=? WHERE ID_Paziente=?");
+            pst.setString(1, (String)hiv2.getSelectedItem());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_hiv2ActionPerformed
+
+    private void tbcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbcActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET TBC=? WHERE ID_Paziente=?");
+            pst.setString(1, (String)tbc.getSelectedItem());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_tbcActionPerformed
+
+    private void ppTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppTestActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Pap_Test=? WHERE ID_Paziente=?");
+            pst.setString(1, (String)ppTest.getSelectedItem());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_ppTestActionPerformed
+
+    private void jcvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcvActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET JCV=? WHERE ID_Paziente=?");
+            pst.setString(1, (String)jcv.getSelectedItem());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_jcvActionPerformed
+
+    private void vzvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vzvActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET VZV=? WHERE ID_Paziente=?");
+            pst.setString(1, (String)vzv.getSelectedItem());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_vzvActionPerformed
+
+    private void ebvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ebvActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET EBV=? WHERE ID_Paziente=?");
+            pst.setString(1, (String)ebv.getSelectedItem());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_ebvActionPerformed
+
+    private void hsv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hsv1ActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET HSV_1=? WHERE ID_Paziente=?");
+            pst.setString(1, (String)hsv1.getSelectedItem());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_hsv1ActionPerformed
+
+    private void hsv2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hsv2ActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET HSV_2=? WHERE ID_Paziente=?");
+            pst.setString(1, (String)hsv2.getSelectedItem());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_hsv2ActionPerformed
+
+    private void ecgKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ecgKeyReleased
+       try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET ECG=? WHERE ID_Paziente=?");
+            pst.setString(1, ecg.getText());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_ecgKeyReleased
+
+    private void octKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_octKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET OCT=? WHERE ID_Paziente=?");
+            pst.setString(1, oct.getText());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_octKeyReleased
+
+    private void rxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rxKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET RX=? WHERE ID_Paziente=?");
+            pst.setString(1, rx.getText());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_rxKeyReleased
+
+    private void ecocardioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ecocardioKeyReleased
+       try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Ecocardiologica=? WHERE ID_Paziente=?");
+            pst.setString(1, ecocardio.getText());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_ecocardioKeyReleased
+
+    private void ecografiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ecografiaKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Ecografia_Vescicale=? WHERE ID_Paziente=?");
+            pst.setString(1, ecografia.getText());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_ecografiaKeyReleased
+
+    private void dermaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dermaKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Dermatologica=? WHERE ID_Paziente=?");
+            pst.setString(1, derma.getText());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_dermaKeyReleased
+
+    private void cardioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardioKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Cardiologica=? WHERE ID_Paziente=?");
+            pst.setString(1, cardio.getText());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_cardioKeyReleased
+
+    private void pneuKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pneuKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Pneumologica=? WHERE ID_Paziente=?");
+            pst.setString(1, pneu.getText());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_pneuKeyReleased
+
+    private void infetKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_infetKeyReleased
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Infettivologica=? WHERE ID_Paziente=?");
+            pst.setString(1, infet.getText());
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_infetKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
