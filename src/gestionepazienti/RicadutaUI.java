@@ -33,10 +33,7 @@ public class RicadutaUI extends javax.swing.JPanel {
     
     public void aggiornaDati(int id)
     {
-        if(id==-1)
-        {
-            return;
-        }
+        terapiaRicaduta.setEnabled(false);
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Ricaduta WHERE Controllo_Standard=?");
             pst.setInt(1,idControllo);
@@ -51,6 +48,7 @@ public class RicadutaUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
+        terapiaRicaduta.setEnabled(true);
     }
 
     public void coloreRicaduta(int i) //i=1 rosso, i=2 giallo
@@ -65,7 +63,6 @@ public class RicadutaUI extends javax.swing.JPanel {
      
      public void gestioneRicaduta()
      {
-         
         if((ricaduta.getSelectedIndex()==0) || ricaduta.getSelectedIndex()==1)
         {
             ricadTerap.setVisible(true);
@@ -125,12 +122,22 @@ public class RicadutaUI extends javax.swing.JPanel {
         jLabel2.setText("Terapia Steroidea:");
 
         terapiaRicaduta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "in altro centro", "per 3 giorni", "per 5 giorni", "altro" }));
+        terapiaRicaduta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terapiaRicadutaActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Note:");
 
         note.setColumns(1);
         note.setRows(1);
+        note.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                noteKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(note);
 
         javax.swing.GroupLayout ricadTerapLayout = new javax.swing.GroupLayout(ricadTerap);
@@ -231,6 +238,8 @@ public class RicadutaUI extends javax.swing.JPanel {
     }//GEN-LAST:event_ricadutaActionPerformed
 
     private void terapiaRicadutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaRicadutaActionPerformed
+        if(!terapiaRicaduta.isEnabled())
+                    return;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Ricaduta SET Terapia_Ricaduta=? WHERE Controllo_Standard=?");
             pst.setString(1,(String) terapiaRicaduta.getSelectedItem());

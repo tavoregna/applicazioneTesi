@@ -52,6 +52,7 @@ public class PazienteUI extends javax.swing.JFrame {
         pannelloBarra.setVisible(false);
         barra.setVisible(false);
         
+        
         jPanel4.setLayout(new BoxLayout(jPanel4, BoxLayout.LINE_AXIS));
         barr=new Barra(this);
         jPanel4.add(barr);
@@ -1314,6 +1315,8 @@ public class PazienteUI extends javax.swing.JFrame {
 
         jLabel100.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel100.setText("Somministrazione N.");
+
+        numSom.setEditable(false);
 
         addButtonDH.setBackground(java.awt.Color.green);
         addButtonDH.setText("+");
@@ -2597,7 +2600,7 @@ public class PazienteUI extends javax.swing.JFrame {
       //  barraControlli.aggiornaBarra(id);
         
         abilitaBarraSuperioreControllo(false);
-        abilitaBarraSuperioreInfusiva(false);
+        abilitaBarraSuperioreDH(false);
     }
     
     public void datiDiagnosi(int id)
@@ -2863,8 +2866,10 @@ public class PazienteUI extends javax.swing.JFrame {
             {
                 nome.setText(rs.getString("Nome"));
                 nomeContrAmb.setText(rs.getString("Nome"));
+                nomeDH.setText(rs.getString("Nome"));
                 cognome.setText(rs.getString("Cognome"));
                 cognomeContrAmb.setText(rs.getString("Cognome"));
+                cognomeDH.setText(rs.getString("Cognome"));
                 cf.setText(rs.getString("CF"));
                 sex.setSelectedItem(rs.getString("Sesso"));
                 dataNascita.setDate(rs.getDate("DataNascita"));
@@ -2938,14 +2943,6 @@ public class PazienteUI extends javax.swing.JFrame {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    /*public void tipoControlloAbilitato(boolean t)
-    {
-        tipoControllo.setEnabled(t);
-        if(t)
-            tipoControllo.setBackground(Color.red);
-        else
-            tipoControllo.setBackground(new JComboBox().getBackground());
-    }*/
     private void azzeraCampiDiagnosi()
     {
                 barra.setComboBoxDiagnosiAttiva(false);
@@ -2982,20 +2979,12 @@ public class PazienteUI extends javax.swing.JFrame {
         terapiaPrinc.setEnabled(b);
         medicoEsamContrAmb.setEnabled(b);
     }
-    public void abilitaBarraSuperioreInfusiva(boolean b)
-    {
-       dataDH.setEnabled(b);
-       dataDH.setEditable(b);
-       medicoEsamDH.setEnabled(b);
-    }
     
     public void abilitaBarraSuperioreDH(boolean b)
     {
         dataDH.setEnabled(b);
         dataDH.setEditable(b);
-        terapiaPrincDH.setEnabled(b);
         medicoEsamDH.setEnabled(b);
-        numSom.setEnabled(b);
     }
 
     public static void main(String args[]){

@@ -2034,6 +2034,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="numSom">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="addButtonDH">
               <Properties>
