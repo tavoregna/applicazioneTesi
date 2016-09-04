@@ -119,16 +119,19 @@ public class Barra extends javax.swing.JPanel {
         int tipo=premuto.getTipo();
         if(tipo==1)
         {
+            parent.pressionePulsanteBarra(1, premuto.getData(), false);//Pazienti.getCurrID()
             parent.selezionaScheda(1);
             return;
         }
         if(tipo==2)
         {
+            parent.aggiornaDatiControllo(premuto.getIdControllo());
             parent.selezionaScheda(2);
             return;
         }
         if(tipo==3)
         {
+            parent.aggiornaDatiDH(premuto.getIdControllo());
             parent.selezionaScheda(4);
             return;
         }
