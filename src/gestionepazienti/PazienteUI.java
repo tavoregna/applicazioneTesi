@@ -47,10 +47,11 @@ public class PazienteUI extends javax.swing.JFrame {
         barraControlli=new BarraControlliUI(this,pannelloBarra.getHeight(),pannelloBarra.getWidth());
         pannelloBarra.add(barraControlli);
         jTabbedPane1.setSelectedIndex(2);
+        pannelloBarra.setVisible(false);
         inserisciPannelloSchedaEsam(1);
         
         jPanel4.setLayout(new BoxLayout(jPanel4, BoxLayout.LINE_AXIS));
-        barr=new Barra(this,jPanel4.getWidth(),jPanel4.getHeight());
+        barr=new Barra(this);
         jPanel4.add(barr);
         this.setVisible(true);
     }
@@ -3009,6 +3010,7 @@ public class PazienteUI extends javax.swing.JFrame {
         
         aggiornaTerapie(id);
         
+        barr.aggiornaBarra(id);
         barra.setIndicePulsanteAttuale(null);   //IMP
         azzeraCampiDiagnosi();
         datiDiagnosi(id);

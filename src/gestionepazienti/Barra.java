@@ -19,17 +19,13 @@ public class Barra extends javax.swing.JPanel {
     
     private PulsanteBarra prevButton;
     
-    public Barra(PazienteUI p,int hei,int wid) {
+    public Barra(PazienteUI p) {
         initComponents();
         parent=p;
         pulsanti=new ArrayList<PulsanteBarra>();
         prevButton=null;
         
-        //this.setBounds(0, 0, wid, hei);
-        
         pannelloBarra.setLayout(new FlowLayout(FlowLayout.LEADING));
-        
-        aggiornaBarra(1);
     }
     public void aggiornaBarra(int id)
     {
@@ -126,6 +122,7 @@ public class Barra extends javax.swing.JPanel {
         if(tipo==2)
         {
             parent.aggiornaDatiControllo(premuto.getIdControllo());
+            parent.abilitaBarraSuperioreControllo(true);
             parent.selezionaScheda(2);
             return;
         }
