@@ -126,8 +126,6 @@
                                   <Component id="comboLeucociti" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="dataLeucociti" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="leu" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -136,27 +134,22 @@
                                       <Component id="comboLinfociti" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="dataGR" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="gr" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="dataLinfociti" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="linf" min="-2" pref="55" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="dataPiastrine" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="pia" min="-2" pref="55" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="dataGR" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dataLinfociti" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dataPiastrine" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="leu" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="gr" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="linf" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                                  <Component id="pia" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -289,99 +282,101 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="comboCMV" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="dataCMV" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="cmv" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboHBV" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Component id="dataHBV" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="hbv" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboHCV" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Component id="dataHCV" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="hcv" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboHIV1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="dataHIV1" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="hiv1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboJCV" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Component id="dataJCV" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jcv" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="comboTBC" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="dataTBC" linkSize="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="comboHIV1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="dataHIV1" linkSize="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="comboHIV2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="dataHIV2" linkSize="3" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="comboHCV" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="comboHBV" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="8" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="dataHBV" max="32767" attributes="0"/>
+                                              <Component id="dataHCV" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="hiv2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="tbc" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="hbv" min="-2" max="-2" attributes="0"/>
+                                      <Component id="hcv" min="-2" max="-2" attributes="0"/>
+                                      <Component id="hiv1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboPPTest" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="dataPT" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="ppTest" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboVZV" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Component id="dataVZV" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="vzv" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="comboTBC" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboJCV" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboPPTest" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="comboHIV2" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="dataJCV" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="dataTBC" linkSize="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="dataHIV2" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="dataPT" linkSize="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ppTest" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jcv" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="hiv2" min="-2" max="-2" attributes="0"/>
+                              <Component id="tbc" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboEBV" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Component id="dataEBV" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="ebv" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="comboHSV1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboVZV" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboHSV1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="dataHSV1" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="hsv1" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="comboHSV2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="dataHSV2" linkSize="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="comboEBV" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="dataEBV" linkSize="3" min="-2" pref="108" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="dataHSV1" linkSize="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="dataVZV" linkSize="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboHSV2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="dataHSV2" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="hsv2" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="vzv" linkSize="6" min="-2" max="-2" attributes="0"/>
+                              <Component id="hsv2" linkSize="6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="ebv" linkSize="6" min="-2" max="-2" attributes="0"/>
+                              <Component id="hsv1" linkSize="6" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -391,64 +386,62 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="comboVZV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dataVZV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="vzv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboCMV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dataCMV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboHIV2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dataHIV2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="hiv2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="comboEBV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dataEBV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ebv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboHBV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dataHBV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="hbv" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="comboHSV1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dataHSV1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="hsv1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboHCV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dataHCV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="hcv" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="comboHSV2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dataHSV2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="hsv2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboHIV1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dataHIV1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="hiv1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="comboCMV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="dataCMV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cmv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dataVZV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="vzv" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="comboHBV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="dataHBV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="hbv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboEBV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dataEBV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ebv" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="comboHCV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="dataHCV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="hcv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboHSV1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dataHSV1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="hsv1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="comboHIV1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="dataHIV1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="hiv1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboHSV2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dataHSV2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="hsv2" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="comboHIV2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="dataHIV2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="hiv2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="comboVZV" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="comboTBC" alignment="3" min="-2" max="-2" attributes="0"/>

@@ -3,6 +3,9 @@ package gestionepazienti;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class NuovoPazienteUI extends javax.swing.JFrame {
 
@@ -234,6 +237,7 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
             {
                 int id=rs.getInt(1);
                 Pazienti.aggiorna();
+                inserisciSchedaEsami(id);
                 parent.visualizzaDati(id);    
             }
             parent.setVisible(true);
@@ -245,6 +249,17 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inserisciActionPerformed
 
+    public void inserisciSchedaEsami(int idPaz)
+    {
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Scheda_Esami(ID_Paziente) VALUES (?)");
+            pst.setInt(1,idPaz);
+            pst.executeUpdate(); 
+        } catch (SQLException ex) {
+            Logger.getLogger(NuovoPazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cf;
     private javax.swing.JTextField cognome;
