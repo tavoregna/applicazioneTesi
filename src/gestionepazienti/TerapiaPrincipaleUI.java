@@ -202,6 +202,11 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         buttonTer3F.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         buttonTer3F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
         buttonTer3F.setText("F");
+        buttonTer3F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTer3FActionPerformed(evt);
+            }
+        });
 
         buttonTer.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         buttonTer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
@@ -371,7 +376,18 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     }//GEN-LAST:event_terapiaOraActionPerformed
 
     private void buttonTerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTerActionPerformed
-        // TODO add your handling code here:
+        ResultSet rs=GestioneDatabase.querySelect("SELECT Terapia FROM Paziente_Terapia WHERE ID_Paziente="+Pazienti.getCurrID()+" ORDER BY Data_Inizio LIMIT 1");
+        try {
+            if(!rs.next())
+            {
+                Utilita.mostraMessaggio("Nessuna terapia selezionata");
+                return;
+            }
+            GenerazioneWord.generaFileF(rs.getString(1));
+        } catch (SQLException ex) {
+            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_buttonTerActionPerformed
 
     private void buttonTer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer2ActionPerformed
@@ -397,8 +413,22 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonTer3ActionPerformed
 
     private void buttonTer2FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer2FActionPerformed
-        // TODO add your handling code here:
+        if(terapiaDH.getSelectedIndex()==-1)
+        {
+            Utilita.mostraMessaggio("Nessuna terapia selezionata");
+            return;
+        }
+        GenerazioneWord.generaFileF((String)terapiaDH.getSelectedItem());
     }//GEN-LAST:event_buttonTer2FActionPerformed
+
+    private void buttonTer3FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer3FActionPerformed
+        if(terapiaOra.getSelectedIndex()==-1)
+        {
+            Utilita.mostraMessaggio("Nessuna terapia selezionata");
+            return;
+        }
+        GenerazioneWord.generaFileF((String)terapiaOra.getSelectedItem());
+    }//GEN-LAST:event_buttonTer3FActionPerformed
     private void aggiornaRadioButtonControllo(int i)
     {
         String query;
