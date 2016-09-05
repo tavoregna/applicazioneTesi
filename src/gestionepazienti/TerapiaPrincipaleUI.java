@@ -376,7 +376,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     }//GEN-LAST:event_terapiaOraActionPerformed
 
     private void buttonTerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTerActionPerformed
-        ResultSet rs=GestioneDatabase.querySelect("SELECT Terapia FROM Paziente_Terapia WHERE ID_Paziente="+Pazienti.getCurrID()+" ORDER BY Data_Inizio LIMIT 1");
+        ResultSet rs=GestioneDatabase.querySelect("SELECT Terapia FROM Paziente_Terapia WHERE ID_Paziente="+Pazienti.getCurrID()+" ORDER BY Data_Inizio DESC LIMIT 1");
         try {
             if(!rs.next())
             {
