@@ -293,6 +293,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         
         unvisibleAll();
+        
         buttonTer2.setVisible(true);
         buttonTer2F.setVisible(true);
         dataAvvio.setVisible(true);

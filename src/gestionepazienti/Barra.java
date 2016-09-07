@@ -40,7 +40,8 @@ public class Barra extends javax.swing.JPanel {
             {
                 Date d=rs.getDate("Data");
                 int c=rs.getInt("ID_Controllo");
-                creaPulsante(i,d,c,2,Color.ORANGE);
+                String nome=(rs.getInt("Tipo_Controllo")==1 ? "Ordinario" : "Ricaduta");
+                creaPulsante(i,d,c,2,rs.getInt("Tipo_Controllo")==1 ? Color.GREEN.brighter() : Color.RED,nome);
                 i++;
             }
         } 
@@ -53,7 +54,7 @@ public class Barra extends javax.swing.JPanel {
             {
                 Date d=rs.getDate("Data");
                 int c=rs.getInt("ID_DH");
-                creaPulsante(i,d,c,3,Color.GREEN);
+                creaPulsante(i,d,c,3,Color.GREEN.darker(),rs.getString("Terapia"));
                 i++;
             }
         } 
@@ -65,7 +66,7 @@ public class Barra extends javax.swing.JPanel {
             while(rs.next())
             {
                 Date d=rs.getDate("Data_Diagnosi");
-                creaPulsante(i,d,null,1,Color.PINK);
+                creaPulsante(i,d,null,1,new Color(112,146,190),"Diagnosi");
                 i++;
             }
         } 
@@ -91,10 +92,11 @@ public class Barra extends javax.swing.JPanel {
         this.setVisible(true);
     }
     
-    private void creaPulsante(int i,Date d,Integer cod,int tipo,Color c)
+    private void creaPulsante(int i,Date d,Integer cod,int tipo,Color c,String nome)
     {
         PulsanteBarra b=new PulsanteBarra(i,cod,tipo);
         b.setData(d);
+        b.setText("<HTML>"+Utilita.dataToString(d)+"<BR>"+nome+"</HTML>");
         b.setColore(c);
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
