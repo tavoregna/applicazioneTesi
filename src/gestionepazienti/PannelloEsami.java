@@ -52,7 +52,7 @@ public class PannelloEsami extends javax.swing.JPanel {
         }
         try {
             //trovo esami data la terapia
-            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Terapia_Esame WHERE Terapia=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Esame FROM Terapia_Esame as T JOIN Esame AS E ON T.Esame=E.Nome WHERE Terapia=? ORDER BY Ordine ASC");
             pst.setString(1, terapy);
             ResultSet rs=pst.executeQuery();
             while(rs.next())

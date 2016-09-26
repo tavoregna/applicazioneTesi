@@ -1,5 +1,6 @@
 package gestionepazienti;
 
+import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -46,6 +47,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     public void aggiornaDatiTerap(int idControllo)  //i=1 ordinario; i=2 ricaduta
     {
         try {
+            unvisibleAll();
             PreparedStatement pst;
             String query;
             if(tipoControllo==1)
@@ -292,6 +294,8 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        if(tipoControllo==1)
+            Barra.prevColor(Color.CYAN);
         
         unvisibleAll();
         
@@ -307,6 +311,8 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        if(tipoControllo==1)
+            Barra.prevColor(Color.BLUE);
         
         unvisibleAll();
         buttonTer3.setVisible(true);
@@ -321,6 +327,8 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         unvisibleAll();
         buttonTer.setVisible(true);
+        if(tipoControllo==1)
+            Barra.prevColor(Color.CYAN.brighter().brighter());
         aggiornaRadioButtonControllo(1);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 

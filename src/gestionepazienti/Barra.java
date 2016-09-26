@@ -17,7 +17,7 @@ public class Barra extends javax.swing.JPanel {
     private PazienteUI parent;
     private ArrayList<PulsanteBarra> pulsanti;
     
-    private PulsanteBarra prevButton;
+    private static PulsanteBarra prevButton;
     
     public Barra(PazienteUI p) {
         initComponents();
@@ -38,10 +38,37 @@ public class Barra extends javax.swing.JPanel {
             
             while(rs.next())
             {
+                Color colore=Color.WHITE;
                 Date d=rs.getDate("Data");
                 int c=rs.getInt("ID_Controllo");
                 String nome=(rs.getInt("Tipo_Controllo")==1 ? "Ordinario" : "Ricaduta");
-                creaPulsante(i,d,c,2,rs.getInt("Tipo_Controllo")==1 ? Color.GREEN.brighter() : Color.RED,nome);
+                if(rs.getInt("Tipo_Controllo")==1)
+                {
+                    ResultSet tipo=GestioneDatabase.querySelect("SELECT Terapia_Principale FROM Ambulatorio_Ordinario WHERE Controllo_Standard="+c);
+                    int y=0;
+                    if(tipo.next())
+                        y=tipo.getInt("Terapia_Principale");
+                    if(y==1)
+                        colore=Color.CYAN.brighter().brighter();
+                    else if(y==2)
+                        colore=Color.CYAN;
+                    else if(y==3)
+                        colore=Color.BLUE;
+                    else
+                        colore=Color.WHITE;
+                }
+                else if(rs.getInt("Tipo_Controllo")==2)
+                {
+                    ResultSet tipo=GestioneDatabase.querySelect("SELECT Ricaduta FROM Ricaduta WHERE Controllo_Standard="+c);
+                    String y="";
+                    if(tipo.next())
+                       y=tipo.getString("Ricaduta");
+                    if(y!=null && (y.toLowerCase().equals("clinica") || y.toLowerCase().equals("radiologica")))
+                        colore=Color.RED;
+                    else
+                        colore=Color.YELLOW;
+                }
+                creaPulsante(i,d,c,2,colore,nome);
                 i++;
             }
         } 
@@ -184,7 +211,11 @@ public class Barra extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+    public static void prevColor(Color col)
+    {
+        if(prevButton!=null)
+            prevButton.setBackground(col);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pannelloBarra;
