@@ -244,6 +244,7 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
             this.dispose();
             
         } catch (Exception ex) {
+            Logger.getLogger(NuovoPazienteUI.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Controllare dati inseriti");
             this.setEnabled(true);
         }
