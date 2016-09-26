@@ -17,6 +17,16 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
     private PazienteUI parent;
     private int idPaziente;
     
+    private boolean piaEdit=false;
+    private boolean grEdit=false;
+    private boolean linfEdit=false;
+    private boolean leuEdit=false;
+    
+    private boolean dermaEdit=false;
+    private boolean cardioEdit=false;
+    private boolean pneuEdit=false;
+    private boolean infetEdit=false;
+    
     public SchedaEsamiUI(PazienteUI p,int idPaz) {
         initComponents();
         parent=p;
@@ -214,6 +224,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboPiastrine.setOpaque(false);
 
         linf.setEnabled(false);
+        linf.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                linfFocusLost(evt);
+            }
+        });
         linf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 linfKeyReleased(evt);
@@ -221,6 +236,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         });
 
         pia.setEnabled(false);
+        pia.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                piaFocusLost(evt);
+            }
+        });
         pia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 piaKeyReleased(evt);
@@ -228,6 +248,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         });
 
         leu.setEnabled(false);
+        leu.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                leuFocusLost(evt);
+            }
+        });
         leu.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 leuKeyReleased(evt);
@@ -238,6 +263,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         comboLinfociti.setOpaque(false);
 
         gr.setEnabled(false);
+        gr.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                grFocusLost(evt);
+            }
+        });
         gr.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 grKeyReleased(evt);
@@ -718,6 +748,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         });
 
         derma.setEnabled(false);
+        derma.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                dermaFocusLost(evt);
+            }
+        });
         derma.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 dermaKeyReleased(evt);
@@ -734,6 +769,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         });
 
         cardio.setEnabled(false);
+        cardio.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cardioFocusLost(evt);
+            }
+        });
         cardio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cardioKeyReleased(evt);
@@ -750,6 +790,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         });
 
         pneu.setEnabled(false);
+        pneu.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pneuFocusLost(evt);
+            }
+        });
         pneu.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 pneuKeyReleased(evt);
@@ -766,6 +811,11 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         });
 
         infet.setEnabled(false);
+        infet.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                infetFocusLost(evt);
+            }
+        });
         infet.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 infetKeyReleased(evt);
@@ -1601,47 +1651,19 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
     }//GEN-LAST:event_dataInfetActionPerformed
 
     private void leuKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_leuKeyReleased
-       try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Leucociti=? WHERE ID_Paziente=?");
-            pst.setDouble(1, Double.parseDouble(leu.getText()));
-            pst.setInt(2, idPaziente);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+       leuEdit=true;
     }//GEN-LAST:event_leuKeyReleased
 
     private void linfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Linfociti=? WHERE ID_Paziente=?");
-            pst.setDouble(1, Double.parseDouble(linf.getText()));
-            pst.setInt(2, idPaziente);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        linfEdit=true;
     }//GEN-LAST:event_linfKeyReleased
 
     private void grKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_grKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET GR=? WHERE ID_Paziente=?");
-            pst.setDouble(1, Double.parseDouble(gr.getText()));
-            pst.setInt(2, idPaziente);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        grEdit=true;
     }//GEN-LAST:event_grKeyReleased
 
     private void piaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_piaKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Piastrine=? WHERE ID_Paziente=?");
-            pst.setDouble(1, Double.parseDouble(pia.getText()));
-            pst.setInt(2, idPaziente);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        piaEdit=true;
     }//GEN-LAST:event_piaKeyReleased
 
     private void cmvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmvActionPerformed
@@ -1832,6 +1854,81 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
     }//GEN-LAST:event_ecografiaKeyReleased
 
     private void dermaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dermaKeyReleased
+        dermaEdit=true;
+    }//GEN-LAST:event_dermaKeyReleased
+
+    private void cardioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardioKeyReleased
+        cardioEdit=true;
+    }//GEN-LAST:event_cardioKeyReleased
+
+    private void pneuKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pneuKeyReleased
+        pneuEdit=true;
+    }//GEN-LAST:event_pneuKeyReleased
+
+    private void infetKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_infetKeyReleased
+        infetEdit=true;
+    }//GEN-LAST:event_infetKeyReleased
+
+    private void leuFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_leuFocusLost
+        if(!leuEdit)
+            return;
+        leuEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Leucociti=? WHERE ID_Paziente=?");
+            pst.setDouble(1, Double.parseDouble(leu.getText()));
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_leuFocusLost
+
+    private void linfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_linfFocusLost
+        if(!linfEdit)
+            return;
+        linfEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Linfociti=? WHERE ID_Paziente=?");
+            pst.setDouble(1, Double.parseDouble(linf.getText()));
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_linfFocusLost
+
+    private void grFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_grFocusLost
+        if(!grEdit)
+            return;
+        grEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET GR=? WHERE ID_Paziente=?");
+            pst.setDouble(1, Double.parseDouble(gr.getText()));
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_grFocusLost
+
+    private void piaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_piaFocusLost
+        if(!piaEdit)
+            return;
+        piaEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Piastrine=? WHERE ID_Paziente=?");
+            pst.setDouble(1, Double.parseDouble(pia.getText()));
+            pst.setInt(2, idPaziente);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_piaFocusLost
+
+    private void dermaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dermaFocusLost
+        if(!dermaEdit)
+            return;
+        dermaEdit=false;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Dermatologica=? WHERE ID_Paziente=?");
             pst.setString(1, derma.getText());
@@ -1840,9 +1937,12 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
-    }//GEN-LAST:event_dermaKeyReleased
+    }//GEN-LAST:event_dermaFocusLost
 
-    private void cardioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardioKeyReleased
+    private void cardioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardioFocusLost
+        if(!cardioEdit)
+            return;
+        cardioEdit=false;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Cardiologica=? WHERE ID_Paziente=?");
             pst.setString(1, cardio.getText());
@@ -1851,9 +1951,12 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
-    }//GEN-LAST:event_cardioKeyReleased
+    }//GEN-LAST:event_cardioFocusLost
 
-    private void pneuKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pneuKeyReleased
+    private void pneuFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pneuFocusLost
+        if(!pneuEdit)
+            return;
+        pneuEdit=false;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Pneumologica=? WHERE ID_Paziente=?");
             pst.setString(1, pneu.getText());
@@ -1862,9 +1965,12 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
-    }//GEN-LAST:event_pneuKeyReleased
+    }//GEN-LAST:event_pneuFocusLost
 
-    private void infetKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_infetKeyReleased
+    private void infetFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_infetFocusLost
+        if(!infetEdit)
+            return;
+        infetEdit=false;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Scheda_Esami SET Infettivologica=? WHERE ID_Paziente=?");
             pst.setString(1, infet.getText());
@@ -1873,7 +1979,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
-    }//GEN-LAST:event_infetKeyReleased
+    }//GEN-LAST:event_infetFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

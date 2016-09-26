@@ -286,6 +286,7 @@
                     <Property name="rows" type="int" value="1"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="anamnesiFocusLost"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="anamnesiKeyReleased"/>
                   </Events>
                 </Component>

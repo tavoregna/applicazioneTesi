@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 //1 = ORDINARIO, 2 = RICADUTA
 public class TerapiaPrincipaleUI extends javax.swing.JPanel {
@@ -310,6 +311,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         unvisibleAll();
         buttonTer3.setVisible(true);
         buttonTer3F.setVisible(true);
+        terapiaOra.setSelectedItem(null);
         terapiaOra.setVisible(true);
         terapiaOra.setEnabled(true);
         
@@ -373,6 +375,29 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            PreparedStatement pst;
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Data_Inizio,Data_Fine FROM Paziente_Terapia WHERE ID_Paziente="+Pazienti.getCurrID()+" ORDER BY Data_Inizio DESC LIMIT 1");
+            if(rs.next())
+            {
+                if(rs.getDate("Data_Fine")==null && JOptionPane.showConfirmDialog(null,"Vuoi terminare la terapia precedente?","TERMINA TERAPIA",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION)
+                {
+                   pst=GestioneDatabase.preparedStatement("UPDATE Paziente_Terapia SET Data_Fine=? WHERE ID_Paziente=? AND Data_Inizio=?");
+                   pst.setDate(1,new java.sql.Date(Utilita.removeTime(new java.util.Date(System.currentTimeMillis())).getTime()));
+                   pst.setInt(2, Pazienti.getCurrID());
+                   pst.setString(3, rs.getNString("Data_Inizio"));
+                   pst.executeUpdate();
+                }
+            }
+            pst=GestioneDatabase.preparedStatement("INSERT INTO Paziente_Terapia(Data_Inizio,ID_Paziente,Terapia) VALUES(?,?,?)");
+            pst.setDate(1, new java.sql.Date(Utilita.removeTime(new java.util.Date(System.currentTimeMillis())).getTime()));
+            pst.setInt(2,Pazienti.getCurrID());
+            pst.setString(3,(String)terapiaOra.getSelectedItem());
+            pst.executeUpdate();
+            parent.aggiornaTerapie(Pazienti.getCurrID());
+        } catch (SQLException ex) {
+            Utilita.mostraMessaggioErrore("C'è già una terapia con la data odierna");
         }
     }//GEN-LAST:event_terapiaOraActionPerformed
 

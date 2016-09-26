@@ -26,11 +26,16 @@ public class PazienteUI extends javax.swing.JFrame {
     private Integer idControlloCorrente;
     private Integer idDHCorrente;
     
+    private boolean anamnesiEdit;
+    private boolean storicoAreaEdit;
+    
     private Barra barr;
     
     public PazienteUI() {
         initComponents();
         idControlloCorrente=null;
+        
+        
         
         ripristinaPulsanti();
         dataIns.setDate(null);
@@ -295,6 +300,11 @@ public class PazienteUI extends javax.swing.JFrame {
 
         anamnesi.setColumns(1);
         anamnesi.setRows(1);
+        anamnesi.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                anamnesiFocusLost(evt);
+            }
+        });
         anamnesi.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 anamnesiKeyReleased(evt);
@@ -1827,37 +1837,11 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_gestioneTelActionPerformed
 
     private void storicoAreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_storicoAreaKeyReleased
-        /*if(Pazienti.getCurrID()!=null && storicoArea.getText()!=null)
-        {
-            
-            try {
-                PreparedStatement st=GestioneDatabase.preparedStatement("UPDATE Paziente SET StoriaMalattia=? WHERE ID=?");
-                st.setString(1, storicoArea.getText());
-                st.setInt(2, Pazienti.getCurrID());
-                st.executeUpdate();
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        }*/
+        storicoAreaEdit=true;
     }//GEN-LAST:event_storicoAreaKeyReleased
 
     private void anamnesiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_anamnesiKeyReleased
-         if(Pazienti.getCurrID()!=null && anamnesi.getText()!=null)
-        {
-            
-            try {
-                PreparedStatement st=GestioneDatabase.preparedStatement("UPDATE Paziente SET Anamnesi=? WHERE ID=?");
-                st.setString(1, anamnesi.getText());
-                st.setInt(2, Pazienti.getCurrID());
-                st.executeUpdate();
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        }
+        anamnesiEdit=true;
     }//GEN-LAST:event_anamnesiKeyReleased
 
     private void modEsord_DiagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modEsord_DiagnActionPerformed
@@ -2512,6 +2496,9 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_addButtonDHActionPerformed
 
     private void storicoAreaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_storicoAreaFocusLost
+        if(!storicoAreaEdit)
+            return;
+        storicoAreaEdit=false;
         if(Pazienti.getCurrID()!=null && storicoArea.getText()!=null)
         {
             
@@ -2527,6 +2514,25 @@ public class PazienteUI extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_storicoAreaFocusLost
+
+    private void anamnesiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_anamnesiFocusLost
+        if(!anamnesiEdit)
+            return;
+        anamnesiEdit=false;
+        if(Pazienti.getCurrID()!=null && anamnesi.getText()!=null)
+        {
+            try {
+                PreparedStatement st=GestioneDatabase.preparedStatement("UPDATE Paziente SET Anamnesi=? WHERE ID=?");
+                st.setString(1, anamnesi.getText());
+                st.setInt(2, Pazienti.getCurrID());
+                st.executeUpdate();
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }//GEN-LAST:event_anamnesiFocusLost
     //barra con i nomi delle diagnosi
     private void AggiornaCampoDiagnosi()
     {
@@ -2623,6 +2629,8 @@ public class PazienteUI extends javax.swing.JFrame {
         
         abilitaBarraSuperioreControllo(false);
         abilitaBarraSuperioreDH(false);
+        anamnesiEdit=false;
+        storicoAreaEdit=false;
     }
     
     public void datiDiagnosi(int id)

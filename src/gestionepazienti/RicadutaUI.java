@@ -16,6 +16,8 @@ public class RicadutaUI extends javax.swing.JPanel {
     private TerapiaPrincipaleUI terPrincipale;
     private int idControllo;
     
+    private boolean noteEdit=false;
+    
     public RicadutaUI(PazienteUI p,int id) {
         initComponents();
         parent=p;
@@ -133,6 +135,11 @@ public class RicadutaUI extends javax.swing.JPanel {
 
         note.setColumns(1);
         note.setRows(1);
+        note.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                noteFocusLost(evt);
+            }
+        });
         note.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 noteKeyReleased(evt);
@@ -251,7 +258,14 @@ public class RicadutaUI extends javax.swing.JPanel {
     }//GEN-LAST:event_terapiaRicadutaActionPerformed
 
     private void noteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noteKeyReleased
-         try {
+         noteEdit=true;
+    }//GEN-LAST:event_noteKeyReleased
+
+    private void noteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_noteFocusLost
+        if(!noteEdit)
+            return;
+        noteEdit=false;
+        try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Ricaduta SET Note=? WHERE Controllo_Standard=?");
             pst.setString(1,note.getText());
             pst.setInt(2, idControllo);
@@ -259,7 +273,7 @@ public class RicadutaUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(RicadutaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_noteKeyReleased
+    }//GEN-LAST:event_noteFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
