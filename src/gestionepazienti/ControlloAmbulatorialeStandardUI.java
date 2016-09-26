@@ -19,6 +19,22 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
     private PazienteUI parent;
     private int idControllo;
     
+    private boolean diarioClinicoEdit=false;
+    private boolean rmEncefalicaEdit=false;
+    private boolean esameObbNeuroEdit=false;
+    private boolean rmCervDorsEdit=false;
+    private boolean terSintoEdit=false;
+    private boolean esamiEmatoChimEdit=false;
+    private boolean edssEdit=false;
+    private boolean deambulazioneEdit=false;
+    private boolean troncoEncEdit=false;
+    private boolean cerebraleEdit=false;
+    private boolean visivoEdit=false;
+    private boolean sfintericheEdit=false;
+    private boolean sensitivoEdit=false;
+    private boolean piramidaleEdit=false;
+    private boolean cerebellareEdit=false;
+    
     public ControlloAmbulatorialeStandardUI(PazienteUI p, int id) {
         initComponents();
         
@@ -129,6 +145,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         diarioClinico.setColumns(1);
         diarioClinico.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         diarioClinico.setRows(1);
+        diarioClinico.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                diarioClinicoFocusLost(evt);
+            }
+        });
         diarioClinico.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 diarioClinicoKeyReleased(evt);
@@ -146,6 +167,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         rmEncefalica.setColumns(1);
         rmEncefalica.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rmEncefalica.setRows(1);
+        rmEncefalica.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                rmEncefalicaFocusLost(evt);
+            }
+        });
         rmEncefalica.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 rmEncefalicaKeyReleased(evt);
@@ -155,6 +181,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
 
         esameObbNeuro.setBackground(new java.awt.Color(149, 238, 234));
         esameObbNeuro.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        esameObbNeuro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                esameObbNeuroFocusLost(evt);
+            }
+        });
         esameObbNeuro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 esameObbNeuroKeyReleased(evt);
@@ -224,6 +255,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         rmCervDors.setColumns(1);
         rmCervDors.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rmCervDors.setRows(1);
+        rmCervDors.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                rmCervDorsFocusLost(evt);
+            }
+        });
         rmCervDors.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 rmCervDorsKeyReleased(evt);
@@ -241,6 +277,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         esamiEmatoChim.setColumns(1);
         esamiEmatoChim.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         esamiEmatoChim.setRows(1);
+        esamiEmatoChim.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                esamiEmatoChimFocusLost(evt);
+            }
+        });
         esamiEmatoChim.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 esamiEmatoChimKeyReleased(evt);
@@ -280,6 +321,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         terSinto.setBackground(new java.awt.Color(149, 238, 234));
         terSinto.setColumns(1);
         terSinto.setRows(1);
+        terSinto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                terSintoFocusLost(evt);
+            }
+        });
         terSinto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 terSintoKeyReleased(evt);
@@ -293,6 +339,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Piramidale:");
 
+        piramidale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                piramidaleFocusLost(evt);
+            }
+        });
         piramidale.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 piramidaleKeyReleased(evt);
@@ -302,6 +353,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Sensitivo:");
 
+        sensitivo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sensitivoFocusLost(evt);
+            }
+        });
         sensitivo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 sensitivoKeyReleased(evt);
@@ -311,6 +367,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setText("Visivo:");
 
+        visivo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                visivoFocusLost(evt);
+            }
+        });
         visivo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 visivoKeyReleased(evt);
@@ -320,6 +381,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel11.setText("Tronco Enc.:");
 
+        troncoEnc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                troncoEncFocusLost(evt);
+            }
+        });
         troncoEnc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 troncoEncKeyReleased(evt);
@@ -329,6 +395,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel12.setText("Cerebellare:");
 
+        cerebellare.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cerebellareFocusLost(evt);
+            }
+        });
         cerebellare.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cerebellareKeyReleased(evt);
@@ -338,6 +409,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel13.setText("Sfinteriche:");
 
+        sfinteriche.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sfintericheFocusLost(evt);
+            }
+        });
         sfinteriche.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 sfintericheKeyReleased(evt);
@@ -347,6 +423,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel14.setText("Cerebrale:");
 
+        cerebrale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cerebraleFocusLost(evt);
+            }
+        });
         cerebrale.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cerebraleKeyReleased(evt);
@@ -356,6 +437,11 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel15.setText("Deambulazione:");
 
+        deambulazione.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                deambulazioneFocusLost(evt);
+            }
+        });
         deambulazione.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 deambulazioneKeyReleased(evt);
@@ -395,16 +481,16 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(visivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addGap(14, 14, 14)
                         .addComponent(deambulazione, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                         .addComponent(troncoEnc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addGap(0, 80, Short.MAX_VALUE))
         );
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cerebrale, deambulazione, piramidale, sensitivo, troncoEnc, visivo});
@@ -439,9 +525,14 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
 
         jPanel5.setBackground(java.awt.Color.blue);
 
+        edss.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                edssFocusLost(evt);
+            }
+        });
         edss.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                edssKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                edssKeyReleased(evt);
             }
         });
 
@@ -532,7 +623,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panelGrafico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -578,70 +669,20 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
 
     }// </editor-fold>//GEN-END:initComponents
 
-    private void diarioClinicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diarioClinicoKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Diario_Clinico=? WHERE ID_Controllo=?");
-            pst.setString(1,diarioClinico.getText());
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_diarioClinicoKeyReleased
-
-    private void rmEncefalicaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rmEncefalicaKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET RM_Encefalica=? WHERE ID_Controllo=?");
-            pst.setString(1,rmEncefalica.getText());
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_rmEncefalicaKeyReleased
-
     private void esameObbNeuroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esameObbNeuroKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET EON=? WHERE ID_Controllo=?");
-            pst.setString(1,esameObbNeuro.getText());
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        esameObbNeuroEdit=true;
     }//GEN-LAST:event_esameObbNeuroKeyReleased
 
     private void rmCervDorsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rmCervDorsKeyReleased
-       try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET RM_Cervico_Dorsale=? WHERE ID_Controllo=?");
-            pst.setString(1,rmCervDors.getText());
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       rmCervDorsEdit=true;
     }//GEN-LAST:event_rmCervDorsKeyReleased
 
     private void esamiEmatoChimKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esamiEmatoChimKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Esami_Ematochimici=? WHERE ID_Controllo=?");
-            pst.setString(1,esamiEmatoChim.getText());
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        esamiEmatoChimEdit=true;
     }//GEN-LAST:event_esamiEmatoChimKeyReleased
 
     private void terSintoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_terSintoKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Terapia_Sintomatica=? WHERE ID_Controllo=?");
-            pst.setString(1,terSinto.getText());
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        terSintoEdit=true;
     }//GEN-LAST:event_terSintoKeyReleased
 
     private void dataRMEncefaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRMEncefaloActionPerformed
@@ -689,26 +730,6 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_dataEsamEmatoActionPerformed
 
-    private void edssKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edssKeyTyped
-     //FINIREE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        if(edss.getText().length()!=0 && !Utilita.isNumeric(edss.getText()))
-       {
-           edss.setText(edss.getText().substring(0, edss.getText().length()-1));
-           return;
-       }
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET EDSS=? WHERE ID_Controllo=?");
-            if(edss.getText().length()==0)
-                pst.setDouble(1,0);
-            else
-                pst.setDouble(1,Double.parseDouble(edss.getText()));
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_edssKeyTyped
-
     private void graficoEDSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficoEDSSActionPerformed
         JFreeChart chart = ChartFactory.createLineChart("EDSS", "", "",datiGrafico(), PlotOrientation.VERTICAL,false, true, true);
         
@@ -724,92 +745,339 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
     }//GEN-LAST:event_graficoEDSSActionPerformed
 
     private void piramidaleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_piramidaleKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Piramidale=? WHERE ID_Controllo=?");
-            pst.setDouble(1,Double.parseDouble(piramidale.getText()));
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        piramidaleEdit=true;
     }//GEN-LAST:event_piramidaleKeyReleased
 
     private void sensitivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sensitivoKeyReleased
-         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Sensitivo=? WHERE ID_Controllo=?");
-            pst.setDouble(1,Double.parseDouble(sensitivo.getText()));
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         sensitivoEdit=true;
     }//GEN-LAST:event_sensitivoKeyReleased
 
     private void visivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_visivoKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Visivo=? WHERE ID_Controllo=?");
-            pst.setDouble(1,Double.parseDouble(visivo.getText()));
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        visivoEdit=true;
     }//GEN-LAST:event_visivoKeyReleased
 
     private void troncoEncKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_troncoEncKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Tronco_Enc=? WHERE ID_Controllo=?");
-            pst.setDouble(1,Double.parseDouble(troncoEnc.getText()));
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        troncoEncEdit=true;
     }//GEN-LAST:event_troncoEncKeyReleased
 
     private void cerebellareKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cerebellareKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Cerebellare=? WHERE ID_Controllo=?");
-            pst.setDouble(1,Double.parseDouble(cerebellare.getText()));
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        cerebellareEdit=true;
     }//GEN-LAST:event_cerebellareKeyReleased
 
     private void sfintericheKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sfintericheKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Sfinteriche=? WHERE ID_Controllo=?");
-            pst.setDouble(1,Double.parseDouble(sfinteriche.getText()));
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        sfintericheEdit=true;
     }//GEN-LAST:event_sfintericheKeyReleased
 
     private void cerebraleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cerebraleKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Cerebrale=? WHERE ID_Controllo=?");
-            pst.setDouble(1,Double.parseDouble(cerebrale.getText()));
-            pst.setInt(2, idControllo);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        cerebraleEdit=true;
     }//GEN-LAST:event_cerebraleKeyReleased
 
     private void deambulazioneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_deambulazioneKeyReleased
+        deambulazioneEdit=true;
+    }//GEN-LAST:event_deambulazioneKeyReleased
+
+    private void diarioClinicoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_diarioClinicoFocusLost
+        if(!diarioClinicoEdit)
+            return;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Deambulazione=? WHERE ID_Controllo=?");
-            pst.setDouble(1,Double.parseDouble(deambulazione.getText()));
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Diario_Clinico=? WHERE ID_Controllo=?");
+            pst.setString(1,diarioClinico.getText());
             pst.setInt(2, idControllo);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_deambulazioneKeyReleased
+        diarioClinicoEdit=false;
+    }//GEN-LAST:event_diarioClinicoFocusLost
+
+    private void rmEncefalicaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rmEncefalicaFocusLost
+        if(!rmEncefalicaEdit)
+            return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET RM_Encefalica=? WHERE ID_Controllo=?");
+            pst.setString(1,rmEncefalica.getText());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rmEncefalicaEdit=false;
+    }//GEN-LAST:event_rmEncefalicaFocusLost
+
+    private void diarioClinicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diarioClinicoKeyReleased
+        diarioClinicoEdit=true;
+    }//GEN-LAST:event_diarioClinicoKeyReleased
+
+    private void rmEncefalicaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rmEncefalicaKeyReleased
+        rmEncefalicaEdit=true;
+    }//GEN-LAST:event_rmEncefalicaKeyReleased
+
+    private void esameObbNeuroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_esameObbNeuroFocusLost
+        if(!esameObbNeuroEdit)
+            return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET EON=? WHERE ID_Controllo=?");
+            pst.setString(1,esameObbNeuro.getText());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        esameObbNeuroEdit=false;
+    }//GEN-LAST:event_esameObbNeuroFocusLost
+
+    private void rmCervDorsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rmCervDorsFocusLost
+        if(!rmCervDorsEdit)
+            return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET RM_Cervico_Dorsale=? WHERE ID_Controllo=?");
+            pst.setString(1,rmCervDors.getText());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rmCervDorsEdit=false;
+    }//GEN-LAST:event_rmCervDorsFocusLost
+
+    private void terSintoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_terSintoFocusLost
+        if(!terSintoEdit)
+            return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Terapia_Sintomatica=? WHERE ID_Controllo=?");
+            pst.setString(1,terSinto.getText());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        terSintoEdit=false;
+    }//GEN-LAST:event_terSintoFocusLost
+
+    private void esamiEmatoChimFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_esamiEmatoChimFocusLost
+        if(!esamiEmatoChimEdit)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Esami_Ematochimici=? WHERE ID_Controllo=?");
+            pst.setString(1,esamiEmatoChim.getText());
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        esamiEmatoChimEdit=false;
+    }//GEN-LAST:event_esamiEmatoChimFocusLost
+
+    private void edssKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edssKeyReleased
+       edssEdit=true;
+    }//GEN-LAST:event_edssKeyReleased
+
+    private void edssFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edssFocusLost
+        if(!edssEdit)
+            return;
+        edssEdit=false;
+        String val=Utilita.virgolaToPunto(edss.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET EDSS=? WHERE ID_Controllo=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+    }//GEN-LAST:event_edssFocusLost
+
+    private void piramidaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_piramidaleFocusLost
+        if(!piramidaleEdit)
+            return;
+        piramidaleEdit=false;
+        String val=Utilita.virgolaToPunto(piramidale.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Piramidale=? WHERE ID_Controllo=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }//GEN-LAST:event_piramidaleFocusLost
+
+    private void cerebellareFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cerebellareFocusLost
+        if(!cerebellareEdit)
+            return;
+        cerebellareEdit=false;
+        String val=Utilita.virgolaToPunto(cerebellare.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Cerebellare=? WHERE ID_Controllo=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_cerebellareFocusLost
+
+    private void sensitivoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sensitivoFocusLost
+        if(!sensitivoEdit)
+            return;
+        sensitivoEdit=false;
+        String val=Utilita.virgolaToPunto(sensitivo.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Sensitivo=? WHERE ID_Controllo=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_sensitivoFocusLost
+
+    private void sfintericheFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sfintericheFocusLost
+        if(!sfintericheEdit)
+            return;
+        sfintericheEdit=false;
+        String val=Utilita.virgolaToPunto(sfinteriche.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Sfinteriche=? WHERE ID_Controllo=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_sfintericheFocusLost
+
+    private void visivoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_visivoFocusLost
+        if(!visivoEdit)
+            return;
+        visivoEdit=false;
+        String val=Utilita.virgolaToPunto(visivo.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Visivo=? WHERE ID_Controllo=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_visivoFocusLost
+
+    private void cerebraleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cerebraleFocusLost
+        if(!cerebraleEdit)
+            return;
+        cerebraleEdit=false;
+        String val=Utilita.virgolaToPunto(cerebrale.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Cerebrale=? WHERE ID_Controllo=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_cerebraleFocusLost
+
+    private void troncoEncFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_troncoEncFocusLost
+        if(!troncoEncEdit)
+            return;
+        troncoEncEdit=false;
+        String val=Utilita.virgolaToPunto(troncoEnc.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Tronco_Enc=? WHERE ID_Controllo=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_troncoEncFocusLost
+
+    private void deambulazioneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_deambulazioneFocusLost
+        if(!deambulazioneEdit)
+            return;
+        deambulazioneEdit=false;
+        String val=Utilita.virgolaToPunto(deambulazione.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Standard SET Deambulazione=? WHERE ID_Controllo=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idControllo);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deambulazioneFocusLost
     private DefaultCategoryDataset datiGrafico()
     {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
