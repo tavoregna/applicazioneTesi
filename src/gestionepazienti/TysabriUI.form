@@ -131,6 +131,7 @@
             <Property name="rows" type="int" value="1"/>
           </Properties>
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="terSintoFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="terSintoKeyReleased"/>
           </Events>
         </Component>
@@ -153,6 +154,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="esameObbNeuroFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="esameObbNeuroKeyReleased"/>
           </Events>
         </Component>
@@ -500,6 +502,7 @@
             <Property name="rows" type="int" value="1"/>
           </Properties>
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="rmCervDorsFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rmCervDorsKeyReleased"/>
           </Events>
         </Component>
@@ -524,6 +527,7 @@
             <Property name="rows" type="int" value="1"/>
           </Properties>
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="diarioClinicoFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="diarioClinicoKeyReleased"/>
           </Events>
         </Component>
@@ -578,6 +582,7 @@
             <Property name="rows" type="int" value="1"/>
           </Properties>
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="esamiEmatoChimFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="esamiEmatoChimKeyReleased"/>
           </Events>
         </Component>
@@ -648,6 +653,7 @@
             <Property name="rows" type="int" value="1"/>
           </Properties>
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="rmEncefalicaFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rmEncefalicaKeyReleased"/>
           </Events>
         </Component>
@@ -902,6 +908,10 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="noteFocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="noteKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

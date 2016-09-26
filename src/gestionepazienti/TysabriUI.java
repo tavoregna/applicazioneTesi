@@ -21,6 +21,14 @@ public class TysabriUI extends javax.swing.JPanel {
     private PazienteUI parent;
     private int idTysabri;
     
+    private boolean diarioClinicoEdit=false;
+    private boolean terSintoEdit=false;
+    private boolean rmCervDorsEdit=false;
+    private boolean rmEncefalicaEdit=false;
+    private boolean noteEdit=false;
+    private boolean esameObbNeuroEdit=false;
+    private boolean esamiEmatoChimEdit=false;
+    
     private boolean edssEdit=false;
     private boolean deambulazioneEdit=false;
     private boolean troncoEncEdit=false;
@@ -152,6 +160,11 @@ public class TysabriUI extends javax.swing.JPanel {
         terSinto.setBackground(new java.awt.Color(149, 238, 234));
         terSinto.setColumns(1);
         terSinto.setRows(1);
+        terSinto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                terSintoFocusLost(evt);
+            }
+        });
         terSinto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 terSintoKeyReleased(evt);
@@ -161,6 +174,11 @@ public class TysabriUI extends javax.swing.JPanel {
 
         esameObbNeuro.setBackground(new java.awt.Color(149, 238, 234));
         esameObbNeuro.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        esameObbNeuro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                esameObbNeuroFocusLost(evt);
+            }
+        });
         esameObbNeuro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 esameObbNeuroKeyReleased(evt);
@@ -439,6 +457,11 @@ public class TysabriUI extends javax.swing.JPanel {
         rmCervDors.setColumns(1);
         rmCervDors.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rmCervDors.setRows(1);
+        rmCervDors.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                rmCervDorsFocusLost(evt);
+            }
+        });
         rmCervDors.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 rmCervDorsKeyReleased(evt);
@@ -450,6 +473,11 @@ public class TysabriUI extends javax.swing.JPanel {
         diarioClinico.setColumns(1);
         diarioClinico.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         diarioClinico.setRows(1);
+        diarioClinico.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                diarioClinicoFocusLost(evt);
+            }
+        });
         diarioClinico.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 diarioClinicoKeyReleased(evt);
@@ -473,6 +501,11 @@ public class TysabriUI extends javax.swing.JPanel {
         esamiEmatoChim.setColumns(1);
         esamiEmatoChim.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         esamiEmatoChim.setRows(1);
+        esamiEmatoChim.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                esamiEmatoChimFocusLost(evt);
+            }
+        });
         esamiEmatoChim.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 esamiEmatoChimKeyReleased(evt);
@@ -513,6 +546,11 @@ public class TysabriUI extends javax.swing.JPanel {
         rmEncefalica.setColumns(1);
         rmEncefalica.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rmEncefalica.setRows(1);
+        rmEncefalica.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                rmEncefalicaFocusLost(evt);
+            }
+        });
         rmEncefalica.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 rmEncefalicaKeyReleased(evt);
@@ -655,6 +693,16 @@ public class TysabriUI extends javax.swing.JPanel {
         note.setBackground(new java.awt.Color(149, 238, 234));
         note.setColumns(20);
         note.setRows(5);
+        note.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                noteFocusLost(evt);
+            }
+        });
+        note.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                noteKeyReleased(evt);
+            }
+        });
         jScrollPane8.setViewportView(note);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -746,26 +794,11 @@ public class TysabriUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void terSintoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_terSintoKeyReleased
-        
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Terapia_Sintomatica=? WHERE ID_Tysabri=?");
-            pst.setString(1,terSinto.getText());
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(TysabriUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        terSintoEdit=true;
     }//GEN-LAST:event_terSintoKeyReleased
 
     private void esameObbNeuroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esameObbNeuroKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET EON=? WHERE ID_Tysabri=?");
-            pst.setString(1,esameObbNeuro.getText());
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        esameObbNeuroEdit=true;
     }//GEN-LAST:event_esameObbNeuroKeyReleased
 
     private void dataEsamEmatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamEmatoActionPerformed
@@ -823,36 +856,15 @@ public class TysabriUI extends javax.swing.JPanel {
     }
     
     private void rmCervDorsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rmCervDorsKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET RM_Cervico_Dorsale=? WHERE ID_Tysabri=?");
-            pst.setString(1,rmCervDors.getText());
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        rmCervDorsEdit=true;
     }//GEN-LAST:event_rmCervDorsKeyReleased
 
     private void diarioClinicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diarioClinicoKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Diario_Clinico=? WHERE ID_Tysabri=?");
-            pst.setString(1,diarioClinico.getText());
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        diarioClinicoEdit=true;
     }//GEN-LAST:event_diarioClinicoKeyReleased
 
     private void esamiEmatoChimKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esamiEmatoChimKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Esami_Ematochimici=? WHERE ID_Tysabri=?");
-            pst.setString(1,esamiEmatoChim.getText());
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        esamiEmatoChimEdit=true;
     }//GEN-LAST:event_esamiEmatoChimKeyReleased
 
     private void dataRMCervDorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRMCervDorsActionPerformed
@@ -871,14 +883,7 @@ public class TysabriUI extends javax.swing.JPanel {
     }//GEN-LAST:event_dataRMCervDorsActionPerformed
 
     private void rmEncefalicaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rmEncefalicaKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET RM_Encefalica=? WHERE ID_Tysabri=?");
-            pst.setString(1,rmEncefalica.getText());
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        rmEncefalicaEdit=true;
     }//GEN-LAST:event_rmEncefalicaKeyReleased
 
     private void dataRMEncefaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRMEncefaloActionPerformed
@@ -1187,6 +1192,108 @@ public class TysabriUI extends javax.swing.JPanel {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }//GEN-LAST:event_deambulazioneFocusLost
+
+    private void esamiEmatoChimFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_esamiEmatoChimFocusLost
+        if(!esamiEmatoChimEdit)
+            return;
+        esamiEmatoChimEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Esami_Ematochimici=? WHERE ID_Tysabri=?");
+            pst.setString(1,esamiEmatoChim.getText());
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_esamiEmatoChimFocusLost
+
+    private void terSintoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_terSintoFocusLost
+        if(!terSintoEdit)
+            return;
+        terSintoEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Terapia_Sintomatica=? WHERE ID_Tysabri=?");
+            pst.setString(1,terSinto.getText());
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TysabriUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_terSintoFocusLost
+
+    private void noteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noteKeyReleased
+         noteEdit=true;
+    }//GEN-LAST:event_noteKeyReleased
+
+    private void noteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_noteFocusLost
+        if(!noteEdit)
+            return;
+        noteEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Note=? WHERE ID_Tysabri=?");
+            pst.setString(1,note.getText());
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TysabriUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_noteFocusLost
+
+    private void rmCervDorsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rmCervDorsFocusLost
+        if(!rmCervDorsEdit)
+            return;
+        rmCervDorsEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET RM_Cervico_Dorsale=? WHERE ID_Tysabri=?");
+            pst.setString(1,rmCervDors.getText());
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_rmCervDorsFocusLost
+
+    private void rmEncefalicaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rmEncefalicaFocusLost
+        if(!rmEncefalicaEdit)
+            return;
+        rmEncefalicaEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET RM_Encefalica=? WHERE ID_Tysabri=?");
+            pst.setString(1,rmEncefalica.getText());
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_rmEncefalicaFocusLost
+
+    private void esameObbNeuroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_esameObbNeuroFocusLost
+        if(!esameObbNeuroEdit)
+            return;
+        esameObbNeuroEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET EON=? WHERE ID_Tysabri=?");
+            pst.setString(1,esameObbNeuro.getText());
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_esameObbNeuroFocusLost
+
+    private void diarioClinicoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_diarioClinicoFocusLost
+        if(!diarioClinicoEdit)
+            return;
+        diarioClinicoEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Diario_Clinico=? WHERE ID_Tysabri=?");
+            pst.setString(1,diarioClinico.getText());
+            pst.setInt(2, idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_diarioClinicoFocusLost
 
     
     
