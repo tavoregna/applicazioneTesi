@@ -15,6 +15,13 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
     private int idLemtrada;
     private double linfociti;
     
+    private boolean diarioClinicoEdit=false;
+    private boolean leucocitiEdit=false;
+    private boolean piastrineEdit=false;
+    private boolean creatininaEdit=false;
+    private boolean ureaEdit=false;
+    private boolean esUrineEdit=false;
+    
     public PannelloLemtradaUI(int id, int giorno) {
         initComponents();
         idLemtrada=id;
@@ -123,11 +130,6 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         diarioClinico.setBackground(new java.awt.Color(149, 238, 234));
         diarioClinico.setColumns(20);
         diarioClinico.setRows(5);
-        diarioClinico.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                diarioClinicoKeyReleased(evt);
-            }
-        });
         jScrollPane1.setViewportView(diarioClinico);
 
         jPanel4.setBackground(java.awt.Color.blue);
@@ -204,27 +206,25 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Linfociti T:");
 
+        leucociti.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                leucocitiFocusLost(evt);
+            }
+        });
         leucociti.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 leucocitiKeyReleased(evt);
             }
         });
 
+        piastrine.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                piastrineFocusLost(evt);
+            }
+        });
         piastrine.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 piastrineKeyReleased(evt);
-            }
-        });
-
-        linfTot.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                linfTotKeyReleased(evt);
-            }
-        });
-
-        linfoTPer.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                linfoTPerKeyReleased(evt);
             }
         });
 
@@ -236,12 +236,6 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel18.setText("Linfociti T helper:");
-
-        linfoHelperPer.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                linfoHelperPerKeyReleased(evt);
-            }
-        });
 
         linfoT.setEnabled(false);
 
@@ -256,12 +250,6 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel24.setText("Linfociti T citotossici:");
 
-        linfoTCitoPer.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                linfoTCitoPerKeyReleased(evt);
-            }
-        });
-
         jLabel25.setText("%");
 
         linfoTCito.setEnabled(false);
@@ -270,12 +258,6 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
         jLabel26.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel26.setText("Linfociti B:");
-
-        linfoBPer.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                linfoBPerKeyReleased(evt);
-            }
-        });
 
         jLabel28.setText("%");
 
@@ -286,12 +268,6 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel30.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel30.setText("Linfociti NK:");
 
-        linfoNKPer.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                linfoNKPerKeyReleased(evt);
-            }
-        });
-
         jLabel31.setText("%");
 
         linfoNK.setEnabled(false);
@@ -301,6 +277,11 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel33.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel33.setText("Es. Urine:");
 
+        esUrine.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                esUrineFocusLost(evt);
+            }
+        });
         esUrine.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 esUrineKeyReleased(evt);
@@ -310,6 +291,11 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel34.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel34.setText("Urea:");
 
+        urea.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ureaFocusLost(evt);
+            }
+        });
         urea.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ureaKeyReleased(evt);
@@ -319,6 +305,11 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel35.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel35.setText("Creatinina:");
 
+        creatinina.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                creatininaFocusLost(evt);
+            }
+        });
         creatinina.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 creatininaKeyReleased(evt);
@@ -523,40 +514,12 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
     }//GEN-LAST:event_dataDCActionPerformed
 
 
-    private void diarioClinicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diarioClinicoKeyReleased
-         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Diario_Clinico=? WHERE ID_Standard=? AND Giorno=?");
-            pst.setString(1,diarioClinico.getText());
-            pst.setInt(2, idLemtrada);
-            pst.setInt(3,giorno);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_diarioClinicoKeyReleased
-
     private void leucocitiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_leucocitiKeyReleased
-         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Leucociti=? WHERE ID_Standard=? AND Giorno=?");
-            pst.setDouble(1,Double.parseDouble(leucociti.getText()));
-            pst.setInt(2, idLemtrada);
-            pst.setInt(3,giorno);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         leucocitiEdit=true;
     }//GEN-LAST:event_leucocitiKeyReleased
 
     private void piastrineKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_piastrineKeyReleased
-         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Piatrine=? WHERE ID_Standard=? AND Giorno=?");
-            pst.setDouble(1,Double.parseDouble(piastrine.getText()));
-            pst.setInt(2, idLemtrada);
-            pst.setInt(3,giorno);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         piastrineEdit=true;
     }//GEN-LAST:event_piastrineKeyReleased
 
     private void linfTotKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfTotKeyReleased
@@ -639,7 +602,70 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
     }//GEN-LAST:event_linfoNKPerKeyReleased
 
     private void esUrineKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esUrineKeyReleased
-       try {
+       esUrineEdit=true;
+    }//GEN-LAST:event_esUrineKeyReleased
+
+    private void ureaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ureaKeyReleased
+        ureaEdit=true;
+    }//GEN-LAST:event_ureaKeyReleased
+
+    private void creatininaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_creatininaKeyReleased
+         creatininaEdit=true;
+    }//GEN-LAST:event_creatininaKeyReleased
+
+    private void leucocitiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_leucocitiFocusLost
+        if(!leucocitiEdit)
+            return;
+        leucocitiEdit=false;
+        String val=Utilita.virgolaToPunto(leucociti.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Leucociti=? WHERE ID_Standard=? AND Giorno=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idLemtrada);
+            pst.setInt(3,giorno);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_leucocitiFocusLost
+
+    private void piastrineFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_piastrineFocusLost
+        if(!piastrineEdit)
+            return;
+        piastrineEdit=false;
+        String val=Utilita.virgolaToPunto(piastrine.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Piatrine=? WHERE ID_Standard=? AND Giorno=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idLemtrada);
+            pst.setInt(3,giorno);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_piastrineFocusLost
+
+    private void esUrineFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_esUrineFocusLost
+        if(!esUrineEdit)
+            return;
+        esUrineEdit=false;
+        try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Es_Urine=? WHERE ID_Standard=? AND Giorno=?");
             pst.setString(1,esUrine.getText());
             pst.setInt(2, idLemtrada);
@@ -648,9 +674,12 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_esUrineKeyReleased
+    }//GEN-LAST:event_esUrineFocusLost
 
-    private void ureaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ureaKeyReleased
+    private void ureaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ureaFocusLost
+        if(!ureaEdit)
+            return;
+        ureaEdit=false;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Urea=? WHERE ID_Standard=? AND Giorno=?");
             pst.setString(1,urea.getText());
@@ -660,10 +689,13 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_ureaKeyReleased
+    }//GEN-LAST:event_ureaFocusLost
 
-    private void creatininaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_creatininaKeyReleased
-          try {
+    private void creatininaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_creatininaFocusLost
+       if(!creatininaEdit)
+           return;
+       creatininaEdit=false;
+        try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Creatinina=? WHERE ID_Standard=? AND AND Giorno=?");
             pst.setString(1,creatinina.getText());
             pst.setInt(2, idLemtrada);
@@ -672,7 +704,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_creatininaKeyReleased
+    }//GEN-LAST:event_creatininaFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -384,8 +384,16 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="leucociti">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="leucocitiFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="leucocitiKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="piastrine">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="piastrineFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="piastrineKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="linfTot">
             </Component>
@@ -525,6 +533,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="esUrine">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="esUrineFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="esUrineKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel34">
               <Properties>
@@ -535,6 +547,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="urea">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ureaFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ureaKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel35">
               <Properties>
@@ -545,6 +561,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="creatinina">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="creatininaFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="creatininaKeyReleased"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
