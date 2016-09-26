@@ -12,6 +12,23 @@ public class GilenyaUI extends javax.swing.JPanel {
     private PazienteUI parent;
     private int idGilenya;
     
+    
+    private boolean acConsigliatiEdit=false;
+    private boolean noteEdit=false;
+    private boolean diarioClinicoEdit=false;
+    private boolean esameObbNeuroEdit=false;
+    private boolean terSintoEdit=false;
+    
+    private boolean edssEdit=false;
+    private boolean deambulazioneEdit=false;
+    private boolean troncoEncEdit=false;
+    private boolean cerebraleEdit=false;
+    private boolean visivoEdit=false;
+    private boolean sfintericheEdit=false;
+    private boolean sensitivoEdit=false;
+    private boolean piramidaleEdit=false;
+    private boolean cerebellareEdit=false;
+    
     public GilenyaUI(PazienteUI p,int id) {
         initComponents();
         idGilenya=id;
@@ -95,9 +112,14 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel7.setForeground(java.awt.Color.red);
         jLabel7.setText("EDSS:");
 
+        edss.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                edssFocusLost(evt);
+            }
+        });
         edss.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                edssKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                edssKeyReleased(evt);
             }
         });
 
@@ -120,6 +142,11 @@ public class GilenyaUI extends javax.swing.JPanel {
 
         esameObbNeuro.setBackground(new java.awt.Color(149, 238, 234));
         esameObbNeuro.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        esameObbNeuro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                esameObbNeuroFocusLost(evt);
+            }
+        });
         esameObbNeuro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 esameObbNeuroKeyReleased(evt);
@@ -131,6 +158,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         diarioClinico.setColumns(1);
         diarioClinico.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         diarioClinico.setRows(1);
+        diarioClinico.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                diarioClinicoFocusLost(evt);
+            }
+        });
         diarioClinico.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 diarioClinicoKeyReleased(evt);
@@ -156,6 +188,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Piramidale:");
 
+        piramidale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                piramidaleFocusLost(evt);
+            }
+        });
         piramidale.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 piramidaleKeyReleased(evt);
@@ -165,6 +202,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Sensitivo:");
 
+        sensitivo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sensitivoFocusLost(evt);
+            }
+        });
         sensitivo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 sensitivoKeyReleased(evt);
@@ -174,6 +216,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setText("Visivo:");
 
+        visivo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                visivoFocusLost(evt);
+            }
+        });
         visivo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 visivoKeyReleased(evt);
@@ -183,6 +230,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel11.setText("Tronco Enc.:");
 
+        troncoEnc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                troncoEncFocusLost(evt);
+            }
+        });
         troncoEnc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 troncoEncKeyReleased(evt);
@@ -192,6 +244,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel12.setText("Cerebellare:");
 
+        cerebellare.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cerebellareFocusLost(evt);
+            }
+        });
         cerebellare.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cerebellareKeyReleased(evt);
@@ -201,6 +258,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel13.setText("Sfinteriche:");
 
+        sfinteriche.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sfintericheFocusLost(evt);
+            }
+        });
         sfinteriche.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 sfintericheKeyReleased(evt);
@@ -210,6 +272,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel14.setText("Cerebrale:");
 
+        cerebrale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cerebraleFocusLost(evt);
+            }
+        });
         cerebrale.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cerebraleKeyReleased(evt);
@@ -219,6 +286,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel15.setText("Deambulazione:");
 
+        deambulazione.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                deambulazioneFocusLost(evt);
+            }
+        });
         deambulazione.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 deambulazioneKeyReleased(evt);
@@ -301,6 +373,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         terSinto.setBackground(new java.awt.Color(149, 238, 234));
         terSinto.setColumns(1);
         terSinto.setRows(1);
+        terSinto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                terSintoFocusLost(evt);
+            }
+        });
         terSinto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 terSintoKeyReleased(evt);
@@ -321,6 +398,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel2.setOpaque(true);
 
         note.setBackground(new java.awt.Color(149, 238, 234));
+        note.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                noteFocusLost(evt);
+            }
+        });
         note.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 noteKeyReleased(evt);
@@ -337,6 +419,11 @@ public class GilenyaUI extends javax.swing.JPanel {
         acConsigliati.setBackground(new java.awt.Color(149, 238, 234));
         acConsigliati.setColumns(20);
         acConsigliati.setRows(5);
+        acConsigliati.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                acConsigliatiFocusLost(evt);
+            }
+        });
         acConsigliati.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 acConsigliatiKeyReleased(evt);
@@ -410,73 +497,273 @@ public class GilenyaUI extends javax.swing.JPanel {
 
     }// </editor-fold>//GEN-END:initComponents
 
-    private void edssKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edssKeyTyped
-            
-            //FINIREE
-            if(edss.getText().length()!=0 && !Utilita.isNumeric(edss.getText()))
-            {
-                edss.setText(edss.getText().substring(0, edss.getText().length()-1));
-                return;
-            }
-        try{  
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET EDSS=? WHERE ID_Gilenya=?");
-            if(edss.getText().length()==0)
-                pst.setDouble(1,0);
-            else
-                pst.setDouble(1,Double.parseDouble(edss.getText()));
-            pst.setInt(2, idGilenya);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(GilenyaUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
-    }//GEN-LAST:event_edssKeyTyped
-
     private void esameObbNeuroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esameObbNeuroKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET EON=? WHERE ID_Gilenya=?");
-            pst.setString(1,esameObbNeuro.getText());
-            pst.setInt(2, idGilenya);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        esameObbNeuroEdit=true;
     }//GEN-LAST:event_esameObbNeuroKeyReleased
 
     private void diarioClinicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diarioClinicoKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Diario_Clinico=? WHERE ID_Gilenya=?");
-            pst.setString(1,diarioClinico.getText());
-            pst.setInt(2, idGilenya);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        diarioClinicoEdit=true;
     }//GEN-LAST:event_diarioClinicoKeyReleased
 
     private void terSintoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_terSintoKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Terapia_Sintomatica=? WHERE ID_Gilenya=?");
-            pst.setString(1,terSinto.getText());
-            pst.setInt(2, idGilenya);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        terSintoEdit=true;
     }//GEN-LAST:event_terSintoKeyReleased
 
     private void acConsigliatiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_acConsigliatiKeyReleased
+        acConsigliatiEdit=true;
+    }//GEN-LAST:event_acConsigliatiKeyReleased
+
+    private void noteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noteKeyReleased
+        noteEdit=true;
+    }//GEN-LAST:event_noteKeyReleased
+
+    private void piramidaleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_piramidaleKeyReleased
+        piramidaleEdit=true;
+    }//GEN-LAST:event_piramidaleKeyReleased
+
+    private void sensitivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sensitivoKeyReleased
+        sensitivoEdit=true;
+    }//GEN-LAST:event_sensitivoKeyReleased
+
+    private void visivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_visivoKeyReleased
+        visivoEdit=true;
+    }//GEN-LAST:event_visivoKeyReleased
+
+    private void troncoEncKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_troncoEncKeyReleased
+        troncoEncEdit=true;
+    }//GEN-LAST:event_troncoEncKeyReleased
+
+    private void cerebellareKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cerebellareKeyReleased
+       cerebellareEdit=true;
+    }//GEN-LAST:event_cerebellareKeyReleased
+
+    private void sfintericheKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sfintericheKeyReleased
+        sfintericheEdit=true;
+    }//GEN-LAST:event_sfintericheKeyReleased
+
+    private void cerebraleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cerebraleKeyReleased
+       cerebraleEdit=true;
+    }//GEN-LAST:event_cerebraleKeyReleased
+
+    private void deambulazioneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_deambulazioneKeyReleased
+      deambulazioneEdit=true;
+    }//GEN-LAST:event_deambulazioneKeyReleased
+
+    private void piramidaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_piramidaleFocusLost
+        if(!piramidaleEdit)
+            return;
+        piramidaleEdit=false;
+        String val=Utilita.virgolaToPunto(piramidale.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Accertamenti_Consigliati=? WHERE ID_Gilenya=?");
-            pst.setString(1,acConsigliati.getText());
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Piramidale=? WHERE ID_Gilenya=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_piramidaleFocusLost
+
+    private void cerebellareFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cerebellareFocusLost
+       if(!cerebellareEdit)
+            return;
+        cerebellareEdit=false;
+        String val=Utilita.virgolaToPunto(cerebellare.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Cerebellare=? WHERE ID_Gilenya=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_cerebellareFocusLost
+
+    private void sensitivoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sensitivoFocusLost
+        if(!sensitivoEdit)
+            return;
+        sensitivoEdit=false;
+        String val=Utilita.virgolaToPunto(sensitivo.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Sensitivo=? WHERE ID_Gilenya=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_sensitivoFocusLost
+
+    private void sfintericheFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sfintericheFocusLost
+        if(!sfintericheEdit)
+            return;
+        sfintericheEdit=false;
+        String val=Utilita.virgolaToPunto(sfinteriche.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Sfinteriche=? WHERE ID_Gilenya=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_sfintericheFocusLost
+
+    private void visivoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_visivoFocusLost
+      if(!visivoEdit)
+            return;
+        visivoEdit=false;
+        String val=Utilita.virgolaToPunto(visivo.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Visivo=? WHERE ID_Gilenya=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_visivoFocusLost
+
+    private void cerebraleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cerebraleFocusLost
+        if(!cerebraleEdit)
+            return;
+        cerebraleEdit=false;
+        String val=Utilita.virgolaToPunto(cerebrale.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Cerebrale=? WHERE ID_Gilenya=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_cerebraleFocusLost
+
+    private void troncoEncFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_troncoEncFocusLost
+        if(!troncoEncEdit)
+            return;
+        troncoEncEdit=false;
+        String val=Utilita.virgolaToPunto(troncoEnc.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Tronco_Enc=? WHERE ID_Gilenya=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_acConsigliatiKeyReleased
+    }//GEN-LAST:event_troncoEncFocusLost
 
-    private void noteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noteKeyReleased
+    private void deambulazioneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_deambulazioneFocusLost
+        if(!deambulazioneEdit)
+            return;
+        deambulazioneEdit=false;
+        String val=Utilita.virgolaToPunto(deambulazione.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Deambulazione=? WHERE ID_Gilenya=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deambulazioneFocusLost
+
+    private void edssFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edssFocusLost
+        if(!edssEdit)
+            return;
+        edssEdit=false;
+        String val=Utilita.virgolaToPunto(edss.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET EDSS=? WHERE ID_Gilenya=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idGilenya);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_edssFocusLost
+
+    private void edssKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edssKeyReleased
+        edssEdit=true;
+    }//GEN-LAST:event_edssKeyReleased
+
+    private void noteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_noteFocusLost
+        if(!noteEdit)
+            return;
+        noteEdit=false;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Note=? WHERE ID_Gilenya=?");
             pst.setString(1,note.getText());
@@ -485,95 +772,63 @@ public class GilenyaUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_noteKeyReleased
+    }//GEN-LAST:event_noteFocusLost
 
-    private void piramidaleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_piramidaleKeyReleased
+    private void acConsigliatiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_acConsigliatiFocusLost
+        if(!acConsigliatiEdit)
+            return;
+        acConsigliatiEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Piramidale=? WHERE ID_Gilenya=?");
-            pst.setDouble(1,Double.parseDouble(piramidale.getText()));
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Accertamenti_Consigliati=? WHERE ID_Gilenya=?");
+            pst.setString(1,acConsigliati.getText());
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_piramidaleKeyReleased
+    }//GEN-LAST:event_acConsigliatiFocusLost
 
-    private void sensitivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sensitivoKeyReleased
+    private void terSintoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_terSintoFocusLost
+        if(!terSintoEdit)
+            return;
+        terSintoEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Sensitivo=? WHERE ID_Gilenya=?");
-            pst.setDouble(1,Double.parseDouble(sensitivo.getText()));
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Terapia_Sintomatica=? WHERE ID_Gilenya=?");
+            pst.setString(1,terSinto.getText());
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_sensitivoKeyReleased
+    }//GEN-LAST:event_terSintoFocusLost
 
-    private void visivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_visivoKeyReleased
+    private void esameObbNeuroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_esameObbNeuroFocusLost
+        if(!esameObbNeuroEdit)
+            return;
+        esameObbNeuroEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Visivo=? WHERE ID_Gilenya=?");
-            pst.setDouble(1,Double.parseDouble(visivo.getText()));
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET EON=? WHERE ID_Gilenya=?");
+            pst.setString(1,esameObbNeuro.getText());
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_visivoKeyReleased
+    }//GEN-LAST:event_esameObbNeuroFocusLost
 
-    private void troncoEncKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_troncoEncKeyReleased
+    private void diarioClinicoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_diarioClinicoFocusLost
+        if(!diarioClinicoEdit)
+            return;
+        diarioClinicoEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Tronco_Enc=? WHERE ID_Gilenya=?");
-            pst.setDouble(1,Double.parseDouble(troncoEnc.getText()));
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Diario_Clinico=? WHERE ID_Gilenya=?");
+            pst.setString(1,diarioClinico.getText());
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_troncoEncKeyReleased
-
-    private void cerebellareKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cerebellareKeyReleased
-       try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Cerebellare=? WHERE ID_Gilenya=?");
-            pst.setDouble(1,Double.parseDouble(cerebellare.getText()));
-            pst.setInt(2, idGilenya);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_cerebellareKeyReleased
-
-    private void sfintericheKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sfintericheKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Sfinteriche=? WHERE ID_Gilenya=?");
-            pst.setDouble(1,Double.parseDouble(sfinteriche.getText()));
-            pst.setInt(2, idGilenya);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_sfintericheKeyReleased
-
-    private void cerebraleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cerebraleKeyReleased
-       try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Cerebrale=? WHERE ID_Gilenya=?");
-            pst.setDouble(1,Double.parseDouble(cerebrale.getText()));
-            pst.setInt(2, idGilenya);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_cerebraleKeyReleased
-
-    private void deambulazioneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_deambulazioneKeyReleased
-       try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Gilenya SET Deambulazione=? WHERE ID_Gilenya=?");
-            pst.setDouble(1,Double.parseDouble(deambulazione.getText()));
-            pst.setInt(2, idGilenya);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_deambulazioneKeyReleased
+    }//GEN-LAST:event_diarioClinicoFocusLost
                                                                         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea acConsigliati;
