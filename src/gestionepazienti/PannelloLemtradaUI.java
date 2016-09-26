@@ -22,6 +22,13 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
     private boolean ureaEdit=false;
     private boolean esUrineEdit=false;
     
+    private boolean linfoHelperPerEdit=false;
+    private boolean linfTotEdit=false;
+    private boolean linfoTPerEdit=false;
+    private boolean linfoTCitoPerEdit=false;
+    private boolean linfoBPerEdit=false;
+    private boolean linfoNKPerEdit=false;
+    
     public PannelloLemtradaUI(int id, int giorno) {
         initComponents();
         idLemtrada=id;
@@ -62,7 +69,6 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             Logger.getLogger(PannelloLemtradaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
     public Double calcoloLinfociti(double tot,double per)
     {
         return (tot*per)/100;
@@ -228,6 +234,28 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             }
         });
 
+        linfTot.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                linfTotFocusLost(evt);
+            }
+        });
+        linfTot.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfTotKeyReleased(evt);
+            }
+        });
+
+        linfoTPer.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                linfoTPerFocusLost(evt);
+            }
+        });
+        linfoTPer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfoTPerKeyReleased(evt);
+            }
+        });
+
         jLabel5.setText("x10^9/L");
 
         jLabel16.setText("x10^9/L");
@@ -236,6 +264,17 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel18.setText("Linfociti T helper:");
+
+        linfoHelperPer.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                linfoHelperPerFocusLost(evt);
+            }
+        });
+        linfoHelperPer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfoHelperPerKeyReleased(evt);
+            }
+        });
 
         linfoT.setEnabled(false);
 
@@ -250,6 +289,17 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel24.setText("Linfociti T citotossici:");
 
+        linfoTCitoPer.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                linfoTCitoPerFocusLost(evt);
+            }
+        });
+        linfoTCitoPer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfoTCitoPerKeyReleased(evt);
+            }
+        });
+
         jLabel25.setText("%");
 
         linfoTCito.setEnabled(false);
@@ -259,6 +309,17 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         jLabel26.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel26.setText("Linfociti B:");
 
+        linfoBPer.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                linfoBPerFocusLost(evt);
+            }
+        });
+        linfoBPer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfoBPerKeyReleased(evt);
+            }
+        });
+
         jLabel28.setText("%");
 
         linfoB.setEnabled(false);
@@ -267,6 +328,17 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
         jLabel30.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel30.setText("Linfociti NK:");
+
+        linfoNKPer.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                linfoNKPerFocusLost(evt);
+            }
+        });
+        linfoNKPer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfoNKPerKeyReleased(evt);
+            }
+        });
 
         jLabel31.setText("%");
 
@@ -523,82 +595,57 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
     }//GEN-LAST:event_piastrineKeyReleased
 
     private void linfTotKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfTotKeyReleased
-         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_Totali=? WHERE ID_Standard=? AND Giorno=?");
-            linfociti=Double.parseDouble(linfTot.getText());
-            pst.setDouble(1,linfociti);
-            pst.setInt(2, idLemtrada);
-            pst.setInt(3,giorno);
-            //linfoT.setText(""+calcoloLinfociti(linfociti, rs.getDouble("Linfociti_T")));
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         linfTotEdit=true;
+         try{
+            linfoT.setText(""+calcoloLinfociti(Double.parseDouble(linfTot.getText()),Double.parseDouble(linfoTPer.getText())));
+        } catch(Exception e){linfoT.setText("0");}
+         try{
+            linfoHelper.setText(""+calcoloLinfociti(Double.parseDouble(linfTot.getText()),Double.parseDouble(linfoHelperPer.getText())));
+        } catch(Exception e){linfoHelper.setText("0");}
+         try{
+            linfoTCito.setText(""+calcoloLinfociti(Double.parseDouble(linfTot.getText()),Double.parseDouble(linfoTCitoPer.getText())));
+        } catch(Exception e){linfoTCito.setText("0");}
+         try{
+            linfoB.setText(""+calcoloLinfociti(Double.parseDouble(linfTot.getText()),Double.parseDouble(linfoBPer.getText())));
+        } catch(Exception e){linfoB.setText("0");}
+         try{
+            linfoNK.setText(""+calcoloLinfociti(Double.parseDouble(linfTot.getText()),Double.parseDouble(linfoNKPer.getText())));
+        } catch(Exception e){linfoNK.setText("0");}
     }//GEN-LAST:event_linfTotKeyReleased
 
     private void linfoTPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoTPerKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_T=? WHERE ID_Standard=? AND Giorno=?");
-            pst.setDouble(1,Double.parseDouble(linfoTPer.getText()));
-            pst.setInt(2, idLemtrada);
-            pst.setInt(3,giorno);
-            linfoT.setText(""+calcoloLinfociti(linfociti,Double.parseDouble(linfoTPer.getText())));
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        linfoTPerEdit=true;
+        try{
+            linfoT.setText(""+calcoloLinfociti(Double.parseDouble(linfTot.getText()),Double.parseDouble(linfoTPer.getText())));
+        } catch(Exception e){linfoT.setText("0");}
     }//GEN-LAST:event_linfoTPerKeyReleased
 
     private void linfoHelperPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoHelperPerKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_T_Helper=? WHERE ID_Standard=? AND Giorno=?");
-            pst.setDouble(1,Double.parseDouble(linfoHelperPer.getText()));
-            pst.setInt(2, idLemtrada);
-            pst.setInt(3,giorno);
-            linfoHelper.setText(""+calcoloLinfociti(linfociti,Double.parseDouble(linfoHelperPer.getText())));
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        linfoHelperPerEdit=true;
+        try{
+            linfoHelper.setText(""+calcoloLinfociti(Double.parseDouble(linfTot.getText()),Double.parseDouble(linfoHelperPer.getText())));
+        } catch(Exception e){linfoHelper.setText("0");}
     }//GEN-LAST:event_linfoHelperPerKeyReleased
 
     private void linfoTCitoPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoTCitoPerKeyReleased
-         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_T_Citotossici=? WHERE ID_Standard=? AND Giorno=?");
-            pst.setDouble(1,Double.parseDouble(linfoTCitoPer.getText()));
-            pst.setInt(2, idLemtrada);
-            pst.setInt(3,giorno);
-            linfoTCito.setText(""+calcoloLinfociti(linfociti,Double.parseDouble(linfoTCitoPer.getText())));
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         linfoTCitoPerEdit=true;
+         try{
+            linfoTCito.setText(""+calcoloLinfociti(Double.parseDouble(linfTot.getText()),Double.parseDouble(linfoTCitoPer.getText())));
+        } catch(Exception e){linfoTCito.setText("0");}
     }//GEN-LAST:event_linfoTCitoPerKeyReleased
 
     private void linfoBPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoBPerKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_B=? WHERE ID_Standard=? AND Giorno=?");
-            pst.setDouble(1,Double.parseDouble(linfoBPer.getText()));
-            pst.setInt(2, idLemtrada);
-            pst.setInt(3,giorno);
-            linfoB.setText(""+calcoloLinfociti(linfociti,Double.parseDouble(linfoBPer.getText())));
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        linfoBPerEdit=true;
+        try{
+            linfoB.setText(""+calcoloLinfociti(Double.parseDouble(linfTot.getText()),Double.parseDouble(linfoBPer.getText())));
+        } catch(Exception e){linfoB.setText("0");}
     }//GEN-LAST:event_linfoBPerKeyReleased
 
     private void linfoNKPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfoNKPerKeyReleased
-         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_NK=? WHERE ID_Standard=? AND Giorno=?");
-            pst.setDouble(1,Double.parseDouble(linfoNKPer.getText()));
-            pst.setInt(2, idLemtrada);
-            pst.setInt(3,giorno);
-            linfoNK.setText(""+calcoloLinfociti(linfociti,Double.parseDouble(linfoNKPer.getText())));
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         linfoNKPerEdit=true;
+        try{
+            linfoNK.setText(""+calcoloLinfociti(Double.parseDouble(linfTot.getText()),Double.parseDouble(linfoNKPer.getText())));
+        } catch(Exception e){linfoNK.setText("0");}
     }//GEN-LAST:event_linfoNKPerKeyReleased
 
     private void esUrineKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esUrineKeyReleased
@@ -648,7 +695,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             return;
         }
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Piatrine=? WHERE ID_Standard=? AND Giorno=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Piastrine=? WHERE ID_Standard=? AND Giorno=?");
             if(val.length()==0)
                 pst.setDouble(1,0);
             else
@@ -696,7 +743,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
            return;
        creatininaEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Creatinina=? WHERE ID_Standard=? AND AND Giorno=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Creatinina=? WHERE ID_Standard=? AND Giorno=?");
             pst.setString(1,creatinina.getText());
             pst.setInt(2, idLemtrada);
             pst.setInt(3,giorno);
@@ -705,6 +752,150 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_creatininaFocusLost
+
+    private void linfTotFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_linfTotFocusLost
+        if(!linfTotEdit)
+            return;
+        linfTotEdit=false;
+        String val=Utilita.virgolaToPunto(linfTot.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_Totali=? WHERE ID_Standard=? AND Giorno=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idLemtrada);
+            pst.setInt(3,giorno);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_linfTotFocusLost
+
+    private void linfoTPerFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_linfoTPerFocusLost
+        if(!linfoTPerEdit)
+            return;
+        linfoTPerEdit=false;
+        String val=Utilita.virgolaToPunto(linfoTPer.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_T=? WHERE ID_Standard=? AND Giorno=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idLemtrada);
+            pst.setInt(3,giorno);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_linfoTPerFocusLost
+
+    private void linfoHelperPerFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_linfoHelperPerFocusLost
+        if(!linfoHelperPerEdit)
+            return;
+        linfoHelperPerEdit=false;
+        String val=Utilita.virgolaToPunto(linfoHelperPer.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_T_Helper=? WHERE ID_Standard=? AND Giorno=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idLemtrada);
+            pst.setInt(3,giorno);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_linfoHelperPerFocusLost
+
+    private void linfoTCitoPerFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_linfoTCitoPerFocusLost
+        if(!linfoTCitoPerEdit)
+            return;
+        linfoTCitoPerEdit=false;
+        String val=Utilita.virgolaToPunto(linfoTCitoPer.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_T_Citotossici=? WHERE ID_Standard=? AND Giorno=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idLemtrada);
+            pst.setInt(3,giorno);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_linfoTCitoPerFocusLost
+
+    private void linfoBPerFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_linfoBPerFocusLost
+        if(!linfoBPerEdit)
+            return;
+        linfoBPerEdit=false;
+        String val=Utilita.virgolaToPunto(linfoBPer.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_B=? WHERE ID_Standard=? AND Giorno=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idLemtrada);
+            pst.setInt(3,giorno);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_linfoBPerFocusLost
+
+    private void linfoNKPerFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_linfoNKPerFocusLost
+       if(!linfoNKPerEdit)
+            return;
+        linfoNKPerEdit=false;
+        String val=Utilita.virgolaToPunto(linfoNKPer.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Linfociti_NK=? WHERE ID_Standard=? AND Giorno=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2, idLemtrada);
+            pst.setInt(3,giorno);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_linfoNKPerFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

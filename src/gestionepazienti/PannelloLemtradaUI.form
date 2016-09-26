@@ -396,8 +396,16 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="linfTot">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linfTotFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfTotKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="linfoTPer">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linfoTPerFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfoTPerKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
@@ -423,6 +431,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="linfoHelperPer">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linfoHelperPerFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfoHelperPerKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="linfoT">
               <Properties>
@@ -458,6 +470,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="linfoTCitoPer">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linfoTCitoPerFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfoTCitoPerKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel25">
               <Properties>
@@ -483,6 +499,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="linfoBPer">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linfoBPerFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfoBPerKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel28">
               <Properties>
@@ -508,6 +528,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="linfoNKPer">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linfoNKPerFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfoNKPerKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel31">
               <Properties>
