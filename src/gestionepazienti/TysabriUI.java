@@ -21,6 +21,16 @@ public class TysabriUI extends javax.swing.JPanel {
     private PazienteUI parent;
     private int idTysabri;
     
+    private boolean edssEdit=false;
+    private boolean deambulazioneEdit=false;
+    private boolean troncoEncEdit=false;
+    private boolean cerebraleEdit=false;
+    private boolean visivoEdit=false;
+    private boolean sfintericheEdit=false;
+    private boolean sensitivoEdit=false;
+    private boolean piramidaleEdit=false;
+    private boolean cerebellareEdit=false;
+    
     public TysabriUI(PazienteUI p,int id) {
         initComponents();
         abilitaJCV(false);
@@ -204,6 +214,11 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Piramidale:");
 
+        piramidale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                piramidaleFocusLost(evt);
+            }
+        });
         piramidale.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 piramidaleKeyReleased(evt);
@@ -213,6 +228,11 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Sensitivo:");
 
+        sensitivo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sensitivoFocusLost(evt);
+            }
+        });
         sensitivo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 sensitivoKeyReleased(evt);
@@ -222,6 +242,11 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setText("Visivo:");
 
+        visivo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                visivoFocusLost(evt);
+            }
+        });
         visivo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 visivoKeyReleased(evt);
@@ -231,6 +256,11 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel11.setText("Tronco Enc.:");
 
+        troncoEnc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                troncoEncFocusLost(evt);
+            }
+        });
         troncoEnc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 troncoEncKeyReleased(evt);
@@ -240,6 +270,11 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel12.setText("Cerebellare:");
 
+        cerebellare.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cerebellareFocusLost(evt);
+            }
+        });
         cerebellare.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cerebellareKeyReleased(evt);
@@ -249,6 +284,11 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel13.setText("Sfinteriche:");
 
+        sfinteriche.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sfintericheFocusLost(evt);
+            }
+        });
         sfinteriche.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 sfintericheKeyReleased(evt);
@@ -258,6 +298,11 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel14.setText("Cerebrale:");
 
+        cerebrale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cerebraleFocusLost(evt);
+            }
+        });
         cerebrale.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cerebraleKeyReleased(evt);
@@ -267,6 +312,11 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel15.setText("Deambulazione:");
 
+        deambulazione.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                deambulazioneFocusLost(evt);
+            }
+        });
         deambulazione.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 deambulazioneKeyReleased(evt);
@@ -348,9 +398,14 @@ public class TysabriUI extends javax.swing.JPanel {
 
         jPanel5.setBackground(java.awt.Color.blue);
 
+        edss.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                edssFocusLost(evt);
+            }
+        });
         edss.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                edssKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                edssKeyReleased(evt);
             }
         });
 
@@ -767,26 +822,6 @@ public class TysabriUI extends javax.swing.JPanel {
         return dataset;
     }
     
-    private void edssKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edssKeyTyped
-        //FINIREE
-        if(edss.getText().length()!=0 && !Utilita.isNumeric(edss.getText()))
-        {
-            edss.setText(edss.getText().substring(0, edss.getText().length()-1));
-            return;
-        }
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET EDSS=? WHERE ID_Tysabri=?");
-            if(edss.getText().length()==0)
-            pst.setDouble(1,0);
-            else
-            pst.setDouble(1,Double.parseDouble(edss.getText()));
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_edssKeyTyped
-
     private void rmCervDorsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rmCervDorsKeyReleased
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET RM_Cervico_Dorsale=? WHERE ID_Tysabri=?");
@@ -911,92 +946,247 @@ public class TysabriUI extends javax.swing.JPanel {
     }//GEN-LAST:event_indexNewActionPerformed
 
     private void piramidaleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_piramidaleKeyReleased
-         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Piramidale=? WHERE ID_Tysabri=?");
-            pst.setDouble(1,Double.parseDouble(piramidale.getText()));
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         piramidaleEdit=true;
     }//GEN-LAST:event_piramidaleKeyReleased
 
     private void sensitivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sensitivoKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Sensitivo=? WHERE ID_Tysabri=?");
-            pst.setDouble(1,Double.parseDouble(sensitivo.getText()));
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        sensitivoEdit=true;
     }//GEN-LAST:event_sensitivoKeyReleased
 
     private void visivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_visivoKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Visivo=? WHERE ID_Tysabri=?");
-            pst.setDouble(1,Double.parseDouble(visivo.getText()));
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        visivoEdit=true;
     }//GEN-LAST:event_visivoKeyReleased
 
     private void troncoEncKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_troncoEncKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Tronco_Enc=? WHERE ID_Tysabri=?");
-            pst.setDouble(1,Double.parseDouble(troncoEnc.getText()));
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        troncoEncEdit=true;
     }//GEN-LAST:event_troncoEncKeyReleased
 
     private void cerebellareKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cerebellareKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Cerebellare=? WHERE ID_Tysabri=?");
-            pst.setDouble(1,Double.parseDouble(cerebellare.getText()));
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        cerebellareEdit=true;
     }//GEN-LAST:event_cerebellareKeyReleased
 
     private void sfintericheKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sfintericheKeyReleased
-       try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Sfinteriche=? WHERE ID_Tysabri=?");
-            pst.setDouble(1,Double.parseDouble(sfinteriche.getText()));
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       sfintericheEdit=true;
     }//GEN-LAST:event_sfintericheKeyReleased
 
     private void cerebraleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cerebraleKeyReleased
-        try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Cerebrale=? WHERE ID_Tysabri=?");
-            pst.setDouble(1,Double.parseDouble(cerebrale.getText()));
-            pst.setInt(2, idTysabri);
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        cerebraleEdit=true;
     }//GEN-LAST:event_cerebraleKeyReleased
 
     private void deambulazioneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_deambulazioneKeyReleased
+        deambulazioneEdit=true;
+    }//GEN-LAST:event_deambulazioneKeyReleased
+
+    private void edssKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edssKeyReleased
+        edssEdit=true;
+    }//GEN-LAST:event_edssKeyReleased
+
+    private void edssFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edssFocusLost
+        if(!edssEdit)
+            return;
+        edssEdit=false;
+        String val=Utilita.virgolaToPunto(edss.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Deambulazione=? WHERE ID_Tysabri=?");
-            pst.setDouble(1,Double.parseDouble(deambulazione.getText()));
-            pst.setInt(2, idTysabri);
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET EDSS=? WHERE ID_Tysabri=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2,idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_edssFocusLost
+
+    private void piramidaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_piramidaleFocusLost
+        if(!piramidaleEdit)
+            return;
+        piramidaleEdit=false;
+        String val=Utilita.virgolaToPunto(piramidale.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Piramidale=? WHERE ID_Tysabri=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2,idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_piramidaleFocusLost
+
+    private void cerebellareFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cerebellareFocusLost
+        if(!cerebellareEdit)
+            return;
+        cerebellareEdit=false;
+        String val=Utilita.virgolaToPunto(cerebellare.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Cerebellare=? WHERE ID_Tysabri=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2,idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_cerebellareFocusLost
+
+    private void sensitivoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sensitivoFocusLost
+        if(!sensitivoEdit)
+            return;
+        sensitivoEdit=false;
+        String val=Utilita.virgolaToPunto(sensitivo.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Sensitivo=? WHERE ID_Tysabri=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2,idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_sensitivoFocusLost
+
+    private void sfintericheFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sfintericheFocusLost
+        if(!sfintericheEdit)
+            return;
+        sfintericheEdit=false;
+        String val=Utilita.virgolaToPunto(sfinteriche.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+           PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Sfinteriche=? WHERE ID_Tysabri=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2,idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_sfintericheFocusLost
+
+    private void visivoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_visivoFocusLost
+        if(!visivoEdit)
+            return;
+        visivoEdit=false;
+        String val=Utilita.virgolaToPunto(visivo.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+           PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Visivo=? WHERE ID_Tysabri=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2,idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }//GEN-LAST:event_visivoFocusLost
+
+    private void cerebraleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cerebraleFocusLost
+        if(!cerebraleEdit)
+            return;
+        cerebraleEdit=false;
+        String val=Utilita.virgolaToPunto(cerebrale.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+           PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Cerebrale=? WHERE ID_Tysabri=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2,idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_deambulazioneKeyReleased
+    }//GEN-LAST:event_cerebraleFocusLost
+
+    private void troncoEncFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_troncoEncFocusLost
+        if(!troncoEncEdit)
+            return;
+        troncoEncEdit=false;
+        String val=Utilita.virgolaToPunto(troncoEnc.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+           PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Tronco_Enc=? WHERE ID_Tysabri=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2,idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }      
+    }//GEN-LAST:event_troncoEncFocusLost
+
+    private void deambulazioneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_deambulazioneFocusLost
+        if(!deambulazioneEdit)
+            return;
+        deambulazioneEdit=false;
+        String val=Utilita.virgolaToPunto(deambulazione.getText());
+        if(val.length()!=0 && !Utilita.isNumeric(val))
+        {
+            Utilita.mostraMessaggioErrore("Controllare i dati inseriti");
+            return;
+        }
+        try {
+           PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Tysabri SET Deambulazione=? WHERE ID_Tysabri=?");
+            if(val.length()==0)
+                pst.setDouble(1,0);
+            else
+                pst.setDouble(1,Double.parseDouble(val));
+            pst.setInt(2,idTysabri);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }//GEN-LAST:event_deambulazioneFocusLost
 
     
     
