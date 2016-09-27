@@ -49,11 +49,11 @@ public class Barra extends javax.swing.JPanel {
                     if(tipo.next())
                         y=tipo.getInt("Terapia_Principale");
                     if(y==1)
-                        colore=Color.CYAN.brighter().brighter();
+                        colore=new Color(205,239,243);
                     else if(y==2)
-                        colore=Color.CYAN;
+                        colore=new Color(167,169,254);
                     else if(y==3)
-                        colore=Color.BLUE;
+                        colore=new Color(11,17,253);
                     else
                         colore=Color.WHITE;
                 }

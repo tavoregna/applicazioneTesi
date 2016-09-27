@@ -295,7 +295,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         if(tipoControllo==1)
-            Barra.prevColor(Color.CYAN);
+            Barra.prevColor(new Color(167,169,254));
         
         unvisibleAll();
         
@@ -312,7 +312,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         if(tipoControllo==1)
-            Barra.prevColor(Color.BLUE);
+            Barra.prevColor(new Color(11,17,253));
         
         unvisibleAll();
         buttonTer3.setVisible(true);
@@ -328,7 +328,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         unvisibleAll();
         buttonTer.setVisible(true);
         if(tipoControllo==1)
-            Barra.prevColor(Color.CYAN.brighter().brighter());
+            Barra.prevColor(new Color(205,239,243));
         aggiornaRadioButtonControllo(1);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
