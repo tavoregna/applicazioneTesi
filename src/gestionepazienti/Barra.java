@@ -73,7 +73,7 @@ public class Barra extends javax.swing.JPanel {
             }
         } 
         catch (SQLException ex) {
-            Logger.getLogger(BarraControlliUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM DH_Standard WHERE ID_Paziente="+id+" ORDER BY Data ASC");
@@ -86,7 +86,7 @@ public class Barra extends javax.swing.JPanel {
             }
         } 
         catch (SQLException ex) {
-            Logger.getLogger(BarraControlliUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
         }
          try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Diagnosi_Paziente WHERE ID_Paziente="+id+" ORDER BY Data_Diagnosi ASC");
@@ -98,7 +98,7 @@ public class Barra extends javax.swing.JPanel {
             }
         } 
         catch (SQLException ex) {
-            Logger.getLogger(BarraControlliUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
         }
         ordinaPulsanti();
         aggiungiPulsantiAllaBarra();
@@ -144,7 +144,7 @@ public class Barra extends javax.swing.JPanel {
         int tipo=premuto.getTipo();
         if(tipo==1)
         {
-            parent.pressionePulsanteBarra(1, premuto.getData(), false);//Pazienti.getCurrID()
+            parent.pressionePulsanteBarra(Pazienti.getCurrID(), premuto.getData());
             parent.selezionaScheda(1);
             return;
         }
