@@ -61,11 +61,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="9" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jTabbedPane1" min="-2" pref="428" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="298" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -599,6 +599,7 @@
                         <Property name="rows" type="int" value="1"/>
                       </Properties>
                       <Events>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="controlloFocusLost"/>
                         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="controlloKeyReleased"/>
                       </Events>
                     </Component>
@@ -606,6 +607,7 @@
                 </Container>
                 <Component class="javax.swing.JTextField" name="ospedale">
                   <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ospedaleFocusLost"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ospedaleKeyReleased"/>
                   </Events>
                 </Component>
@@ -774,6 +776,7 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="iggIF">
                           <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="iggIFFocusLost"/>
                             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="iggIFKeyReleased"/>
                           </Events>
                         </Component>
@@ -787,6 +790,7 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="iggLOC">
                           <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="iggLOCFocusLost"/>
                             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="iggLOCKeyReleased"/>
                           </Events>
                         </Component>
@@ -800,6 +804,7 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="iggIndex">
                           <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="iggIndexFocusLost"/>
                             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="iggIndexKeyReleased"/>
                           </Events>
                         </Component>
@@ -1015,6 +1020,7 @@
                                 <Property name="rows" type="int" value="1"/>
                               </Properties>
                               <Events>
+                                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pevFocusLost"/>
                                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pevKeyReleased"/>
                               </Events>
                             </Component>
@@ -1103,6 +1109,7 @@
                             <Property name="rows" type="int" value="1"/>
                           </Properties>
                           <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="npsiFocusLost"/>
                             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="npsiKeyReleased"/>
                           </Events>
                         </Component>
@@ -1188,6 +1195,7 @@
                             <Property name="rows" type="int" value="1"/>
                           </Properties>
                           <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="varieFocusLost"/>
                             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="varieKeyReleased"/>
                           </Events>
                         </Component>
@@ -1430,6 +1438,7 @@
                             <Property name="rows" type="int" value="1"/>
                           </Properties>
                           <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="octFocusLost"/>
                             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="octKeyReleased"/>
                           </Events>
                         </Component>
