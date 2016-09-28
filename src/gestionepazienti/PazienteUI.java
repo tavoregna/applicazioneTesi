@@ -4,7 +4,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
@@ -41,6 +40,7 @@ public class PazienteUI extends javax.swing.JFrame {
         initComponents();
         idControlloCorrente=null;
         
+        eliminaDiagnosi.setVisible(Opzioni.cancellaAttivo);
         caricaFile.setVisible(false);
         
         pannelloDiagnosticaAttivo(false);
@@ -174,7 +174,7 @@ public class PazienteUI extends javax.swing.JFrame {
         caricaFile = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         addButtonDia = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        eliminaDiagnosi = new javax.swing.JButton();
         controlliAmb = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         cognomeContrAmb = new javax.swing.JTextField();
@@ -936,7 +936,7 @@ public class PazienteUI extends javax.swing.JFrame {
                     .addComponent(jLabel72)
                     .addComponent(dataRMN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelRMN, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jPanelRMN, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1079,7 +1079,7 @@ public class PazienteUI extends javax.swing.JFrame {
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1093,9 +1093,14 @@ public class PazienteUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(java.awt.Color.red);
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setText("X");
+        eliminaDiagnosi.setBackground(java.awt.Color.red);
+        eliminaDiagnosi.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        eliminaDiagnosi.setText("X");
+        eliminaDiagnosi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminaDiagnosiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout diagnosticaLayout = new javax.swing.GroupLayout(diagnostica);
         diagnostica.setLayout(diagnosticaLayout);
@@ -1105,7 +1110,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addButtonDia, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(eliminaDiagnosi, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(diagnosticaLayout.createSequentialGroup()
@@ -1124,7 +1129,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 .addGap(100, 100, 100))
         );
 
-        diagnosticaLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addButtonDia, jButton1});
+        diagnosticaLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addButtonDia, eliminaDiagnosi});
 
         diagnosticaLayout.setVerticalGroup(
             diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1144,7 +1149,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 .addGroup(diagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pannelloDiagnostica, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, diagnosticaLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(eliminaDiagnosi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panelBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2653,6 +2658,23 @@ public class PazienteUI extends javax.swing.JFrame {
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_iggIFFocusLost
+
+    private void eliminaDiagnosiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaDiagnosiActionPerformed
+         if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("DELETE FROM Diagnosi_Paziente WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setDate(1, dataCampiDiagnosi());
+            pst.setInt(2,Pazienti.getCurrID());
+            pst.executeUpdate();
+            pannelloDiagnosticaAttivo(false);
+            azzeraCampiDiagnosi();
+            barr.aggiornaBarra(Pazienti.getCurrID());
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_eliminaDiagnosiActionPerformed
     private Date dataCampiDiagnosi()
     {
         String dataM=pannelloDiagnostica.getName();
@@ -2755,7 +2777,7 @@ public class PazienteUI extends javax.swing.JFrame {
         barr.aggiornaBarra(id);
         
         azzeraCampiDiagnosi();
-       // datiDiagnosi(id);
+        datiDiagnosi(id);
         
         abilitaBarraSuperioreControllo(false);
         abilitaBarraSuperioreDH(false);
@@ -3099,6 +3121,16 @@ public class PazienteUI extends javax.swing.JFrame {
                 npsi.setText(null);
                 varie.setText(null);
     }
+    public void aggiornaBarra()
+    {
+        barr.aggiornaBarra(Pazienti.getCurrID());
+    }
+    public void pulisciPanelDH()
+    {
+        panelDH.removeAll();
+        panelDH.setVisible(false);
+        panelDH.setVisible(true);
+    }
     public void abilitaBarraSuperioreControllo(boolean b)
     {
         dataContrAmb.setEnabled(b);
@@ -3153,6 +3185,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXDatePicker dataRMN;
     private javax.swing.JComboBox<String> diagnosi;
     private javax.swing.JPanel diagnostica;
+    private javax.swing.JButton eliminaDiagnosi;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
@@ -3164,7 +3197,6 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextField iggLOC;
     private javax.swing.JButton indietro;
     private javax.swing.JTextField indirizzo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;

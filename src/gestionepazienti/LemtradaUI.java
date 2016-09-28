@@ -1,6 +1,5 @@
 package gestionepazienti;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,6 +18,7 @@ public class LemtradaUI extends javax.swing.JPanel {
     public LemtradaUI(PazienteUI p,int id) {
         initComponents();
         parent=p;
+        cancellaLemtrada.setVisible(Opzioni.cancellaAttivo);
         numero=0;
         idStandardDH=id;
         pannello.setLayout(new BoxLayout(pannello, BoxLayout.Y_AXIS));
@@ -62,7 +62,7 @@ public class LemtradaUI extends javax.swing.JPanel {
         pannello = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         num = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        cancellaLemtrada = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 153));
 
@@ -89,9 +89,14 @@ public class LemtradaUI extends javax.swing.JPanel {
 
         jLabel1.setText("Numero giorni:");
 
-        jButton2.setBackground(java.awt.Color.red);
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2.setText("X");
+        cancellaLemtrada.setBackground(java.awt.Color.red);
+        cancellaLemtrada.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cancellaLemtrada.setText("X");
+        cancellaLemtrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancellaLemtradaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -102,7 +107,7 @@ public class LemtradaUI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pannello, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(cancellaLemtrada)
                         .addGap(60, 60, 60)
                         .addComponent(jButton1)
                         .addGap(46, 46, 46)
@@ -120,7 +125,7 @@ public class LemtradaUI extends javax.swing.JPanel {
                     .addComponent(jButton1)
                     .addComponent(jLabel1)
                     .addComponent(num, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(cancellaLemtrada))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pannello, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -147,10 +152,25 @@ public class LemtradaUI extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void cancellaLemtradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancellaLemtradaActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("DELETE FROM Lemtrada WHERE ID_Standard=?");
+            pst.setInt(1, idStandardDH);
+            pst.executeUpdate();
+            pst=GestioneDatabase.preparedStatement("DELETE FROM DH_Standard WHERE ID_DH=?");
+            pst.setInt(1, idStandardDH);
+            pst.executeUpdate();
+            parent.pulisciPanelDH();
+            parent.aggiornaBarra();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cancellaLemtradaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancellaLemtrada;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField num;
     private javax.swing.JPanel pannello;
