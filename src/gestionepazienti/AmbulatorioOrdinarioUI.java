@@ -1,6 +1,10 @@
 package gestionepazienti;
 
 import java.awt.Color;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 
 
@@ -87,6 +91,11 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
         cancellaOrdinario.setBackground(java.awt.Color.red);
         cancellaOrdinario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         cancellaOrdinario.setText("X");
+        cancellaOrdinario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancellaOrdinarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -122,6 +131,24 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
                 .addContainerGap(220, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cancellaOrdinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancellaOrdinarioActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("DELETE FROM Ambulatorio_Ordinario WHERE Controllo_Standard=?");
+            pst.setInt(1, idControllo);
+            pst.executeUpdate();
+            pst=GestioneDatabase.preparedStatement("DELETE FROM Controllo_Esame WHERE Controllo=?");
+            pst.setInt(1, idControllo);
+            pst.executeUpdate();
+            pst=GestioneDatabase.preparedStatement("DELETE FROM Controllo_Standard WHERE ID_Controllo=?");
+            pst.setInt(1, idControllo);
+            pst.executeUpdate();
+            parent.pulisciPanelControlloAmb();
+            parent.aggiornaBarra();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cancellaOrdinarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

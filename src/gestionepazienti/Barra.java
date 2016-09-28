@@ -164,6 +164,19 @@ public class Barra extends javax.swing.JPanel {
         }
         
     }
+    //1=DIAGNOSTICA, 2=CONTROLLO AMBULATORIALE, 3=TERAPIA INFUSIVA
+   public void settaSelezionato(int tipo,int id,Date data)
+   {
+       for(int i=0;i<pulsanti.size();i++)
+       {
+           PulsanteBarra temp=pulsanti.get(i);
+           if(temp.getTipo()==tipo && ((tipo==1 && temp.getData().equals(data)) || ((tipo==2 || tipo==3) && temp.getIdControllo()==id)))
+           {
+               aggiornaBordoPulsante(temp);
+               return;
+           }
+       }
+   }
    private void aggiornaBordoPulsante(PulsanteBarra premuto)
     {
         if(prevButton!=null)

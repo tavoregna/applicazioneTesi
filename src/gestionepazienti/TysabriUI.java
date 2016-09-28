@@ -847,25 +847,31 @@ public class TysabriUI extends javax.swing.JPanel {
         panelGrafico.setVisible(false);
         panelGrafico.setVisible(true);
         
-        /*JFreeChart chart = ChartFactory.createXYLineChart(
-            "Istogramma", "Anno", "Numero di iscritti",
-            null, PlotOrientation.VERTICAL,
-            true, true, true);
-        try {
-            ChartUtilities.saveChartAsPNG(new java.io.File("function.png"), chart, 400, 500);
-        } catch (IOException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
     }//GEN-LAST:event_graficoEDSSActionPerformed
                                            
     private DefaultCategoryDataset datiGrafico()
     {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
-        ResultSet rs=GestioneDatabase.querySelect("SELECT EDSS,Data FROM Tysabri INNER JOIN DH_Standard ON ID_Tysabri=ID_DH WHERE ID_DH="+idTysabri+" ORDER BY Data ASC");
+        //ResultSet rs=GestioneDatabase.querySelect("SELECT EDSS,Data FROM Tysabri INNER JOIN DH_Standard ON ID_Tysabri=ID_DH WHERE ID_Paziente="+Pazienti.getCurrID()+" ORDER BY Data ASC");
+        //ResultSet rs=GestioneDatabase.querySelect("SELECT EDSS,Data FROM Controllo_Standard WHERE ID_Paziente="+Pazienti.getCurrID()+" ORDER BY Data ASC");
+        ResultSet rs=GestioneDatabase.querySelect("SELECT EDSS,Data FROM (SELECT EDSS,Data FROM Tysabri INNER JOIN DH_Standard ON ID_Tysabri=ID_DH WHERE ID_Paziente="+Pazienti.getCurrID()+") UNION (SELECT EDSS,Data FROM Controllo_Standard WHERE ID_Paziente="+Pazienti.getCurrID()+") ORDER BY Data ASC");
+        Date prev=null;
+        int i=1;
         try {
             while(rs.next())
             {
-                dataset.addValue(rs.getDouble(1), "",Utilita.dataToString(rs.getDate(2)));
+                String s=Utilita.dataToString(rs.getDate(2));
+                if(prev!=null && prev.equals(rs.getDate(2)))
+                {
+                    i++;
+                    s+="-"+i;
+                }
+                else
+                {
+                    prev=rs.getDate(2);
+                    i=1;
+                }
+                dataset.addValue(rs.getDouble(1), "",s);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);

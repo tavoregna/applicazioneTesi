@@ -197,6 +197,11 @@ public class RicadutaUI extends javax.swing.JPanel {
         cancellaRicaduta.setBackground(java.awt.Color.red);
         cancellaRicaduta.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         cancellaRicaduta.setText("X");
+        cancellaRicaduta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancellaRicadutaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -290,6 +295,24 @@ public class RicadutaUI extends javax.swing.JPanel {
             Logger.getLogger(RicadutaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_noteFocusLost
+
+    private void cancellaRicadutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancellaRicadutaActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("DELETE FROM Ricaduta WHERE Controllo_Standard=?");
+            pst.setInt(1, idControllo);
+            pst.executeUpdate();
+            pst=GestioneDatabase.preparedStatement("DELETE FROM Controllo_Esame WHERE Controllo=?");
+            pst.setInt(1, idControllo);
+            pst.executeUpdate();
+            pst=GestioneDatabase.preparedStatement("DELETE FROM Controllo_Standard WHERE ID_Controllo=?");
+            pst.setInt(1, idControllo);
+            pst.executeUpdate();
+            parent.pulisciPanelControlloAmb();
+            parent.aggiornaBarra();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cancellaRicadutaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
