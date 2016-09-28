@@ -136,6 +136,16 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         diarioClinico.setBackground(new java.awt.Color(149, 238, 234));
         diarioClinico.setColumns(20);
         diarioClinico.setRows(5);
+        diarioClinico.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                diarioClinicoFocusLost(evt);
+            }
+        });
+        diarioClinico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                diarioClinicoKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(diarioClinico);
 
         jPanel4.setBackground(java.awt.Color.blue);
@@ -896,6 +906,25 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linfoNKPerFocusLost
+
+    private void diarioClinicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diarioClinicoKeyReleased
+       diarioClinicoEdit=true;
+    }//GEN-LAST:event_diarioClinicoKeyReleased
+
+    private void diarioClinicoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_diarioClinicoFocusLost
+        if(!diarioClinicoEdit)
+            return;
+        diarioClinicoEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Lemtrada SET Diario_Clinico=? WHERE ID_Standard=? AND Giorno=?");
+            pst.setString(1,diarioClinico.getText());
+            pst.setInt(2, idLemtrada);
+            pst.setInt(3,giorno);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_diarioClinicoFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

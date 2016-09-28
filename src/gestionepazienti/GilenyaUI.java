@@ -32,6 +32,7 @@ public class GilenyaUI extends javax.swing.JPanel {
     public GilenyaUI(PazienteUI p,int id) {
         initComponents();
         idGilenya=id;
+        cancellaGilenya.setVisible(Opzioni.cancellaAttivo);
         parent=p;
         aggiornaDatiGilenya(idGilenya);
     }
@@ -103,7 +104,7 @@ public class GilenyaUI extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         acConsigliati = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        cancellaGilenya = new javax.swing.JButton();
 
         setOpaque(false);
 
@@ -432,9 +433,14 @@ public class GilenyaUI extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(acConsigliati);
 
-        jButton1.setBackground(java.awt.Color.red);
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setText("X");
+        cancellaGilenya.setBackground(java.awt.Color.red);
+        cancellaGilenya.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cancellaGilenya.setText("X");
+        cancellaGilenya.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancellaGilenyaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -458,7 +464,7 @@ public class GilenyaUI extends javax.swing.JPanel {
                             .addComponent(jScrollPane3)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(cancellaGilenya)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1)
@@ -471,7 +477,7 @@ public class GilenyaUI extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cancellaGilenya, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -501,7 +507,7 @@ public class GilenyaUI extends javax.swing.JPanel {
                 .addGap(21, 21, 21))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cancellaGilenya, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -837,16 +843,31 @@ public class GilenyaUI extends javax.swing.JPanel {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_diarioClinicoFocusLost
+
+    private void cancellaGilenyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancellaGilenyaActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("DELETE FROM Gilenya WHERE ID_Gilenya=?");
+            pst.setInt(1, idGilenya);
+            pst.executeUpdate();
+            pst=GestioneDatabase.preparedStatement("DELETE FROM DH_Standard WHERE ID_DH=?");
+            pst.setInt(1, idGilenya);
+            pst.executeUpdate();
+            parent.pulisciPanelDH();
+            parent.aggiornaBarra();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cancellaGilenyaActionPerformed
                                                                         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea acConsigliati;
+    private javax.swing.JButton cancellaGilenya;
     private javax.swing.JTextField cerebellare;
     private javax.swing.JTextField cerebrale;
     private javax.swing.JTextField deambulazione;
     private javax.swing.JTextArea diarioClinico;
     private javax.swing.JTextField edss;
     private javax.swing.JTextArea esameObbNeuro;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -14,6 +14,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
     public AmbulatorioOrdinarioUI(PazienteUI p, int id) {
         initComponents();
         parent=p;
+        cancellaOrdinario.setVisible(Opzioni.cancellaAttivo);
         idControllo=id;
         standard=new ControlloAmbulatorialeStandardUI(parent,idControllo);
         terPrincipale=new TerapiaPrincipaleUI(parent,1,idControllo);
@@ -49,7 +50,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
         panelStandard = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         panelTerPrincipale = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        cancellaOrdinario = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 153));
         setPreferredSize(new java.awt.Dimension(1100, 733));
@@ -83,9 +84,9 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
             .addGap(0, 146, Short.MAX_VALUE)
         );
 
-        jButton1.setBackground(java.awt.Color.red);
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setText("X");
+        cancellaOrdinario.setBackground(java.awt.Color.red);
+        cancellaOrdinario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cancellaOrdinario.setText("X");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -99,7 +100,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelTerPrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(cancellaOrdinario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelStandard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(364, Short.MAX_VALUE))
@@ -110,7 +111,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelStandard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(cancellaOrdinario))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
@@ -124,8 +125,8 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancellaOrdinario;
     private javax.swing.ButtonGroup gruppoTeraPrinc;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panelStandard;
     private javax.swing.JPanel panelTerPrincipale;

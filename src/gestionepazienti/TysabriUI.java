@@ -42,6 +42,7 @@ public class TysabriUI extends javax.swing.JPanel {
     public TysabriUI(PazienteUI p,int id) {
         initComponents();
         abilitaJCV(false);
+        cancellaTysabri.setVisible(Opzioni.cancellaAttivo);
         idTysabri=id;
         parent=p;
         aggiornaDatiTysabri(idTysabri);
@@ -154,7 +155,7 @@ public class TysabriUI extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         note = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
+        cancellaTysabri = new javax.swing.JButton();
 
         setOpaque(false);
 
@@ -706,8 +707,13 @@ public class TysabriUI extends javax.swing.JPanel {
         });
         jScrollPane8.setViewportView(note);
 
-        jButton2.setBackground(java.awt.Color.red);
-        jButton2.setText("X");
+        cancellaTysabri.setBackground(java.awt.Color.red);
+        cancellaTysabri.setText("X");
+        cancellaTysabri.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancellaTysabriActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -742,7 +748,7 @@ public class TysabriUI extends javax.swing.JPanel {
                                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jScrollPane3)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(cancellaTysabri)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane1)
@@ -757,7 +763,7 @@ public class TysabriUI extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cancellaTysabri, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -799,7 +805,7 @@ public class TysabriUI extends javax.swing.JPanel {
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jScrollPane2, jScrollPane4});
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton2, jLabel1, jLabel3, jPanel1});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cancellaTysabri, jLabel1, jLabel3, jPanel1});
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel17, jLabel5});
 
@@ -1307,6 +1313,21 @@ public class TysabriUI extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_diarioClinicoFocusLost
 
+    private void cancellaTysabriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancellaTysabriActionPerformed
+         try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("DELETE FROM Tysabri WHERE ID_Tysabri=?");
+            pst.setInt(1, idTysabri);
+            pst.executeUpdate();
+            pst=GestioneDatabase.preparedStatement("DELETE FROM DH_Standard WHERE ID_DH=?");
+            pst.setInt(1, idTysabri);
+            pst.executeUpdate();
+            parent.pulisciPanelDH();
+            parent.aggiornaBarra();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cancellaTysabriActionPerformed
+
     
     
     public void inserisciJCV(boolean b)
@@ -1328,6 +1349,7 @@ public class TysabriUI extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addJCV;
+    private javax.swing.JButton cancellaTysabri;
     private javax.swing.JTextField cerebellare;
     private javax.swing.JTextField cerebrale;
     private org.jdesktop.swingx.JXDatePicker dataEsamEmato;
@@ -1343,7 +1365,6 @@ public class TysabriUI extends javax.swing.JPanel {
     private javax.swing.JButton graficoEDSS;
     private javax.swing.JTextField index;
     private javax.swing.JTextField indexNew;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
