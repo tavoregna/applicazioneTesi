@@ -271,6 +271,7 @@ public class PazienteUI extends javax.swing.JFrame {
         setTitle("PAZIENTE");
         setBackground(new java.awt.Color(255, 255, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
         jTabbedPane1.setBackground(new java.awt.Color(239, 228, 176));
         jTabbedPane1.setToolTipText("");
