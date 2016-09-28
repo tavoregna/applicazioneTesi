@@ -39,6 +39,7 @@ public class PazienteUI extends javax.swing.JFrame {
     public PazienteUI() {
         initComponents();
         idControlloCorrente=null;
+        idDHCorrente=null;
         
         eliminaDiagnosi.setVisible(Opzioni.cancellaAttivo);
         caricaFile.setVisible(false);
@@ -2048,6 +2049,8 @@ public class PazienteUI extends javax.swing.JFrame {
             pst.executeUpdate();
             pannelloDiagnostica.setName(""+d.getTime());
             datiDiagnosi(Pazienti.getCurrID());
+            barr.aggiornaBarra(Pazienti.getCurrID());
+            barr.settaSelezionato(1, 0, d);
             
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);   
@@ -2166,7 +2169,8 @@ public class PazienteUI extends javax.swing.JFrame {
             pst.setDate(1, Utilita.DateUtilToSQL(dataContrAmb.getDate()));
             pst.setInt(2, idControlloCorrente);
             pst.executeUpdate();
-            
+            barr.aggiornaBarra(Pazienti.getCurrID());
+            barr.settaSelezionato(2, idControlloCorrente, null);
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2326,11 +2330,40 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_terapiaPrincActionPerformed
 
     private void dataDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataDHActionPerformed
-        // TODO add your handling code here:
+        if(Pazienti.getCurrID()==null || idDHCorrente==null || !dataDH.isEnabled())
+            return;
+        try
+        {
+            if(dataDH.getDate()==null)
+            {
+                JOptionPane.showMessageDialog(null,"Devi inserire la data del CONTROLLO", "DATA MANCANTE", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE DH_Standard SET Data=? WHERE ID_DH=?");
+            pst.setDate(1, Utilita.DateUtilToSQL(dataDH.getDate()));
+            pst.setInt(2, idDHCorrente);
+            pst.executeUpdate();
+            barr.aggiornaBarra(Pazienti.getCurrID());
+            barr.settaSelezionato(3, idDHCorrente, null);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_dataDHActionPerformed
 
     private void medicoEsamDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicoEsamDHActionPerformed
-        // TODO add your handling code here:
+        if(Pazienti.getCurrID()==null || idDHCorrente==null || !medicoEsamDH.isEnabled())
+            return;
+        try
+        {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE DH_Standard SET Medico=? WHERE ID_DH=?");
+            pst.setString(1, (String)(medicoEsamDH.getSelectedItem()));
+            pst.setInt(2, idDHCorrente);
+            pst.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_medicoEsamDHActionPerformed
 
     private void terapiaPrincDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaPrincDHActionPerformed
@@ -2344,14 +2377,17 @@ public class PazienteUI extends javax.swing.JFrame {
         if(Pazienti.getCurrID()==null)
             return;
         int reply = JOptionPane.showConfirmDialog(null,"VUOI INSERIRE UNA NUOVA DIAGNOSI?", "Conferma nuova diagnosi", JOptionPane.YES_NO_OPTION);
-        if(reply==JOptionPane.NO_OPTION)
+        if(reply!=JOptionPane.YES_OPTION)
             return;      
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Diagnosi_Paziente(Data_Diagnosi,ID_Paziente) VALUES (?,?)");
-            pst.setDate(1, Utilita.DateUtilToSQL(Utilita.removeTime(new java.util.Date(System.currentTimeMillis()))));
+            Date d=Utilita.DateUtilToSQL(Utilita.removeTime(new java.util.Date(System.currentTimeMillis())));
+            pst.setDate(1,d );
             pst.setInt(2,Pazienti.getCurrID());
             pst.executeUpdate();
             barr.aggiornaBarra(Pazienti.getCurrID());
+            pressionePulsanteBarra(Pazienti.getCurrID(),d);
+            barr.settaSelezionato(1, 0, d);
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Esiste già una diagnosi con la data odierna");
@@ -2404,6 +2440,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 p.executeUpdate();
                 
                 barr.aggiornaBarra(Pazienti.getCurrID());
+                barr.settaSelezionato(2, rs.getInt(1), null);
                 aggiornaDatiControllo(rs.getInt(1));
                 abilitaBarraSuperioreControllo(true);
                 abilitaBarraSuperioreDH(true);
@@ -2468,6 +2505,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 
                 abilitaBarraSuperioreDH(true);
                 barr.aggiornaBarra(Pazienti.getCurrID());
+                barr.settaSelezionato(3, rs.getInt(1), null);
                 aggiornaDatiDH(rs.getInt(1));
             }
         }
@@ -3130,6 +3168,12 @@ public class PazienteUI extends javax.swing.JFrame {
         panelDH.removeAll();
         panelDH.setVisible(false);
         panelDH.setVisible(true);
+    }
+    public void pulisciPanelControlloAmb()
+    {
+        panelControlloAmb.removeAll();
+        panelControlloAmb.setVisible(false);
+        panelControlloAmb.setVisible(true);
     }
     public void abilitaBarraSuperioreControllo(boolean b)
     {

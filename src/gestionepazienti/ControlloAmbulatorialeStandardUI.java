@@ -482,15 +482,13 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                         .addComponent(visivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(14, 14, 14)
-                        .addComponent(deambulazione, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                        .addComponent(troncoEnc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 80, Short.MAX_VALUE))
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel11))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(troncoEnc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deambulazione, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cerebrale, deambulazione, piramidale, sensitivo, troncoEnc, visivo});
@@ -1081,11 +1079,26 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
     private DefaultCategoryDataset datiGrafico()
     {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
-        ResultSet rs=GestioneDatabase.querySelect("SELECT EDSS,Data FROM Controllo_Standard WHERE ID_Paziente="+Pazienti.getCurrID()+" ORDER BY Data ASC");
+        Date prev=null;
+        int i=1;
+        //ResultSet rs=GestioneDatabase.querySelect("SELECT EDSS,Data FROM Tysabri INNER JOIN DH_Standard ON ID_Tysabri=ID_DH WHERE ID_Paziente="+Pazienti.getCurrID()+" ORDER BY Data ASC");
+        //ResultSet rs=GestioneDatabase.querySelect("SELECT EDSS,Data FROM Controllo_Standard WHERE ID_Paziente="+Pazienti.getCurrID()+" ORDER BY Data ASC");
+        ResultSet rs=GestioneDatabase.querySelect("SELECT EDSS,Data FROM (SELECT EDSS,Data FROM Tysabri INNER JOIN DH_Standard ON ID_Tysabri=ID_DH WHERE ID_Paziente="+Pazienti.getCurrID()+") UNION (SELECT EDSS,Data FROM Controllo_Standard WHERE ID_Paziente="+Pazienti.getCurrID()+") ORDER BY Data ASC");
         try {
             while(rs.next())
             {
-                dataset.addValue(rs.getDouble(1), "",Utilita.dataToString(rs.getDate(2)));
+                String s=Utilita.dataToString(rs.getDate(2));
+                if(prev!=null && prev.equals(rs.getDate(2)))
+                {
+                    i++;
+                    s+="-"+i;
+                }
+                else
+                {
+                    prev=rs.getDate(2);
+                    i=1;
+                }
+                dataset.addValue(rs.getDouble(1), "",s);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
