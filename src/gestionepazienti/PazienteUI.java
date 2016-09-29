@@ -2830,7 +2830,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 dataDiagnosi.setDate(data);
                 ospedale.setText(rs.getString("Ospedale"));
                 controllo.setText(rs.getString("EON"));
-                caratteristicheCliniche.setSelectedItem(rs.getString("Caratteristiche_Cliniche"));
+                caratteristicheCliniche.setText(rs.getString("Caratteristiche_Cliniche"));
                 dataRMN.setDate(rs.getDate("Data_RMN"));
                 //MANCA RMN!!!!
                 dataPL.setDate(rs.getDate("Data_PL"));
@@ -3131,7 +3131,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 dataDiagnosi.setDate(null);
                 ospedale.setText(null);
                 controllo.setText(null);
-                caratteristicheCliniche.setSelectedItem(null);
+                caratteristicheCliniche.setText(null);
                 dataRMN.setDate(null);
                 //MANCA RMN!!!!
                 dataPL.setDate(null);
