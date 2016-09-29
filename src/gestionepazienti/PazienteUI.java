@@ -32,6 +32,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private boolean varieEdit=false;
     private boolean iggIndexEdit=false;
     private boolean iggLOCEdit=false;
+    private boolean caratteristicheClinicheEdit=false;
     private boolean iggIFEdit=false;
     
     private Barra barr;
@@ -54,6 +55,7 @@ public class PazienteUI extends javax.swing.JFrame {
         pannelloDiagnostica.setVisible(false);
         AggiornaCampoDiagnosi();
         AggiornaCampoTerapia();
+        AggiornaCampoEsordio();
         AggiornaMedico();
         azzeraCampi();
         abilitaBarraSuperioreControllo(false);
@@ -79,6 +81,7 @@ public class PazienteUI extends javax.swing.JFrame {
         iggIndexEdit=false;
         iggLOCEdit=false;
         iggIFEdit=false;
+        caratteristicheClinicheEdit=false;
     }
     public void selezionaScheda(int i)
     {
@@ -160,11 +163,16 @@ public class PazienteUI extends javax.swing.JFrame {
         dataRMN = new org.jdesktop.swingx.JXDatePicker();
         jLabel72 = new javax.swing.JLabel();
         jPanelRMN = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
+        gad = new javax.swing.JCheckBox();
+        spinali = new javax.swing.JCheckBox();
+        sottotentoriali = new javax.swing.JCheckBox();
+        sopratentoriali = new javax.swing.JCheckBox();
+        corticali = new javax.swing.JCheckBox();
+        ottico = new javax.swing.JCheckBox();
+        jLabel97 = new javax.swing.JLabel();
+        jLabel101 = new javax.swing.JLabel();
+        DIS = new javax.swing.JComboBox<>();
+        DIT = new javax.swing.JComboBox<>();
         jLabel75 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel76 = new javax.swing.JLabel();
@@ -418,6 +426,7 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel18.setText("Data di esordio:");
 
+        dataEsord_Diagn.setEnabled(false);
         dataEsord_Diagn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dataEsord_DiagnActionPerformed(evt);
@@ -427,6 +436,7 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel19.setText("Modalità di esordio:");
 
+        modEsord_Diagn.setEnabled(false);
         modEsord_Diagn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modEsord_DiagnActionPerformed(evt);
@@ -858,54 +868,135 @@ public class PazienteUI extends javax.swing.JFrame {
         jPanelRMN.setBackground(new java.awt.Color(255, 233, 157));
         jPanelRMN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 233, 157));
-        jCheckBox1.setText("jCheckBox1");
-        jCheckBox1.setOpaque(false);
+        gad.setBackground(new java.awt.Color(255, 233, 157));
+        gad.setText("L. Gad+");
+        gad.setOpaque(false);
+        gad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gadActionPerformed(evt);
+            }
+        });
 
-        jCheckBox2.setBackground(getBackground());
-        jCheckBox2.setText("jCheckBox2");
-        jCheckBox2.setOpaque(false);
+        spinali.setBackground(getBackground());
+        spinali.setText("L. Spinali");
+        spinali.setOpaque(false);
+        spinali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                spinaliActionPerformed(evt);
+            }
+        });
 
-        jCheckBox3.setBackground(getBackground());
-        jCheckBox3.setText("jCheckBox3");
-        jCheckBox3.setOpaque(false);
+        sottotentoriali.setBackground(getBackground());
+        sottotentoriali.setText("L. Sottotentoriali");
+        sottotentoriali.setOpaque(false);
+        sottotentoriali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sottotentorialiActionPerformed(evt);
+            }
+        });
 
-        jCheckBox4.setBackground(getBackground());
-        jCheckBox4.setText("jCheckBox4");
-        jCheckBox4.setOpaque(false);
+        sopratentoriali.setBackground(getBackground());
+        sopratentoriali.setText("L. Sopratentoriali");
+        sopratentoriali.setOpaque(false);
+        sopratentoriali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sopratentorialiActionPerformed(evt);
+            }
+        });
 
-        jCheckBox5.setBackground(getBackground());
-        jCheckBox5.setText("altro");
-        jCheckBox5.setOpaque(false);
+        corticali.setBackground(getBackground());
+        corticali.setText("L. Corticali");
+        corticali.setOpaque(false);
+        corticali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                corticaliActionPerformed(evt);
+            }
+        });
+
+        ottico.setBackground(getBackground());
+        ottico.setText("L. N. Ottico");
+        ottico.setOpaque(false);
+        ottico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otticoActionPerformed(evt);
+            }
+        });
+
+        jLabel97.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel97.setText("DIT");
+
+        jLabel101.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel101.setText("DIS");
+
+        DIS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negarivo" }));
+        DIS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DISActionPerformed(evt);
+            }
+        });
+
+        DIT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Positivo", "Negarivo" }));
+        DIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DITActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelRMNLayout = new javax.swing.GroupLayout(jPanelRMN);
         jPanelRMN.setLayout(jPanelRMNLayout);
         jPanelRMNLayout.setHorizontalGroup(
             jPanelRMNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRMNLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+            .addGroup(jPanelRMNLayout.createSequentialGroup()
                 .addGroup(jPanelRMNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox5))
-                .addGap(62, 62, 62))
+                    .addGroup(jPanelRMNLayout.createSequentialGroup()
+                        .addComponent(sopratentoriali)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(corticali))
+                    .addGroup(jPanelRMNLayout.createSequentialGroup()
+                        .addGroup(jPanelRMNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sottotentoriali)
+                            .addComponent(spinali))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelRMNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(gad)
+                            .addComponent(ottico)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRMNLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelRMNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelRMNLayout.createSequentialGroup()
+                                .addComponent(jLabel97)
+                                .addGap(18, 18, 18)
+                                .addComponent(DIT, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelRMNLayout.createSequentialGroup()
+                                .addComponent(jLabel101)
+                                .addGap(18, 18, 18)
+                                .addComponent(DIS, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(16, 16, 16)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelRMNLayout.setVerticalGroup(
             jPanelRMNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRMNLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCheckBox1)
+                .addContainerGap()
+                .addGroup(jPanelRMNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel101)
+                    .addComponent(DIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelRMNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel97)
+                    .addComponent(DIT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(jPanelRMNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spinali)
+                    .addComponent(gad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelRMNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sottotentoriali)
+                    .addComponent(ottico))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox5)
-                .addContainerGap())
+                .addGroup(jPanelRMNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sopratentoriali)
+                    .addComponent(corticali)))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -915,13 +1006,14 @@ public class PazienteUI extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jPanelRMN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel72)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dataRMN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(dataRMN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanelRMN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -930,8 +1022,8 @@ public class PazienteUI extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel72)
                     .addComponent(dataRMN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelRMN, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelRMN, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1001,6 +1093,17 @@ public class PazienteUI extends javax.swing.JFrame {
 
         jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel22.setText("EON:");
+
+        caratteristicheCliniche.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                caratteristicheClinicheFocusLost(evt);
+            }
+        });
+        caratteristicheCliniche.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                caratteristicheClinicheKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout pannelloDiagnosticaLayout = new javax.swing.GroupLayout(pannelloDiagnostica);
         pannelloDiagnostica.setLayout(pannelloDiagnosticaLayout);
@@ -1074,7 +1177,7 @@ public class PazienteUI extends javax.swing.JFrame {
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1918,7 +2021,18 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_anamnesiKeyReleased
 
     private void modEsord_DiagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modEsord_DiagnActionPerformed
-        //DA FARE
+        if(Pazienti.getCurrID()==null || !modEsord_Diagn.isEnabled())
+                return;
+        try {
+            int id=Pazienti.getCurrID();
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente SET Modalita_Esordio=? WHERE ID=?");
+            pst.setString(1, (String)modEsord_Diagn.getSelectedItem());
+            pst.setInt(2, id);
+            pst.executeUpdate();
+            infoEsordio(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_modEsord_DiagnActionPerformed
 
     private void caricaFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caricaFileActionPerformed
@@ -2167,7 +2281,7 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_dataContrAmbActionPerformed
 
     private void dataEsord_DiagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsord_DiagnActionPerformed
-       if(Pazienti.getCurrID()==null)
+       if(Pazienti.getCurrID()==null || !dataEsord_Diagn.isEnabled())
                 return;
         try {
             int id=Pazienti.getCurrID();
@@ -2703,6 +2817,146 @@ public class PazienteUI extends javax.swing.JFrame {
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_eliminaDiagnosiActionPerformed
+
+    private void caratteristicheClinicheFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_caratteristicheClinicheFocusLost
+        if(!caratteristicheClinicheEdit || !pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        caratteristicheClinicheEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Caratteristiche_Cliniche=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,caratteristicheCliniche.getText());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_caratteristicheClinicheFocusLost
+
+    private void caratteristicheClinicheKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caratteristicheClinicheKeyReleased
+        caratteristicheClinicheEdit=true;
+    }//GEN-LAST:event_caratteristicheClinicheKeyReleased
+
+    private void gadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gadActionPerformed
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Gad=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setBoolean(1,gad.isSelected());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_gadActionPerformed
+
+    private void spinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spinaliActionPerformed
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Spinali=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setBoolean(1,spinali.isSelected());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_spinaliActionPerformed
+
+    private void sopratentorialiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sopratentorialiActionPerformed
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Sopratentoriali=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setBoolean(1,sopratentoriali.isSelected());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_sopratentorialiActionPerformed
+
+    private void DISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DISActionPerformed
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET DIS=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,(String)DIS.getSelectedItem());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_DISActionPerformed
+
+    private void DITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DITActionPerformed
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET DIT=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,(String)DIT.getSelectedItem());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_DITActionPerformed
+
+    private void sottotentorialiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sottotentorialiActionPerformed
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Sottotentoriali=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setBoolean(1,sottotentoriali.isSelected());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_sottotentorialiActionPerformed
+
+    private void otticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otticoActionPerformed
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Ottico=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setBoolean(1,ottico.isSelected());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_otticoActionPerformed
+
+    private void corticaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corticaliActionPerformed
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Corticali=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setBoolean(1,corticali.isSelected());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_corticaliActionPerformed
     private Date dataCampiDiagnosi()
     {
         String dataM=pannelloDiagnostica.getName();
@@ -2722,6 +2976,21 @@ public class PazienteUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    private void AggiornaCampoEsordio()
+    {
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome FROM Esordio");
+            while(rs.next())
+            {
+                modEsord_Diagn.addItem(rs.getString(1));
+                modEsord.addItem(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        modEsord_Diagn.setSelectedItem(null);
+        modEsord.setSelectedItem(null);
     }
     
     private void AggiornaCampoTerapia()
@@ -2832,12 +3101,13 @@ public class PazienteUI extends javax.swing.JFrame {
                 controllo.setText(rs.getString("EON"));
                 caratteristicheCliniche.setText(rs.getString("Caratteristiche_Cliniche"));
                 dataRMN.setDate(rs.getDate("Data_RMN"));
-                //MANCA RMN!!!!
                 dataPL.setDate(rs.getDate("Data_PL"));
                 iggIndex.setText(rs.getString("IgG_Index"));
                 iggLOC.setText(rs.getString("IgG_Loc"));
                 iggIF.setText(rs.getString("IgG_IF"));
                 boigg1.setSelectedItem(rs.getString("BoIgG"));
+                DIS.setSelectedItem(rs.getString("DIS"));
+                DIT.setSelectedItem(rs.getString("DIT"));
                 dataPEV.setDate(rs.getDate("Data_PEV"));
                 pev.setText(rs.getString("PEV"));
                 odPEV.setSelectedItem(rs.getString("OD"));
@@ -2847,6 +3117,13 @@ public class PazienteUI extends javax.swing.JFrame {
                 dataNPSI.setDate(rs.getDate("Data_NPSI"));
                 npsi.setText(rs.getString("NPSI"));
                 varie.setText(rs.getString("Varie"));
+                
+                gad.setSelected(rs.getBoolean("Gad"));
+                spinali.setSelected(rs.getBoolean("Spinali"));
+                sottotentoriali.setSelected(rs.getBoolean("Sottotentoriali"));
+                sopratentoriali.setSelected(rs.getBoolean("Sopratentoriali"));
+                ottico.setSelected(rs.getBoolean("Ottico"));
+                corticali.setSelected(rs.getBoolean("Corticali"));
             }
         }
         catch(Exception ex)
@@ -3060,6 +3337,8 @@ public class PazienteUI extends javax.swing.JFrame {
     }
     public void infoEsordio(int id)
     {
+        modEsord_Diagn.setEnabled(false);
+        dataEsord_Diagn.setEnabled(false);
         modEsord.setSelectedItem(null);
         dataEsord.setDate(null);
         modEsord_Diagn.setSelectedItem(null);
@@ -3077,7 +3356,9 @@ public class PazienteUI extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
+        modEsord_Diagn.setEnabled(true);
+        dataEsord_Diagn.setEnabled(true);
     }
     public void datiStorico(int id)
     {
@@ -3133,12 +3414,13 @@ public class PazienteUI extends javax.swing.JFrame {
                 controllo.setText(null);
                 caratteristicheCliniche.setText(null);
                 dataRMN.setDate(null);
-                //MANCA RMN!!!!
                 dataPL.setDate(null);
                 iggIndex.setText(null);
                 iggLOC.setText(null);
                 iggIF.setText(null);
                 boigg1.setSelectedItem(null);
+                DIS.setSelectedItem(null);
+                DIT.setSelectedItem(null);
                 dataPEV.setDate(null);
                 pev.setText(null);
                 odPEV.setSelectedItem(null);
@@ -3148,6 +3430,14 @@ public class PazienteUI extends javax.swing.JFrame {
                 dataNPSI.setDate(null);
                 npsi.setText(null);
                 varie.setText(null);
+                
+                gad.setSelected(false);
+                spinali.setSelected(false);
+                sottotentoriali.setSelected(false);
+                sopratentoriali.setSelected(false);
+                ottico.setSelected(false);
+                corticali.setSelected(false);
+                
     }
     public void aggiornaBarra()
     {
@@ -3186,6 +3476,8 @@ public class PazienteUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> DIS;
+    private javax.swing.JComboBox<String> DIT;
     private javax.swing.JButton addButtonContr;
     private javax.swing.JButton addButtonDH;
     private javax.swing.JButton addButtonDia;
@@ -3203,6 +3495,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextField cognomeDH;
     private javax.swing.JPanel controlliAmb;
     private javax.swing.JTextArea controllo;
+    private javax.swing.JCheckBox corticali;
     private org.jdesktop.swingx.JXDatePicker dataContrAmb;
     private org.jdesktop.swingx.JXDatePicker dataDH;
     private org.jdesktop.swingx.JXDatePicker dataDiagno;
@@ -3225,21 +3518,18 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler3;
     private javax.swing.Box.Filler filler4;
     private javax.swing.JComboBox<String> formaClnAtt;
+    private javax.swing.JCheckBox gad;
     private javax.swing.JButton gestioneTel;
     private javax.swing.JTextField iggIF;
     private javax.swing.JTextField iggIndex;
     private javax.swing.JTextField iggLOC;
     private javax.swing.JButton indietro;
     private javax.swing.JTextField indirizzo;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -3286,6 +3576,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel1;
@@ -3324,6 +3615,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> odPEV;
     private javax.swing.JComboBox<String> osPEV;
     private javax.swing.JTextField ospedale;
+    private javax.swing.JCheckBox ottico;
     private javax.swing.JPanel panelBarra;
     private javax.swing.JScrollPane panelContolloScroll;
     private javax.swing.JPanel panelControlloAmb;
@@ -3337,6 +3629,9 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JButton pulsanteTerapie;
     private javax.swing.JPanel schedaEsami;
     private javax.swing.JComboBox<String> sex;
+    private javax.swing.JCheckBox sopratentoriali;
+    private javax.swing.JCheckBox sottotentoriali;
+    private javax.swing.JCheckBox spinali;
     private javax.swing.JScrollPane storiaMal;
     private javax.swing.JTextArea storicoArea;
     private javax.swing.JTextField supCorpo;
