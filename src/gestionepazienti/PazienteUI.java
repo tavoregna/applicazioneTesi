@@ -32,6 +32,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private boolean varieEdit=false;
     private boolean iggIndexEdit=false;
     private boolean iggLOCEdit=false;
+    private boolean caratteristicheClinicheEdit=false;
     private boolean iggIFEdit=false;
     
     private Barra barr;
@@ -54,6 +55,7 @@ public class PazienteUI extends javax.swing.JFrame {
         pannelloDiagnostica.setVisible(false);
         AggiornaCampoDiagnosi();
         AggiornaCampoTerapia();
+        AggiornaCampoEsordio();
         AggiornaMedico();
         azzeraCampi();
         abilitaBarraSuperioreControllo(false);
@@ -79,6 +81,7 @@ public class PazienteUI extends javax.swing.JFrame {
         iggIndexEdit=false;
         iggLOCEdit=false;
         iggIFEdit=false;
+        caratteristicheClinicheEdit=false;
     }
     public void selezionaScheda(int i)
     {
@@ -418,6 +421,7 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel18.setText("Data di esordio:");
 
+        dataEsord_Diagn.setEnabled(false);
         dataEsord_Diagn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dataEsord_DiagnActionPerformed(evt);
@@ -427,6 +431,7 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel19.setText("Modalità di esordio:");
 
+        modEsord_Diagn.setEnabled(false);
         modEsord_Diagn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modEsord_DiagnActionPerformed(evt);
@@ -1001,6 +1006,17 @@ public class PazienteUI extends javax.swing.JFrame {
 
         jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel22.setText("EON:");
+
+        caratteristicheCliniche.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                caratteristicheClinicheFocusLost(evt);
+            }
+        });
+        caratteristicheCliniche.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                caratteristicheClinicheKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout pannelloDiagnosticaLayout = new javax.swing.GroupLayout(pannelloDiagnostica);
         pannelloDiagnostica.setLayout(pannelloDiagnosticaLayout);
@@ -1918,7 +1934,18 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_anamnesiKeyReleased
 
     private void modEsord_DiagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modEsord_DiagnActionPerformed
-        //DA FARE
+        if(Pazienti.getCurrID()==null || !modEsord_Diagn.isEnabled())
+                return;
+        try {
+            int id=Pazienti.getCurrID();
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Paziente SET Modalita_Esordio=? WHERE ID=?");
+            pst.setString(1, (String)modEsord_Diagn.getSelectedItem());
+            pst.setInt(2, id);
+            pst.executeUpdate();
+            infoEsordio(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_modEsord_DiagnActionPerformed
 
     private void caricaFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caricaFileActionPerformed
@@ -2167,7 +2194,7 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_dataContrAmbActionPerformed
 
     private void dataEsord_DiagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsord_DiagnActionPerformed
-       if(Pazienti.getCurrID()==null)
+       if(Pazienti.getCurrID()==null || !dataEsord_Diagn.isEnabled())
                 return;
         try {
             int id=Pazienti.getCurrID();
@@ -2703,6 +2730,26 @@ public class PazienteUI extends javax.swing.JFrame {
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_eliminaDiagnosiActionPerformed
+
+    private void caratteristicheClinicheFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_caratteristicheClinicheFocusLost
+        if(!caratteristicheClinicheEdit || !pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        caratteristicheClinicheEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Caratteristiche_Cliniche=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setString(1,caratteristicheCliniche.getText());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_caratteristicheClinicheFocusLost
+
+    private void caratteristicheClinicheKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caratteristicheClinicheKeyReleased
+        caratteristicheClinicheEdit=true;
+    }//GEN-LAST:event_caratteristicheClinicheKeyReleased
     private Date dataCampiDiagnosi()
     {
         String dataM=pannelloDiagnostica.getName();
@@ -2722,6 +2769,21 @@ public class PazienteUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    private void AggiornaCampoEsordio()
+    {
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome FROM Esordio");
+            while(rs.next())
+            {
+                modEsord_Diagn.addItem(rs.getString(1));
+                modEsord.addItem(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        modEsord_Diagn.setSelectedItem(null);
+        modEsord.setSelectedItem(null);
     }
     
     private void AggiornaCampoTerapia()
@@ -3060,6 +3122,8 @@ public class PazienteUI extends javax.swing.JFrame {
     }
     public void infoEsordio(int id)
     {
+        modEsord_Diagn.setEnabled(false);
+        dataEsord_Diagn.setEnabled(false);
         modEsord.setSelectedItem(null);
         dataEsord.setDate(null);
         modEsord_Diagn.setSelectedItem(null);
@@ -3077,7 +3141,9 @@ public class PazienteUI extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
+        modEsord_Diagn.setEnabled(true);
+        dataEsord_Diagn.setEnabled(true);
     }
     public void datiStorico(int id)
     {

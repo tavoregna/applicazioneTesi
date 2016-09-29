@@ -422,6 +422,9 @@
               </Properties>
             </Component>
             <Component class="org.jdesktop.swingx.JXDatePicker" name="dataEsord_Diagn">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataEsord_DiagnActionPerformed"/>
               </Events>
@@ -439,6 +442,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modEsord_DiagnActionPerformed"/>
@@ -1457,6 +1461,10 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="caratteristicheCliniche">
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="caratteristicheClinicheFocusLost"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="caratteristicheClinicheKeyReleased"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
