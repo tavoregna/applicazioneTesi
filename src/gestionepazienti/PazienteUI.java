@@ -133,7 +133,6 @@ public class PazienteUI extends javax.swing.JFrame {
         iggLOC = new javax.swing.JTextField();
         jLabel81 = new javax.swing.JLabel();
         iggIndex = new javax.swing.JTextField();
-        caratteristicheCliniche = new javax.swing.JComboBox<>();
         diagnosi = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -174,6 +173,7 @@ public class PazienteUI extends javax.swing.JFrame {
         oct = new javax.swing.JTextArea();
         caricaFile = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
+        caratteristicheCliniche = new javax.swing.JTextField();
         addButtonDia = new javax.swing.JButton();
         eliminaDiagnosi = new javax.swing.JButton();
         controlliAmb = new javax.swing.JPanel();
@@ -623,13 +623,6 @@ public class PazienteUI extends javax.swing.JFrame {
                 .addGap(7, 7, 7))
         );
 
-        caratteristicheCliniche.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        caratteristicheCliniche.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caratteristicheClinicheActionPerformed(evt);
-            }
-        });
-
         diagnosi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
         diagnosi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1035,8 +1028,8 @@ public class PazienteUI extends javax.swing.JFrame {
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77)
                         .addComponent(jLabel75)
-                        .addGap(18, 18, 18)
-                        .addComponent(caratteristicheCliniche, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(caratteristicheCliniche, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pannelloDiagnosticaLayout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1068,7 +1061,7 @@ public class PazienteUI extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jLabel22))
                     .addGroup(pannelloDiagnosticaLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(28, 28, 28)
                         .addGroup(pannelloDiagnosticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel75)
                             .addComponent(caratteristicheCliniche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1531,7 +1524,7 @@ public class PazienteUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Scheda Esami", schedaEsami);
 
-        jPanel1.setBackground(new java.awt.Color(112, 146, 190));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
         indietro.setText("<");
         indietro.addActionListener(new java.awt.event.ActionListener() {
@@ -2072,10 +2065,6 @@ public class PazienteUI extends javax.swing.JFrame {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private void caratteristicheClinicheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caratteristicheClinicheActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caratteristicheClinicheActionPerformed
-
     private void dataRMNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRMNActionPerformed
        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
                 return;
@@ -3206,7 +3195,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> boigg1;
     private javax.swing.JButton buttonAdd;
     private javax.swing.JButton buttonMod;
-    private javax.swing.JComboBox<String> caratteristicheCliniche;
+    private javax.swing.JTextField caratteristicheCliniche;
     private javax.swing.JButton caricaFile;
     private javax.swing.JTextField cf;
     private javax.swing.JTextField cognome;
