@@ -889,6 +889,11 @@ public class PazienteUI extends javax.swing.JFrame {
         sottotentoriali.setBackground(getBackground());
         sottotentoriali.setText("L. Sottotentoriali");
         sottotentoriali.setOpaque(false);
+        sottotentoriali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sottotentorialiActionPerformed(evt);
+            }
+        });
 
         sopratentoriali.setBackground(getBackground());
         sopratentoriali.setText("L. Sopratentoriali");
@@ -902,10 +907,20 @@ public class PazienteUI extends javax.swing.JFrame {
         corticali.setBackground(getBackground());
         corticali.setText("L. Corticali");
         corticali.setOpaque(false);
+        corticali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                corticaliActionPerformed(evt);
+            }
+        });
 
         ottico.setBackground(getBackground());
         ottico.setText("L. N. Ottico");
         ottico.setOpaque(false);
+        ottico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otticoActionPerformed(evt);
+            }
+        });
 
         jLabel97.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel97.setText("DIT");
@@ -2824,15 +2839,48 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_caratteristicheClinicheKeyReleased
 
     private void gadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gadActionPerformed
-        // TODO add your handling code here:
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Gad=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setBoolean(1,gad.isSelected());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
     }//GEN-LAST:event_gadActionPerformed
 
     private void spinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spinaliActionPerformed
-        // TODO add your handling code here:
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Spinali=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setBoolean(1,spinali.isSelected());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
     }//GEN-LAST:event_spinaliActionPerformed
 
     private void sopratentorialiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sopratentorialiActionPerformed
-        // TODO add your handling code here:
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Sopratentoriali=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setBoolean(1,sopratentoriali.isSelected());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
     }//GEN-LAST:event_sopratentorialiActionPerformed
 
     private void DISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DISActionPerformed
@@ -2864,6 +2912,51 @@ public class PazienteUI extends javax.swing.JFrame {
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_DITActionPerformed
+
+    private void sottotentorialiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sottotentorialiActionPerformed
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Sottotentoriali=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setBoolean(1,sottotentoriali.isSelected());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_sottotentorialiActionPerformed
+
+    private void otticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otticoActionPerformed
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Ottico=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setBoolean(1,ottico.isSelected());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_otticoActionPerformed
+
+    private void corticaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corticaliActionPerformed
+        if(!pannelloDiagnostica.isEnabled() || Pazienti.getCurrID()==null)
+                return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Diagnosi_Paziente SET Corticali=? WHERE Data_Diagnosi=? AND ID_Paziente=?");
+            pst.setBoolean(1,corticali.isSelected());
+            pst.setDate(2, dataCampiDiagnosi());
+            pst.setInt(3,Pazienti.getCurrID());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
+        }
+    }//GEN-LAST:event_corticaliActionPerformed
     private Date dataCampiDiagnosi()
     {
         String dataM=pannelloDiagnostica.getName();
@@ -3008,12 +3101,13 @@ public class PazienteUI extends javax.swing.JFrame {
                 controllo.setText(rs.getString("EON"));
                 caratteristicheCliniche.setText(rs.getString("Caratteristiche_Cliniche"));
                 dataRMN.setDate(rs.getDate("Data_RMN"));
-                //MANCA RMN!!!!
                 dataPL.setDate(rs.getDate("Data_PL"));
                 iggIndex.setText(rs.getString("IgG_Index"));
                 iggLOC.setText(rs.getString("IgG_Loc"));
                 iggIF.setText(rs.getString("IgG_IF"));
                 boigg1.setSelectedItem(rs.getString("BoIgG"));
+                DIS.setSelectedItem(rs.getString("DIS"));
+                DIT.setSelectedItem(rs.getString("DIT"));
                 dataPEV.setDate(rs.getDate("Data_PEV"));
                 pev.setText(rs.getString("PEV"));
                 odPEV.setSelectedItem(rs.getString("OD"));
@@ -3023,6 +3117,13 @@ public class PazienteUI extends javax.swing.JFrame {
                 dataNPSI.setDate(rs.getDate("Data_NPSI"));
                 npsi.setText(rs.getString("NPSI"));
                 varie.setText(rs.getString("Varie"));
+                
+                gad.setSelected(rs.getBoolean("Gad"));
+                spinali.setSelected(rs.getBoolean("Spinali"));
+                sottotentoriali.setSelected(rs.getBoolean("Sottotentoriali"));
+                sopratentoriali.setSelected(rs.getBoolean("Sopratentoriali"));
+                ottico.setSelected(rs.getBoolean("Ottico"));
+                corticali.setSelected(rs.getBoolean("Corticali"));
             }
         }
         catch(Exception ex)
@@ -3313,12 +3414,13 @@ public class PazienteUI extends javax.swing.JFrame {
                 controllo.setText(null);
                 caratteristicheCliniche.setText(null);
                 dataRMN.setDate(null);
-                //MANCA RMN!!!!
                 dataPL.setDate(null);
                 iggIndex.setText(null);
                 iggLOC.setText(null);
                 iggIF.setText(null);
                 boigg1.setSelectedItem(null);
+                DIS.setSelectedItem(null);
+                DIT.setSelectedItem(null);
                 dataPEV.setDate(null);
                 pev.setText(null);
                 odPEV.setSelectedItem(null);
@@ -3328,6 +3430,14 @@ public class PazienteUI extends javax.swing.JFrame {
                 dataNPSI.setDate(null);
                 npsi.setText(null);
                 varie.setText(null);
+                
+                gad.setSelected(false);
+                spinali.setSelected(false);
+                sottotentoriali.setSelected(false);
+                sopratentoriali.setSelected(false);
+                ottico.setSelected(false);
+                corticali.setSelected(false);
+                
     }
     public void aggiornaBarra()
     {
