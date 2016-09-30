@@ -1,6 +1,9 @@
 package gestionepazienti;
 
 import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,6 +12,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public final class Utilita {
@@ -228,4 +234,14 @@ public final class Utilita {
         return null;
     }
     
+    public static void settaIconaFrame(JFrame f)
+    {
+        try {
+           f.setIconImage(ImageIO.read(new File("icon/logo.png")));
+        }
+        catch (IOException exc) {
+            exc.printStackTrace();
+        }
+    }
+            
 }

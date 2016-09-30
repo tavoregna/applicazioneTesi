@@ -1,13 +1,19 @@
 package gestionepazienti;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -39,6 +45,8 @@ public class PazienteUI extends javax.swing.JFrame {
     
     public PazienteUI() {
         initComponents();
+        Utilita.settaIconaFrame(this);
+        
         idControlloCorrente=null;
         idDHCorrente=null;
         eliminaDiagnosi.setVisible(Opzioni.cancellaAttivo);
