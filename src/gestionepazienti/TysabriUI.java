@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -1333,8 +1332,6 @@ public class TysabriUI extends javax.swing.JPanel {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cancellaTysabriActionPerformed
-
-    
     
     public void inserisciJCV(boolean b)
     {

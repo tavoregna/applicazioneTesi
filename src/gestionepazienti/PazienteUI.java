@@ -11,6 +11,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.metal.OceanTheme;
 
 
 public class PazienteUI extends javax.swing.JFrame {
@@ -1468,7 +1469,7 @@ public class PazienteUI extends javax.swing.JFrame {
 
         cognomeDH.setEnabled(false);
 
-        terapiaPrincDH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tysabri", "Gilenya", "Lemtrada" }));
+        terapiaPrincDH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tysabri", "Gilenya", "Lemtrada", "CFX", "Mabthera", "Ocrelizumab", "Zinbryta" }));
         terapiaPrincDH.setEnabled(false);
         terapiaPrincDH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2558,7 +2559,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private void addButtonDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonDHActionPerformed
        if(Pazienti.getCurrID()==null)
             return;
-        String[] controlli = { "Tysabri", "Gilenya","Lemtrada"};
+        String[] controlli = { "Tysabri", "Gilenya","Lemtrada","CFX","Zinbryta","Mabthera","Ocrelizumab"};
         JFrame frame = new JFrame("Nuova terapia infusiva");
         String terapiaScelta = (String) JOptionPane.showInputDialog(frame, "Scegli la terapia infusiva da inserire",
         "Tipo di controllo",
@@ -2600,6 +2601,22 @@ public class PazienteUI extends javax.swing.JFrame {
                 if(terapiaScelta.equals("Lemtrada"))
                 {
                     q="INSERT INTO Lemtrada(ID_Standard,Giorno,Data_DC) VALUES (?,1,?)";
+                }
+                if(terapiaScelta.equals("CFX"))
+                {
+                    q="INSERT INTO CFX(ID_CFX) VALUES (?)";
+                }
+                if(terapiaScelta.equals("Mabthera"))
+                {
+                    q="INSERT INTO Mabthera(ID_Mabthera) VALUES (?)";
+                }
+                if(terapiaScelta.equals("Zinbryta"))
+                {
+                    q="INSERT INTO Zinbryta(ID_Zinbryta) VALUES (?)";
+                }
+                if(terapiaScelta.equals("Ocrelizumab"))
+                {
+                    q="INSERT INTO Ocrelizumab(ID_Ocrelizumab) VALUES (?)";
                 }
                 PreparedStatement p=GestioneDatabase.preparedStatement(q);
                 p.setInt(1,rs.getInt(1));
@@ -3235,7 +3252,7 @@ public class PazienteUI extends javax.swing.JFrame {
         } 
     }
     
-    public void inserisciPannelloTerapiaDH(int idDH,int i) //i=1 Tisabry, i=2 Gilenya, i=3 Lemtrada
+    public void inserisciPannelloTerapiaDH(int idDH,int i) //i=1 Tisabry, i=2 Gilenya, i=3 Lemtrada, i=4 CFX, i=5 Mabthera, i=6 Ocrelizumab, i=7 Zinbryta
     {
         if(panelDH.getComponentCount()>0)
         {
@@ -3253,6 +3270,19 @@ public class PazienteUI extends javax.swing.JFrame {
             case 3:
                 panelDH.add(new LemtradaUI(this,idDH));
                 break;
+            case 4:
+                panelDH.add(new CFXUI(this,idDH));
+                break;
+            case 5:
+                panelDH.add(new MabtheraUI(this,idDH));
+                break;
+            case 6:
+                panelDH.add(new OcrelizumabUI(this,idDH));
+                break;
+            case 7:
+                panelDH.add(new ZinbrytaUI(this,idDH));
+                break;
+                
         }
         panelDH.setVisible(false);
         panelDH.setVisible(true);
