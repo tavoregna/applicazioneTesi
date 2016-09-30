@@ -11,7 +11,6 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.plaf.metal.OceanTheme;
 
 
 public class PazienteUI extends javax.swing.JFrame {
@@ -3067,12 +3066,11 @@ public class PazienteUI extends javax.swing.JFrame {
     }
     public void visualizzaDati(int id)
     {
-        //IMPORTANTE
         pannelloDiagnosticaAttivo(false);
         azzeraCampiDiagnosi(); 
         resetEdit();
         
-        Pazienti.setCurrID(id); //!!!
+        Pazienti.setCurrID(id); 
         
         infoPersonali(id);
         
