@@ -23,6 +23,7 @@ public class TerapiaUI extends javax.swing.JFrame {
      */
     public TerapiaUI(int id,PazienteUI p) {
         initComponents();
+        Utilita.settaIconaFrame(this);
         jLabel1.setText(TITOLO+" "+trovaPaziente(id).toUpperCase());
         pannello.setLayout(new BoxLayout(pannello, BoxLayout.Y_AXIS));
         list=new ArrayList<ElementiListaTerapieUI>();

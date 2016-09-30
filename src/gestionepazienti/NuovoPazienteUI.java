@@ -13,6 +13,7 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
     
     public NuovoPazienteUI(PazienteUI pa) {
         initComponents();
+        Utilita.settaIconaFrame(this);
         parent=pa;
         this.setVisible(true);
     }

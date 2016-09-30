@@ -21,6 +21,7 @@ public class CercaPazienteUI extends javax.swing.JFrame {
     }
     public CercaPazienteUI() {
         initComponents();
+        Utilita.settaIconaFrame(this);
         listaID=new ArrayList<Integer>();
         listModel=new DefaultListModel();
         lista.setModel(listModel);

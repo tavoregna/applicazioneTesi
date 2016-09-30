@@ -17,6 +17,7 @@ public class finestraDatiLetteraAvvio extends javax.swing.JFrame {
 
     public finestraDatiLetteraAvvio(PazienteUI p,String nome, String cognome, String terapia, String sesso, Date data){
         initComponents();
+        Utilita.settaIconaFrame(this);
         this.parent=p;
         this.nomee = Utilita.standardizzaNomi(nome);
         this.cognomee = Utilita.standardizzaNomi(cognome);
@@ -67,6 +68,7 @@ public class finestraDatiLetteraAvvio extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);

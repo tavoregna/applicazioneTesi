@@ -17,6 +17,7 @@ public class TelefonoUI extends javax.swing.JFrame {
     
     public TelefonoUI(int ID,PazienteUI p) {
         initComponents();
+        Utilita.settaIconaFrame(this);
         jLabel1.setText(TITOLO+" "+trovaPaziente(ID).toUpperCase());
         this.setVisible(true);
         pazID=ID;
