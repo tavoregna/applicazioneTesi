@@ -41,7 +41,6 @@ public class PazienteUI extends javax.swing.JFrame {
         initComponents();
         idControlloCorrente=null;
         idDHCorrente=null;
-        
         eliminaDiagnosi.setVisible(Opzioni.cancellaAttivo);
         caricaFile.setVisible(false);
         
@@ -1662,13 +1661,16 @@ public class PazienteUI extends javax.swing.JFrame {
         terapiePregresse.setBackground(new java.awt.Color(204, 255, 204));
         terapiePregresse.setColumns(1);
         terapiePregresse.setRows(1);
+        terapiePregresse.setDisabledTextColor(java.awt.Color.black);
         jScrollPane1.setViewportView(terapiePregresse);
 
         cognome.setBackground(java.awt.Color.orange);
+        cognome.setDisabledTextColor(java.awt.Color.black);
         cognome.setName(""); // NOI18N
 
         dataNascita.setName(""); // NOI18N
 
+        cf.setDisabledTextColor(java.awt.Color.black);
         cf.setName(""); // NOI18N
 
         dataIns.setName(""); // NOI18N
@@ -1725,6 +1727,7 @@ public class PazienteUI extends javax.swing.JFrame {
         jScrollPane5.setViewportView(telefono);
 
         nome.setBackground(java.awt.Color.orange);
+        nome.setDisabledTextColor(java.awt.Color.black);
         nome.setName(""); // NOI18N
         nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1732,6 +1735,7 @@ public class PazienteUI extends javax.swing.JFrame {
             }
         });
 
+        supCorpo.setDisabledTextColor(java.awt.Color.black);
         supCorpo.setName(""); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -1753,12 +1757,15 @@ public class PazienteUI extends javax.swing.JFrame {
             }
         });
 
+        indirizzo.setDisabledTextColor(java.awt.Color.black);
+
         jLabel83.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel83.setText("Note:");
 
         note.setColumns(1);
         note.setLineWrap(true);
         note.setRows(1);
+        note.setDisabledTextColor(java.awt.Color.black);
         jScrollPane7.setViewportView(note);
 
         dataInizioTerapia.setEditable(false);
@@ -1766,6 +1773,7 @@ public class PazienteUI extends javax.swing.JFrame {
 
         terapiaAttuale.setEditable(false);
         terapiaAttuale.setBackground(new java.awt.Color(204, 255, 204));
+        terapiaAttuale.setDisabledTextColor(java.awt.Color.black);
 
         jLabel88.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel88.setText("Sesso:");
