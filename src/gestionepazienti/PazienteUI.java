@@ -43,7 +43,6 @@ public class PazienteUI extends javax.swing.JFrame {
         idDHCorrente=null;
         eliminaDiagnosi.setVisible(Opzioni.cancellaAttivo);
         caricaFile.setVisible(false);
-        
         pannelloDiagnosticaAttivo(false);
         azzeraCampiDiagnosi();
         
@@ -301,6 +300,7 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel17.setText("Anamnesi");
 
+        dataEsord.setBackground(java.awt.Color.black);
         dataEsord.setEditable(false);
         dataEsord.setEnabled(false);
 
