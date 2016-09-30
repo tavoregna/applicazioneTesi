@@ -448,6 +448,7 @@
     </Container>
     <Component class="javax.swing.JTextField" name="mon1">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="mon1FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="mon1KeyReleased"/>
       </Events>
     </Component>
@@ -478,6 +479,7 @@
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linfAss1FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfAss1KeyReleased"/>
       </Events>
     </Component>
@@ -526,6 +528,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="linf1">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linf1FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linf1KeyReleased"/>
       </Events>
     </Component>
@@ -537,6 +540,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="neu1">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="neu1FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="neu1KeyReleased"/>
       </Events>
     </Component>
@@ -550,6 +554,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="gb1">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="gb1FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="gb1KeyReleased"/>
       </Events>
     </Component>
@@ -646,6 +651,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="linf2">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linf2FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linf2KeyReleased"/>
       </Events>
     </Component>
@@ -665,6 +671,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="gb2">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="gb2FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="gb2KeyReleased"/>
       </Events>
     </Component>
@@ -678,6 +685,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="neu2">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="neu2FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="neu2KeyReleased"/>
       </Events>
     </Component>
@@ -692,6 +700,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="bas1">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="bas1FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bas1KeyReleased"/>
       </Events>
     </Component>
@@ -710,6 +719,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="eo1">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="eo1FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="eo1KeyReleased"/>
       </Events>
     </Component>
@@ -731,6 +741,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="neu">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="neuFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="neuKeyReleased"/>
       </Events>
     </Component>
@@ -744,6 +755,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="gb">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="gbFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="gbKeyReleased"/>
       </Events>
     </Component>
@@ -760,6 +772,7 @@
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linfAssFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfAssKeyReleased"/>
       </Events>
     </Component>
@@ -773,6 +786,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="linf">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linfFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfKeyReleased"/>
       </Events>
     </Component>
@@ -792,6 +806,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="bas2">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="bas2FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bas2KeyReleased"/>
       </Events>
     </Component>
@@ -817,6 +832,7 @@
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linfAss2FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfAss2KeyReleased"/>
       </Events>
     </Component>
@@ -830,6 +846,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="eo2">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="eo2FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="eo2KeyReleased"/>
       </Events>
     </Component>
@@ -843,6 +860,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="mon2">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="mon2FocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="mon2KeyReleased"/>
       </Events>
     </Component>
@@ -875,6 +893,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="eo">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="eoFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="eoKeyReleased"/>
       </Events>
     </Component>
@@ -889,6 +908,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="bas">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="basFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="basKeyReleased"/>
       </Events>
     </Component>
@@ -1009,6 +1029,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="mon">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="monFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="monKeyReleased"/>
       </Events>
     </Component>
