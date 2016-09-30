@@ -379,6 +379,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="hct">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="hctFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="hctKeyReleased"/>
       </Events>
     </Component>
@@ -392,6 +393,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="hb">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="hbFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="hbKeyReleased"/>
       </Events>
     </Component>
@@ -405,6 +407,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="gr">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="grFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="grKeyReleased"/>
       </Events>
     </Component>
@@ -437,6 +440,7 @@
             <Property name="rows" type="int" value="5"/>
           </Properties>
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="terapieConcomitFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="terapieConcomitKeyReleased"/>
           </Events>
         </Component>
@@ -449,6 +453,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="edss">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="edssFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edssKeyReleased"/>
       </Events>
     </Component>
@@ -489,6 +494,7 @@
             <Property name="rows" type="int" value="5"/>
           </Properties>
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="enFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="enKeyReleased"/>
           </Events>
         </Component>
@@ -525,6 +531,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="pbg">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pbgFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pbgKeyReleased"/>
       </Events>
     </Component>
@@ -575,6 +582,7 @@
             <Property name="rows" type="int" value="5"/>
           </Properties>
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="noteFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="noteKeyReleased"/>
           </Events>
         </Component>
@@ -582,6 +590,7 @@
     </Container>
     <Component class="javax.swing.JTextField" name="ecg">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ecgFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ecgKeyReleased"/>
       </Events>
     </Component>
@@ -595,6 +604,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="ecografiaVescic">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ecografiaVescicFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ecografiaVescicKeyReleased"/>
       </Events>
     </Component>
@@ -608,6 +618,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="esUrine">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="esUrineFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="esUrineKeyReleased"/>
       </Events>
     </Component>
@@ -621,6 +632,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="citologiaUrin">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="citologiaUrinFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="citologiaUrinKeyReleased"/>
       </Events>
     </Component>
@@ -647,6 +659,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="ecocardio">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ecocardioFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ecocardioKeyReleased"/>
       </Events>
     </Component>
@@ -683,6 +696,9 @@
       </Events>
     </Component>
     <Component class="org.jdesktop.swingx.JXDatePicker" name="data2">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="data2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel55">
       <Properties>
@@ -762,6 +778,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="sPiramidale">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="sPiramidaleFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sPiramidaleKeyReleased"/>
       </Events>
     </Component>
@@ -831,6 +848,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="dosaggio">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="dosaggioFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dosaggioKeyReleased"/>
       </Events>
     </Component>
@@ -843,6 +861,9 @@
       </Properties>
     </Component>
     <Component class="org.jdesktop.swingx.JXDatePicker" name="dataEsamiBaseLine">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataEsamiBaseLineActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel38">
       <Properties>
@@ -888,6 +909,9 @@
       </Properties>
     </Component>
     <Component class="org.jdesktop.swingx.JXDatePicker" name="data1">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="data1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel48">
       <Properties>
@@ -899,6 +923,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="sSfinterico">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="sSfintericoFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sSfintericoKeyReleased"/>
       </Events>
     </Component>
@@ -928,6 +953,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="sCerebellare">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="sCerebellareFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sCerebellareKeyReleased"/>
       </Events>
     </Component>
@@ -941,11 +967,13 @@
     </Component>
     <Component class="javax.swing.JTextField" name="sVisivo">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="sVisivoFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sVisivoKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="sTroncoEnc">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="sTroncoEncFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sTroncoEncKeyReleased"/>
       </Events>
     </Component>
@@ -959,6 +987,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="sSensitivo">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="sSensitivoFocusLost"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sSensitivoKeyReleased"/>
       </Events>
     </Component>

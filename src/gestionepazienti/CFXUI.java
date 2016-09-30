@@ -3,6 +3,7 @@ package gestionepazienti;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -224,6 +225,11 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel31.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel31.setText("Hct:");
 
+        hct.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                hctFocusLost(evt);
+            }
+        });
         hct.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 hctKeyReleased(evt);
@@ -233,6 +239,11 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel30.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel30.setText("Hb:");
 
+        hb.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                hbFocusLost(evt);
+            }
+        });
         hb.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 hbKeyReleased(evt);
@@ -242,6 +253,11 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel29.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel29.setText("GR:");
 
+        gr.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                grFocusLost(evt);
+            }
+        });
         gr.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 grKeyReleased(evt);
@@ -256,6 +272,11 @@ public class CFXUI extends javax.swing.JPanel {
 
         terapieConcomit.setColumns(20);
         terapieConcomit.setRows(5);
+        terapieConcomit.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                terapieConcomitFocusLost(evt);
+            }
+        });
         terapieConcomit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 terapieConcomitKeyReleased(evt);
@@ -269,6 +290,11 @@ public class CFXUI extends javax.swing.JPanel {
             }
         });
 
+        edss.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                edssFocusLost(evt);
+            }
+        });
         edss.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 edssKeyReleased(evt);
@@ -290,6 +316,11 @@ public class CFXUI extends javax.swing.JPanel {
 
         en.setColumns(20);
         en.setRows(5);
+        en.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                enFocusLost(evt);
+            }
+        });
         en.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 enKeyReleased(evt);
@@ -312,6 +343,11 @@ public class CFXUI extends javax.swing.JPanel {
             }
         });
 
+        pbg.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pbgFocusLost(evt);
+            }
+        });
         pbg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 pbgKeyReleased(evt);
@@ -341,6 +377,11 @@ public class CFXUI extends javax.swing.JPanel {
 
         note.setColumns(20);
         note.setRows(5);
+        note.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                noteFocusLost(evt);
+            }
+        });
         note.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 noteKeyReleased(evt);
@@ -348,6 +389,11 @@ public class CFXUI extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(note);
 
+        ecg.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ecgFocusLost(evt);
+            }
+        });
         ecg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ecgKeyReleased(evt);
@@ -357,6 +403,11 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel36.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel36.setText("Ecografia Vescicolare:");
 
+        ecografiaVescic.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ecografiaVescicFocusLost(evt);
+            }
+        });
         ecografiaVescic.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ecografiaVescicKeyReleased(evt);
@@ -366,6 +417,11 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel37.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel37.setText("Ecocardio:");
 
+        esUrine.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                esUrineFocusLost(evt);
+            }
+        });
         esUrine.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 esUrineKeyReleased(evt);
@@ -375,6 +431,11 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel34.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel34.setText("Citologia Urinaria:");
 
+        citologiaUrin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                citologiaUrinFocusLost(evt);
+            }
+        });
         citologiaUrin.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 citologiaUrinKeyReleased(evt);
@@ -393,6 +454,11 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel56.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel56.setText("Neu:");
 
+        ecocardio.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ecocardioFocusLost(evt);
+            }
+        });
         ecocardio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ecocardioKeyReleased(evt);
@@ -421,6 +487,12 @@ public class CFXUI extends javax.swing.JPanel {
         bas1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 bas1KeyReleased(evt);
+            }
+        });
+
+        data2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                data2ActionPerformed(evt);
             }
         });
 
@@ -473,6 +545,11 @@ public class CFXUI extends javax.swing.JPanel {
             }
         });
 
+        sPiramidale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sPiramidaleFocusLost(evt);
+            }
+        });
         sPiramidale.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 sPiramidaleKeyReleased(evt);
@@ -520,6 +597,11 @@ public class CFXUI extends javax.swing.JPanel {
             }
         });
 
+        dosaggio.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                dosaggioFocusLost(evt);
+            }
+        });
         dosaggio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 dosaggioKeyReleased(evt);
@@ -528,6 +610,12 @@ public class CFXUI extends javax.swing.JPanel {
 
         jLabel25.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel25.setText("Dosaggio:");
+
+        dataEsamiBaseLine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataEsamiBaseLineActionPerformed(evt);
+            }
+        });
 
         jLabel38.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel38.setText("Data Esami Baseline:");
@@ -554,9 +642,20 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel47.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel47.setText("Data 2°:");
 
+        data1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                data1ActionPerformed(evt);
+            }
+        });
+
         jLabel48.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel48.setText("GB:");
 
+        sSfinterico.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sSfintericoFocusLost(evt);
+            }
+        });
         sSfinterico.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 sSfintericoKeyReleased(evt);
@@ -572,6 +671,11 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel63.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel63.setText("S. Cerebellare:");
 
+        sCerebellare.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sCerebellareFocusLost(evt);
+            }
+        });
         sCerebellare.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 sCerebellareKeyReleased(evt);
@@ -581,12 +685,22 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel64.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel64.setText("S. Visivo:");
 
+        sVisivo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sVisivoFocusLost(evt);
+            }
+        });
         sVisivo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 sVisivoKeyReleased(evt);
             }
         });
 
+        sTroncoEnc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sTroncoEncFocusLost(evt);
+            }
+        });
         sTroncoEnc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 sTroncoEncKeyReleased(evt);
@@ -596,6 +710,11 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel65.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel65.setText("S. Troncoencefalico:");
 
+        sSensitivo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sSensitivoFocusLost(evt);
+            }
+        });
         sSensitivo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 sSensitivoKeyReleased(evt);
@@ -1125,6 +1244,331 @@ public class CFXUI extends javax.swing.JPanel {
     private void terapieConcomitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_terapieConcomitKeyReleased
         terapieConcomitEdit=true;
     }//GEN-LAST:event_terapieConcomitKeyReleased
+
+    private void noteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_noteFocusLost
+        if(!noteEdit)
+            return;
+        noteEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Note=? WHERE ID_CFX=?");
+            pst.setString(1,note.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_noteFocusLost
+
+    private void enFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enFocusLost
+        if(!enEdit)
+            return;
+        enEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET EN=? WHERE ID_CFX=?");
+            pst.setString(1,en.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_enFocusLost
+
+    private void terapieConcomitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_terapieConcomitFocusLost
+        if(!terapieConcomitEdit)
+            return;
+        terapieConcomitEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Terapie_Concomitanti=? WHERE ID_CFX=?");
+            pst.setString(1,terapieConcomit.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_terapieConcomitFocusLost
+
+    private void sPiramidaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sPiramidaleFocusLost
+        if(!sPiramidaleEdit)
+            return;
+        sPiramidaleEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Piramidale=? WHERE ID_CFX=?");
+            pst.setString(1,sPiramidale.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sPiramidaleFocusLost
+
+    private void sCerebellareFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sCerebellareFocusLost
+        if(!sCerebellareEdit)
+            return;
+        sCerebellareEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Cerebellare=? WHERE ID_CFX=?");
+            pst.setString(1,sCerebellare.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sCerebellareFocusLost
+
+    private void sTroncoEncFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sTroncoEncFocusLost
+        if(!sTroncoEncEdit)
+            return;
+        sTroncoEncEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Tronco_Encefalico=? WHERE ID_CFX=?");
+            pst.setString(1,sTroncoEnc.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sTroncoEncFocusLost
+
+    private void sVisivoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sVisivoFocusLost
+        if(!sVisivoEdit)
+            return;
+        sVisivoEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Visivo=? WHERE ID_CFX=?");
+            pst.setString(1,sVisivo.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sVisivoFocusLost
+
+    private void sSfintericoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sSfintericoFocusLost
+        if(!sSfintericoEdit)
+            return;
+        sSfintericoEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Sfinterico=? WHERE ID_CFX=?");
+            pst.setString(1,sSfinterico.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sSfintericoFocusLost
+
+    private void sSensitivoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sSensitivoFocusLost
+        if(!sSensitivoEdit)
+            return;
+        sSensitivoEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Sensitivo=? WHERE ID_CFX=?");
+            pst.setString(1,sSensitivo.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sSensitivoFocusLost
+
+    private void edssFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edssFocusLost
+        if(!edssEdit)
+            return;
+        edssEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET EDSS=? WHERE ID_CFX=?");
+            pst.setString(1,edss.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_edssFocusLost
+
+    private void dosaggioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dosaggioFocusLost
+        if(!dosaggioEdit)
+            return;
+        dosaggioEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Dosaggio=? WHERE ID_CFX=?");
+            pst.setString(1,dosaggio.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dosaggioFocusLost
+
+    private void grFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_grFocusLost
+        if(!grEdit)
+            return;
+        grEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET GR=? WHERE ID_CFX=?");
+            pst.setString(1,gr.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_grFocusLost
+
+    private void hbFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_hbFocusLost
+        if(!hbEdit)
+            return;
+        hbEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET HB=? WHERE ID_CFX=?");
+            pst.setString(1,hb.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_hbFocusLost
+
+    private void hctFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_hctFocusLost
+        if(!hctEdit)
+            return;
+        hctEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET HCT=? WHERE ID_CFX=?");
+            pst.setString(1,hct.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_hctFocusLost
+
+    private void pbgFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pbgFocusLost
+        if(!pbgEdit)
+            return;
+        pbgEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET PBG=? WHERE ID_CFX=?");
+            pst.setString(1,pbg.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_pbgFocusLost
+
+    private void esUrineFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_esUrineFocusLost
+        if(!esUrineEdit)
+            return;
+        esUrineEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Es_Urine=? WHERE ID_CFX=?");
+            pst.setString(1,esUrine.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_esUrineFocusLost
+
+    private void citologiaUrinFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_citologiaUrinFocusLost
+        if(!citologiaUrinEdit)
+            return;
+        citologiaUrinEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Citologia_Urinaria=? WHERE ID_CFX=?");
+            pst.setString(1,citologiaUrin.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_citologiaUrinFocusLost
+
+    private void ecgFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ecgFocusLost
+        if(!noteEdit)
+            return;
+        noteEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET ECG=? WHERE ID_CFX=?");
+            pst.setString(1,note.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ecgFocusLost
+
+    private void ecografiaVescicFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ecografiaVescicFocusLost
+        if(!ecografiaVescicEdit)
+            return;
+        ecografiaVescicEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Ecografia_Vescicolare=? WHERE ID_CFX=?");
+            pst.setString(1,ecografiaVescic.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ecografiaVescicFocusLost
+
+    private void ecocardioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ecocardioFocusLost
+        if(!ecocardioEdit)
+            return;
+        ecocardioEdit=false;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Ecocardio=? WHERE ID_CFX=?");
+            pst.setString(1,ecocardio.getText());
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ecocardioFocusLost
+
+    private void dataEsamiBaseLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataEsamiBaseLineActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Data_Esami_BaseLine=? WHERE ID_CFX=?");
+            Date d=dataEsamiBaseLine.getDate();
+            if(d==null)
+            pst.setNull(1, java.sql.Types.DATE);
+            else
+            pst.setDate(1, Utilita.DateUtilToSQL(d));
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dataEsamiBaseLineActionPerformed
+
+    private void data1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data1ActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Data_1=? WHERE ID_CFX=?");
+            Date d=data1.getDate();
+            if(d==null)
+            pst.setNull(1, java.sql.Types.DATE);
+            else
+            pst.setDate(1, Utilita.DateUtilToSQL(d));
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_data1ActionPerformed
+
+    private void data2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data2ActionPerformed
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET Data_2=? WHERE ID_CFX=?");
+            Date d=data2.getDate();
+            if(d==null)
+            pst.setNull(1, java.sql.Types.DATE);
+            else
+            pst.setDate(1, Utilita.DateUtilToSQL(d));
+            pst.setInt(2, idCFX);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_data2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
