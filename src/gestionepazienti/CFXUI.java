@@ -12,6 +12,48 @@ public class CFXUI extends javax.swing.JPanel {
     private PazienteUI parent;
     private int idCFX;
     
+    private boolean noteEdit;
+    private boolean dosaggioEdit;
+    private boolean grEdit;
+    private boolean hbEdit;
+    private boolean hctEdit;
+    private boolean pbgEdit;
+    private boolean esUrineEdit;
+    private boolean citologiaUrinEdit;
+    private boolean ecgEdit;
+    private boolean ecografiaVescicEdit;
+    private boolean ecocardioEdit;
+    private boolean gbEdit;
+    private boolean neuEdit;
+    private boolean linfEdit;
+    private boolean linfAssEdit;
+    private boolean monEdit;
+    private boolean eoEdit;
+    private boolean basEdit;
+    private boolean gb1Edit;
+    private boolean gb2Edit;
+    private boolean neu1Edit;
+    private boolean neu2Edit;
+    private boolean linf1Edit;
+    private boolean linf2Edit;
+    private boolean linfAss1Edit;
+    private boolean linfAss2Edit;
+    private boolean mon1Edit;
+    private boolean mon2Edit;
+    private boolean eo1Edit;
+    private boolean eo2Edit;
+    private boolean bas1Edit;
+    private boolean bas2Edit;
+    private boolean sPiramidaleEdit;
+    private boolean sCerebellareEdit;
+    private boolean sTroncoEncEdit;
+    private boolean sVisivoEdit;
+    private boolean sSfintericoEdit;
+    private boolean sSensitivoEdit;
+    private boolean edssEdit;
+    private boolean enEdit;
+    private boolean terapieConcomitEdit;
+    
     
     
     public CFXUI(PazienteUI p,int id) {
@@ -37,41 +79,41 @@ public class CFXUI extends javax.swing.JPanel {
                terapieConcomit.setText(rs.getString("Terapie_Concomitanti"));
                note.setText(rs.getString("Note"));
                data2.setDate(rs.getDate("Data_2"));
-               dosaggio.setText(""+rs.getDouble("Dosaggio"));
-               gr.setText(""+rs.getDouble("GR"));
-               sPiramidale.setText(""+rs.getDouble("Piramidale"));
-               sSensitivo.setText(""+rs.getDouble("Sensitivo"));
-               sVisivo.setText(""+rs.getDouble("Visivo"));
-               sTroncoEnc.setText(""+rs.getDouble("Tronco_Enc"));
-               sCerebellare.setText(""+rs.getDouble("Cerebellare"));
-               sSfinterico.setText(""+rs.getDouble("Sfinterico"));
-               edss.setText(""+rs.getDouble("EDSS"));
-               gb.setText(""+rs.getDouble("GB"));
-               gb1.setText(""+rs.getDouble("GB_1"));
-               gb2.setText(""+rs.getDouble("GB_2"));
-               neu.setText(""+rs.getDouble("Neu"));
-               neu1.setText(""+rs.getDouble("Neu_1"));
-               neu2.setText(""+rs.getDouble("Neu_2"));
-               linf.setText(""+rs.getDouble("Linf"));
-               linf1.setText(""+rs.getDouble("Linf_1"));
-               linf2.setText(""+rs.getDouble("Linf_2"));
-               linfAss.setText(""+rs.getDouble("Linf_Ass"));
-               linfAss1.setText(""+rs.getDouble("Linf_Ass_1"));
-               linfAss2.setText(""+rs.getDouble("Linf_Ass_2"));
-               mon.setText(""+rs.getDouble("Mon"));
-               mon1.setText(""+rs.getDouble("Mon_1"));
-               mon2.setText(""+rs.getDouble("Mon_2"));
-               eo.setText(""+rs.getDouble("EO"));
-               eo1.setText(""+rs.getDouble("EO_1"));
+               dosaggio.setText(""+rs.getString("Dosaggio"));
+               gr.setText(""+rs.getString("GR"));
+               sPiramidale.setText(""+rs.getString("Piramidale"));
+               sSensitivo.setText(""+rs.getString("Sensitivo"));
+               sVisivo.setText(""+rs.getString("Visivo"));
+               sTroncoEnc.setText(""+rs.getString("Tronco_Enc"));
+               sCerebellare.setText(""+rs.getString("Cerebellare"));
+               sSfinterico.setText(""+rs.getString("Sfinterico"));
+               edss.setText(""+rs.getString("EDSS"));
+               gb.setText(""+rs.getString("GB"));
+               gb1.setText(""+rs.getString("GB_1"));
+               gb2.setText(""+rs.getString("GB_2"));
+               neu.setText(""+rs.getString("Neu"));
+               neu1.setText(""+rs.getString("Neu_1"));
+               neu2.setText(""+rs.getString("Neu_2"));
+               linf.setText(""+rs.getString("Linf"));
+               linf1.setText(""+rs.getString("Linf_1"));
+               linf2.setText(""+rs.getString("Linf_2"));
+               linfAss.setText(""+rs.getString("Linf_Ass"));
+               linfAss1.setText(""+rs.getString("Linf_Ass_1"));
+               linfAss2.setText(""+rs.getString("Linf_Ass_2"));
+               mon.setText(""+rs.getString("Mon"));
+               mon1.setText(""+rs.getString("Mon_1"));
+               mon2.setText(""+rs.getString("Mon_2"));
+               eo.setText(""+rs.getString("EO"));
+               eo1.setText(""+rs.getString("EO_1"));
                eo2.setText(rs.getString("EO_2"));
-               bas.setText(""+rs.getDouble("Bas"));
-               bas1.setText(""+rs.getDouble("Bas_1"));
+               bas.setText(""+rs.getString("Bas"));
+               bas1.setText(""+rs.getString("Bas_1"));
                bas2.setText(rs.getString("Bas_2"));
                ecocardio.setText(rs.getString("Ecocardio"));
-               hb.setText(""+rs.getDouble("HB"));
-               hct.setText(""+rs.getDouble("HCT"));
-               pbg.setText(""+rs.getDouble("PBG"));
-               ecg.setText(""+rs.getDouble("ECG"));
+               hb.setText(""+rs.getString("HB"));
+               hct.setText(""+rs.getString("HCT"));
+               pbg.setText(""+rs.getString("PBG"));
+               ecg.setText(""+rs.getString("ECG"));
                citologiaUrin.setText(rs.getString("Citologia_Urinaria"));
                esUrine.setText(rs.getString("Es_Urine"));
             }
@@ -182,11 +224,29 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel31.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel31.setText("Hct:");
 
+        hct.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                hctKeyReleased(evt);
+            }
+        });
+
         jLabel30.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel30.setText("Hb:");
 
+        hb.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                hbKeyReleased(evt);
+            }
+        });
+
         jLabel29.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel29.setText("GR:");
+
+        gr.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                grKeyReleased(evt);
+            }
+        });
 
         jLabel70.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel70.setText("Terapie Concomitanti:");
@@ -196,7 +256,24 @@ public class CFXUI extends javax.swing.JPanel {
 
         terapieConcomit.setColumns(20);
         terapieConcomit.setRows(5);
+        terapieConcomit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                terapieConcomitKeyReleased(evt);
+            }
+        });
         jScrollPane3.setViewportView(terapieConcomit);
+
+        mon1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                mon1KeyReleased(evt);
+            }
+        });
+
+        edss.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                edssKeyReleased(evt);
+            }
+        });
 
         jLabel52.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel52.setText("Mon:");
@@ -205,9 +282,19 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel68.setText("EDSS:");
 
         linfAss1.setToolTipText("");
+        linfAss1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfAss1KeyReleased(evt);
+            }
+        });
 
         en.setColumns(20);
         en.setRows(5);
+        en.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                enKeyReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(en);
 
         jLabel51.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -219,8 +306,32 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel69.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel69.setText("EN:");
 
+        linf1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linf1KeyReleased(evt);
+            }
+        });
+
+        pbg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                pbgKeyReleased(evt);
+            }
+        });
+
+        neu1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                neu1KeyReleased(evt);
+            }
+        });
+
         jLabel50.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel50.setText("Linf:");
+
+        gb1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                gb1KeyReleased(evt);
+            }
+        });
 
         jLabel49.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel49.setText("Neu:");
@@ -237,30 +348,90 @@ public class CFXUI extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(note);
 
+        ecg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ecgKeyReleased(evt);
+            }
+        });
+
         jLabel36.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel36.setText("Ecografia Vescicolare:");
+
+        ecografiaVescic.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ecografiaVescicKeyReleased(evt);
+            }
+        });
 
         jLabel37.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel37.setText("Ecocardio:");
 
+        esUrine.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                esUrineKeyReleased(evt);
+            }
+        });
+
         jLabel34.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel34.setText("Citologia Urinaria:");
+
+        citologiaUrin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                citologiaUrinKeyReleased(evt);
+            }
+        });
 
         jLabel35.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel35.setText("ECG:");
 
+        linf2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linf2KeyReleased(evt);
+            }
+        });
+
         jLabel56.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel56.setText("Neu:");
 
+        ecocardio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ecocardioKeyReleased(evt);
+            }
+        });
+
+        gb2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                gb2KeyReleased(evt);
+            }
+        });
+
         jLabel57.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel57.setText("Linf:");
+
+        neu2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                neu2KeyReleased(evt);
+            }
+        });
 
         jLabel54.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel54.setText("Bas:");
         jLabel54.setToolTipText("");
 
+        bas1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                bas1KeyReleased(evt);
+            }
+        });
+
         jLabel55.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel55.setText("GB:");
+
+        eo1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                eo1KeyReleased(evt);
+            }
+        });
 
         jLabel33.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel33.setText("Es Urine:");
@@ -268,19 +439,54 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel40.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel40.setText("Neu:");
 
+        neu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                neuKeyReleased(evt);
+            }
+        });
+
         jLabel39.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel39.setText("GB:");
+
+        gb.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                gbKeyReleased(evt);
+            }
+        });
 
         jLabel42.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel42.setText("Linf Ass:");
 
         linfAss.setToolTipText("");
+        linfAss.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfAssKeyReleased(evt);
+            }
+        });
 
         jLabel41.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel41.setText("Linf:");
 
+        linf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfKeyReleased(evt);
+            }
+        });
+
+        sPiramidale.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                sPiramidaleKeyReleased(evt);
+            }
+        });
+
         jLabel62.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel62.setText("S. Piramidale:");
+
+        bas2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                bas2KeyReleased(evt);
+            }
+        });
 
         jLabel61.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel61.setText("Bas:");
@@ -290,12 +496,35 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel58.setText("Linf Ass:");
 
         linfAss2.setToolTipText("");
+        linfAss2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                linfAss2KeyReleased(evt);
+            }
+        });
 
         jLabel60.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel60.setText("Eo:");
 
+        eo2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                eo2KeyReleased(evt);
+            }
+        });
+
         jLabel59.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel59.setText("Mon:");
+
+        mon2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                mon2KeyReleased(evt);
+            }
+        });
+
+        dosaggio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dosaggioKeyReleased(evt);
+            }
+        });
 
         jLabel25.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel25.setText("Dosaggio:");
@@ -303,9 +532,21 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel38.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel38.setText("Data Esami Baseline:");
 
+        eo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                eoKeyReleased(evt);
+            }
+        });
+
         jLabel45.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel45.setText("Bas:");
         jLabel45.setToolTipText("");
+
+        bas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                basKeyReleased(evt);
+            }
+        });
 
         jLabel46.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel46.setText("Data 1°:");
@@ -316,6 +557,12 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel48.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel48.setText("GB:");
 
+        sSfinterico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                sSfintericoKeyReleased(evt);
+            }
+        });
+
         jLabel66.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel66.setText("S. Sensitivo:");
 
@@ -325,17 +572,47 @@ public class CFXUI extends javax.swing.JPanel {
         jLabel63.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel63.setText("S. Cerebellare:");
 
+        sCerebellare.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                sCerebellareKeyReleased(evt);
+            }
+        });
+
         jLabel64.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel64.setText("S. Visivo:");
 
+        sVisivo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                sVisivoKeyReleased(evt);
+            }
+        });
+
+        sTroncoEnc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                sTroncoEncKeyReleased(evt);
+            }
+        });
+
         jLabel65.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel65.setText("S. Troncoencefalico:");
+
+        sSensitivo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                sSensitivoKeyReleased(evt);
+            }
+        });
 
         jLabel43.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel43.setText("Mon:");
 
         jLabel44.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel44.setText("Eo:");
+
+        mon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                monKeyReleased(evt);
+            }
+        });
 
         cancellaCFX.setBackground(java.awt.Color.red);
         cancellaCFX.setText("X");
@@ -671,7 +948,7 @@ public class CFXUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void noteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noteKeyReleased
-        //noteEdit=true;
+        noteEdit=true;
     }//GEN-LAST:event_noteKeyReleased
 
     private void cancellaCFXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancellaCFXActionPerformed
@@ -688,6 +965,166 @@ public class CFXUI extends javax.swing.JPanel {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cancellaCFXActionPerformed
+
+    private void dosaggioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dosaggioKeyReleased
+        dosaggioEdit=true;
+    }//GEN-LAST:event_dosaggioKeyReleased
+
+    private void grKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_grKeyReleased
+        grEdit=true;
+    }//GEN-LAST:event_grKeyReleased
+
+    private void hbKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hbKeyReleased
+        hbEdit=true;
+    }//GEN-LAST:event_hbKeyReleased
+
+    private void hctKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hctKeyReleased
+        hctEdit=true;
+    }//GEN-LAST:event_hctKeyReleased
+
+    private void pbgKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pbgKeyReleased
+        pbgEdit=true;
+    }//GEN-LAST:event_pbgKeyReleased
+
+    private void esUrineKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_esUrineKeyReleased
+        esUrineEdit=true;
+    }//GEN-LAST:event_esUrineKeyReleased
+
+    private void citologiaUrinKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_citologiaUrinKeyReleased
+        citologiaUrinEdit=true;
+    }//GEN-LAST:event_citologiaUrinKeyReleased
+
+    private void ecgKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ecgKeyReleased
+        ecgEdit=true;
+    }//GEN-LAST:event_ecgKeyReleased
+
+    private void ecografiaVescicKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ecografiaVescicKeyReleased
+        ecografiaVescicEdit=true;
+    }//GEN-LAST:event_ecografiaVescicKeyReleased
+
+    private void ecocardioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ecocardioKeyReleased
+        ecocardioEdit=true;
+    }//GEN-LAST:event_ecocardioKeyReleased
+
+    private void gbKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gbKeyReleased
+        gbEdit=true;
+    }//GEN-LAST:event_gbKeyReleased
+
+    private void neuKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_neuKeyReleased
+        neuEdit=true;
+    }//GEN-LAST:event_neuKeyReleased
+
+    private void linfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfKeyReleased
+        linfEdit=true;
+    }//GEN-LAST:event_linfKeyReleased
+
+    private void linfAssKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfAssKeyReleased
+        linfAssEdit=true;
+    }//GEN-LAST:event_linfAssKeyReleased
+
+    private void monKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_monKeyReleased
+        monEdit=true;
+    }//GEN-LAST:event_monKeyReleased
+
+    private void eoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eoKeyReleased
+        eoEdit=true;
+    }//GEN-LAST:event_eoKeyReleased
+
+    private void basKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_basKeyReleased
+        basEdit=true;
+    }//GEN-LAST:event_basKeyReleased
+
+    private void gb1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gb1KeyReleased
+        gb1Edit=true;
+    }//GEN-LAST:event_gb1KeyReleased
+
+    private void gb2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gb2KeyReleased
+        gb2Edit=true;
+    }//GEN-LAST:event_gb2KeyReleased
+
+    private void neu1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_neu1KeyReleased
+        neu1Edit=true;
+    }//GEN-LAST:event_neu1KeyReleased
+
+    private void neu2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_neu2KeyReleased
+        neu2Edit=true;
+    }//GEN-LAST:event_neu2KeyReleased
+
+    private void linf1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linf1KeyReleased
+        linf1Edit=true;
+    }//GEN-LAST:event_linf1KeyReleased
+
+    private void linf2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linf2KeyReleased
+        linf2Edit=true;
+    }//GEN-LAST:event_linf2KeyReleased
+
+    private void linfAss1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfAss1KeyReleased
+        linfAss1Edit=true;
+    }//GEN-LAST:event_linfAss1KeyReleased
+
+    private void linfAss2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_linfAss2KeyReleased
+        linfAss2Edit=true;
+    }//GEN-LAST:event_linfAss2KeyReleased
+
+    private void mon1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mon1KeyReleased
+        mon1Edit=true;
+    }//GEN-LAST:event_mon1KeyReleased
+
+    private void mon2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mon2KeyReleased
+        mon2Edit=true;
+    }//GEN-LAST:event_mon2KeyReleased
+
+    private void eo1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eo1KeyReleased
+        eo1Edit=true;
+    }//GEN-LAST:event_eo1KeyReleased
+
+    private void eo2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eo2KeyReleased
+        eo2Edit=true;
+    }//GEN-LAST:event_eo2KeyReleased
+
+    private void bas1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bas1KeyReleased
+        bas1Edit=true;
+    }//GEN-LAST:event_bas1KeyReleased
+
+    private void bas2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bas2KeyReleased
+        bas2Edit=true;
+    }//GEN-LAST:event_bas2KeyReleased
+
+    private void sPiramidaleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sPiramidaleKeyReleased
+        sPiramidaleEdit=true;
+    }//GEN-LAST:event_sPiramidaleKeyReleased
+
+    private void sCerebellareKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sCerebellareKeyReleased
+        sCerebellareEdit=true;
+    }//GEN-LAST:event_sCerebellareKeyReleased
+
+    private void sTroncoEncKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sTroncoEncKeyReleased
+        sTroncoEncEdit=true;
+    }//GEN-LAST:event_sTroncoEncKeyReleased
+
+    private void sVisivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sVisivoKeyReleased
+        sVisivoEdit=true;
+    }//GEN-LAST:event_sVisivoKeyReleased
+
+    private void sSfintericoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sSfintericoKeyReleased
+        sSfintericoEdit=true;
+    }//GEN-LAST:event_sSfintericoKeyReleased
+
+    private void sSensitivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sSensitivoKeyReleased
+        sSensitivoEdit=true;
+    }//GEN-LAST:event_sSensitivoKeyReleased
+
+    private void edssKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edssKeyReleased
+        edssEdit=true;
+    }//GEN-LAST:event_edssKeyReleased
+
+    private void enKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_enKeyReleased
+        enEdit=true;
+    }//GEN-LAST:event_enKeyReleased
+
+    private void terapieConcomitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_terapieConcomitKeyReleased
+        terapieConcomitEdit=true;
+    }//GEN-LAST:event_terapieConcomitKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -378,6 +378,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="hct">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="hctKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel30">
       <Properties>
@@ -388,6 +391,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="hb">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="hbKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel29">
       <Properties>
@@ -398,6 +404,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="gr">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="grKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel70">
       <Properties>
@@ -427,12 +436,21 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="terapieConcomitKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="mon1">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="mon1KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="edss">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edssKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel52">
       <Properties>
@@ -454,6 +472,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfAss1KeyReleased"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
@@ -467,6 +488,9 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="enKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -495,10 +519,19 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="linf1">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linf1KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="pbg">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pbgKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="neu1">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="neu1KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel50">
       <Properties>
@@ -509,6 +542,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="gb1">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="gb1KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel49">
       <Properties>
@@ -545,6 +581,9 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="ecg">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ecgKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel36">
       <Properties>
@@ -555,6 +594,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="ecografiaVescic">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ecografiaVescicKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel37">
       <Properties>
@@ -565,6 +607,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="esUrine">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="esUrineKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel34">
       <Properties>
@@ -575,6 +620,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="citologiaUrin">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="citologiaUrinKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel35">
       <Properties>
@@ -585,6 +633,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="linf2">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linf2KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel56">
       <Properties>
@@ -595,8 +646,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="ecocardio">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ecocardioKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="gb2">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="gb2KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel57">
       <Properties>
@@ -607,6 +664,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="neu2">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="neu2KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel54">
       <Properties>
@@ -618,6 +678,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="bas1">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bas1KeyReleased"/>
+      </Events>
     </Component>
     <Component class="org.jdesktop.swingx.JXDatePicker" name="data2">
     </Component>
@@ -630,6 +693,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="eo1">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="eo1KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel33">
       <Properties>
@@ -648,6 +714,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="neu">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="neuKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel39">
       <Properties>
@@ -658,6 +727,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="gb">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="gbKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel42">
       <Properties>
@@ -671,6 +743,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfAssKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel41">
       <Properties>
@@ -681,8 +756,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="linf">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="sPiramidale">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sPiramidaleKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel62">
       <Properties>
@@ -693,6 +774,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="bas2">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bas2KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel61">
       <Properties>
@@ -715,6 +799,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfAss2KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel60">
       <Properties>
@@ -725,6 +812,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="eo2">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="eo2KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel59">
       <Properties>
@@ -735,8 +825,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="mon2">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="mon2KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="dosaggio">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dosaggioKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel25">
       <Properties>
@@ -757,6 +853,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="eo">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="eoKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel45">
       <Properties>
@@ -768,6 +867,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="bas">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="basKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel46">
       <Properties>
@@ -796,6 +898,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="sSfinterico">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sSfintericoKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel66">
       <Properties>
@@ -822,6 +927,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="sCerebellare">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sCerebellareKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel64">
       <Properties>
@@ -832,8 +940,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="sVisivo">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sVisivoKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="sTroncoEnc">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sTroncoEncKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel65">
       <Properties>
@@ -844,6 +958,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="sSensitivo">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sSensitivoKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel43">
       <Properties>
@@ -862,6 +979,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="mon">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="monKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cancellaCFX">
       <Properties>
