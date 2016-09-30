@@ -671,7 +671,7 @@ public class CFXUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void noteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noteKeyReleased
-        noteEdit=true;
+        //noteEdit=true;
     }//GEN-LAST:event_noteKeyReleased
 
     private void cancellaCFXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancellaCFXActionPerformed
