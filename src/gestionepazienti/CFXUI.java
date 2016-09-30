@@ -80,41 +80,41 @@ public class CFXUI extends javax.swing.JPanel {
                terapieConcomit.setText(rs.getString("Terapie_Concomitanti"));
                note.setText(rs.getString("Note"));
                data2.setDate(rs.getDate("Data_2"));
-               dosaggio.setText(""+rs.getString("Dosaggio"));
-               gr.setText(""+rs.getString("GR"));
-               sPiramidale.setText(""+rs.getString("Piramidale"));
-               sSensitivo.setText(""+rs.getString("Sensitivo"));
-               sVisivo.setText(""+rs.getString("Visivo"));
-               sTroncoEnc.setText(""+rs.getString("Tronco_Enc"));
-               sCerebellare.setText(""+rs.getString("Cerebellare"));
-               sSfinterico.setText(""+rs.getString("Sfinterico"));
-               edss.setText(""+rs.getString("EDSS"));
-               gb.setText(""+rs.getString("GB"));
-               gb1.setText(""+rs.getString("GB_1"));
-               gb2.setText(""+rs.getString("GB_2"));
-               neu.setText(""+rs.getString("Neu"));
-               neu1.setText(""+rs.getString("Neu_1"));
-               neu2.setText(""+rs.getString("Neu_2"));
-               linf.setText(""+rs.getString("Linf"));
-               linf1.setText(""+rs.getString("Linf_1"));
-               linf2.setText(""+rs.getString("Linf_2"));
-               linfAss.setText(""+rs.getString("Linf_Ass"));
-               linfAss1.setText(""+rs.getString("Linf_Ass_1"));
-               linfAss2.setText(""+rs.getString("Linf_Ass_2"));
-               mon.setText(""+rs.getString("Mon"));
-               mon1.setText(""+rs.getString("Mon_1"));
-               mon2.setText(""+rs.getString("Mon_2"));
-               eo.setText(""+rs.getString("EO"));
-               eo1.setText(""+rs.getString("EO_1"));
+               dosaggio.setText(rs.getString("Dosaggio"));
+               gr.setText(rs.getString("GR"));
+               sPiramidale.setText(rs.getString("Piramidale"));
+               sSensitivo.setText(rs.getString("Sensitivo"));
+               sVisivo.setText(rs.getString("Visivo"));
+               sTroncoEnc.setText(rs.getString("Tronco_Encefalico"));
+               sCerebellare.setText(rs.getString("Cerebellare"));
+               sSfinterico.setText(rs.getString("Sfinterico"));
+               edss.setText(rs.getString("EDSS"));
+               gb.setText(rs.getString("GB"));
+               gb1.setText(rs.getString("GB_1"));
+               gb2.setText(rs.getString("GB_2"));
+               neu.setText(rs.getString("Neu"));
+               neu1.setText(rs.getString("Neu_1"));
+               neu2.setText(rs.getString("Neu_2"));
+               linf.setText(rs.getString("Linf"));
+               linf1.setText(rs.getString("Linf_1"));
+               linf2.setText(rs.getString("Linf_2"));
+               linfAss.setText(rs.getString("Linf_Ass"));
+               linfAss1.setText(rs.getString("Linf_Ass_1"));
+               linfAss2.setText(rs.getString("Linf_Ass_2"));
+               mon.setText(rs.getString("Mon"));
+               mon1.setText(rs.getString("Mon_1"));
+               mon2.setText(rs.getString("Mon_2"));
+               eo.setText(rs.getString("EO"));
+               eo1.setText(rs.getString("EO_1"));
                eo2.setText(rs.getString("EO_2"));
-               bas.setText(""+rs.getString("Bas"));
-               bas1.setText(""+rs.getString("Bas_1"));
+               bas.setText(rs.getString("Bas"));
+               bas1.setText(rs.getString("Bas_1"));
                bas2.setText(rs.getString("Bas_2"));
                ecocardio.setText(rs.getString("Ecocardio"));
-               hb.setText(""+rs.getString("HB"));
-               hct.setText(""+rs.getString("HCT"));
-               pbg.setText(""+rs.getString("PBG"));
-               ecg.setText(""+rs.getString("ECG"));
+               hb.setText(rs.getString("HB"));
+               hct.setText(rs.getString("HCT"));
+               pbg.setText(rs.getString("PBG"));
+               ecg.setText(rs.getString("ECG"));
                citologiaUrin.setText(rs.getString("Citologia_Urinaria"));
                esUrine.setText(rs.getString("Es_Urine"));
             }
@@ -1589,12 +1589,12 @@ public class CFXUI extends javax.swing.JPanel {
     }//GEN-LAST:event_citologiaUrinFocusLost
 
     private void ecgFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ecgFocusLost
-        if(!noteEdit)
+        if(!ecgEdit)
             return;
-        noteEdit=false;
+        ecgEdit=false;
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE CFX SET ECG=? WHERE ID_CFX=?");
-            pst.setString(1,note.getText());
+            pst.setString(1,ecg.getText());
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
