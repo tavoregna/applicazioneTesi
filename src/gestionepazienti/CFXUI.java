@@ -24,7 +24,7 @@ public class CFXUI extends javax.swing.JPanel {
 
     public void aggiornaDatiCFX(int id)
     {
-         /*try {
+         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM CFX WHERE ID_CFX=?");
             pst.setInt(1,id);
             ResultSet rs=pst.executeQuery();
@@ -77,7 +77,7 @@ public class CFXUI extends javax.swing.JPanel {
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
-        } */
+        } 
     }
     
     @SuppressWarnings("unchecked")
