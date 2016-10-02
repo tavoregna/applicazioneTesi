@@ -2546,7 +2546,7 @@ public class PazienteUI extends javax.swing.JFrame {
             pst.setDate(2, Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
             pst.setString(3,Integer.toString(tipoControllo));
             pst.executeUpdate();
-            ResultSet rs=GestioneDatabase.querySelect("SELECT MAX(ID_Controllo) FROM Controllo_Standard");
+            ResultSet rs=GestioneDatabase.querySelect("SELECT LAST(ID_Controllo) FROM Controllo_Standard");
             if(rs.next())
             {
                 String q;
@@ -2601,7 +2601,7 @@ public class PazienteUI extends javax.swing.JFrame {
             pst.setString(3,terapiaScelta);
             pst.setInt(4, numSom);
             pst.executeUpdate();
-            ResultSet rs=GestioneDatabase.querySelect("SELECT MAX(ID_DH) FROM DH_Standard");
+            ResultSet rs=GestioneDatabase.querySelect("SELECT LAST(ID_DH) FROM DH_Standard");
             if(rs.next())
             {
                 String q="";
