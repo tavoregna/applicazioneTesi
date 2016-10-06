@@ -1,19 +1,13 @@
 package gestionepazienti;
 
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.io.File;
-import java.io.IOException;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -229,6 +223,9 @@ public class PazienteUI extends javax.swing.JFrame {
         addButtonDH = new javax.swing.JButton();
         schedaEsami = new javax.swing.JPanel();
         panelSchedaEsam = new javax.swing.JPanel();
+        valutazioneNPS = new javax.swing.JPanel();
+        panelValutazioneNPS = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         indietro = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -1634,6 +1631,50 @@ public class PazienteUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Scheda Esami", schedaEsami);
 
+        valutazioneNPS.setOpaque(false);
+
+        panelValutazioneNPS.setOpaque(false);
+
+        javax.swing.GroupLayout panelValutazioneNPSLayout = new javax.swing.GroupLayout(panelValutazioneNPS);
+        panelValutazioneNPS.setLayout(panelValutazioneNPSLayout);
+        panelValutazioneNPSLayout.setHorizontalGroup(
+            panelValutazioneNPSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1249, Short.MAX_VALUE)
+        );
+        panelValutazioneNPSLayout.setVerticalGroup(
+            panelValutazioneNPSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jButton1.setText("+");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout valutazioneNPSLayout = new javax.swing.GroupLayout(valutazioneNPS);
+        valutazioneNPS.setLayout(valutazioneNPSLayout);
+        valutazioneNPSLayout.setHorizontalGroup(
+            valutazioneNPSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(valutazioneNPSLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelValutazioneNPS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
+        );
+        valutazioneNPSLayout.setVerticalGroup(
+            valutazioneNPSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelValutazioneNPS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(valutazioneNPSLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addContainerGap(366, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Valutazione NPS", valutazioneNPS);
+
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
         indietro.setText("<");
@@ -2989,6 +3030,25 @@ public class PazienteUI extends javax.swing.JFrame {
             Utilita.mostraMessaggioErrore("Errore durante esecuzione dell'operazione");
         }
     }//GEN-LAST:event_corticaliActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        /*if(Pazienti.getCurrID()==null)
+            return;
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO DH_Standard(ID_Paziente,Data,Terapia,Somministrazione_N) VALUES (?,?,?,?)");
+            pst.setInt(1, Pazienti.getCurrID());
+            pst.setDate(2, Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
+            pst.setString(3,terapiaScelta);
+            pst.setInt(4, numSom);
+            pst.executeUpdate();
+            barr.aggiornaBarra(Pazienti.getCurrID());
+            barr.settaSelezionato(4, rs.getInt(1), null);
+            aggiornaDatiNPS(rs.getInt(1));
+            }
+        catch (SQLException ex) {
+            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }//GEN-LAST:event_jButton1ActionPerformed
     private Date dataCampiDiagnosi()
     {
         String dataM=pannelloDiagnostica.getName();
@@ -3265,6 +3325,10 @@ public class PazienteUI extends javax.swing.JFrame {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+    public void aggiornaDatiNPS(int idNPS)
+    {
+        inserisciPannelloValutazioneNPS(idNPS);
+    }
     
     public void inserisciPannelloTerapiaDH(int idDH,int i) //i=1 Tisabry, i=2 Gilenya, i=3 Lemtrada, i=4 CFX, i=5 Mabthera, i=6 Ocrelizumab, i=7 Zinbryta
     {
@@ -3302,6 +3366,18 @@ public class PazienteUI extends javax.swing.JFrame {
         panelDH.setVisible(true);
     }
     
+    public void inserisciPannelloValutazioneNPS(int idNPS)
+    {
+        if(panelValutazioneNPS.getComponentCount()>0)
+        {
+            panelValutazioneNPS.removeAll();
+        }
+        panelValutazioneNPS.setLayout(new BoxLayout(panelValutazioneNPS, BoxLayout.LINE_AXIS));  
+        panelValutazioneNPS.add(new NPSUI(this,idNPS));
+        panelValutazioneNPS.setVisible(false);
+        panelValutazioneNPS.setVisible(true);
+    }
+    
     public void inserisciPannelloSchedaEsam(int idSchedaEsami) 
     {
         if(panelSchedaEsam.getComponentCount()>0)
@@ -3323,6 +3399,10 @@ public class PazienteUI extends javax.swing.JFrame {
         if(panelDH!=null && panelDH.getComponentCount()>0)
         {
             panelDH.removeAll();
+        }
+        if(panelValutazioneNPS!=null && panelValutazioneNPS.getComponentCount()>0)
+        {
+            panelValutazioneNPS.removeAll();
         }
         azzeraCampiControllo();
         azzeraCampiDH();
@@ -3493,6 +3573,12 @@ public class PazienteUI extends javax.swing.JFrame {
         panelDH.setVisible(false);
         panelDH.setVisible(true);
     }
+    public void pulisciPanelNPS()
+    {
+        panelValutazioneNPS.removeAll();
+        panelValutazioneNPS.setVisible(false);
+        panelValutazioneNPS.setVisible(true);
+    }  
     public void pulisciPanelControlloAmb()
     {
         panelControlloAmb.removeAll();
@@ -3569,6 +3655,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextField iggLOC;
     private javax.swing.JButton indietro;
     private javax.swing.JTextField indirizzo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -3666,6 +3753,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JPanel panelDH;
     private javax.swing.JScrollPane panelDHScroll;
     private javax.swing.JPanel panelSchedaEsam;
+    private javax.swing.JPanel panelValutazioneNPS;
     private javax.swing.JPanel pannelloBarra;
     private javax.swing.JPanel pannelloBarra1;
     private javax.swing.JPanel pannelloDiagnostica;
@@ -3687,6 +3775,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JTextArea terapiePregresse;
     private javax.swing.JComboBox<String> tipoControllo;
     private javax.swing.JButton trovaPaziente;
+    private javax.swing.JPanel valutazioneNPS;
     private javax.swing.JTextArea varie;
     // End of variables declaration//GEN-END:variables
 }
