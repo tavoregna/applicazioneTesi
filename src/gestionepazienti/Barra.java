@@ -102,6 +102,7 @@ public class Barra extends javax.swing.JPanel {
         }
         ordinaPulsanti();
         aggiungiPulsantiAllaBarra();
+        jScrollPane1.getHorizontalScrollBar().setValue(jScrollPane1.getHorizontalScrollBar().getMaximum());
         aggiornaUI();
     }
     private void aggiungiPulsantiAllaBarra()

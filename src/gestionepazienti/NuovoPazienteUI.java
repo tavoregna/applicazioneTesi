@@ -233,7 +233,7 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
             pst.executeUpdate();     
             
             //DA MODIFICARE SE SI CAMBIA MODO ASSEGNAZIONE ID
-            ResultSet rs=GestioneDatabase.querySelect("SELECT MAX(ID) FROM Paziente");
+            ResultSet rs=GestioneDatabase.querySelect("SELECT LAST(ID) FROM Paziente");
             if(rs.next())
             {
                 int id=rs.getInt(1);
