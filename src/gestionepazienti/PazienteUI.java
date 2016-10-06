@@ -1641,6 +1641,8 @@ public class PazienteUI extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         panelValutazioneNPS.setOpaque(false);
 
         javax.swing.GroupLayout panelValutazioneNPSLayout = new javax.swing.GroupLayout(panelValutazioneNPS);

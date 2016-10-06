@@ -106,7 +106,7 @@ public class Barra extends javax.swing.JPanel {
             {
                 Date d=rs.getDate("Data");
                 int c=rs.getInt("ID_NPS");
-                creaPulsante(i,d,c,4,Color.PINK,rs.getString("Val. NPS"));
+                creaPulsante(i,d,c,4,Color.PINK,"Val. NPS");
                 i++;
             }
         } 
