@@ -34,7 +34,7 @@ public class Barra extends javax.swing.JPanel {
         pulsanti.clear();
         int i=0;
         try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Controllo_Standard WHERE ID_Paziente="+id+" ORDER BY Data ASC");
+            ResultSet rs=GestioneDatabase.querySelect("SELECT ID_Controllo,Data,Tipo_Controllo FROM Controllo_Standard WHERE ID_Paziente="+id+" ORDER BY Data ASC");
             
             while(rs.next())
             {
@@ -76,7 +76,7 @@ public class Barra extends javax.swing.JPanel {
             Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM DH_Standard WHERE ID_Paziente="+id+" ORDER BY Data ASC");
+            ResultSet rs=GestioneDatabase.querySelect("SELECT ID_DH,Data,Terapia FROM DH_Standard WHERE ID_Paziente="+id+" ORDER BY Data ASC");
             while(rs.next())
             {
                 Date d=rs.getDate("Data");
@@ -88,12 +88,25 @@ public class Barra extends javax.swing.JPanel {
         catch (SQLException ex) {
             Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
         }
-         try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT * FROM Diagnosi_Paziente WHERE ID_Paziente="+id+" ORDER BY Data_Diagnosi ASC");
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Data_Diagnosi FROM Diagnosi_Paziente WHERE ID_Paziente="+id+" ORDER BY Data_Diagnosi ASC");
             while(rs.next())
             {
                 Date d=rs.getDate("Data_Diagnosi");
                 creaPulsante(i,d,null,1,new Color(112,146,190),"Diagnosi");
+                i++;
+            }
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT ID_NPS,Data FROM ValutazioneNPS WHERE ID_Paziente="+id+" ORDER BY Data ASC");
+            while(rs.next())
+            {
+                Date d=rs.getDate("Data");
+                int c=rs.getInt("ID_NPS");
+                creaPulsante(i,d,c,4,Color.PINK,rs.getString("Val. NPS"));
                 i++;
             }
         } 
@@ -163,15 +176,20 @@ public class Barra extends javax.swing.JPanel {
             parent.selezionaScheda(3);
             return;
         }
-        
+        if(tipo==4)
+        {
+            parent.aggiornaDatiNPS(premuto.getIdControllo());
+            parent.selezionaScheda(5);
+            return;
+        }
     }
-    //1=DIAGNOSTICA, 2=CONTROLLO AMBULATORIALE, 3=TERAPIA INFUSIVA
+    //1=DIAGNOSTICA, 2=CONTROLLO AMBULATORIALE, 3=TERAPIA INFUSIVA, 4=NPS
    public void settaSelezionato(int tipo,int id,Date data)
    {
        for(int i=0;i<pulsanti.size();i++)
        {
            PulsanteBarra temp=pulsanti.get(i);
-           if(temp.getTipo()==tipo && ((tipo==1 && temp.getData().equals(data)) || ((tipo==2 || tipo==3) && temp.getIdControllo()==id)))
+           if(temp.getTipo()==tipo && ((tipo==1 && temp.getData().equals(data)) || ((tipo==2 || tipo==3 || tipo==4) && temp.getIdControllo()==id)))
            {
                aggiornaBordoPulsante(temp);
                return;

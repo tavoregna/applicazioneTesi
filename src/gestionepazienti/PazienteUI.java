@@ -224,8 +224,9 @@ public class PazienteUI extends javax.swing.JFrame {
         schedaEsami = new javax.swing.JPanel();
         panelSchedaEsam = new javax.swing.JPanel();
         valutazioneNPS = new javax.swing.JPanel();
-        panelValutazioneNPS = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        panelValutazioneNPS = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         indietro = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -1633,6 +1634,13 @@ public class PazienteUI extends javax.swing.JFrame {
 
         valutazioneNPS.setOpaque(false);
 
+        jButton1.setText("+");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         panelValutazioneNPS.setOpaque(false);
 
         javax.swing.GroupLayout panelValutazioneNPSLayout = new javax.swing.GroupLayout(panelValutazioneNPS);
@@ -1646,12 +1654,7 @@ public class PazienteUI extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jButton1.setText("+");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jScrollPane2.setViewportView(panelValutazioneNPS);
 
         javax.swing.GroupLayout valutazioneNPSLayout = new javax.swing.GroupLayout(valutazioneNPS);
         valutazioneNPS.setLayout(valutazioneNPSLayout);
@@ -1661,16 +1664,16 @@ public class PazienteUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelValutazioneNPS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         valutazioneNPSLayout.setVerticalGroup(
             valutazioneNPSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelValutazioneNPS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(valutazioneNPSLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1)
                 .addContainerGap(366, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jTabbedPane1.addTab("Valutazione NPS", valutazioneNPS);
@@ -3032,22 +3035,24 @@ public class PazienteUI extends javax.swing.JFrame {
     }//GEN-LAST:event_corticaliActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        /*if(Pazienti.getCurrID()==null)
+        if(Pazienti.getCurrID()==null)
             return;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO DH_Standard(ID_Paziente,Data,Terapia,Somministrazione_N) VALUES (?,?,?,?)");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO ValutazioneNPS(ID_Paziente,Data) VALUES (?,?)");
             pst.setInt(1, Pazienti.getCurrID());
             pst.setDate(2, Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
-            pst.setString(3,terapiaScelta);
-            pst.setInt(4, numSom);
             pst.executeUpdate();
-            barr.aggiornaBarra(Pazienti.getCurrID());
-            barr.settaSelezionato(4, rs.getInt(1), null);
-            aggiornaDatiNPS(rs.getInt(1));
+            ResultSet rs=GestioneDatabase.querySelect("SELECT LAST(ID_NPS) FROM ValutazioneNPS");
+            if(rs.next())
+            { 
+                barr.aggiornaBarra(Pazienti.getCurrID());
+                barr.settaSelezionato(4, rs.getInt(1), null);
+                aggiornaDatiNPS(rs.getInt(1));
+            }
             }
         catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     private Date dataCampiDiagnosi()
     {
@@ -3724,6 +3729,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
