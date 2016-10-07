@@ -1,6 +1,7 @@
 package gestionepazienti;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -115,8 +116,13 @@ public class Barra extends javax.swing.JPanel {
         }
         ordinaPulsanti();
         aggiungiPulsantiAllaBarra();
+        Dimension preferredSize=pannelloBarra.getPreferredSize();
+        double dim=pulsanti.isEmpty()?0:((pulsanti.get(0).getPreferredSize().getWidth()+10)*(pannelloBarra.getComponentCount()));
+        preferredSize.setSize(dim, preferredSize.getHeight());
+        pannelloBarra.setPreferredSize(preferredSize);
         aggiornaUI();
-        jScrollPane1.getHorizontalScrollBar().setValue(jScrollPane1.getHorizontalScrollBar().getMaximum());
+        jScrollPane1.getViewport().setViewPosition(new java.awt.Point((int)dim,0));
+        //jScrollPane1.getHorizontalScrollBar().setValue(jScrollPane1.getHorizontalScrollBar().getMaximum());
     }
     private void aggiungiPulsantiAllaBarra()
     {
