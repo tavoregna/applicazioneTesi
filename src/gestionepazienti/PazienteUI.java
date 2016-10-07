@@ -1632,7 +1632,7 @@ public class PazienteUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Scheda Esami", schedaEsami);
 
-        valutazioneNPS.setOpaque(false);
+        valutazioneNPS.setBackground(new java.awt.Color(255, 233, 151));
 
         jButton1.setText("+");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -1642,8 +1642,9 @@ public class PazienteUI extends javax.swing.JFrame {
         });
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setOpaque(false);
 
-        panelValutazioneNPS.setOpaque(false);
+        panelValutazioneNPS.setBackground(new java.awt.Color(255, 233, 151));
 
         javax.swing.GroupLayout panelValutazioneNPSLayout = new javax.swing.GroupLayout(panelValutazioneNPS);
         panelValutazioneNPS.setLayout(panelValutazioneNPSLayout);
