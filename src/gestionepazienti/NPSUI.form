@@ -126,6 +126,9 @@
   </Layout>
   <SubComponents>
     <Component class="org.jdesktop.swingx.JXDatePicker" name="data">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -145,6 +148,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Screening"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="screeningActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="follow">
       <Properties>
@@ -156,6 +162,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Follow-up"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="followActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="trial">
       <Properties>
@@ -167,6 +176,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Trial"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="trialActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -177,6 +189,10 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="scolarita">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="scolaritaFocusLost"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="scolaritaKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -201,6 +217,10 @@
             </Property>
             <Property name="rows" type="int" value="5"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="esitiFocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="esitiKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -224,6 +244,10 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="elemCliniciFocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="elemCliniciKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -607,8 +631,16 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="SPARTDZ">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SPARTDZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SPARTDZKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SRTCLTRG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SRTCLTRGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRTCLTRGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="c2">
               <Properties>
@@ -616,6 +648,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="SRTLTSC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SRTLTSCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRTLTSCKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="srtLTS">
               <Properties>
@@ -623,8 +659,16 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="SDMTG1">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SDMTG1FocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SDMTG1KeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="PASATG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="PASATGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PASATGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="spartD">
               <Properties>
@@ -632,8 +676,16 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="FSDESG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="FSDESGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FSDESGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SPARTZ">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SPARTZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SPARTZKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="DKEFS">
               <Properties>
@@ -642,12 +694,27 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="D-KEFS ST"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DKEFSActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="WLGG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="WLGGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="WLGGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SRTCLTRC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SRTCLTRCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRTCLTRCKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="FSCATC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="FSCATCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FSCATCKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="srtLTS1">
               <Properties>
@@ -655,6 +722,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="CVLTC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CVLTCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CVLTCKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="wlg">
               <Properties>
@@ -672,10 +743,22 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="SPARTDC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SPARTDCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SPARTDCKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SRG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SRGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="PASATC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="PASATCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PASATCKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="sdmt2">
               <Properties>
@@ -693,8 +776,16 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="SRTDG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SRTDGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRTDGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SDMTG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SDMTGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SDMTGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="sdmt">
               <Properties>
@@ -702,10 +793,22 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="SPARTG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SPARTGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SPARTGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SDMTZ">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SDMTZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SDMTZKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="PASATZ">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="PASATZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PASATZKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="pasat">
               <Properties>
@@ -718,6 +821,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="CVLTG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CVLTGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CVLTGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="c1">
               <Properties>
@@ -731,6 +838,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="BICAMS"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BICAMSActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="BRB">
               <Properties>
@@ -739,10 +849,21 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="BRB-NT"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BRBActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="FSDESZ">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="FSDESZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FSDESZKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SDMTC1">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SDMTC1FocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SDMTC1KeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="srtCLTR">
               <Properties>
@@ -750,6 +871,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="SRZ">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SRZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRZKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="srtD">
               <Properties>
@@ -762,6 +887,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="SRTDZ">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SRTDZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRTDZKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="spart">
               <Properties>
@@ -769,6 +898,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="SDMTZ1">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SDMTZ1FocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SDMTZ1KeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="z2">
               <Properties>
@@ -776,12 +909,28 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="SRC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SRCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRCKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SDMTC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SDMTCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SDMTCKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CVLTZ">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CVLTZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CVLTZKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SPARTDG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SPARTDGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SPARTDGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="altroCombo">
               <Properties>
@@ -790,12 +939,27 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Altro"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="altroComboActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SPARTC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SPARTCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SPARTCKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SRTLTSG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SRTLTSGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRTLTSGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="BVMTC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="BVMTCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BVMTCKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="srtLTS2">
               <Properties>
@@ -814,18 +978,42 @@
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="altroFocusLost"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="altroKeyReleased"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="BVMTG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="BVMTGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BVMTGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="BVMTZ">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="BVMTZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BVMTZKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SRTCLTRZ">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SRTCLTRZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRTCLTRZKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField24">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField24FocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField24KeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="FSCATZ">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="FSCATZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FSCATZKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="g2">
               <Properties>
@@ -833,14 +1021,34 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="FSCATG">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="FSCATGFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FSCATGKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="FSDESC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="FSDESCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FSDESCKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="WLGC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="WLGCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="WLGCKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SRTLTSZ">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SRTLTSZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRTLTSZKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="SRTDC">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SRTDCFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRTDCKeyReleased"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -927,21 +1135,34 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="FSS">
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="FSSFocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FSSKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="bdiCombo">
           <Properties>
             <Property name="text" type="java.lang.String" value="BDI_II"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bdiComboActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="altroCombo2">
           <Properties>
             <Property name="text" type="java.lang.String" value="ALTRO"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="altroCombo2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="msnqCombo">
           <Properties>
             <Property name="text" type="java.lang.String" value="MSNQ"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="msnqComboActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane5">
           <AuxValues>
@@ -955,6 +1176,10 @@
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="altro2FocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="altro2KeyReleased"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -962,13 +1187,22 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="FSS"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fssComboActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="BDI">
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="BDIFocusLost"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BDIActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BDIKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="MSNQ">
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="MSNQFocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="MSNQKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
