@@ -29,40 +29,77 @@ public class NPSUI extends javax.swing.JPanel {
 
     public void aggiornaDatiNPS(int id)
     {
-        /* try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Tysabri WHERE ID_Tysabri=?");
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM ValutazioneNPS WHERE ID_NPS=?");
             pst.setInt(1,id);
             ResultSet rs=pst.executeQuery();
             if(rs.next())
             {
-               diarioClinico.setText(rs.getString("Diario_Clinico"));
-               dataRMEncefalo.setDate(rs.getDate("Data_RM_Encefalica"));
-               rmEncefalica.setText(rs.getString("RM_Encefalica"));
-               dataRMCervDors.setDate(rs.getDate("Data_RM_Cervico_Dorsale"));
-               rmCervDors.setText(rs.getString("RM_Cervico_Dorsale"));
-               esamiEmatoChim.setText(rs.getString("Esami_Ematochimici"));
-               dataEsamEmato.setDate(rs.getDate("Data_Esami_Ematochimici"));
-               terSinto.setText(rs.getString("Terapia_Sintomatica"));
-               esameObbNeuro.setText(rs.getString("EON"));
-               piramidale.setText(""+rs.getDouble("Piramidale"));
-               sensitivo.setText(""+rs.getDouble("Sensitivo"));
-               visivo.setText(""+rs.getDouble("Visivo"));
-               troncoEnc.setText(""+rs.getDouble("Tronco_Enc"));
-               cerebellare.setText(""+rs.getDouble("Cerebellare"));
-               sfinteriche.setText(""+rs.getDouble("Sfinteriche"));
-               cerebrale.setText(""+rs.getDouble("Cerebrale"));
-               deambulazione.setText(""+rs.getDouble("Deambulazione"));
-               edss.setText(""+rs.getDouble("EDSS"));
-               dataJCV.setDate(rs.getDate("Data_JCV"));
-               posNegJCV.setSelectedItem(rs.getString("JCV"));
-               if(posNegJCV.getSelectedIndex()==1)
-                   index.setVisible(false);
-               index.setText(""+rs.getDouble("Index"));
-               note.setText(rs.getString("Note"));
+               scolarita.setText(rs.getString("Scolarita"));
+               data.setDate(rs.getDate("Data"));
+               //buttonGroup1.setSelected("button"+rs.getInt("Tipo"), true);
+               esiti.setText(rs.getString("Esiti"));
+               elemClinici.setText(rs.getString("ElementiClinici"));
+               BRB.setSelected(rs.getBoolean("BRB-NT"));
+               DKEFS.setSelected(rs.getBoolean("D-KEFS"));
+               BICAMS.setSelected(rs.getBoolean("BICAMS"));
+               altroCombo.setSelected(rs.getBoolean("ALTRO"));
+               msnqCombo.setSelected(rs.getBoolean("MSNQ_C"));
+               DKEFS.setSelected(rs.getBoolean("D-KEFS"));
+               altro.setText(rs.getString("ALTRO_1"));
+               MSNQ.setText(rs.getString("MSNQ_V"));
+               fssCombo.setSelected(rs.getBoolean("FSS_C"));
+               FSS.setText(rs.getString("FSS_V"));
+               bdiCombo.setSelected(rs.getBoolean("BDI-II_C"));
+               BDI.setText(rs.getString("BDI-II_V"));
+               altroCombo2.setSelected(rs.getBoolean("ALTRO_C"));
+               altro2.setText(rs.getString("ALTRO_V"));
+               SDMTG.setText(rs.getString("SDMT-G"));
+               SDMTC.setText(rs.getString("SDMT-C"));
+               SDMTZ.setText(rs.getString("SDMT-Z"));
+               PASATG.setText(rs.getString("PASAT-G"));
+               PASATC.setText(rs.getString("PASAT-C"));
+               PASATZ.setText(rs.getString("PASAT-Z"));
+               SRTLTSG.setText(rs.getString("SRT-LTS-G"));
+               SRTLTSC.setText(rs.getString("SRT-LTS-C"));
+               SRTLTSZ.setText(rs.getString("SRT-LTS-Z"));
+               SRTCLTRG.setText(rs.getString("SRT-CLTR-G"));
+               SRTCLTRC.setText(rs.getString("SRT-CLTR-C"));
+               SRTCLTRZ.setText(rs.getString("SRT-CLTR-Z"));
+               SRTDG.setText(rs.getString("SRT-D-G"));
+               SRTDC.setText(rs.getString("SRT-D-C"));
+               SRTDZ.setText(rs.getString("SRT-D-Z"));
+               SPARTG.setText(rs.getString("SPART-G"));
+               SPARTC.setText(rs.getString("SPART-C"));
+               SPARTZ.setText(rs.getString("SPART-Z"));
+               SPARTDG.setText(rs.getString("SPART-D-G"));
+               SPARTDC.setText(rs.getString("SPART-D-C"));
+               SPARTDZ.setText(rs.getString("SPART-D-Z"));
+               WLGG.setText(rs.getString("WLG-G"));
+               WLGC.setText(rs.getString("WLG-C"));
+               //WLGZ.setText(rs.getString("WLG-Z"));
+               FSCATG.setText(rs.getString("FS-CAT-G"));
+               FSCATC.setText(rs.getString("FS-CAT-C"));
+               FSCATZ.setText(rs.getString("FS-CAT-Z"));
+               FSDESG.setText(rs.getString("FS-DES-G"));
+               FSDESC.setText(rs.getString("FS-DES-C"));
+               FSDESZ.setText(rs.getString("FS-DES-Z"));
+               SRG.setText(rs.getString("SR-G"));
+               SRC.setText(rs.getString("SR-C"));
+               SRZ.setText(rs.getString("SR-Z"));
+               SDMTG1.setText(rs.getString("SDMT-G-BIC"));
+               SDMTC1.setText(rs.getString("SDMT-C-BIC"));
+               SDMTZ1.setText(rs.getString("SDMT-Z-BIC"));
+               CVLTG.setText(rs.getString("CVLT-II-G"));
+               CVLTC.setText(rs.getString("CVLT-II-C"));
+               CVLTZ.setText(rs.getString("CVLT-II-Z"));
+               BVMTG.setText(rs.getString("BVMT-R-G"));
+               BVMTC.setText(rs.getString("BVMT-R-C"));
+               BVMTZ.setText(rs.getString("BVMT-R-Z"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
-        } */
+        } 
     }
     
     @SuppressWarnings("unchecked")
@@ -721,13 +758,10 @@ public class NPSUI extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("DELETE FROM Gilenya WHERE ID_Gilenya=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("DELETE FROM ValutazioneNPS WHERE ID_NPS=?");
             pst.setInt(1, idNPS);
             pst.executeUpdate();
-            pst=GestioneDatabase.preparedStatement("DELETE FROM DH_Standard WHERE ID_DH=?");
-            pst.setInt(1, idNPS);
-            pst.executeUpdate();
-            parent.pulisciPanelDH();
+            parent.pulisciPanelNPS();
             parent.aggiornaBarra();
         } catch (SQLException ex) {
             Logger.getLogger(NPSUI.class.getName()).log(Level.SEVERE, null, ex);
