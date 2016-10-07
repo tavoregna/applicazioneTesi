@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gestionepazienti;
 
 import java.sql.PreparedStatement;
@@ -12,10 +7,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Utente
- */
 public class NPSUI extends javax.swing.JPanel {
 
     public int idNPS;
@@ -76,6 +67,8 @@ public class NPSUI extends javax.swing.JPanel {
         idNPS=id;
         parent=p;
         aggiornaDatiNPS(idNPS);
+        this.setVisible(false);
+        this.setVisible(true);
     }
 
     public void aggiornaDatiNPS(int id)
@@ -88,66 +81,78 @@ public class NPSUI extends javax.swing.JPanel {
             {
                scolarita.setText(rs.getString("Scolarita"));
                data.setDate(rs.getDate("Data"));
-               //buttonGroup1.setSelected("button"+rs.getInt("Tipo"), true);
+               int tipo=rs.getInt("Tipo");
+                switch (tipo) {
+                    case 1:
+                        b1.setSelected(true);
+                        break;
+                    case 2:
+                        b2.setSelected(true);
+                        break;
+                    case 3:
+                        b3.setSelected(true);
+                        break;
+                    default:
+                        break;
+                }
                esiti.setText(rs.getString("Esiti"));
                elemClinici.setText(rs.getString("ElementiClinici"));
-               BRB.setSelected(rs.getBoolean("BRB-NT"));
-               DKEFS.setSelected(rs.getBoolean("D-KEFS"));
+               BRB.setSelected(rs.getBoolean("BRB_NT"));
+               DKEFS.setSelected(rs.getBoolean("D_KEFS"));
                BICAMS.setSelected(rs.getBoolean("BICAMS"));
                altroCombo.setSelected(rs.getBoolean("ALTRO"));
                msnqCombo.setSelected(rs.getBoolean("MSNQ_C"));
-               DKEFS.setSelected(rs.getBoolean("D-KEFS"));
+               DKEFS.setSelected(rs.getBoolean("D_KEFS"));
                altro.setText(rs.getString("ALTRO_1"));
                MSNQ.setText(rs.getString("MSNQ_V"));
                fssCombo.setSelected(rs.getBoolean("FSS_C"));
                FSS.setText(rs.getString("FSS_V"));
-               bdiCombo.setSelected(rs.getBoolean("BDI-II_C"));
-               BDI.setText(rs.getString("BDI-II_V"));
+               bdiCombo.setSelected(rs.getBoolean("BDI_II_C"));
+               BDI.setText(rs.getString("BDI_II_V"));
                altroCombo2.setSelected(rs.getBoolean("ALTRO_C"));
                altro2.setText(rs.getString("ALTRO_V"));
-               SDMTG.setText(rs.getString("SDMT-G"));
-               SDMTC.setText(rs.getString("SDMT-C"));
-               SDMTZ.setText(rs.getString("SDMT-Z"));
-               PASATG.setText(rs.getString("PASAT-G"));
-               PASATC.setText(rs.getString("PASAT-C"));
-               PASATZ.setText(rs.getString("PASAT-Z"));
-               SRTLTSG.setText(rs.getString("SRT-LTS-G"));
-               SRTLTSC.setText(rs.getString("SRT-LTS-C"));
-               SRTLTSZ.setText(rs.getString("SRT-LTS-Z"));
-               SRTCLTRG.setText(rs.getString("SRT-CLTR-G"));
-               SRTCLTRC.setText(rs.getString("SRT-CLTR-C"));
-               SRTCLTRZ.setText(rs.getString("SRT-CLTR-Z"));
-               SRTDG.setText(rs.getString("SRT-D-G"));
-               SRTDC.setText(rs.getString("SRT-D-C"));
-               SRTDZ.setText(rs.getString("SRT-D-Z"));
-               SPARTG.setText(rs.getString("SPART-G"));
-               SPARTC.setText(rs.getString("SPART-C"));
-               SPARTZ.setText(rs.getString("SPART-Z"));
-               SPARTDG.setText(rs.getString("SPART-D-G"));
-               SPARTDC.setText(rs.getString("SPART-D-C"));
-               SPARTDZ.setText(rs.getString("SPART-D-Z"));
-               WLGG.setText(rs.getString("WLG-G"));
-               WLGC.setText(rs.getString("WLG-C"));
-               //WLGZ.setText(rs.getString("WLG-Z"));
-               jTextField24.setText(rs.getString("WLG-Z"));
-               FSCATG.setText(rs.getString("FS-CAT-G"));
-               FSCATC.setText(rs.getString("FS-CAT-C"));
-               FSCATZ.setText(rs.getString("FS-CAT-Z"));
-               FSDESG.setText(rs.getString("FS-DES-G"));
-               FSDESC.setText(rs.getString("FS-DES-C"));
-               FSDESZ.setText(rs.getString("FS-DES-Z"));
-               SRG.setText(rs.getString("SR-G"));
-               SRC.setText(rs.getString("SR-C"));
-               SRZ.setText(rs.getString("SR-Z"));
-               SDMTG1.setText(rs.getString("SDMT-G-BIC"));
-               SDMTC1.setText(rs.getString("SDMT-C-BIC"));
-               SDMTZ1.setText(rs.getString("SDMT-Z-BIC"));
-               CVLTG.setText(rs.getString("CVLT-II-G"));
-               CVLTC.setText(rs.getString("CVLT-II-C"));
-               CVLTZ.setText(rs.getString("CVLT-II-Z"));
-               BVMTG.setText(rs.getString("BVMT-R-G"));
-               BVMTC.setText(rs.getString("BVMT-R-C"));
-               BVMTZ.setText(rs.getString("BVMT-R-Z"));
+               SDMTG.setText(rs.getString("SDMT_G"));
+               SDMTC.setText(rs.getString("SDMT_C"));
+               SDMTZ.setText(rs.getString("SDMT_Z"));
+               PASATG.setText(rs.getString("PASAT_G"));
+               PASATC.setText(rs.getString("PASAT_C"));
+               PASATZ.setText(rs.getString("PASAT_Z"));
+               SRTLTSG.setText(rs.getString("SRT_LTS_G"));
+               SRTLTSC.setText(rs.getString("SRT_LTS_C"));
+               SRTLTSZ.setText(rs.getString("SRT_LTS_Z"));
+               SRTCLTRG.setText(rs.getString("SRT_CLTR_G"));
+               SRTCLTRC.setText(rs.getString("SRT_CLTR_C"));
+               SRTCLTRZ.setText(rs.getString("SRT_CLTR_Z"));
+               SRTDG.setText(rs.getString("SRT_D_G"));
+               SRTDC.setText(rs.getString("SRT_D_C"));
+               SRTDZ.setText(rs.getString("SRT_D_Z"));
+               SPARTG.setText(rs.getString("SPART_G"));
+               SPARTC.setText(rs.getString("SPART_C"));
+               SPARTZ.setText(rs.getString("SPART_Z"));
+               SPARTDG.setText(rs.getString("SPART_D_G"));
+               SPARTDC.setText(rs.getString("SPART_D_C"));
+               SPARTDZ.setText(rs.getString("SPART_D_Z"));
+               WLGG.setText(rs.getString("WLG_G"));
+               WLGC.setText(rs.getString("WLG_C"));
+               WLGZ.setText(rs.getString("WLG_Z"));
+               FSCATG.setText(rs.getString("FS_CAT_G"));
+               FSCATC.setText(rs.getString("FS_CAT_C"));
+               FSCATZ.setText(rs.getString("FS_CAT_Z"));
+               FSDESG.setText(rs.getString("FS_DES_G"));
+               FSDESC.setText(rs.getString("FS_DES_C"));
+               FSDESZ.setText(rs.getString("FS_DES_Z"));
+               SRG.setText(rs.getString("SR_G"));
+               SRC.setText(rs.getString("SR_C"));
+               SRZ.setText(rs.getString("SR_Z"));
+               SDMTG1.setText(rs.getString("SDMT_G_BIC"));
+               SDMTC1.setText(rs.getString("SDMT_C_BIC"));
+               SDMTZ1.setText(rs.getString("SDMT_Z_BIC"));
+               CVLTG.setText(rs.getString("CVLT_II_G"));
+               CVLTC.setText(rs.getString("CVLT_II_C"));
+               CVLTZ.setText(rs.getString("CVLT_II_Z"));
+               BVMTG.setText(rs.getString("BVMT_R_G"));
+               BVMTC.setText(rs.getString("BVMT_R_C"));
+               BVMTZ.setText(rs.getString("BVMT_R_Z"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -162,9 +167,9 @@ public class NPSUI extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         data = new org.jdesktop.swingx.JXDatePicker();
         jLabel1 = new javax.swing.JLabel();
-        screening = new javax.swing.JRadioButton();
-        follow = new javax.swing.JRadioButton();
-        trial = new javax.swing.JRadioButton();
+        b1 = new javax.swing.JRadioButton();
+        b2 = new javax.swing.JRadioButton();
+        b3 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         scolarita = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -238,7 +243,7 @@ public class NPSUI extends javax.swing.JPanel {
         BVMTG = new javax.swing.JTextField();
         BVMTZ = new javax.swing.JTextField();
         SRTCLTRZ = new javax.swing.JTextField();
-        jTextField24 = new javax.swing.JTextField();
+        WLGZ = new javax.swing.JTextField();
         FSCATZ = new javax.swing.JTextField();
         g2 = new javax.swing.JLabel();
         FSCATG = new javax.swing.JTextField();
@@ -271,30 +276,30 @@ public class NPSUI extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Data:");
 
-        buttonGroup1.add(screening);
-        screening.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        screening.setText("Screening");
-        screening.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(b1);
+        b1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        b1.setText("Screening");
+        b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                screeningActionPerformed(evt);
+                b1ActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(follow);
-        follow.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        follow.setText("Follow-up");
-        follow.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(b2);
+        b2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        b2.setText("Follow-up");
+        b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                followActionPerformed(evt);
+                b2ActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(trial);
-        trial.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        trial.setText("Trial");
-        trial.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(b3);
+        b3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        b3.setText("Trial");
+        b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                trialActionPerformed(evt);
+                b3ActionPerformed(evt);
             }
         });
 
@@ -827,14 +832,14 @@ public class NPSUI extends javax.swing.JPanel {
             }
         });
 
-        jTextField24.addFocusListener(new java.awt.event.FocusAdapter() {
+        WLGZ.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField24FocusLost(evt);
+                WLGZFocusLost(evt);
             }
         });
-        jTextField24.addKeyListener(new java.awt.event.KeyAdapter() {
+        WLGZ.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField24KeyReleased(evt);
+                WLGZKeyReleased(evt);
             }
         });
 
@@ -990,7 +995,7 @@ public class NPSUI extends javax.swing.JPanel {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(WLGC, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(WLGZ, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(93, 93, 93)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -1127,7 +1132,7 @@ public class NPSUI extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(WLGG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(WLGC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(WLGZ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(wlg)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -1348,11 +1353,11 @@ public class NPSUI extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(42, 42, 42)
-                                .addComponent(screening)
+                                .addComponent(b1)
                                 .addGap(18, 18, 18)
-                                .addComponent(follow)
+                                .addComponent(b2)
                                 .addGap(18, 18, 18)
-                                .addComponent(trial)
+                                .addComponent(b3)
                                 .addGap(120, 120, 120)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1379,9 +1384,9 @@ public class NPSUI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(screening)
-                    .addComponent(follow)
-                    .addComponent(trial)
+                    .addComponent(b1)
+                    .addComponent(b2)
+                    .addComponent(b3)
                     .addComponent(jLabel2)
                     .addComponent(scolarita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
@@ -1438,8 +1443,8 @@ public class NPSUI extends javax.swing.JPanel {
             pst.setDate(1, Utilita.DateUtilToSQL(data.getDate()));
             pst.setInt(2, idNPS);
             pst.executeUpdate();
-           // Pazienti..aggiornaBarra(Pazienti.getCurrID());
-            //barr.settaSelezionato(3, idDHCorrente, null);
+            parent.getBarra().aggiornaBarra(Pazienti.getCurrID());
+            parent.getBarra().settaSelezionato(4, idNPS, null);
             
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -1549,7 +1554,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         BDIEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET BDI-II_V=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET BDI_II_V=? WHERE ID_NPS=?");
             pst.setString(1,BDI.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1572,7 +1577,7 @@ public class NPSUI extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_altro2FocusLost
 
-    private void screeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_screeningActionPerformed
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET Tipo=1 WHERE ID_NPS=?");
             pst.setInt(1, idNPS);
@@ -1580,9 +1585,9 @@ public class NPSUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_screeningActionPerformed
+    }//GEN-LAST:event_b1ActionPerformed
 
-    private void followActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_followActionPerformed
+    private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET Tipo=2 WHERE ID_NPS=?");
             pst.setInt(1, idNPS);
@@ -1590,9 +1595,9 @@ public class NPSUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_followActionPerformed
+    }//GEN-LAST:event_b2ActionPerformed
 
-    private void trialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trialActionPerformed
+    private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET Tipo=3 WHERE ID_NPS=?");
             pst.setInt(1, idNPS);
@@ -1600,7 +1605,7 @@ public class NPSUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_trialActionPerformed
+    }//GEN-LAST:event_b3ActionPerformed
 
     private void msnqComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msnqComboActionPerformed
         try {
@@ -1626,7 +1631,7 @@ public class NPSUI extends javax.swing.JPanel {
 
     private void bdiComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdiComboActionPerformed
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET BDI-II_C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET BDI_II_C=? WHERE ID_NPS=?");
             pst.setBoolean(1, bdiCombo.isSelected());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1648,7 +1653,7 @@ public class NPSUI extends javax.swing.JPanel {
 
     private void BRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRBActionPerformed
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET BRB-NT=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET BRB_NT=? WHERE ID_NPS=?");
             pst.setBoolean(1, BRB.isSelected());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1659,7 +1664,7 @@ public class NPSUI extends javax.swing.JPanel {
 
     private void DKEFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DKEFSActionPerformed
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET D-KEFS=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET D_KEFS=? WHERE ID_NPS=?");
             pst.setBoolean(1, DKEFS.isSelected());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1725,7 +1730,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SDMTGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SDMT-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SDMT_G=? WHERE ID_NPS=?");
             pst.setString(1,SDMTG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1739,7 +1744,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SDMTCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SDMT-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SDMT_C=? WHERE ID_NPS=?");
             pst.setString(1,SDMTC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1753,7 +1758,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SDMTZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SDMT-Z=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SDMT_Z=? WHERE ID_NPS=?");
             pst.setString(1,SDMTZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1779,7 +1784,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         PASATGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET PASAT-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET PASAT_G=? WHERE ID_NPS=?");
             pst.setString(1,PASATG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1793,7 +1798,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         PASATCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET PASAT-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET PASAT_C=? WHERE ID_NPS=?");
             pst.setString(1,PASATC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1807,7 +1812,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         PASATZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET PASAT-Z=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET PASAT_Z=? WHERE ID_NPS=?");
             pst.setString(1,PASATZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1833,7 +1838,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SRTLTSGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT-LTS-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT_LTS_G=? WHERE ID_NPS=?");
             pst.setString(1,SRTLTSG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1847,7 +1852,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SRTLTSCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT-LTS-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT_LTS_C=? WHERE ID_NPS=?");
             pst.setString(1,SRTLTSC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1861,7 +1866,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SRTLTSZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT-LTS-Z=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT_LTS_Z=? WHERE ID_NPS=?");
             pst.setString(1,SRTLTSZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1887,7 +1892,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SRTCLTRGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT-CLTR-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT_CLTR_G=? WHERE ID_NPS=?");
             pst.setString(1,SRTCLTRG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1901,7 +1906,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SRTCLTRCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT-CLTR-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT_CLTR_C=? WHERE ID_NPS=?");
             pst.setString(1,SRTCLTRC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1915,7 +1920,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SRTCLTRZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT-CLTR-Z=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT_CLTR_Z=? WHERE ID_NPS=?");
             pst.setString(1,SRTCLTRZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1941,7 +1946,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SPARTGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SPART-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SPART_G=? WHERE ID_NPS=?");
             pst.setString(1,SPARTG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1955,7 +1960,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SPARTCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SPART-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SPART_C=? WHERE ID_NPS=?");
             pst.setString(1,SPARTC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1969,7 +1974,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SPARTZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SPART-Z=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SPART_Z=? WHERE ID_NPS=?");
             pst.setString(1,SPARTZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -1995,7 +2000,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SRTDGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT-D-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT_D_G=? WHERE ID_NPS=?");
             pst.setString(1,SRTDG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2009,7 +2014,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SRTDCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT-D-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT_D_C=? WHERE ID_NPS=?");
             pst.setString(1,SRTDC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2023,7 +2028,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SRTDZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT-D-Z=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SRT_D_Z=? WHERE ID_NPS=?");
             pst.setString(1,SRTDZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2049,7 +2054,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SPARTDGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SPART-D-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SPART_D_G=? WHERE ID_NPS=?");
             pst.setString(1,SPARTDG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2063,7 +2068,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SPARTDCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SPART-D-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SPART_D_C=? WHERE ID_NPS=?");
             pst.setString(1,SPARTDC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2077,7 +2082,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SPARTDZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SPART-D-Z=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SPART_D_Z=? WHERE ID_NPS=?");
             pst.setString(1,SPARTDZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2094,16 +2099,16 @@ public class NPSUI extends javax.swing.JPanel {
         WLGCEdit=true;
     }//GEN-LAST:event_WLGCKeyReleased
 
-    private void jTextField24KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField24KeyReleased
+    private void WLGZKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_WLGZKeyReleased
         WLGZEdit=true;
-    }//GEN-LAST:event_jTextField24KeyReleased
+    }//GEN-LAST:event_WLGZKeyReleased
 
     private void WLGGFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_WLGGFocusLost
         if(!WLGGEdit)
             return;
         WLGGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET WLG-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET WLG_G=? WHERE ID_NPS=?");
             pst.setString(1,WLGG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2117,7 +2122,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         WLGCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET WLG-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET WLG_C=? WHERE ID_NPS=?");
             pst.setString(1,WLGC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2126,19 +2131,19 @@ public class NPSUI extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_WLGCFocusLost
 
-    private void jTextField24FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField24FocusLost
+    private void WLGZFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_WLGZFocusLost
         if(!WLGZEdit)
             return;
         WLGZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET WLG-Z=? WHERE ID_NPS=?");
-            pst.setString(1,jTextField24.getText());
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET WLG_Z=? WHERE ID_NPS=?");
+            pst.setString(1,WLGZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jTextField24FocusLost
+    }//GEN-LAST:event_WLGZFocusLost
 
     private void FSCATGKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FSCATGKeyReleased
         FSCATGEdit=true;
@@ -2157,7 +2162,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         FSCATGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET FS-CAT-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET FS_CAT_G=? WHERE ID_NPS=?");
             pst.setString(1,FSCATG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2171,7 +2176,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         FSCATCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET FS-CAT-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET FS_CAT_C=? WHERE ID_NPS=?");
             pst.setString(1,FSCATC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2185,7 +2190,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         FSCATZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET FS-CAT-Z=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET FS_CAT_Z=? WHERE ID_NPS=?");
             pst.setString(1,FSCATZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2211,7 +2216,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         FSDESGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET FS-DES-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET FS_DES_G=? WHERE ID_NPS=?");
             pst.setString(1,FSDESG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2225,7 +2230,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         FSDESCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET FS-DES-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET FS_DES_C=? WHERE ID_NPS=?");
             pst.setString(1,FSDESC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2239,7 +2244,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         FSDESZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET FS-DES-Z=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET FS_DES_Z=? WHERE ID_NPS=?");
             pst.setString(1,FSDESZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2265,7 +2270,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SRGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SR-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SR_G=? WHERE ID_NPS=?");
             pst.setString(1,SRG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2279,7 +2284,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SRCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SR-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SR_C=? WHERE ID_NPS=?");
             pst.setString(1,SRC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2293,7 +2298,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SRZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SR-Z=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SR_Z=? WHERE ID_NPS=?");
             pst.setString(1,SRZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2319,7 +2324,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SDMTG1Edit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SDMT-G-BIC=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SDMT_G_BIC=? WHERE ID_NPS=?");
             pst.setString(1,SDMTG1.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2333,7 +2338,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SDMTC1Edit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SDMT-C-BIC=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SDMT_C_BIC=? WHERE ID_NPS=?");
             pst.setString(1,SDMTC1.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2347,7 +2352,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         SDMTZ1Edit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SDMT-Z-BIC=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET SDMT_Z_BIC=? WHERE ID_NPS=?");
             pst.setString(1,SDMTZ1.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2373,7 +2378,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         CVLTGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET CVLT-II-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET CVLT_II_G=? WHERE ID_NPS=?");
             pst.setString(1,CVLTG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2387,7 +2392,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         CVLTCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET CVLT-II-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET CVLT_II_C=? WHERE ID_NPS=?");
             pst.setString(1,CVLTC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2401,7 +2406,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         CVLTZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET CVLT-II-Z=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET CVLT_II_Z=? WHERE ID_NPS=?");
             pst.setString(1,CVLTZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2427,7 +2432,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         BVMTGEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET BVMT-R-G=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET BVMT_R_G=? WHERE ID_NPS=?");
             pst.setString(1,BVMTG.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2441,7 +2446,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         BVMTCEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET BVMT-R-C=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET BVMT_R_C=? WHERE ID_NPS=?");
             pst.setString(1,BVMTC.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2455,7 +2460,7 @@ public class NPSUI extends javax.swing.JPanel {
             return;
         BVMTZEdit=false;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET BVMT-R-Z=? WHERE ID_NPS=?");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE ValutazioneNPS SET BVMT_R_Z=? WHERE ID_NPS=?");
             pst.setString(1,BVMTZ.getText());
             pst.setInt(2, idNPS);
             pst.executeUpdate();
@@ -2513,10 +2518,14 @@ public class NPSUI extends javax.swing.JPanel {
     private javax.swing.JTextField SRZ;
     private javax.swing.JTextField WLGC;
     private javax.swing.JTextField WLGG;
+    private javax.swing.JTextField WLGZ;
     private javax.swing.JTextArea altro;
     private javax.swing.JTextArea altro2;
     private javax.swing.JCheckBox altroCombo;
     private javax.swing.JCheckBox altroCombo2;
+    private javax.swing.JRadioButton b1;
+    private javax.swing.JRadioButton b2;
+    private javax.swing.JRadioButton b3;
     private javax.swing.JCheckBox bdiCombo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel c;
@@ -2525,7 +2534,6 @@ public class NPSUI extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXDatePicker data;
     private javax.swing.JTextArea elemClinici;
     private javax.swing.JTextArea esiti;
-    private javax.swing.JRadioButton follow;
     private javax.swing.JCheckBox fssCombo;
     private javax.swing.JLabel g;
     private javax.swing.JLabel g1;
@@ -2543,13 +2551,11 @@ public class NPSUI extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextField jTextField24;
     private javax.swing.JCheckBox msnqCombo;
     private javax.swing.JLabel pasat;
     private javax.swing.JLabel pasat1;
     private javax.swing.JLabel pasat2;
     private javax.swing.JTextField scolarita;
-    private javax.swing.JRadioButton screening;
     private javax.swing.JLabel sdmt;
     private javax.swing.JLabel sdmt1;
     private javax.swing.JLabel sdmt2;
@@ -2560,7 +2566,6 @@ public class NPSUI extends javax.swing.JPanel {
     private javax.swing.JLabel srtLTS;
     private javax.swing.JLabel srtLTS1;
     private javax.swing.JLabel srtLTS2;
-    private javax.swing.JRadioButton trial;
     private javax.swing.JLabel wlg;
     private javax.swing.JLabel z;
     private javax.swing.JLabel z1;

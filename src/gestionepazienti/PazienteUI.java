@@ -3611,6 +3611,11 @@ public class PazienteUI extends javax.swing.JFrame {
         GestioneDatabase.connessione();
         new PazienteUI().setVisible(true);
     }
+    
+    public Barra getBarra()
+    {
+        return barr;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> DIS;

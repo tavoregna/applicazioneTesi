@@ -41,11 +41,11 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="data" min="-2" pref="127" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                              <Component id="screening" min="-2" max="-2" attributes="0"/>
+                              <Component id="b1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="follow" min="-2" max="-2" attributes="0"/>
+                              <Component id="b2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="trial" min="-2" max="-2" attributes="0"/>
+                              <Component id="b3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -82,9 +82,9 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="data" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="screening" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="follow" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="trial" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="b1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="b2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="b3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="scolarita" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -138,7 +138,7 @@
         <Property name="text" type="java.lang.String" value="Data:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="screening">
+    <Component class="javax.swing.JRadioButton" name="b1">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
@@ -149,10 +149,10 @@
         <Property name="text" type="java.lang.String" value="Screening"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="screeningActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="follow">
+    <Component class="javax.swing.JRadioButton" name="b2">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
@@ -163,10 +163,10 @@
         <Property name="text" type="java.lang.String" value="Follow-up"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="followActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b2ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="trial">
+    <Component class="javax.swing.JRadioButton" name="b3">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
@@ -177,7 +177,7 @@
         <Property name="text" type="java.lang.String" value="Trial"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="trialActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b3ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -366,7 +366,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="WLGC" min="-2" pref="32" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField24" min="-2" pref="32" max="-2" attributes="0"/>
+                                          <Component id="WLGZ" min="-2" pref="32" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -537,7 +537,7 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="WLGG" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="WLGC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField24" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="WLGZ" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="wlg" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1003,10 +1003,10 @@
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SRTCLTRZKeyReleased"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField24">
+            <Component class="javax.swing.JTextField" name="WLGZ">
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField24FocusLost"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField24KeyReleased"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="WLGZFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="WLGZKeyReleased"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="FSCATZ">
