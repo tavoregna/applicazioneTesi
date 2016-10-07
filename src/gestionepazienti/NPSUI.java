@@ -78,6 +78,7 @@ public class NPSUI extends javax.swing.JPanel {
                WLGG.setText(rs.getString("WLG-G"));
                WLGC.setText(rs.getString("WLG-C"));
                //WLGZ.setText(rs.getString("WLG-Z"));
+               jTextField24.setText(rs.getString("WLG-Z"));
                FSCATG.setText(rs.getString("FS-CAT-G"));
                FSCATC.setText(rs.getString("FS-CAT-C"));
                FSCATZ.setText(rs.getString("FS-CAT-Z"));
