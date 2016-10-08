@@ -35,6 +35,7 @@ public class GilenyaUI extends javax.swing.JPanel {
         cancellaGilenya.setVisible(Opzioni.cancellaAttivo);
         parent=p;
         aggiornaDatiGilenya(idGilenya);
+        Utilita.undoAndRedo(this);
     }
 
     public void aggiornaDatiGilenya(int id)

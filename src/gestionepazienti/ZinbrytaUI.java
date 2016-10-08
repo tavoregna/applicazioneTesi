@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gestionepazienti;
 
 import java.sql.PreparedStatement;
@@ -17,10 +12,6 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-/**
- *
- * @author Utente
- */
 public class ZinbrytaUI extends javax.swing.JPanel {
 
     private PazienteUI parent;
@@ -50,6 +41,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
         idZinbryta=id;
         parent=p;
         aggiornaDatiZinbryta(idZinbryta);
+        Utilita.undoAndRedo(this);
     }
 
     

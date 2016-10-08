@@ -1,6 +1,8 @@
 package gestionepazienti;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -18,12 +20,16 @@ import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JViewport;
 import javax.swing.KeyStroke;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
 import javax.swing.text.Document;
+import javax.swing.text.JTextComponent;
 import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
@@ -255,45 +261,7 @@ public final class Utilita {
             exc.printStackTrace();
         }
     }
-    public static void undoAndRedo(JTextArea area)
-    {
-        final UndoManager undoManager = new UndoManager();
-        Document doc = area.getDocument();
-        doc.addUndoableEditListener(new UndoableEditListener() {
-            @Override
-            public void undoableEditHappened(UndoableEditEvent e) {
-                undoManager.addEdit(e.getEdit());
-                System.out.println(e);
-            }
-        });
-        area.getActionMap().put("Undo", new AbstractAction("Undo") {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                try {
-                    if (undoManager.canUndo()) {
-                        undoManager.undo();
-                    }
-                } catch (CannotUndoException e) {
-                    //System.out.println(e);
-                }
-            }
-        });
-        area.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_Z, MASK), "Undo");
-        area.getActionMap().put("Redo", new AbstractAction("Redo") {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                try {
-                    if (undoManager.canRedo()) {
-                        undoManager.redo();
-                    }
-                } catch (CannotRedoException e) {
-                    //System.out.println(e);
-                }
-            }
-        });
-        area.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_Y,MASK), "Redo");
-    } 
-    public static void undoAndRedo(JTextField area)
+    public static void undoAndRedo(JTextComponent area)
     {
         final UndoManager undoManager = new UndoManager();
         Document doc = area.getDocument();
@@ -330,5 +298,35 @@ public final class Utilita {
             }
         });
         area.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_Y,MASK), "Redo");
-    } 
+    }
+    public static void undoAndRedo(Container p)
+    {
+        for(int i=0;i<p.getComponentCount();i++)
+        {
+            Component c=p.getComponent(i);
+            if(c instanceof JTextComponent)
+            {  
+                undoAndRedo((JTextComponent)c);
+                continue;   
+            }
+            if(c instanceof JScrollPane)
+            {
+                undoAndRedo((JScrollPane)c);
+                continue; 
+            }
+            if(c instanceof JPanel)
+            {
+                undoAndRedo((JPanel)c);
+                continue; 
+            }
+        }
+        if(p instanceof JScrollPane)
+            {
+                JViewport jv=((JScrollPane)p).getViewport();
+                if(jv!=null && jv.getView()!=null && (jv.getView()) instanceof JTextComponent)
+                {
+                    undoAndRedo((JTextComponent)(jv.getView()));
+                }
+            }
+    }
 }

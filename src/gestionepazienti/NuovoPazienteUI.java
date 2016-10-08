@@ -15,6 +15,7 @@ public class NuovoPazienteUI extends javax.swing.JFrame {
         initComponents();
         Utilita.settaIconaFrame(this);
         parent=pa;
+        Utilita.undoAndRedo(this);
         this.setVisible(true);
     }
     @SuppressWarnings("unchecked")

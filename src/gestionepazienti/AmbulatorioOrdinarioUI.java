@@ -28,6 +28,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
         panelStandard.add(standard);
         panelTerPrincipale.add(terPrincipale);
         
+        Utilita.undoAndRedo(this);
         this.setVisible(true);
     }
     

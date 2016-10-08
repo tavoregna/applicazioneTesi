@@ -31,6 +31,7 @@ public class RicadutaUI extends javax.swing.JPanel {
         panelTerPrincipale.add(terPrincipale);
         ricadTerap.setVisible(false);
         aggiornaDati(idControllo);
+        Utilita.undoAndRedo(this);
         this.setVisible(true);
     }
     

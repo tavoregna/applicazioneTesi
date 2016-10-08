@@ -63,6 +63,7 @@ public class CFXUI extends javax.swing.JPanel {
         idCFX=id;
         parent=p;
         aggiornaDatiCFX(idCFX);
+        Utilita.undoAndRedo(this);
     }
 
     public void aggiornaDatiCFX(int id)

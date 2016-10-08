@@ -32,6 +32,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         parent=p;
         idPaziente=idPaz;
         aggiornaDati(idPaz);
+        Utilita.undoAndRedo(this);
     }
     
     public void ticcaEsameText(JCheckBox c,Date data,JXDatePicker d,JTextField t,String stringa)

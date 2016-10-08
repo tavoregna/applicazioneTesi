@@ -45,6 +45,7 @@ public class TysabriUI extends javax.swing.JPanel {
         idTysabri=id;
         parent=p;
         aggiornaDatiTysabri(idTysabri);
+        Utilita.undoAndRedo(this);
     }
 
     public void abilitaJCV(boolean b)

@@ -34,6 +34,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         idLemtrada=id;
         this.giorno=giorno;
         aggiornaDatiLemtrada(idLemtrada,giorno);
+        Utilita.undoAndRedo(this);
     }
     
     public void aggiornaDatiLemtrada(int id,int giorno)
