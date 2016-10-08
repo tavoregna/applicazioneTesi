@@ -541,7 +541,7 @@ public class NPSUI extends javax.swing.JPanel {
 
         sdmt2.setText("SDMT");
 
-        pasat2.setText("CVLT_II");
+        pasat2.setText("CVLT-II");
 
         g1.setText("G");
 
@@ -788,7 +788,7 @@ public class NPSUI extends javax.swing.JPanel {
             }
         });
 
-        srtLTS2.setText("BVMT_R");
+        srtLTS2.setText("BVMT-R");
 
         altro.setColumns(20);
         altro.setRows(5);
@@ -1231,7 +1231,7 @@ public class NPSUI extends javax.swing.JPanel {
             }
         });
 
-        bdiCombo.setText("BDI_II");
+        bdiCombo.setText("BDI-II");
         bdiCombo.setOpaque(false);
         bdiCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

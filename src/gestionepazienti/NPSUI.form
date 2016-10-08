@@ -767,7 +767,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="pasat2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CVLT_II"/>
+                <Property name="text" type="java.lang.String" value="CVLT-II"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="g1">
@@ -966,7 +966,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="srtLTS2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="BVMT_R"/>
+                <Property name="text" type="java.lang.String" value="BVMT-R"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane3">
@@ -1145,7 +1145,7 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="bdiCombo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="BDI_II"/>
+            <Property name="text" type="java.lang.String" value="BDI-II"/>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Events>
