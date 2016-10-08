@@ -1,9 +1,11 @@
 package gestionepazienti;
 
 import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,11 +15,21 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
+import javax.swing.event.UndoableEditEvent;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.text.Document;
+import javax.swing.undo.CannotRedoException;
+import javax.swing.undo.CannotUndoException;
+import javax.swing.undo.UndoManager;
 
 public final class Utilita {
+    private static final int MASK= Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
     public static void mostraMessaggio(String s)
     {
         JOptionPane.showMessageDialog(null, s);
@@ -243,5 +255,80 @@ public final class Utilita {
             exc.printStackTrace();
         }
     }
-            
+    public static void undoAndRedo(JTextArea area)
+    {
+        final UndoManager undoManager = new UndoManager();
+        Document doc = area.getDocument();
+        doc.addUndoableEditListener(new UndoableEditListener() {
+            @Override
+            public void undoableEditHappened(UndoableEditEvent e) {
+                undoManager.addEdit(e.getEdit());
+                System.out.println(e);
+            }
+        });
+        area.getActionMap().put("Undo", new AbstractAction("Undo") {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                try {
+                    if (undoManager.canUndo()) {
+                        undoManager.undo();
+                    }
+                } catch (CannotUndoException e) {
+                    //System.out.println(e);
+                }
+            }
+        });
+        area.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_Z, MASK), "Undo");
+        area.getActionMap().put("Redo", new AbstractAction("Redo") {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                try {
+                    if (undoManager.canRedo()) {
+                        undoManager.redo();
+                    }
+                } catch (CannotRedoException e) {
+                    //System.out.println(e);
+                }
+            }
+        });
+        area.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_Y,MASK), "Redo");
+    } 
+    public static void undoAndRedo(JTextField area)
+    {
+        final UndoManager undoManager = new UndoManager();
+        Document doc = area.getDocument();
+        doc.addUndoableEditListener(new UndoableEditListener() {
+            @Override
+            public void undoableEditHappened(UndoableEditEvent e) {
+                undoManager.addEdit(e.getEdit());
+                //System.out.println(e);
+            }
+        });
+        area.getActionMap().put("Undo", new AbstractAction("Undo") {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                try {
+                    if (undoManager.canUndo()) {
+                        undoManager.undo();
+                    }
+                } catch (CannotUndoException e) {
+                    //System.out.println(e);
+                }
+            }
+        });
+        area.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_Z, MASK), "Undo");
+        area.getActionMap().put("Redo", new AbstractAction("Redo") {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                try {
+                    if (undoManager.canRedo()) {
+                        undoManager.redo();
+                    }
+                } catch (CannotRedoException e) {
+                    //System.out.println(e);
+                }
+            }
+        });
+        area.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_Y,MASK), "Redo");
+    } 
 }

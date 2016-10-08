@@ -13,9 +13,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
+
 public class PazienteUI extends javax.swing.JFrame {
     private final String NOME_MODIFICA="MODIFICA";
     private final String NOME_TERMINA_MODIFICA="TERMINA MODIFICHE";
+    
+     
     
     private AmbulatorioOrdinarioUI ambulatorio;
     private RicadutaUI ricaduta;
@@ -69,7 +72,23 @@ public class PazienteUI extends javax.swing.JFrame {
         jPanel4.add(barr);
         this.setVisible(true);
     }
-    
+    private void undoAndRedo()
+    {
+        Utilita.undoAndRedo(storicoArea);
+        Utilita.undoAndRedo(anamnesi);
+        Utilita.undoAndRedo(note);
+    }
+    private void undoAndRedoDiagnostica()
+    {
+        Utilita.undoAndRedo(controllo);
+        Utilita.undoAndRedo(pev);
+        Utilita.undoAndRedo(oct);
+        Utilita.undoAndRedo(npsi);
+        Utilita.undoAndRedo(varie);
+        
+        Utilita.undoAndRedo(ospedale);
+        Utilita.undoAndRedo(caratteristicheCliniche);
+    }
     private void resetEdit()
     {
         ospedaleEdit=false;
@@ -3179,6 +3198,8 @@ public class PazienteUI extends javax.swing.JFrame {
         abilitaBarraSuperioreDH(false);
         anamnesiEdit=false;
         storicoAreaEdit=false;
+        
+        undoAndRedo();
     }
 
     public void pressionePulsanteBarra(int idPaz,Date data)
@@ -3229,6 +3250,7 @@ public class PazienteUI extends javax.swing.JFrame {
         {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+        undoAndRedoDiagnostica();
         pannelloDiagnosticaAttivo(true);
     }
     public void aggiornaTerapie(int id)
