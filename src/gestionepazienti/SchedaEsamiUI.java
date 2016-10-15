@@ -45,6 +45,10 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
         c.setSelected(true);
         d.setDate(data);
         t.setText(stringa);
+        if(t.getText().compareTo("Null")==0)
+        {
+         t.setText("");
+        }
     }
     
     public void ticcaEsameCombo(JCheckBox c,Date data,JXDatePicker d,JComboBox t,String stringa)
@@ -1060,8 +1064,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                leu.setEnabled(false);
-                leu.setText("");
             }
             else
             {
@@ -1083,8 +1085,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                linf.setEnabled(false);
-                linf.setText("");
             }
             else
             {
@@ -1106,8 +1106,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                gr.setEnabled(false);
-                gr.setText("");
             }
             else
             {
@@ -1129,8 +1127,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                pia.setEnabled(false);
-                pia.setText("");
             }
             else
             {
@@ -1152,8 +1148,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                cmv.setEnabled(false);
-                cmv.setSelectedIndex(-1);
             }
             else
             {
@@ -1175,8 +1169,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                hbv.setEnabled(false);
-                hbv.setSelectedIndex(-1);
             }
             else
             {
@@ -1198,8 +1190,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                hcv.setEnabled(false);
-                hcv.setSelectedIndex(-1);
             }
             else
             {
@@ -1221,8 +1211,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                hiv1.setEnabled(false);
-                hiv1.setSelectedIndex(-1);
             }
             else
             {
@@ -1244,8 +1232,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                hiv2.setEnabled(false);
-                hiv2.setSelectedIndex(-1);
             }
             else
             {
@@ -1267,8 +1253,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                tbc.setEnabled(false);
-                tbc.setSelectedIndex(-1);
             }
             else
             {
@@ -1290,8 +1274,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                ppTest.setEnabled(false);
-                ppTest.setSelectedIndex(-1);
             }
             else
             {
@@ -1313,8 +1295,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                jcv.setEnabled(false);
-                jcv.setSelectedIndex(-1);
             }
             else
             {
@@ -1336,8 +1316,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                vzv.setEnabled(false);
-                vzv.setSelectedIndex(-1);
             }
             else
             {
@@ -1359,8 +1337,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                ebv.setEnabled(false);
-                ebv.setSelectedIndex(-1);
             }
             else
             {
@@ -1382,8 +1358,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                hsv1.setEnabled(false);
-                hsv1.setSelectedIndex(-1);
             }
             else
             {
@@ -1405,8 +1379,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                hsv2.setEnabled(false);
-                hsv2.setSelectedIndex(-1);
             }
             else
             {
@@ -1428,8 +1400,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                ecg.setEnabled(false);
-                ecg.setText("");
             }
             else
             {
@@ -1451,8 +1421,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                oct.setEnabled(false);
-                oct.setText("");
             }
             else
             {
@@ -1474,8 +1442,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                rx.setEnabled(false);
-                rx.setText("");
             }
             else
             {
@@ -1497,8 +1463,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                ecocardio.setEnabled(false);
-                ecocardio.setText("");
             }
             else
             {
@@ -1520,8 +1484,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
            {
                 pst.setNull(1, java.sql.Types.DATE);
-                ecografia.setEnabled(false);
-                ecografia.setText("");
             }
             else
             {
@@ -1543,8 +1505,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                derma.setEnabled(false);
-                derma.setText("");
             }
             else
             {
@@ -1566,8 +1526,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                cardio.setEnabled(false);
-                cardio.setText("");
             }
             else
             {
@@ -1589,8 +1547,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                pneu.setEnabled(false);
-                pneu.setText("");
             }
             else
             {
@@ -1612,8 +1568,6 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             if(d==null)
             {
                 pst.setNull(1, java.sql.Types.DATE);
-                infet.setEnabled(false);
-                infet.setText("");
             }
             else
             {
