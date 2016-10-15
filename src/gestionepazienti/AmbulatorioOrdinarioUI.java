@@ -82,7 +82,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
         panelTerPrincipale.setLayout(panelTerPrincipaleLayout);
         panelTerPrincipaleLayout.setHorizontalGroup(
             panelTerPrincipaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 507, Short.MAX_VALUE)
+            .addGap(0, 583, Short.MAX_VALUE)
         );
         panelTerPrincipaleLayout.setVerticalGroup(
             panelTerPrincipaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +108,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelTerPrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panelTerPrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cancellaOrdinario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
