@@ -1284,11 +1284,13 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel5.setText("Cognome:");
 
+        cognomeContrAmb.setDisabledTextColor(java.awt.Color.black);
         cognomeContrAmb.setEnabled(false);
 
         jLabel89.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel89.setText("Nome:");
 
+        nomeContrAmb.setDisabledTextColor(java.awt.Color.black);
         nomeContrAmb.setEnabled(false);
         nomeContrAmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1490,6 +1492,7 @@ public class PazienteUI extends javax.swing.JFrame {
             .addGap(0, 52, Short.MAX_VALUE)
         );
 
+        cognomeDH.setDisabledTextColor(java.awt.Color.black);
         cognomeDH.setEnabled(false);
 
         terapiaPrincDH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tysabri", "Gilenya", "Lemtrada", "CFX", "Mabthera", "Ocrelizumab", "Zinbryta" }));
@@ -1523,6 +1526,7 @@ public class PazienteUI extends javax.swing.JFrame {
 
         panelDHScroll.setViewportView(panelDH);
 
+        nomeDH.setDisabledTextColor(java.awt.Color.black);
         nomeDH.setEnabled(false);
         nomeDH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1552,11 +1556,11 @@ public class PazienteUI extends javax.swing.JFrame {
                 .addGap(0, 186, Short.MAX_VALUE))
             .addGroup(terapieDHLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(terapieDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(terapieDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(terapieDHLayout.createSequentialGroup()
                         .addComponent(addButtonDH)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelDHScroll))
+                        .addComponent(panelDHScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 1274, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(filler4, javax.swing.GroupLayout.PREFERRED_SIZE, 1296, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(terapieDHLayout.createSequentialGroup()
                         .addComponent(jLabel98)
@@ -1582,7 +1586,7 @@ public class PazienteUI extends javax.swing.JFrame {
                         .addComponent(jLabel100)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(numSom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         terapieDHLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cognomeDH, nomeDH});

@@ -125,15 +125,15 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboLeucociti" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboLeucociti" linkSize="7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="dataLeucociti" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="comboGR" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboPiastrine" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboLinfociti" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboGR" linkSize="7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboPiastrine" linkSize="7" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboLinfociti" linkSize="7" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -216,27 +216,18 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="linf">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
                   <Events>
                     <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="linfFocusLost"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="linfKeyReleased"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="pia">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
                   <Events>
                     <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="piaFocusLost"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="piaKeyReleased"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="leu">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
                   <Events>
                     <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="leuFocusLost"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="leuKeyReleased"/>
@@ -249,9 +240,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="gr">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
                   <Events>
                     <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="grFocusLost"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="grKeyReleased"/>
@@ -287,8 +275,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboCMV" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="comboCMV" linkSize="8" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="dataCMV" linkSize="3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="cmv" min="-2" max="-2" attributes="0"/>
@@ -296,14 +284,14 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="comboHIV1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboHIV1" linkSize="8" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="dataHIV1" linkSize="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="comboHCV" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="comboHBV" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="comboHCV" linkSize="8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="comboHBV" linkSize="8" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="8" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -320,64 +308,51 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="comboTBC" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboJCV" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboPPTest" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="comboHIV2" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboTBC" linkSize="9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboJCV" linkSize="9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboPPTest" linkSize="9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboHIV2" linkSize="9" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="dataJCV" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="dataTBC" linkSize="3" min="-2" max="-2" attributes="0"/>
                               <Component id="dataHIV2" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="dataPT" linkSize="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ppTest" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jcv" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="tbc" min="-2" max="-2" attributes="0"/>
                               <Component id="hiv2" min="-2" max="-2" attributes="0"/>
-                              <Component id="tbc" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="ppTest" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jcv" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="comboVZV" linkSize="10" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="dataVZV" linkSize="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="comboHSV1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboVZV" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                                  <Component id="comboEBV" linkSize="10" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="dataEBV" linkSize="3" min="-2" pref="108" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="comboHSV2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="dataHSV2" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="comboEBV" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="dataEBV" linkSize="3" min="-2" pref="108" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="dataHSV1" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="dataVZV" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboHSV1" linkSize="10" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="dataHSV1" linkSize="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="comboHSV2" linkSize="10" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="dataHSV2" linkSize="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="vzv" linkSize="6" min="-2" max="-2" attributes="0"/>
                               <Component id="hsv2" linkSize="6" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -406,7 +381,6 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="comboHBV" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="dataHBV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="hbv" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -423,10 +397,7 @@
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="dataVZV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="vzv" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="vzv" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="comboEBV" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -447,12 +418,16 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="comboVZV" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="comboVZV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dataVZV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="comboTBC" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="dataTBC" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="tbc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="hbv" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -484,7 +459,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hsv1ActionPerformed"/>
@@ -502,7 +476,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcvActionPerformed"/>
@@ -547,7 +520,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbcActionPerformed"/>
@@ -587,7 +559,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hiv2ActionPerformed"/>
@@ -611,7 +582,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hcvActionPerformed"/>
@@ -650,7 +620,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ebvActionPerformed"/>
@@ -679,7 +648,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmvActionPerformed"/>
@@ -709,7 +677,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hiv1ActionPerformed"/>
@@ -733,7 +700,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hsv2ActionPerformed"/>
@@ -768,7 +734,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hbvActionPerformed"/>
@@ -791,7 +756,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vzvActionPerformed"/>
@@ -814,7 +778,6 @@
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ppTestActionPerformed"/>
@@ -922,9 +885,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="derma">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
           <Events>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="dermaFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dermaKeyReleased"/>
@@ -942,9 +902,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="cardio">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
           <Events>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cardioFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cardioKeyReleased"/>
@@ -962,9 +919,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="pneu">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
           <Events>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pneuFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pneuKeyReleased"/>
@@ -982,9 +936,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="infet">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
           <Events>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="infetFocusLost"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="infetKeyReleased"/>
@@ -1114,9 +1065,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ecg">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ecgKeyReleased"/>
               </Events>
@@ -1127,9 +1075,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="oct">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="octKeyReleased"/>
               </Events>
@@ -1140,9 +1085,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="rx">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rxKeyReleased"/>
               </Events>
@@ -1153,9 +1095,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ecocardio">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ecocardioKeyReleased"/>
               </Events>
@@ -1166,9 +1105,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ecografia">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ecografiaKeyReleased"/>
               </Events>
