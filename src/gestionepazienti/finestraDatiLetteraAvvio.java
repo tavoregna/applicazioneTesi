@@ -16,12 +16,19 @@ public class finestraDatiLetteraAvvio extends javax.swing.JFrame {
     private Date dataa;
 
     public finestraDatiLetteraAvvio(PazienteUI p,String nome, String cognome, String terapia, String sesso, Date data){
+        String ter=GenerazioneWord.tipoFarmacoLettera(terapia);
+        if(ter==null)
+        {
+            p.setVisible(true);
+            this.dispose();
+            return;
+        }
         initComponents();
         Utilita.settaIconaFrame(this);
         this.parent=p;
         this.nomee = Utilita.standardizzaNomi(nome);
         this.cognomee = Utilita.standardizzaNomi(cognome);
-        this.terapiaa = Utilita.standardizzaNomi(terapia);
+        this.terapiaa = ter;
         this.sessoo = sesso;
         this.dataa = data;
         

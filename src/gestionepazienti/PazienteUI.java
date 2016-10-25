@@ -3648,16 +3648,19 @@ public class PazienteUI extends javax.swing.JFrame {
         dataDH.setEditable(b);
         medicoEsamDH.setEnabled(b);
     }
-
-    public static void main(String args[]){
-        GestioneDatabase.connessione();
-        new PazienteUI().setVisible(true);
-    }
     
     public Barra getBarra()
     {
         return barr;
     }
+    
+    
+    public static void main(String args[]){
+        GestioneDatabase.connessione();
+        new PazienteUI().setVisible(true);
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> DIS;

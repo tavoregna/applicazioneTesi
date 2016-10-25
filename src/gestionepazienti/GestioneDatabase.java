@@ -53,6 +53,7 @@ public class GestioneDatabase {
             return null;
         }
     }
+    
     public  static void queryNonSelect(String sql)
     {
         try {

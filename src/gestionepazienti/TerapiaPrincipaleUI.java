@@ -133,6 +133,9 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         buttonTer3F = new javax.swing.JButton();
         buttonTer = new javax.swing.JButton();
         buttonTer2F = new javax.swing.JButton();
+        buttonTer2F1 = new javax.swing.JButton();
+        buttonTer3F1 = new javax.swing.JButton();
+        buttonTer1 = new javax.swing.JButton();
 
         setOpaque(false);
 
@@ -230,6 +233,34 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             }
         });
 
+        buttonTer2F1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        buttonTer2F1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
+        buttonTer2F1.setText("FA");
+        buttonTer2F1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTer2F1ActionPerformed(evt);
+            }
+        });
+
+        buttonTer3F1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        buttonTer3F1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
+        buttonTer3F1.setText("FA");
+        buttonTer3F1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTer3F1ActionPerformed(evt);
+            }
+        });
+
+        buttonTer1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        buttonTer1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
+        buttonTer1.setText("FA");
+        buttonTer1.setOpaque(false);
+        buttonTer1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTer1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -240,7 +271,9 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jRadioButton1)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonTer, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(buttonTer, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonTer1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jRadioButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -248,7 +281,9 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(buttonTer3)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonTer3F))
+                        .addComponent(buttonTer3F)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonTer3F1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jRadioButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -258,8 +293,10 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(buttonTer2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonTer2F)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addComponent(buttonTer2F)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonTer2F1)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {terapiaDH, terapiaOra});
@@ -272,21 +309,25 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton1)
-                    .addComponent(buttonTer, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonTer, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonTer1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton2)
                     .addComponent(buttonTer2)
                     .addComponent(dataAvvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(terapiaDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonTer2F))
+                    .addComponent(buttonTer2F)
+                    .addComponent(buttonTer2F1))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jRadioButton3)
                         .addComponent(terapiaOra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(buttonTer3))
-                    .addComponent(buttonTer3F, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonTer3F, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonTer3F1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -431,6 +472,11 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             Utilita.mostraMessaggio("Nessuna terapia selezionata");
             return;
         }
+       if(!GenerazioneWord.existsFarmaco("./ModelloLetteraAvvio/", (String)terapiaDH.getSelectedItem()))
+       {
+           Utilita.mostraMessaggio("Modello non trovato");
+           return;
+       }
         parent.setVisible(false);
         Paziente p=Utilita.oggettoPaziente(WIDTH);
         new finestraDatiLetteraAvvio(parent, p.getNome(), p.getCognome(), (String)terapiaDH.getSelectedItem(), p.getSesso(),Utilita.DateUtilToSQL(dataAvvio.getDate()));
@@ -440,6 +486,11 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         if(terapiaOra.getSelectedIndex()==-1)
         {
             Utilita.mostraMessaggio("Nessuna terapia selezionata");
+            return;
+        }
+        if(!GenerazioneWord.existsFarmaco("./ModelloLetteraAvvio/", (String)terapiaOra.getSelectedItem()))
+        {   
+            Utilita.mostraMessaggio("Modello non trovato");
             return;
         }
         parent.setVisible(false);
@@ -464,6 +515,38 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         }
         GenerazioneWord.generaFileF((String)terapiaOra.getSelectedItem());
     }//GEN-LAST:event_buttonTer3FActionPerformed
+
+    private void buttonTer2F1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer2F1ActionPerformed
+        if(terapiaDH.getSelectedIndex()==-1)
+        {
+            Utilita.mostraMessaggio("Nessuna terapia selezionata");
+            return;
+        }
+        GenerazioneWord.generaFileFA((String)terapiaDH.getSelectedItem());
+    }//GEN-LAST:event_buttonTer2F1ActionPerformed
+
+    private void buttonTer3F1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer3F1ActionPerformed
+        if(terapiaOra.getSelectedIndex()==-1)
+        {
+            Utilita.mostraMessaggio("Nessuna terapia selezionata");
+            return;
+        }
+        GenerazioneWord.generaFileFA((String)terapiaOra.getSelectedItem());
+    }//GEN-LAST:event_buttonTer3F1ActionPerformed
+
+    private void buttonTer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer1ActionPerformed
+        ResultSet rs=GestioneDatabase.querySelect("SELECT Terapia FROM Paziente_Terapia WHERE ID_Paziente="+Pazienti.getCurrID()+" ORDER BY Data_Inizio DESC LIMIT 1");
+        try {
+            if(!rs.next())
+            {
+                Utilita.mostraMessaggio("Nessuna terapia selezionata");
+                return;
+            }
+            GenerazioneWord.generaFileFA(rs.getString(1));
+        } catch (SQLException ex) {
+            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_buttonTer1ActionPerformed
     private void aggiornaRadioButtonControllo(int i)
     {
         String query;
@@ -483,10 +566,13 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonTer;
+    private javax.swing.JButton buttonTer1;
     private javax.swing.JButton buttonTer2;
     private javax.swing.JButton buttonTer2F;
+    private javax.swing.JButton buttonTer2F1;
     private javax.swing.JButton buttonTer3;
     private javax.swing.JButton buttonTer3F;
+    private javax.swing.JButton buttonTer3F1;
     private org.jdesktop.swingx.JXDatePicker dataAvvio;
     private javax.swing.ButtonGroup gruppoTeraPrinc;
     private javax.swing.JRadioButton jRadioButton1;
