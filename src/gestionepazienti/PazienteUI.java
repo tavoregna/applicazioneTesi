@@ -46,7 +46,7 @@ public class PazienteUI extends javax.swing.JFrame {
         initComponents();
         
         UIManager.put("ComboBox.disabledForeground", Color.BLACK);
- 
+
         Utilita.settaIconaFrame(this);
         
         idControlloCorrente=null;
