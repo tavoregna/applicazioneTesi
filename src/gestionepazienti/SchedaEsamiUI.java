@@ -37,15 +37,12 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
     
     public void ticcaEsameText(JCheckBox c,Date data,JXDatePicker d,JTextField t,String stringa)
     {
-        if(data==null)
+        if(data==null && (stringa.compareToIgnoreCase("null")==0 || stringa.compareToIgnoreCase("-1.0")==0))
             return;
-        /*c.setEnabled(false);
-        d.setEnabled(false);
-        t.setEnabled(false);*/
         c.setSelected(true);
         d.setDate(data);
         t.setText(stringa);
-        if(t.getText().compareTo("Null")==0)
+        if(t.getText().compareToIgnoreCase("Null")==0 || t.getText().compareToIgnoreCase("-1.0")==0)
         {
          t.setText("");
         }
@@ -53,14 +50,14 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
     
     public void ticcaEsameCombo(JCheckBox c,Date data,JXDatePicker d,JComboBox t,String stringa)
     {
-        if(data==null)
+        if(data==null && stringa.compareToIgnoreCase("null")==0)
             return;
-        /*c.setEnabled(false);
-        d.setEnabled(false);
-        t.setEnabled(false);*/
         c.setSelected(true);
         d.setDate(data);
-        t.setSelectedItem(stringa);
+        if(stringa.compareToIgnoreCase("null")!=0)
+        {
+            t.setSelectedItem(stringa);
+        }
     }
     
     public void aggiornaDati(int idPaz)
@@ -1604,6 +1601,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, (String)cmv.getSelectedItem());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboCMV.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1615,6 +1613,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, (String)hbv.getSelectedItem());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboHBV.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1626,6 +1625,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, (String)hcv.getSelectedItem());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboHCV.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1637,6 +1637,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, (String)hiv1.getSelectedItem());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboHIV1.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1648,6 +1649,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, (String)hiv2.getSelectedItem());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboHIV2.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1659,6 +1661,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, (String)tbc.getSelectedItem());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboTBC.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1670,6 +1673,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, (String)ppTest.getSelectedItem());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboPPTest.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1681,6 +1685,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, (String)jcv.getSelectedItem());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboJCV.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1692,6 +1697,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, (String)vzv.getSelectedItem());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboVZV.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1703,6 +1709,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, (String)ebv.getSelectedItem());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboEBV.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1714,6 +1721,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, (String)hsv1.getSelectedItem());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboHSV1.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1725,6 +1733,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, (String)hsv2.getSelectedItem());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboHSV2.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1736,6 +1745,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, ecg.getText());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboECG.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1747,6 +1757,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, oct.getText());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboOCT.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1758,6 +1769,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, rx.getText());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboRX.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1769,6 +1781,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, ecocardio.getText());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboEcocardio.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1780,6 +1793,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, ecografia.getText());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboEcografia.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1810,6 +1824,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setDouble(1, Double.parseDouble(leu.getText()));
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboLeucociti.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1824,6 +1839,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setDouble(1, Double.parseDouble(linf.getText()));
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboLinfociti.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1838,6 +1854,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setDouble(1, Double.parseDouble(gr.getText()));
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboGR.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1852,6 +1869,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setDouble(1, Double.parseDouble(pia.getText()));
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboPiastrine.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1866,6 +1884,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, derma.getText());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboDerma.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1880,6 +1899,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, cardio.getText());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboCardio.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1894,6 +1914,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, pneu.getText());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboPneu.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -1908,6 +1929,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setString(1, infet.getText());
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
+            comboInfet.setSelected(true);
         } catch (SQLException ex) {
             Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
