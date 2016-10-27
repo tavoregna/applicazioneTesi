@@ -36,6 +36,7 @@ public class GenerazioneWord {
                 mail="";
             doc = replaceText(doc, "@@@", mail);
             
+            creaCartella("LettereGenerate");
             filePath="./LettereGenerate/"+cognome+nome+terapia+Utilita.dataToStringNoSeparator(d)+".doc";
             saveWord(filePath, doc);
             
@@ -86,7 +87,8 @@ public class GenerazioneWord {
             HWPFDocument doc = new HWPFDocument(fs);
         
             Paziente p=Utilita.oggettoPaziente(Pazienti.getCurrID());
-            filePath="./LettereGenerate/FILE_F_"+p.getCognome()+p.getNome()+terapia+Utilita.dataToStringNoSeparator(new Date(System.currentTimeMillis()))+".doc";
+            creaCartella("FileFGenerati");
+            filePath="./FileFGenerati/FILE_F_"+p.getCognome()+p.getNome()+terapia+Utilita.dataToStringNoSeparator(new Date(System.currentTimeMillis()))+".doc";
             saveWord(filePath, doc);
             
             if(Desktop.getDesktop()!=null)
@@ -162,7 +164,8 @@ public class GenerazioneWord {
             HWPFDocument doc = new HWPFDocument(fs);
         
             Paziente p=Utilita.oggettoPaziente(Pazienti.getCurrID());
-            filePath="./LettereGenerate/FILE_F_AVVIO_"+p.getCognome()+p.getNome()+terapia+" AVVIO "+Utilita.dataToStringNoSeparator(new Date(System.currentTimeMillis()))+".doc";
+            creaCartella("FileFGenerati");
+            filePath="./FileFGenerati/FILE_F_AVVIO_"+p.getCognome()+p.getNome()+terapia+" AVVIO "+Utilita.dataToStringNoSeparator(new Date(System.currentTimeMillis()))+".doc";
             saveWord(filePath, doc);
             
             if(Desktop.getDesktop()!=null)
@@ -182,6 +185,19 @@ public class GenerazioneWord {
         catch(Exception e){
             e.printStackTrace();
             return false;
+        }
+    }
+    private static void creaCartella(String name)
+    {
+        try{
+            File f=new File("./"+name);
+            if(f.exists())
+                return;
+            f.mkdir();
+        }
+        catch(Exception e)
+        {
+            Utilita.mostraMessaggioErrore("Creazione cartella "+name+" non riuscita");
         }
     }
     

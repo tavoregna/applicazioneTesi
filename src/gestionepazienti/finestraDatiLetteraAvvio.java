@@ -31,6 +31,8 @@ public class finestraDatiLetteraAvvio extends javax.swing.JFrame {
         this.terapiaa = ter;
         this.sessoo = sesso;
         this.dataa = data;
+        if(dataa==null)
+            dataa=Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis())));
         
         nom.setText(nomee);
         cognom.setText(cognomee);
