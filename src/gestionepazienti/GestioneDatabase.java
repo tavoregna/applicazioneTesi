@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class GestioneDatabase {
-    private static final String RELATIVE_DB_PATH="db/Prova1.accdb";
+    private static final String RELATIVE_DB_PATH="db/GestionePazienti.accdb";
     private static Connection con;
     
     public static void connessione()
