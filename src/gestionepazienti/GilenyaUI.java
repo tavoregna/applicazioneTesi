@@ -1,8 +1,10 @@
 package gestionepazienti;
 
+import static java.awt.image.ImageObserver.WIDTH;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -106,6 +108,7 @@ public class GilenyaUI extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         acConsigliati = new javax.swing.JTextArea();
         cancellaGilenya = new javax.swing.JButton();
+        buttonTer3F = new javax.swing.JButton();
 
         setOpaque(false);
 
@@ -443,14 +446,23 @@ public class GilenyaUI extends javax.swing.JPanel {
             }
         });
 
+        buttonTer3F.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        buttonTer3F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestionepazienti/Document-Microsoft-Word-icon.png"))); // NOI18N
+        buttonTer3F.setText("L");
+        buttonTer3F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTer3FActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane6)
                             .addComponent(jScrollPane4)
@@ -465,7 +477,9 @@ public class GilenyaUI extends javax.swing.JPanel {
                             .addComponent(jScrollPane3)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cancellaGilenya)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cancellaGilenya)
+                            .addComponent(buttonTer3F))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1)
@@ -479,8 +493,11 @@ public class GilenyaUI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cancellaGilenya, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonTer3F, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -859,9 +876,22 @@ public class GilenyaUI extends javax.swing.JPanel {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cancellaGilenyaActionPerformed
+
+    private void buttonTer3FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTer3FActionPerformed
+        String terapy="Gilenya";
+        if(!GenerazioneWord.existsFarmaco("./ModelloLetteraAvvio/", terapy))
+        {   
+            Utilita.mostraMessaggio("Modello non trovato");
+            return;
+        }
+        parent.setVisible(false);
+        Paziente p=Utilita.oggettoPaziente(Pazienti.getCurrID());
+        new finestraDatiLetteraAvvio(parent, p.getNome(), p.getCognome(), terapy, p.getSesso(), Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
+    }//GEN-LAST:event_buttonTer3FActionPerformed
                                                                         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea acConsigliati;
+    private javax.swing.JButton buttonTer3F;
     private javax.swing.JButton cancellaGilenya;
     private javax.swing.JTextField cerebellare;
     private javax.swing.JTextField cerebrale;

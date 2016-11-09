@@ -489,7 +489,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
            return;
        }
         parent.setVisible(false);
-        Paziente p=Utilita.oggettoPaziente(WIDTH);
+        Paziente p=Utilita.oggettoPaziente(Pazienti.getCurrID());
         new finestraDatiLetteraAvvio(parent, p.getNome(), p.getCognome(), (String)terapiaDH.getSelectedItem(), p.getSesso(),Utilita.DateUtilToSQL(dataAvvio.getDate()));
     }//GEN-LAST:event_buttonTer2ActionPerformed
 
@@ -505,7 +505,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             return;
         }
         parent.setVisible(false);
-        Paziente p=Utilita.oggettoPaziente(WIDTH);
+        Paziente p=Utilita.oggettoPaziente(Pazienti.getCurrID());
         new finestraDatiLetteraAvvio(parent, p.getNome(), p.getCognome(), (String)terapiaOra.getSelectedItem(), p.getSesso(), Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
     }//GEN-LAST:event_buttonTer3ActionPerformed
 
