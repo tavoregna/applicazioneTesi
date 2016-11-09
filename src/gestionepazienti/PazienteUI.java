@@ -225,6 +225,8 @@ public class PazienteUI extends javax.swing.JFrame {
         pannelloBarra = new javax.swing.JPanel();
         terapiaPrinc = new javax.swing.JComboBox<>();
         addButtonContr = new javax.swing.JButton();
+        schedaEsami = new javax.swing.JPanel();
+        panelSchedaEsam = new javax.swing.JPanel();
         terapieDH = new javax.swing.JPanel();
         jLabel94 = new javax.swing.JLabel();
         jLabel95 = new javax.swing.JLabel();
@@ -243,8 +245,6 @@ public class PazienteUI extends javax.swing.JFrame {
         jLabel100 = new javax.swing.JLabel();
         numSom = new javax.swing.JTextField();
         addButtonDH = new javax.swing.JButton();
-        schedaEsami = new javax.swing.JPanel();
-        panelSchedaEsam = new javax.swing.JPanel();
         valutazioneNPS = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -1462,6 +1462,40 @@ public class PazienteUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Controlli ambulatoriali", controlliAmb);
 
+        schedaEsami.setBackground(new java.awt.Color(239, 228, 176));
+
+        panelSchedaEsam.setBackground(new java.awt.Color(239, 228, 176));
+
+        javax.swing.GroupLayout panelSchedaEsamLayout = new javax.swing.GroupLayout(panelSchedaEsam);
+        panelSchedaEsam.setLayout(panelSchedaEsamLayout);
+        panelSchedaEsamLayout.setHorizontalGroup(
+            panelSchedaEsamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1387, Short.MAX_VALUE)
+        );
+        panelSchedaEsamLayout.setVerticalGroup(
+            panelSchedaEsamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 386, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout schedaEsamiLayout = new javax.swing.GroupLayout(schedaEsami);
+        schedaEsami.setLayout(schedaEsamiLayout);
+        schedaEsamiLayout.setHorizontalGroup(
+            schedaEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(schedaEsamiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSchedaEsam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        schedaEsamiLayout.setVerticalGroup(
+            schedaEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(schedaEsamiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSchedaEsam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Scheda Esami", schedaEsami);
+
         terapieDH.setBackground(new java.awt.Color(239, 228, 176));
 
         jLabel94.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -1631,40 +1665,6 @@ public class PazienteUI extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Terapie infusive in DH", terapieDH);
-
-        schedaEsami.setBackground(new java.awt.Color(239, 228, 176));
-
-        panelSchedaEsam.setBackground(new java.awt.Color(239, 228, 176));
-
-        javax.swing.GroupLayout panelSchedaEsamLayout = new javax.swing.GroupLayout(panelSchedaEsam);
-        panelSchedaEsam.setLayout(panelSchedaEsamLayout);
-        panelSchedaEsamLayout.setHorizontalGroup(
-            panelSchedaEsamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1389, Short.MAX_VALUE)
-        );
-        panelSchedaEsamLayout.setVerticalGroup(
-            panelSchedaEsamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 386, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout schedaEsamiLayout = new javax.swing.GroupLayout(schedaEsami);
-        schedaEsami.setLayout(schedaEsamiLayout);
-        schedaEsamiLayout.setHorizontalGroup(
-            schedaEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(schedaEsamiLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelSchedaEsam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        schedaEsamiLayout.setVerticalGroup(
-            schedaEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(schedaEsamiLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelSchedaEsam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Scheda Esami", schedaEsami);
 
         valutazioneNPS.setBackground(new java.awt.Color(255, 233, 151));
 
@@ -3643,7 +3643,7 @@ public class PazienteUI extends javax.swing.JFrame {
     {
         dataContrAmb.setEnabled(b);
         dataContrAmb.setEditable(b);
-        terapiaPrinc.setEnabled(b);
+        terapiaPrinc.setEnabled(b&&Opzioni.terapiePrinciliControlliAttive);
         medicoEsamContrAmb.setEnabled(b);
     }
     

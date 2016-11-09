@@ -82,9 +82,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                             terapiaDH.setVisible(true);
                             terapiaDH.setEnabled(true);
                             
-                            buttonTer2.setVisible(true);
-                            buttonTer2F.setVisible(true);
-                            buttonTer2F1.setVisible(true);
+                            visualizzaSoloSeNonInfusiva(rs.getString("Terapia_2"));
                         }
                         else
                         {
@@ -104,17 +102,25 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+    private void visualizzaSoloSeNonInfusiva(String t)
+    {
+        boolean val=!Utilita.isTerapiaInfusiva(t);
+        buttonTer2.setVisible(val);
+        buttonTer2F.setVisible(val);
+        buttonTer2F1.setVisible(val);
+    }
     
     private void AggiornaCampoTerapia()
     {
         terapiaDH.setEnabled(false);
         terapiaOra.setEnabled(false);
         try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome FROM Terapia WHERE Infusiva=false");
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome,Infusiva FROM Terapia");
             while(rs.next())
             {
                 terapiaDH.addItem(rs.getString("Nome"));
-                terapiaOra.addItem(rs.getString("Nome"));
+                if(!rs.getBoolean("Infusiva"))
+                    terapiaOra.addItem(rs.getString("Nome"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -124,6 +130,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         terapiaDH.setEnabled(true);
         terapiaOra.setEnabled(true);
     }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -345,10 +352,9 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         if(tipoControllo==1)
-            Barra.prevColor(new Color(167,169,254));
+            Barra.prevColor(Opzioni.ControlloOrdinario2);
         
         unvisibleAll();
-        
         buttonTer2.setVisible(true);
         buttonTer2F.setVisible(true);
         buttonTer2F1.setVisible(true);
@@ -359,21 +365,24 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         terapiaDH.setEnabled(true);
         
         aggiornaRadioButtonControllo(2);
+        
+        azzeraCampi();
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         if(tipoControllo==1)
-            Barra.prevColor(new Color(11,17,253));
+            Barra.prevColor(Opzioni.ControlloOrdinario4);
         
         unvisibleAll();
         buttonTer3.setVisible(true);
         buttonTer3F.setVisible(true);
         buttonTer3F1.setVisible(true);
-        terapiaOra.setSelectedItem(null);
         terapiaOra.setVisible(true);
         terapiaOra.setEnabled(true);
         
         aggiornaRadioButtonControllo(3);
+        
+        azzeraCampi();
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -381,8 +390,10 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         buttonTer.setVisible(true);
         buttonTer1.setVisible(true);
         if(tipoControllo==1)
-            Barra.prevColor(new Color(205,239,243));
+            Barra.prevColor(Opzioni.ControlloOrdinario1);
         aggiornaRadioButtonControllo(1);
+        azzeraCampi();
+        
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void dataAvvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataAvvioActionPerformed
@@ -416,6 +427,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             pst.setString(1, (String)terapiaDH.getSelectedItem());
             pst.setInt(2, idControllo);
             pst.executeUpdate();
+            visualizzaSoloSeNonInfusiva((String)terapiaDH.getSelectedItem());
         } catch (SQLException ex) {
             Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -573,6 +585,28 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    private void azzeraCampi()
+    {
+        terapiaDH.setEnabled(false);
+        terapiaOra.setEnabled(false);
+        dataAvvio.setEnabled(false);
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Ambulatorio_Ordinario SET Data_Avvio_Terapia=?, Terapia_2=?, Terapia_3=? WHERE Controllo_Standard=?");
+            pst.setNull(1, java.sql.Types.TIMESTAMP);
+            pst.setNull(2, java.sql.Types.VARCHAR);
+            pst.setNull(3, java.sql.Types.VARCHAR);
+            pst.setInt(4, idControllo);
+            pst.executeUpdate();
+            terapiaDH.setSelectedItem(null);
+            terapiaOra.setSelectedItem(null);
+            dataAvvio.setDate(null);
+        } catch (SQLException ex) {
+            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        terapiaDH.setEnabled(true);
+        terapiaOra.setEnabled(true);
+        dataAvvio.setEnabled(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

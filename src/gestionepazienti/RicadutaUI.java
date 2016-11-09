@@ -252,9 +252,9 @@ public class RicadutaUI extends javax.swing.JPanel {
     private void ricadutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ricadutaActionPerformed
         String it=(String) ricaduta.getSelectedItem();
         if(it!=null && (it.toLowerCase().equals("clinica") || it.toLowerCase().equals("radiologica")))
-            Barra.prevColor(Color.RED);
+            Barra.prevColor(Opzioni.RicadutaClinicaRadiologica);
         else
-            Barra.prevColor(Color.YELLOW);
+            Barra.prevColor(Opzioni.NoRicadutaPseudo);
         try {
             gestioneRicaduta();
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Ricaduta SET Ricaduta=? WHERE Controllo_Standard=?");

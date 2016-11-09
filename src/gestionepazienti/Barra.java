@@ -50,11 +50,11 @@ public class Barra extends javax.swing.JPanel {
                     if(tipo.next())
                         y=tipo.getInt("Terapia_Principale");
                     if(y==1)
-                        colore=new Color(205,239,243);
+                        colore=Opzioni.ControlloOrdinario1;
                     else if(y==2)
-                        colore=new Color(167,169,254);
+                        colore=Opzioni.ControlloOrdinario2;
                     else if(y==3)
-                        colore=new Color(11,17,253);
+                        colore=Opzioni.ControlloOrdinario4;
                     else
                         colore=Color.WHITE;
                 }
@@ -65,9 +65,9 @@ public class Barra extends javax.swing.JPanel {
                     if(tipo.next())
                        y=tipo.getString("Ricaduta");
                     if(y!=null && (y.toLowerCase().equals("clinica") || y.toLowerCase().equals("radiologica")))
-                        colore=Color.RED;
+                        colore=Opzioni.RicadutaClinicaRadiologica;
                     else
-                        colore=Color.YELLOW;
+                        colore=Opzioni.NoRicadutaPseudo;
                 }
                 creaPulsante(i,d,c,2,colore,nome);
                 i++;
@@ -82,7 +82,7 @@ public class Barra extends javax.swing.JPanel {
             {
                 Date d=rs.getDate("Data");
                 int c=rs.getInt("ID_DH");
-                creaPulsante(i,d,c,3,Color.GREEN.darker(),rs.getString("Terapia"));
+                creaPulsante(i,d,c,3,Opzioni.Infusive,rs.getString("Terapia"));
                 i++;
             }
         } 
@@ -94,7 +94,7 @@ public class Barra extends javax.swing.JPanel {
             while(rs.next())
             {
                 Date d=rs.getDate("Data_Diagnosi");
-                creaPulsante(i,d,null,1,new Color(112,146,190),"Diagnosi");
+                creaPulsante(i,d,null,1,Opzioni.Diagnosi,"Diagnosi");
                 i++;
             }
         } 
@@ -107,7 +107,7 @@ public class Barra extends javax.swing.JPanel {
             {
                 Date d=rs.getDate("Data");
                 int c=rs.getInt("ID_NPS");
-                creaPulsante(i,d,c,4,Color.PINK,"Val. NPS");
+                creaPulsante(i,d,c,4,Opzioni.NPS,"Val. NPS");
                 i++;
             }
         } 
@@ -179,7 +179,7 @@ public class Barra extends javax.swing.JPanel {
         {
             parent.aggiornaDatiDH(premuto.getIdControllo());
             parent.abilitaBarraSuperioreDH(true);
-            parent.selezionaScheda(3);
+            parent.selezionaScheda(4);
             return;
         }
         if(tipo==4)
