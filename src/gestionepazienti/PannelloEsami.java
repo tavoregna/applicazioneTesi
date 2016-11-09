@@ -3,8 +3,7 @@ package gestionepazienti;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.FocusEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -80,13 +79,25 @@ public class PannelloEsami extends javax.swing.JPanel {
                 if(r.next())
                     fi.setText(Double.toString(r.getDouble(1)));
                 //INIZIO LISTENER
-                fi.addKeyListener(new KeyListener() {   
-                    public void keyTyped(KeyEvent e) {}          
-                    public void keyPressed(KeyEvent e) {}         
-                    public void keyReleased(KeyEvent e) { 
+                fi.addFocusListener(new java.awt.event.FocusListener() {
+                    @Override
+                    public void focusGained(FocusEvent e) {}
+
+                    @Override
+                    public void focusLost(FocusEvent e) {
                         if(!(e.getSource() instanceof JTextField))
                             return;
-                        JTextField dato=(JTextField)e.getSource();           
+                        JTextField dato=(JTextField)e.getSource();
+                        String valore=dato.getText();
+                        if(!valore.equals("") && !dato.getName().toLowerCase().equals("urine"))
+                        {
+                            valore=Utilita.virgolaToPunto(valore);
+                            if(!Utilita.isNumeric(valore))
+                            {
+                                Utilita.mostraMessaggioErrore("Inserire un valore corretto");
+                                return;
+                            }
+                        }
                         try {
                             PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT * FROM Controllo_Esame WHERE Controllo=? AND Esame=?");
                             pst.setInt(1, idCon);
@@ -98,7 +109,7 @@ public class PannelloEsami extends javax.swing.JPanel {
                             {
                                 pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Esame SET Valore=? WHERE Controllo=? AND Esame=?");
                                 //SISTEMARE
-                                pst.setDouble(1,Double.parseDouble(dato.getText()));
+                                pst.setString(1,valore);
                                 pst.setInt(2, idCon);
                                 pst.setString(3,dato.getName());
                                 pst.executeUpdate();
@@ -109,16 +120,14 @@ public class PannelloEsami extends javax.swing.JPanel {
                                 //SISTEMARE
                                 pst.setInt(1, idCon);
                                 pst.setString(2,dato.getName());
-                                pst.setDouble(3,Double.parseDouble(dato.getText()));
+                                pst.setString(3,valore);
                                 pst.executeUpdate();
                             }
                         } catch (SQLException ex) {
                             Logger.getLogger(PannelloEsami.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        
                     }
                 });
-                //FINE LISTENER
                 pannello.add(fi);
             }
         } catch (SQLException ex) {
@@ -129,6 +138,12 @@ public class PannelloEsami extends javax.swing.JPanel {
     }
     private void generaGrafico(String name)
     {
+        if(name.toLowerCase().equals("urine"))
+        {
+            Utilita.mostraMessaggio("Grafico non disponibile per le Urine");
+            return;
+        }
+        
         JFreeChart chart = ChartFactory.createLineChart(name, "", "",datiGrafico(name), PlotOrientation.VERTICAL,false, true, true);
         
         ChartPanel pannelloGrafico=new ChartPanel(chart);
@@ -151,7 +166,10 @@ public class PannelloEsami extends javax.swing.JPanel {
             ResultSet rs=pst.executeQuery();
             while(rs.next())
             {
-               dataset.addValue(rs.getDouble(1), "",Utilita.dataToString(rs.getDate(2)));
+               if(Utilita.isNumeric(rs.getString(1)))
+               {
+                dataset.addValue(Double.parseDouble(rs.getString(1)), "",Utilita.dataToString(rs.getDate(2)));
+               }
             }
         } catch (SQLException ex) {
             Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);

@@ -2625,10 +2625,14 @@ public class PazienteUI extends javax.swing.JFrame {
         if(tipoControllo==0)
             return;
         try {
-            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Controllo_Standard(ID_Paziente,Data,Tipo_Controllo) VALUES (?,?,?)");
+            PreparedStatement pst=GestioneDatabase.preparedStatement("INSERT INTO Controllo_Standard(ID_Paziente,Data,Tipo_Controllo,Terapia) VALUES (?,?,?,?)");
             pst.setInt(1, Pazienti.getCurrID());
             pst.setDate(2, Utilita.DateUtilToSQL(Utilita.removeTime(new Date(System.currentTimeMillis()))));
             pst.setString(3,Integer.toString(tipoControllo));
+            if(terapiaAttuale.getText()==null || terapiaAttuale.getText().isEmpty())
+                pst.setNull(4,java.sql.Types.VARCHAR);
+            else
+                pst.setString(4, terapiaAttuale.getText());
             pst.executeUpdate();
             ResultSet rs=GestioneDatabase.querySelect("SELECT LAST(ID_Controllo) FROM Controllo_Standard");
             if(rs.next())

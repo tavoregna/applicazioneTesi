@@ -119,6 +119,8 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+        terapiaDH.setSelectedItem(null);
+        terapiaOra.setSelectedItem(null);
         terapiaDH.setEnabled(true);
         terapiaOra.setEnabled(true);
     }

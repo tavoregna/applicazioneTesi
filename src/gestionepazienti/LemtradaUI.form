@@ -93,6 +93,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="num">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="cancellaLemtrada">
       <Properties>

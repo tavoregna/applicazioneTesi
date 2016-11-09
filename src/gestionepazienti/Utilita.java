@@ -94,14 +94,21 @@ public final class Utilita {
     
     public static String virgolaToPunto(String s)
     {
+        if(s==null)
+            return null;
+        String tmp="";
         for(int i=0;i<s.length();i++)
         {
             if(s.charAt(i)==',')
             {
-                return rimpiazzaCarattere(s,'.',i);
+               tmp+='.';
+            }
+            else
+            {
+                tmp+=s.charAt(i);
             }
         }
-        return s;
+        return tmp;
     }
     
     public static Date removeTime(Date date) {

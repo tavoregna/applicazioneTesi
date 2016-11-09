@@ -89,6 +89,8 @@ public class LemtradaUI extends javax.swing.JPanel {
 
         jLabel1.setText("Numero giorni:");
 
+        num.setEditable(false);
+
         cancellaLemtrada.setBackground(java.awt.Color.red);
         cancellaLemtrada.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         cancellaLemtrada.setText("X");
