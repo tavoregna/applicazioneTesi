@@ -990,20 +990,17 @@ public class PazienteUI extends javax.swing.JFrame {
                         .addComponent(DIS, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanelRMNLayout.createSequentialGroup()
-                .addGroup(jPanelRMNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelRMNLayout.createSequentialGroup()
-                        .addComponent(spinali)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(gad))
-                    .addGroup(jPanelRMNLayout.createSequentialGroup()
-                        .addComponent(sopratentoriali)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(corticali))
-                    .addGroup(jPanelRMNLayout.createSequentialGroup()
-                        .addComponent(sottotentoriali)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ottico)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(spinali)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(gad))
+            .addGroup(jPanelRMNLayout.createSequentialGroup()
+                .addComponent(sopratentoriali)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(corticali))
+            .addGroup(jPanelRMNLayout.createSequentialGroup()
+                .addComponent(sottotentoriali)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ottico))
         );
 
         jPanelRMNLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel101, jLabel97});
@@ -1509,7 +1506,7 @@ public class PazienteUI extends javax.swing.JFrame {
         cognomeDH.setDisabledTextColor(java.awt.Color.black);
         cognomeDH.setEnabled(false);
 
-        terapiaPrincDH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tysabri", "Gilenya", "Lemtrada", "CFX", "Mabthera", "Ocrelizumab", "Zinbryta" }));
+        terapiaPrincDH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tysabri", "Gilenya", "Lemtrada", "Ciclofosfamide", "Mabthera", "Ocrelizumab", "Zinbryta" }));
         terapiaPrincDH.setEnabled(false);
         terapiaPrincDH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2662,7 +2659,7 @@ public class PazienteUI extends javax.swing.JFrame {
     private void addButtonDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonDHActionPerformed
        if(Pazienti.getCurrID()==null)
             return;
-        String[] controlli = { "Tysabri", "Gilenya","Lemtrada","CFX","Zinbryta","Mabthera","Ocrelizumab"};
+        String[] controlli = { "Tysabri", "Gilenya","Lemtrada","Ciclofosfamide","Zinbryta","Mabthera","Ocrelizumab"};
         JFrame frame = new JFrame("Nuova terapia infusiva");
         String terapiaScelta = (String) JOptionPane.showInputDialog(frame, "Scegli la terapia infusiva da inserire",
         "Tipo di controllo",
@@ -2705,7 +2702,7 @@ public class PazienteUI extends javax.swing.JFrame {
                 {
                     q="INSERT INTO Lemtrada(ID_Standard,Giorno,Data_DC) VALUES (?,1,?)";
                 }
-                if(terapiaScelta.equals("CFX"))
+                if(terapiaScelta.equals("Ciclofosfamide"))
                 {
                     q="INSERT INTO CFX(ID_CFX) VALUES (?)";
                 }
