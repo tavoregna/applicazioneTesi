@@ -77,7 +77,7 @@ public class PannelloEsami extends javax.swing.JPanel {
                 p.setString(2,rs.getString("Esame"));
                 ResultSet r=p.executeQuery();
                 if(r.next())
-                    fi.setText(Double.toString(r.getDouble(1)));
+                    fi.setText(r.getString("Valore"));
                 //INIZIO LISTENER
                 fi.addFocusListener(new java.awt.event.FocusListener() {
                     @Override
@@ -107,6 +107,14 @@ public class PannelloEsami extends javax.swing.JPanel {
                             //altrimenti lo creo
                             if(rs.next())
                             {
+                                if(valore.equals(""))
+                                {
+                                   pst=GestioneDatabase.preparedStatement("DELETE FROM Controllo_Esame WHERE Controllo=? AND Esame=?"); 
+                                   pst.setInt(1, idCon);
+                                   pst.setString(2,dato.getName());
+                                   pst.executeUpdate();
+                                   return;
+                                }
                                 pst=GestioneDatabase.preparedStatement("UPDATE Controllo_Esame SET Valore=? WHERE Controllo=? AND Esame=?");
                                 //SISTEMARE
                                 pst.setString(1,valore);
@@ -116,6 +124,8 @@ public class PannelloEsami extends javax.swing.JPanel {
                             }
                             else
                             {
+                                if(valore.equals(""))
+                                    return;
                                 pst=GestioneDatabase.preparedStatement("INSERT INTO Controllo_Esame(Controllo,Esame,Valore) VALUES (?,?,?)");
                                 //SISTEMARE
                                 pst.setInt(1, idCon);

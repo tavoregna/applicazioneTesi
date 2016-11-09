@@ -2659,6 +2659,11 @@ public class PazienteUI extends javax.swing.JFrame {
     private void addButtonDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonDHActionPerformed
        if(Pazienti.getCurrID()==null)
             return;
+       if(!Utilita.isTerapiaInfusiva(terapiaAttuale.getText()))
+       {
+           Utilita.mostraMessaggioErrore("La terapia attuale non è infusiva");
+           return;
+       }
         String[] controlli = { "Tysabri", "Gilenya","Lemtrada","Ciclofosfamide","Zinbryta","Mabthera","Ocrelizumab"};
         JFrame frame = new JFrame("Nuova terapia infusiva");
         String terapiaScelta = (String) JOptionPane.showInputDialog(frame, "Scegli la terapia infusiva da inserire",
@@ -2666,7 +2671,7 @@ public class PazienteUI extends javax.swing.JFrame {
         JOptionPane.QUESTION_MESSAGE, 
         null, 
         controlli, 
-        controlli[0]);
+        terapiaAttuale.getText());
         
         if(terapiaScelta==null)
             return;

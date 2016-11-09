@@ -110,7 +110,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
         terapiaDH.setEnabled(false);
         terapiaOra.setEnabled(false);
         try {
-            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome FROM Terapia");
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Nome FROM Terapia WHERE Infusiva=false");
             while(rs.next())
             {
                 terapiaDH.addItem(rs.getString("Nome"));

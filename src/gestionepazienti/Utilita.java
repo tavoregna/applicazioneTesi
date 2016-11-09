@@ -231,6 +231,20 @@ public final class Utilita {
         }
         return null;
     }
+    public static boolean isTerapiaInfusiva(String ter)
+    {
+        try {
+            PreparedStatement pst=GestioneDatabase.preparedStatement("SELECT Nome FROM Terapia WHERE Nome=? AND Infusiva=?");
+            pst.setString(1, ter);
+            pst.setBoolean(2, true);
+            ResultSet rs=pst.executeQuery();
+            if(rs.next())
+                return  true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     public static boolean isNumeric(String str)  
     {  
      try  
