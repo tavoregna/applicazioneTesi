@@ -3303,6 +3303,7 @@ public class PazienteUI extends javax.swing.JFrame {
                      str+="\n";
                  }
                  terapiePregresse.setText(str);
+                 terapiePregresse.setCaretPosition(0);
             }
         } catch (SQLException ex) {
             Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -3658,7 +3659,10 @@ public class PazienteUI extends javax.swing.JFrame {
     {
         return barr;
     }
-    
+    public String getDataTerapiaAttuale()
+    {
+        return dataInizioTerapia.getText();
+    }
     
     public static void main(String args[]){
         GestioneDatabase.connessione();

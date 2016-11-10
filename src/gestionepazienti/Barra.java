@@ -45,14 +45,19 @@ public class Barra extends javax.swing.JPanel {
                 String nome=(rs.getInt("Tipo_Controllo")==1 ? "Ordinario" : "Ricaduta");
                 if(rs.getInt("Tipo_Controllo")==1)
                 {
-                    ResultSet tipo=GestioneDatabase.querySelect("SELECT Terapia_Principale FROM Ambulatorio_Ordinario WHERE Controllo_Standard="+c);
+                    ResultSet tipo=GestioneDatabase.querySelect("SELECT Terapia_Principale,Data_Avvio_Terapia FROM Ambulatorio_Ordinario WHERE Controllo_Standard="+c);
                     int y=0;
                     if(tipo.next())
                         y=tipo.getInt("Terapia_Principale");
                     if(y==1)
                         colore=Opzioni.ControlloOrdinario1;
                     else if(y==2)
-                        colore=Opzioni.ControlloOrdinario2;
+                    {
+                        if(tipo.getDate("Data_Avvio_Terapia")==null)
+                            colore=Opzioni.ControlloOrdinario2;
+                        else
+                            colore=Opzioni.ControlloOrdinario3;
+                    }
                     else if(y==3)
                         colore=Opzioni.ControlloOrdinario4;
                     else

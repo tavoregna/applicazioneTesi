@@ -399,9 +399,17 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     private void dataAvvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataAvvioActionPerformed
         if(!dataAvvio.isEnabled() || tipoControllo!=1)
                 return;
+        Date d=dataAvvio.getDate();
+        if(d==null)
+        {
+            Barra.prevColor(Opzioni.ControlloOrdinario2);
+        }
+        else
+        {
+            Barra.prevColor(Opzioni.ControlloOrdinario3);
+        }
         try {
             PreparedStatement pst=GestioneDatabase.preparedStatement("UPDATE Ambulatorio_Ordinario SET Data_Avvio_Terapia=? WHERE Controllo_Standard=?");
-            Date d=dataAvvio.getDate();
             if(d==null)
                 pst.setNull(1, java.sql.Types.DATE);
             else
@@ -436,6 +444,14 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
     private void terapiaOraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terapiaOraActionPerformed
         if(!terapiaOra.isEnabled())
                 return;
+        if(parent.getDataTerapiaAttuale().equals(Utilita.dataToString(Utilita.removeTime(new Date(System.currentTimeMillis())))))
+        {
+            Utilita.mostraMessaggio("E' già presente una terapia con la data odierna");
+            terapiaOra.setEnabled(false);
+            terapiaOra.setSelectedItem(null);
+            terapiaOra.setEnabled(true);
+            return;
+        }
         try {
             String q;
             if(tipoControllo==1)
@@ -469,6 +485,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             pst.setString(3,(String)terapiaOra.getSelectedItem());
             pst.executeUpdate();
             parent.aggiornaTerapie(Pazienti.getCurrID());
+            Utilita.mostraMessaggio("Terapia attuale aggiornata");
         } catch (SQLException ex) {
             Utilita.mostraMessaggioErrore("C'è già una terapia con la data odierna");
         }
