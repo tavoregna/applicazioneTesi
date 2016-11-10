@@ -737,6 +737,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         pannelloGrafico.setBounds(0,0,panelGrafico.getWidth(),panelGrafico.getHeight());
         
         panelGrafico.setLayout(null);
+        panelGrafico.removeAll();
         panelGrafico.add(pannelloGrafico);
         
         panelGrafico.setVisible(false);
