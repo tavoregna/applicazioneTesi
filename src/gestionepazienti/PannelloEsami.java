@@ -203,7 +203,7 @@ public class PannelloEsami extends javax.swing.JPanel {
 
         jScrollPane1.setBackground(new java.awt.Color(149, 238, 234));
 
-        pannello.setBackground(new java.awt.Color(149, 238, 234));
+        pannello.setBackground(new java.awt.Color(219, 238, 244));
 
         javax.swing.GroupLayout pannelloLayout = new javax.swing.GroupLayout(pannello);
         pannello.setLayout(pannelloLayout);
