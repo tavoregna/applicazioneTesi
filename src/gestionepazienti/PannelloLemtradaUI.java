@@ -134,7 +134,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(877, 146));
 
-        diarioClinico.setBackground(new java.awt.Color(149, 238, 234));
+        diarioClinico.setBackground(new java.awt.Color(219, 238, 244));
         diarioClinico.setColumns(20);
         diarioClinico.setRows(5);
         diarioClinico.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -149,7 +149,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(diarioClinico);
 
-        jPanel4.setBackground(java.awt.Color.blue);
+        jPanel4.setBackground(new java.awt.Color(0, 32, 96));
 
         dataEsamEmato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +158,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         });
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel7.setForeground(java.awt.Color.red);
+        jLabel7.setForeground(new java.awt.Color(255, 192, 0));
         jLabel7.setText("Esami ematochimici:");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -178,7 +178,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
                 .addComponent(jLabel7))
         );
 
-        jPanel3.setBackground(java.awt.Color.blue);
+        jPanel3.setBackground(new java.awt.Color(0, 32, 96));
 
         dataDC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +187,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
         });
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setForeground(java.awt.Color.red);
+        jLabel6.setForeground(new java.awt.Color(255, 192, 0));
         jLabel6.setText("Diario Clinico:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -209,7 +209,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
 
         jScrollPane2.setPreferredSize(new java.awt.Dimension(390, 96));
 
-        esEmato.setBackground(new java.awt.Color(149, 238, 234));
+        esEmato.setBackground(new java.awt.Color(219, 238, 244));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Leucociti:");

@@ -11,7 +11,12 @@
     </Component>
   </NonVisualComponents>
   <Properties>
-    <Property name="opaque" type="boolean" value="false"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="97" green="e9" red="ff" type="rgb"/>
+    </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1784, 698]"/>
+    </Property>
   </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -28,40 +33,36 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="463" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="286" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="data" min="-2" pref="127" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
+                      <Component id="b1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="b2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="b3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="scolarita" min="-2" pref="35" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="data" min="-2" pref="127" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
-                              <Component id="b1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="b2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="b3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="scolarita" min="-2" pref="35" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane1" alignment="0" min="-2" pref="607" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane2" min="-2" pref="494" max="-2" attributes="0"/>
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -70,7 +71,12 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="230" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="744" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -88,7 +94,7 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="scolarita" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -99,10 +105,10 @@
                   <Component id="jScrollPane2" linkSize="1" min="-2" pref="78" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane4" min="-2" pref="280" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPane4" min="-2" pref="302" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -256,9 +262,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
@@ -313,13 +319,13 @@
                                       <Component id="z" linkSize="2" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="138" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="sdmt1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="pasat1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="srtLTS1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sdmt1" linkSize="6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="pasat1" linkSize="6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="srtLTS1" linkSize="6" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -358,33 +364,39 @@
                                   </Group>
                                   <Component id="DKEFS" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                              <Component id="BICAMS" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="pasat2" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="srtLTS2" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="BICAMS" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="g2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Component id="c2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="z2" linkSize="2" min="-2" pref="6" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="pasat2" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="srtLTS2" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="CVLTG" min="-2" pref="32" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="CVLTC" min="-2" pref="32" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="CVLTZ" min="-2" pref="32" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="CVLTG" min="-2" pref="32" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="CVLTC" min="-2" pref="32" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="CVLTZ" min="-2" pref="32" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="BVMTG" min="-2" pref="32" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="BVMTC" min="-2" pref="32" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="BVMTZ" min="-2" pref="32" max="-2" attributes="0"/>
-                                                      </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="BVMTG" min="-2" pref="32" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="BVMTC" min="-2" pref="32" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="BVMTZ" min="-2" pref="32" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -398,23 +410,9 @@
                                               <Component id="SDMTZ1" min="-2" pref="32" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="g2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="c2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="z2" linkSize="2" min="-2" pref="6" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane3" min="-2" pref="229" max="-2" attributes="0"/>
-                                  <Component id="altroCombo" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -462,96 +460,108 @@
                                       <Component id="SPARTZ" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="719" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="altroCombo" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="229" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="BRB" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="g" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="c" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="z" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="sdmt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="SDMTG" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="SDMTC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="SDMTZ" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="pasat" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="PASATG" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="PASATC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="PASATZ" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="srtLTS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="SRTLTSG" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="SRTLTSC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="SRTLTSZ" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="srtCLTR" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="SRTCLTRG" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="SRTCLTRC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="SRTCLTRZ" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" min="-2" pref="225" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace pref="13" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="DKEFS" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="BRB" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="g1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="c1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="z1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="g" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="c" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="z" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="FSCATG" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="FSCATC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="FSCATZ" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="sdmt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sdmt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="SDMTG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="SDMTC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="SDMTZ" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="FSDESG" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="FSDESC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="FSDESZ" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="pasat1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="SRG" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="SRC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="SRZ" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="srtLTS1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="altroCombo" min="-2" max="-2" attributes="0"/>
-                                          <Component id="BICAMS" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="pasat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="PASATG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="PASATC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="PASATZ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="srtLTS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="SRTLTSG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="SRTLTSC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="SRTLTSZ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                              <Component id="srtCLTR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="SRTCLTRG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="SRTCLTRC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="SRTCLTRZ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jScrollPane3" alignment="1" min="-2" pref="83" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="1" attributes="0">
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="DKEFS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="altroCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="BICAMS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="g1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="c1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="z1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="sdmt1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="FSCATG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="FSCATC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="FSCATZ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="FSDESG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="FSDESC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="FSDESZ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="pasat1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="SRG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="SRC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="SRZ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="srtLTS1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="g2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="c2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -580,37 +590,37 @@
                                               </Group>
                                           </Group>
                                       </Group>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="SPARTG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SPARTC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SPARTZ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spart" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="SRTDG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SRTDC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SRTDZ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="srtD" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="SPARTDG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SPARTDC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SPARTDZ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spartD" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="WLGG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="WLGC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="WLGZ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wlg" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="SPARTG" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="SPARTC" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="SPARTZ" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="spart" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="SRTDG" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="SRTDC" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="SRTDZ" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="srtD" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="SPARTDG" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="SPARTDC" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="SPARTDZ" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="spartD" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="WLGG" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="WLGC" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="WLGZ" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="wlg" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1216,6 +1226,9 @@
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" id="red" palette="1" red="ff" type="palette"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="X"/>
       </Properties>

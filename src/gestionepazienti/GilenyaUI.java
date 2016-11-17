@@ -110,12 +110,12 @@ public class GilenyaUI extends javax.swing.JPanel {
         cancellaGilenya = new javax.swing.JButton();
         buttonTer3F = new javax.swing.JButton();
 
-        setOpaque(false);
+        setBackground(new java.awt.Color(255, 255, 153));
 
-        jPanel5.setBackground(java.awt.Color.blue);
+        jPanel5.setBackground(new java.awt.Color(0, 32, 96));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel7.setForeground(java.awt.Color.red);
+        jLabel7.setForeground(new java.awt.Color(255, 192, 0));
         jLabel7.setText("EDSS:");
 
         edss.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -146,7 +146,7 @@ public class GilenyaUI extends javax.swing.JPanel {
                 .addComponent(edss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        esameObbNeuro.setBackground(new java.awt.Color(149, 238, 234));
+        esameObbNeuro.setBackground(new java.awt.Color(219, 238, 244));
         esameObbNeuro.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         esameObbNeuro.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -160,7 +160,7 @@ public class GilenyaUI extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(esameObbNeuro);
 
-        diarioClinico.setBackground(new java.awt.Color(149, 238, 234));
+        diarioClinico.setBackground(new java.awt.Color(219, 238, 244));
         diarioClinico.setColumns(1);
         diarioClinico.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         diarioClinico.setRows(1);
@@ -176,19 +176,19 @@ public class GilenyaUI extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(diarioClinico);
 
-        jLabel1.setBackground(java.awt.Color.blue);
+        jLabel1.setBackground(new java.awt.Color(0, 32, 96));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel1.setForeground(java.awt.Color.red);
+        jLabel1.setForeground(new java.awt.Color(255, 192, 0));
         jLabel1.setText("Diario Clinico:");
         jLabel1.setOpaque(true);
 
-        jLabel3.setBackground(java.awt.Color.blue);
+        jLabel3.setBackground(new java.awt.Color(0, 32, 96));
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel3.setForeground(java.awt.Color.red);
+        jLabel3.setForeground(new java.awt.Color(255, 192, 0));
         jLabel3.setText("Esame Obbiettivo neurologico (EON):");
         jLabel3.setOpaque(true);
 
-        jPanel4.setBackground(new java.awt.Color(149, 238, 234));
+        jPanel4.setBackground(new java.awt.Color(219, 238, 244));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -308,6 +308,7 @@ public class GilenyaUI extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(jLabel12))
@@ -336,16 +337,16 @@ public class GilenyaUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(visivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addGap(14, 14, 14)
                         .addComponent(deambulazione, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(troncoEnc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cerebrale, deambulazione, piramidale, sensitivo, sfinteriche, troncoEnc, visivo});
@@ -376,7 +377,7 @@ public class GilenyaUI extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        terSinto.setBackground(new java.awt.Color(149, 238, 234));
+        terSinto.setBackground(new java.awt.Color(219, 238, 244));
         terSinto.setColumns(1);
         terSinto.setRows(1);
         terSinto.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -391,19 +392,19 @@ public class GilenyaUI extends javax.swing.JPanel {
         });
         jScrollPane6.setViewportView(terSinto);
 
-        jLabel5.setBackground(java.awt.Color.blue);
+        jLabel5.setBackground(new java.awt.Color(0, 32, 96));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel5.setForeground(java.awt.Color.red);
+        jLabel5.setForeground(new java.awt.Color(255, 192, 0));
         jLabel5.setText("Terapia sintomatica:");
         jLabel5.setOpaque(true);
 
-        jLabel2.setBackground(java.awt.Color.blue);
+        jLabel2.setBackground(new java.awt.Color(0, 32, 96));
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel2.setForeground(java.awt.Color.red);
+        jLabel2.setForeground(new java.awt.Color(255, 192, 0));
         jLabel2.setText("Accertamenti Consigliati:");
         jLabel2.setOpaque(true);
 
-        note.setBackground(new java.awt.Color(149, 238, 234));
+        note.setBackground(new java.awt.Color(219, 238, 244));
         note.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 noteFocusLost(evt);
@@ -416,13 +417,13 @@ public class GilenyaUI extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(note);
 
-        jLabel4.setBackground(java.awt.Color.blue);
+        jLabel4.setBackground(new java.awt.Color(0, 32, 96));
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel4.setForeground(java.awt.Color.red);
+        jLabel4.setForeground(new java.awt.Color(255, 192, 0));
         jLabel4.setText("Note:");
         jLabel4.setOpaque(true);
 
-        acConsigliati.setBackground(new java.awt.Color(149, 238, 234));
+        acConsigliati.setBackground(new java.awt.Color(219, 238, 244));
         acConsigliati.setColumns(20);
         acConsigliati.setRows(5);
         acConsigliati.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -438,7 +439,7 @@ public class GilenyaUI extends javax.swing.JPanel {
         jScrollPane4.setViewportView(acConsigliati);
 
         cancellaGilenya.setBackground(java.awt.Color.red);
-        cancellaGilenya.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cancellaGilenya.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cancellaGilenya.setText("X");
         cancellaGilenya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -460,30 +461,30 @@ public class GilenyaUI extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonTer3F)
+                    .addComponent(cancellaGilenya))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane6)
-                            .addComponent(jScrollPane4)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE))
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cancellaGilenya)
-                            .addComponent(buttonTer3F))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
