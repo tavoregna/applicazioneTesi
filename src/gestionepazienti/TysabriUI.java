@@ -157,9 +157,10 @@ public class TysabriUI extends javax.swing.JPanel {
         cancellaTysabri = new javax.swing.JButton();
         buttonTer3F = new javax.swing.JButton();
 
-        setOpaque(false);
+        setBackground(new java.awt.Color(255, 255, 153));
+        setPreferredSize(new java.awt.Dimension(1721, 674));
 
-        terSinto.setBackground(new java.awt.Color(149, 238, 234));
+        terSinto.setBackground(new java.awt.Color(219, 238, 244));
         terSinto.setColumns(1);
         terSinto.setRows(1);
         terSinto.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -174,7 +175,7 @@ public class TysabriUI extends javax.swing.JPanel {
         });
         jScrollPane6.setViewportView(terSinto);
 
-        esameObbNeuro.setBackground(new java.awt.Color(149, 238, 234));
+        esameObbNeuro.setBackground(new java.awt.Color(219, 238, 244));
         esameObbNeuro.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         esameObbNeuro.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -188,7 +189,7 @@ public class TysabriUI extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(esameObbNeuro);
 
-        jPanel3.setBackground(java.awt.Color.blue);
+        jPanel3.setBackground(new java.awt.Color(0, 32, 96));
 
         dataEsamEmato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +198,7 @@ public class TysabriUI extends javax.swing.JPanel {
         });
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setForeground(java.awt.Color.red);
+        jLabel6.setForeground(new java.awt.Color(255, 192, 0));
         jLabel6.setText("Esami ematochimici:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -208,7 +209,7 @@ public class TysabriUI extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dataEsamEmato, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,14 +222,14 @@ public class TysabriUI extends javax.swing.JPanel {
         panelGrafico.setLayout(panelGraficoLayout);
         panelGraficoLayout.setHorizontalGroup(
             panelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         panelGraficoLayout.setVerticalGroup(
             panelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel4.setBackground(new java.awt.Color(149, 238, 234));
+        jPanel4.setBackground(new java.awt.Color(219, 238, 244));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -348,6 +349,7 @@ public class TysabriUI extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(jLabel12))
@@ -385,7 +387,7 @@ public class TysabriUI extends javax.swing.JPanel {
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
                         .addComponent(troncoEnc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cerebrale, deambulazione, piramidale, sensitivo, sfinteriche, troncoEnc, visivo});
@@ -416,7 +418,7 @@ public class TysabriUI extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(java.awt.Color.blue);
+        jPanel5.setBackground(new java.awt.Color(0, 32, 96));
 
         edss.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -455,7 +457,7 @@ public class TysabriUI extends javax.swing.JPanel {
                 .addComponent(graficoEDSS))
         );
 
-        rmCervDors.setBackground(new java.awt.Color(149, 238, 234));
+        rmCervDors.setBackground(new java.awt.Color(219, 238, 244));
         rmCervDors.setColumns(1);
         rmCervDors.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rmCervDors.setRows(1);
@@ -471,7 +473,7 @@ public class TysabriUI extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(rmCervDors);
 
-        diarioClinico.setBackground(new java.awt.Color(149, 238, 234));
+        diarioClinico.setBackground(new java.awt.Color(219, 238, 244));
         diarioClinico.setColumns(1);
         diarioClinico.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         diarioClinico.setRows(1);
@@ -487,19 +489,19 @@ public class TysabriUI extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(diarioClinico);
 
-        jLabel1.setBackground(java.awt.Color.blue);
+        jLabel1.setBackground(new java.awt.Color(0, 32, 96));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel1.setForeground(java.awt.Color.red);
+        jLabel1.setForeground(new java.awt.Color(255, 192, 0));
         jLabel1.setText("Diario Clinico:");
         jLabel1.setOpaque(true);
 
-        jLabel3.setBackground(java.awt.Color.blue);
+        jLabel3.setBackground(new java.awt.Color(0, 32, 96));
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel3.setForeground(java.awt.Color.red);
+        jLabel3.setForeground(new java.awt.Color(255, 192, 0));
         jLabel3.setText("Esame Obbiettivo neurologico (EON):");
         jLabel3.setOpaque(true);
 
-        esamiEmatoChim.setBackground(new java.awt.Color(149, 238, 234));
+        esamiEmatoChim.setBackground(new java.awt.Color(219, 238, 244));
         esamiEmatoChim.setColumns(1);
         esamiEmatoChim.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         esamiEmatoChim.setRows(1);
@@ -515,7 +517,7 @@ public class TysabriUI extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(esamiEmatoChim);
 
-        jPanel2.setBackground(java.awt.Color.blue);
+        jPanel2.setBackground(new java.awt.Color(0, 32, 96));
 
         dataRMCervDors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -524,7 +526,7 @@ public class TysabriUI extends javax.swing.JPanel {
         });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel4.setForeground(java.awt.Color.red);
+        jLabel4.setForeground(new java.awt.Color(255, 192, 0));
         jLabel4.setText("RM cervico-dorsale:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -544,7 +546,7 @@ public class TysabriUI extends javax.swing.JPanel {
                 .addComponent(jLabel4))
         );
 
-        rmEncefalica.setBackground(new java.awt.Color(149, 238, 234));
+        rmEncefalica.setBackground(new java.awt.Color(219, 238, 244));
         rmEncefalica.setColumns(1);
         rmEncefalica.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rmEncefalica.setRows(1);
@@ -560,13 +562,13 @@ public class TysabriUI extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(rmEncefalica);
 
-        jLabel5.setBackground(java.awt.Color.blue);
+        jLabel5.setBackground(new java.awt.Color(0, 32, 96));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel5.setForeground(java.awt.Color.red);
+        jLabel5.setForeground(new java.awt.Color(255, 192, 0));
         jLabel5.setText("Terapia sintomatica:");
         jLabel5.setOpaque(true);
 
-        jPanel1.setBackground(java.awt.Color.blue);
+        jPanel1.setBackground(new java.awt.Color(0, 32, 96));
 
         dataRMEncefalo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -575,7 +577,7 @@ public class TysabriUI extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel2.setForeground(java.awt.Color.red);
+        jLabel2.setForeground(new java.awt.Color(255, 192, 0));
         jLabel2.setText("RM encefalica:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -599,7 +601,7 @@ public class TysabriUI extends javax.swing.JPanel {
         jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane7.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        panelEsami.setBackground(new java.awt.Color(149, 238, 234));
+        panelEsami.setBackground(new java.awt.Color(219, 238, 244));
         panelEsami.setPreferredSize(new java.awt.Dimension(275, 124));
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -663,7 +665,7 @@ public class TysabriUI extends javax.swing.JPanel {
                                 .addComponent(posNegJCV, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(index, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         panelEsamiLayout.setVerticalGroup(
             panelEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -686,13 +688,13 @@ public class TysabriUI extends javax.swing.JPanel {
 
         jScrollPane7.setViewportView(panelEsami);
 
-        jLabel17.setBackground(java.awt.Color.blue);
+        jLabel17.setBackground(new java.awt.Color(0, 32, 96));
         jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel17.setForeground(java.awt.Color.red);
+        jLabel17.setForeground(new java.awt.Color(255, 192, 0));
         jLabel17.setText("Note:");
         jLabel17.setOpaque(true);
 
-        note.setBackground(new java.awt.Color(149, 238, 234));
+        note.setBackground(new java.awt.Color(219, 238, 244));
         note.setColumns(20);
         note.setRows(5);
         note.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -708,6 +710,7 @@ public class TysabriUI extends javax.swing.JPanel {
         jScrollPane8.setViewportView(note);
 
         cancellaTysabri.setBackground(java.awt.Color.red);
+        cancellaTysabri.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cancellaTysabri.setText("X");
         cancellaTysabri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -728,47 +731,44 @@ public class TysabriUI extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                    .addComponent(cancellaTysabri)
+                    .addComponent(buttonTer3F))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane8)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane8)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jScrollPane7)
-                                            .addComponent(jScrollPane5)))
-                                    .addComponent(jScrollPane4)
-                                    .addComponent(jScrollPane2)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane3)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cancellaTysabri)
-                                    .addComponent(buttonTer3F))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane7)
+                                    .addComponent(jScrollPane5)))
+                            .addComponent(jScrollPane4))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -778,9 +778,7 @@ public class TysabriUI extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(cancellaTysabri, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonTer3F, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -793,9 +791,9 @@ public class TysabriUI extends javax.swing.JPanel {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 0, 0)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -825,7 +823,7 @@ public class TysabriUI extends javax.swing.JPanel {
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cancellaTysabri, jLabel1, jLabel3, jPanel1});
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel17, jLabel5});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel17, jLabel5, jPanel3});
 
     }// </editor-fold>//GEN-END:initComponents
 

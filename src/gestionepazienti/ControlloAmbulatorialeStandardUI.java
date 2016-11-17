@@ -135,13 +135,13 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 153));
 
-        jLabel1.setBackground(java.awt.Color.blue);
+        jLabel1.setBackground(new java.awt.Color(0, 32, 96));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel1.setForeground(java.awt.Color.red);
+        jLabel1.setForeground(new java.awt.Color(255, 192, 0));
         jLabel1.setText("Diario Clinico:");
         jLabel1.setOpaque(true);
 
-        diarioClinico.setBackground(new java.awt.Color(149, 238, 234));
+        diarioClinico.setBackground(new java.awt.Color(219, 238, 244));
         diarioClinico.setColumns(1);
         diarioClinico.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         diarioClinico.setRows(1);
@@ -157,13 +157,13 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(diarioClinico);
 
-        jLabel3.setBackground(java.awt.Color.blue);
+        jLabel3.setBackground(new java.awt.Color(0, 32, 96));
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel3.setForeground(java.awt.Color.red);
+        jLabel3.setForeground(new java.awt.Color(255, 192, 0));
         jLabel3.setText("Esame Obbiettivo neurologico (EON):");
         jLabel3.setOpaque(true);
 
-        rmEncefalica.setBackground(new java.awt.Color(149, 238, 234));
+        rmEncefalica.setBackground(new java.awt.Color(219, 238, 244));
         rmEncefalica.setColumns(1);
         rmEncefalica.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rmEncefalica.setRows(1);
@@ -179,7 +179,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(rmEncefalica);
 
-        esameObbNeuro.setBackground(new java.awt.Color(149, 238, 234));
+        esameObbNeuro.setBackground(new java.awt.Color(219, 238, 244));
         esameObbNeuro.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         esameObbNeuro.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -193,7 +193,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(esameObbNeuro);
 
-        jPanel1.setBackground(java.awt.Color.blue);
+        jPanel1.setBackground(new java.awt.Color(0, 32, 96));
 
         dataRMEncefalo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,7 +202,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel2.setForeground(java.awt.Color.red);
+        jLabel2.setForeground(new java.awt.Color(255, 192, 0));
         jLabel2.setText("RM encefalica:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -213,7 +213,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addGap(53, 53, 53)
                 .addComponent(dataRMEncefalo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(491, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +222,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                 .addComponent(jLabel2))
         );
 
-        jPanel2.setBackground(java.awt.Color.blue);
+        jPanel2.setBackground(new java.awt.Color(0, 32, 96));
 
         dataRMCervDors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,7 +231,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel4.setForeground(java.awt.Color.red);
+        jLabel4.setForeground(new java.awt.Color(255, 192, 0));
         jLabel4.setText("RM cervico-dorsale:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -251,7 +251,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                 .addComponent(jLabel4))
         );
 
-        rmCervDors.setBackground(new java.awt.Color(149, 238, 234));
+        rmCervDors.setBackground(new java.awt.Color(219, 238, 244));
         rmCervDors.setColumns(1);
         rmCervDors.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rmCervDors.setRows(1);
@@ -267,13 +267,13 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(rmCervDors);
 
-        jLabel5.setBackground(java.awt.Color.blue);
+        jLabel5.setBackground(new java.awt.Color(0, 32, 96));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel5.setForeground(java.awt.Color.red);
+        jLabel5.setForeground(new java.awt.Color(255, 192, 0));
         jLabel5.setText("Terapia sintomatica:");
         jLabel5.setOpaque(true);
 
-        esamiEmatoChim.setBackground(new java.awt.Color(149, 238, 234));
+        esamiEmatoChim.setBackground(new java.awt.Color(219, 238, 244));
         esamiEmatoChim.setColumns(1);
         esamiEmatoChim.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         esamiEmatoChim.setRows(1);
@@ -289,7 +289,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(esamiEmatoChim);
 
-        jPanel3.setBackground(java.awt.Color.blue);
+        jPanel3.setBackground(new java.awt.Color(0, 32, 96));
 
         dataEsamEmato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,7 +298,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         });
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setForeground(java.awt.Color.red);
+        jLabel6.setForeground(new java.awt.Color(255, 192, 0));
         jLabel6.setText("Esami ematochimici:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -309,7 +309,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dataEsamEmato, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,7 +318,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                 .addComponent(jLabel6))
         );
 
-        terSinto.setBackground(new java.awt.Color(149, 238, 234));
+        terSinto.setBackground(new java.awt.Color(219, 238, 244));
         terSinto.setColumns(1);
         terSinto.setRows(1);
         terSinto.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -333,7 +333,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         });
         jScrollPane6.setViewportView(terSinto);
 
-        jPanel4.setBackground(new java.awt.Color(149, 238, 234));
+        jPanel4.setBackground(new java.awt.Color(219, 238, 244));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -453,6 +453,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(jLabel12))
@@ -488,7 +489,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(troncoEnc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deambulazione, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cerebrale, deambulazione, piramidale, sensitivo, troncoEnc, visivo});
@@ -521,7 +522,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(java.awt.Color.blue);
+        jPanel5.setBackground(new java.awt.Color(0, 32, 96));
 
         edss.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -534,7 +535,7 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
             }
         });
 
-        graficoEDSS.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        graficoEDSS.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         graficoEDSS.setForeground(java.awt.Color.red);
         graficoEDSS.setText("EDSS:");
         graficoEDSS.setOpaque(false);
@@ -574,14 +575,14 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
 
         jScrollPane7.setBackground(new java.awt.Color(149, 238, 234));
 
-        panelEsami.setBackground(new java.awt.Color(149, 238, 234));
+        panelEsami.setBackground(new java.awt.Color(219, 238, 244));
         panelEsami.setPreferredSize(new java.awt.Dimension(275, 124));
 
         javax.swing.GroupLayout panelEsamiLayout = new javax.swing.GroupLayout(panelEsami);
         panelEsami.setLayout(panelEsamiLayout);
         panelEsamiLayout.setHorizontalGroup(
             panelEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
+            .addGap(0, 388, Short.MAX_VALUE)
         );
         panelEsamiLayout.setVerticalGroup(
             panelEsamiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -595,34 +596,33 @@ public class ControlloAmbulatorialeStandardUI extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane6)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jScrollPane7)
                                     .addComponent(jScrollPane5)))
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane4)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2))
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelGrafico, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane3)
-                            .addComponent(panelGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1164, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

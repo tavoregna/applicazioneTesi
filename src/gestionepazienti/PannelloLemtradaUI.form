@@ -67,7 +67,7 @@
         <Component class="javax.swing.JTextArea" name="diarioClinico">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ea" green="ee" red="95" type="rgb"/>
+              <Color blue="f4" green="ee" red="db" type="rgb"/>
             </Property>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
@@ -82,7 +82,7 @@
     <Container class="javax.swing.JPanel" name="jPanel4">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="0" id="blue" palette="1" red="0" type="palette"/>
+          <Color blue="60" green="20" red="0" type="rgb"/>
         </Property>
       </Properties>
 
@@ -118,7 +118,7 @@
               <Font name="Times New Roman" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" id="red" palette="1" red="ff" type="palette"/>
+              <Color blue="0" green="c0" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Esami ematochimici:"/>
           </Properties>
@@ -128,7 +128,7 @@
     <Container class="javax.swing.JPanel" name="jPanel3">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="0" id="blue" palette="1" red="0" type="palette"/>
+          <Color blue="60" green="20" red="0" type="rgb"/>
         </Property>
       </Properties>
 
@@ -164,7 +164,7 @@
               <Font name="Times New Roman" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" id="red" palette="1" red="ff" type="palette"/>
+              <Color blue="0" green="c0" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Diario Clinico:"/>
           </Properties>
@@ -183,7 +183,7 @@
         <Container class="javax.swing.JPanel" name="esEmato">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ea" green="ee" red="95" type="rgb"/>
+              <Color blue="f4" green="ee" red="db" type="rgb"/>
             </Property>
           </Properties>
 
