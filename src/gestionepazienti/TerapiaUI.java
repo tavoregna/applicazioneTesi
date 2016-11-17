@@ -45,7 +45,7 @@ public class TerapiaUI extends javax.swing.JFrame {
                 listaNomiTerapie.add(rs.getString(1));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(TerapiaUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TerapiaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -66,7 +66,7 @@ public class TerapiaUI extends javax.swing.JFrame {
             pannello.setVisible(false);
             pannello.setVisible(true);
         } catch (SQLException ex) {
-            Logger.getLogger(TerapiaUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TerapiaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

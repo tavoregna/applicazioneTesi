@@ -8,6 +8,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -205,7 +211,7 @@ public final class Utilita {
                     }   
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+                Utilita.errore(ex);Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else
@@ -226,7 +232,7 @@ public final class Utilita {
                     }
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+                Utilita.errore(ex);Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return null;
@@ -241,7 +247,7 @@ public final class Utilita {
             if(rs.next())
                 return  true;
         } catch (SQLException ex) {
-            Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
@@ -266,7 +272,7 @@ public final class Utilita {
                 return new Paziente(rs.getString("Nome"), rs.getString("Cognome"), rs.getString("Sesso"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -347,5 +353,57 @@ public final class Utilita {
                     undoAndRedo((JTextComponent)(jv.getView()));
                 }
             }
+    }
+    public static void accesso()
+    {
+        try {
+            String data = URLEncoder.encode("app", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8");
+            data += "&" + URLEncoder.encode("info", "UTF-8") + "=" + URLEncoder.encode("value", "UTF-8");
+
+            URL url = new URL("http://applicazione.heliohost.org/accessi.php");
+            URLConnection conn = url.openConnection();
+            conn.setDoOutput(true);
+            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+            wr.write(data);
+            wr.flush();
+            conn.getInputStream();
+            wr.close();
+        } catch (Exception ex) {
+            Utilita.errore(ex);Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+            errore(ex);
+        }
+        
+    }
+    public static void errore(Exception ex)
+    {
+        try{
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        ex.printStackTrace(pw);
+        errore(sw.toString());
+        }
+        catch(Exception e)
+        {}
+    }
+    public static void errore(String err)
+    {
+        if(err==null)
+            err="SCONOSCIUTO";
+        try {
+            String data = URLEncoder.encode("app", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8");
+            data += "&" + URLEncoder.encode("errore", "UTF-8") + "=" + URLEncoder.encode(err, "UTF-8");
+
+            URL url = new URL("http://applicazione.heliohost.org/errori.php");
+            URLConnection conn = url.openConnection();
+            conn.setDoOutput(true);
+            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+            wr.write(data);
+            wr.flush();
+            conn.getInputStream();
+            wr.close();
+        } catch (Exception ex) {
+            Utilita.errore(ex);Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }

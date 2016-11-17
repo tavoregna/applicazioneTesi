@@ -408,7 +408,7 @@
                               <Component id="panelBarra" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="165" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="pannelloDiagnostica" pref="576" max="32767" attributes="0"/>
+                          <Component id="pannelloDiagnostica" pref="586" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -521,7 +521,7 @@
                           <Component id="jPanel8" linkSize="31" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jPanel9" linkSize="31" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                          <EmptySpace pref="40" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -757,7 +757,7 @@
                                       <Component id="jLabel74" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="boigg1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="38" max="32767" attributes="0"/>
+                                  <EmptySpace pref="55" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -931,7 +931,7 @@
                                           </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="odPEV" pref="213" max="32767" attributes="0"/>
+                                              <Component id="odPEV" pref="219" max="32767" attributes="0"/>
                                               <Component id="osPEV" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -954,7 +954,7 @@
                                       <Component id="osPEV" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane12" pref="92" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane12" pref="102" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1067,7 +1067,7 @@
                                       <Component id="jLabel77" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="dataNPSI" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -1083,7 +1083,7 @@
                                   <Component id="dataNPSI" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane9" pref="182" max="32767" attributes="0"/>
+                              <Component id="jScrollPane9" pref="183" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1239,7 +1239,7 @@
                                               <Component id="sopratentoriali" linkSize="19" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="sottotentoriali" linkSize="19" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                                          <EmptySpace pref="38" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="gad" linkSize="20" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="corticali" linkSize="20" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1269,7 +1269,7 @@
                                       <Component id="spinali" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="gad" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="unrelated" pref="10" max="32767" attributes="0"/>
+                                  <EmptySpace type="unrelated" pref="25" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="sottotentoriali" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="ottico" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1458,7 +1458,7 @@
                                       <Component id="jLabel76" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="dataOCT" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="38" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1474,7 +1474,7 @@
                                   <Component id="dataOCT" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane8" pref="182" max="32767" attributes="0"/>
+                              <Component id="jScrollPane8" pref="183" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -2618,7 +2618,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="21" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

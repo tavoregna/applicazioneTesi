@@ -33,7 +33,7 @@ public class Pazienti {
                 arrayID.add(rs.getInt(1));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

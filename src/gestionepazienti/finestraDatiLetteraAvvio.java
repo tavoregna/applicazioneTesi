@@ -47,7 +47,7 @@ public class finestraDatiLetteraAvvio extends javax.swing.JFrame {
                 mail.addItem(rs.getString("Mail"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(finestraDatiLetteraAvvio.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(finestraDatiLetteraAvvio.class.getName()).log(Level.SEVERE, null, ex);
         }
         if(medico.getItemCount()>0)
             medico.setSelectedIndex(0);

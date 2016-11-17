@@ -50,7 +50,7 @@ public class RicadutaUI extends javax.swing.JPanel {
                 //gestioneRicaduta();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
         terapiaRicaduta.setEnabled(true);
     }
@@ -262,7 +262,7 @@ public class RicadutaUI extends javax.swing.JPanel {
             pst.setInt(2, idControllo);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(RicadutaUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(RicadutaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ricadutaActionPerformed
 
@@ -275,7 +275,7 @@ public class RicadutaUI extends javax.swing.JPanel {
             pst.setInt(2, idControllo);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(RicadutaUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(RicadutaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_terapiaRicadutaActionPerformed
 
@@ -293,7 +293,7 @@ public class RicadutaUI extends javax.swing.JPanel {
             pst.setInt(2, idControllo);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(RicadutaUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(RicadutaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_noteFocusLost
 
@@ -311,7 +311,7 @@ public class RicadutaUI extends javax.swing.JPanel {
             parent.pulisciPanelControlloAmb();
             parent.aggiornaBarra();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cancellaRicadutaActionPerformed
 

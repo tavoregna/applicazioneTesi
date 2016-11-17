@@ -228,15 +228,15 @@ public class GenerazioneWord {
             doc.write(out);
         }
         catch (FileNotFoundException ex) {
-            Logger.getLogger(GenerazioneWord.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(GenerazioneWord.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(GenerazioneWord.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(GenerazioneWord.class.getName()).log(Level.SEVERE, null, ex);
         }        
         finally{
             try {
                 out.close();
             } catch (IOException ex) {
-                Logger.getLogger(GenerazioneWord.class.getName()).log(Level.SEVERE, null, ex);
+                Utilita.errore(ex);Logger.getLogger(GenerazioneWord.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     } 

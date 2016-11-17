@@ -120,7 +120,7 @@ public class CFXUI extends javax.swing.JPanel {
                esUrine.setText(rs.getString("Es_Urine"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
     
@@ -1231,7 +1231,7 @@ public class CFXUI extends javax.swing.JPanel {
             parent.pulisciPanelDH();
             parent.aggiornaBarra();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cancellaCFXActionPerformed
 
@@ -1405,7 +1405,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_noteFocusLost
 
@@ -1419,7 +1419,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_enFocusLost
 
@@ -1433,7 +1433,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_terapieConcomitFocusLost
 
@@ -1447,7 +1447,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_sPiramidaleFocusLost
 
@@ -1461,7 +1461,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_sCerebellareFocusLost
 
@@ -1475,7 +1475,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_sTroncoEncFocusLost
 
@@ -1489,7 +1489,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_sVisivoFocusLost
 
@@ -1503,7 +1503,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_sSfintericoFocusLost
 
@@ -1517,7 +1517,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_sSensitivoFocusLost
 
@@ -1531,7 +1531,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_edssFocusLost
 
@@ -1545,7 +1545,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dosaggioFocusLost
 
@@ -1559,7 +1559,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_grFocusLost
 
@@ -1573,7 +1573,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_hbFocusLost
 
@@ -1587,7 +1587,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_hctFocusLost
 
@@ -1601,7 +1601,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_pbgFocusLost
 
@@ -1615,7 +1615,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_esUrineFocusLost
 
@@ -1629,7 +1629,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_citologiaUrinFocusLost
 
@@ -1643,7 +1643,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ecgFocusLost
 
@@ -1657,7 +1657,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ecografiaVescicFocusLost
 
@@ -1671,7 +1671,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ecocardioFocusLost
 
@@ -1686,7 +1686,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataEsamiBaseLineActionPerformed
 
@@ -1701,7 +1701,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_data1ActionPerformed
 
@@ -1716,7 +1716,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_data2ActionPerformed
 
@@ -1730,7 +1730,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_gbFocusLost
 
@@ -1744,7 +1744,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_gb1FocusLost
 
@@ -1758,7 +1758,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_gb2FocusLost
 
@@ -1772,7 +1772,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_neuFocusLost
 
@@ -1786,7 +1786,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_neu1FocusLost
 
@@ -1800,7 +1800,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_neu2FocusLost
 
@@ -1814,7 +1814,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linfFocusLost
 
@@ -1828,7 +1828,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linf1FocusLost
 
@@ -1842,7 +1842,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linf2FocusLost
 
@@ -1856,7 +1856,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linfAssFocusLost
 
@@ -1870,7 +1870,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linfAss1FocusLost
 
@@ -1884,7 +1884,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linfAss2FocusLost
 
@@ -1898,7 +1898,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_monFocusLost
 
@@ -1912,7 +1912,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_mon1FocusLost
 
@@ -1926,7 +1926,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_mon2FocusLost
 
@@ -1940,7 +1940,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_eoFocusLost
 
@@ -1954,7 +1954,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_eo1FocusLost
 
@@ -1968,7 +1968,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_eo2FocusLost
 
@@ -1982,7 +1982,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_basFocusLost
 
@@ -1996,7 +1996,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bas1FocusLost
 
@@ -2010,7 +2010,7 @@ public class CFXUI extends javax.swing.JPanel {
             pst.setInt(2, idCFX);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(CFXUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bas2FocusLost
 

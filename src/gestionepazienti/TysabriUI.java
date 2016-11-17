@@ -88,7 +88,7 @@ public class TysabriUI extends javax.swing.JPanel {
                note.setText(rs.getString("Note"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
     
@@ -846,7 +846,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataEsamEmatoActionPerformed
 
@@ -891,7 +891,7 @@ public class TysabriUI extends javax.swing.JPanel {
                 dataset.addValue(rs.getDouble(1), "",s);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }      
         return dataset;
     }
@@ -919,7 +919,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataRMCervDorsActionPerformed
 
@@ -938,7 +938,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataRMEncefaloActionPerformed
 
@@ -987,7 +987,7 @@ public class TysabriUI extends javax.swing.JPanel {
                }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_indexNewActionPerformed
 
@@ -1046,7 +1046,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2,idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }//GEN-LAST:event_edssFocusLost
 
@@ -1069,7 +1069,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2,idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_piramidaleFocusLost
 
@@ -1092,7 +1092,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2,idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_cerebellareFocusLost
 
@@ -1115,7 +1115,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2,idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_sensitivoFocusLost
 
@@ -1138,7 +1138,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2,idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_sfintericheFocusLost
 
@@ -1161,7 +1161,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2,idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_visivoFocusLost
 
@@ -1184,7 +1184,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2,idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cerebraleFocusLost
 
@@ -1207,7 +1207,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2,idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }      
     }//GEN-LAST:event_troncoEncFocusLost
 
@@ -1230,7 +1230,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2,idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }//GEN-LAST:event_deambulazioneFocusLost
 
@@ -1244,7 +1244,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_esamiEmatoChimFocusLost
 
@@ -1258,7 +1258,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(TysabriUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TysabriUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_terSintoFocusLost
 
@@ -1276,7 +1276,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(TysabriUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TysabriUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_noteFocusLost
 
@@ -1290,7 +1290,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_rmCervDorsFocusLost
 
@@ -1304,7 +1304,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_rmEncefalicaFocusLost
 
@@ -1318,7 +1318,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_esameObbNeuroFocusLost
 
@@ -1332,7 +1332,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(2, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_diarioClinicoFocusLost
 
@@ -1347,7 +1347,7 @@ public class TysabriUI extends javax.swing.JPanel {
             parent.pulisciPanelDH();
             parent.aggiornaBarra();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cancellaTysabriActionPerformed
 
@@ -1376,7 +1376,7 @@ public class TysabriUI extends javax.swing.JPanel {
             pst.setInt(4, idTysabri);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -203,7 +203,7 @@ public class CercaPazienteUI extends javax.swing.JFrame {
             if(listModel.size()>0)
                 lista.setSelectedIndex(0);
         } catch (SQLException ex) {
-            Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -99,7 +99,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                     }   
                 }
         } catch (SQLException ex) {
-            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
     private void visualizzaSoloSeNonInfusiva(String t)
@@ -123,7 +123,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
                     terapiaOra.addItem(rs.getString("Nome"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         terapiaDH.setSelectedItem(null);
         terapiaOra.setSelectedItem(null);
@@ -417,7 +417,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             pst.setInt(2, idControllo);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_dataAvvioActionPerformed
@@ -437,7 +437,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             pst.executeUpdate();
             visualizzaSoloSeNonInfusiva((String)terapiaDH.getSelectedItem());
         } catch (SQLException ex) {
-            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_terapiaDHActionPerformed
 
@@ -463,7 +463,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             pst.setInt(2, idControllo);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             PreparedStatement pst;
@@ -501,7 +501,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             }
             GenerazioneWord.generaFileF(rs.getString(1));
         } catch (SQLException ex) {
-            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_buttonTerActionPerformed
@@ -584,7 +584,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             }
             GenerazioneWord.generaFileFA(rs.getString(1));
         } catch (SQLException ex) {
-            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_buttonTer1ActionPerformed
     private void aggiornaRadioButtonControllo(int i)
@@ -600,7 +600,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             pst.setInt(2, idControllo);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     private void azzeraCampi()
@@ -619,7 +619,7 @@ public class TerapiaPrincipaleUI extends javax.swing.JPanel {
             terapiaOra.setSelectedItem(null);
             dataAvvio.setDate(null);
         } catch (SQLException ex) {
-            Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TerapiaPrincipaleUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         terapiaDH.setEnabled(true);
         terapiaOra.setEnabled(true);

@@ -28,9 +28,10 @@ public class GestioneDatabase {
         Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
         con=DriverManager.getConnection("jdbc:ucanaccess://"+db.getAbsolutePath());
         }
-        catch(Exception e)
+        catch(Exception ex)
         {
-            Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, e);
+            Utilita.errore(ex);
+            Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore nell'apertura del database");
             System.exit(1);
         }
@@ -48,6 +49,7 @@ public class GestioneDatabase {
             return r;
             
         } catch (SQLException ex) {
+            Utilita.errore(ex);
             Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante l'esecuzione della query");
             return null;
@@ -65,7 +67,7 @@ public class GestioneDatabase {
             st.close();
           
         } catch (SQLException ex) {
-            Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante l'esecuzione dell'operazione");
         }
     }
@@ -80,7 +82,7 @@ public class GestioneDatabase {
             return pst;
           
         } catch (SQLException ex) {
-            Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(Pazienti.class.getName()).log(Level.SEVERE, null, ex);
             Utilita.mostraMessaggioErrore("Errore durante l'esecuzione dell'operazione");
             return null;
         }

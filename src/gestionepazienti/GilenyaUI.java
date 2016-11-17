@@ -64,7 +64,7 @@ public class GilenyaUI extends javax.swing.JPanel {
                acConsigliati.setText(rs.getString("Accertamenti_Consigliati"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
     
@@ -601,7 +601,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }//GEN-LAST:event_piramidaleFocusLost
 
@@ -624,7 +624,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }//GEN-LAST:event_cerebellareFocusLost
 
@@ -647,7 +647,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_sensitivoFocusLost
 
@@ -670,7 +670,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }//GEN-LAST:event_sfintericheFocusLost
 
@@ -693,7 +693,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }//GEN-LAST:event_visivoFocusLost
 
@@ -716,7 +716,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }//GEN-LAST:event_cerebraleFocusLost
 
@@ -739,7 +739,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_troncoEncFocusLost
 
@@ -762,7 +762,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_deambulazioneFocusLost
 
@@ -785,7 +785,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_edssFocusLost
 
@@ -803,7 +803,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_noteFocusLost
 
@@ -817,7 +817,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_acConsigliatiFocusLost
 
@@ -831,7 +831,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_terSintoFocusLost
 
@@ -845,7 +845,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_esameObbNeuroFocusLost
 
@@ -859,7 +859,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             pst.setInt(2, idGilenya);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_diarioClinicoFocusLost
 
@@ -874,7 +874,7 @@ public class GilenyaUI extends javax.swing.JPanel {
             parent.pulisciPanelDH();
             parent.aggiornaBarra();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cancellaGilenyaActionPerformed
 

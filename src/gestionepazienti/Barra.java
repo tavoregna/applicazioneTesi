@@ -79,7 +79,7 @@ public class Barra extends javax.swing.JPanel {
             }
         } 
         catch (SQLException ex) {
-            Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT ID_DH,Data,Terapia FROM DH_Standard WHERE ID_Paziente="+id+" ORDER BY Data ASC");
@@ -92,7 +92,7 @@ public class Barra extends javax.swing.JPanel {
             }
         } 
         catch (SQLException ex) {
-            Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT Data_Diagnosi FROM Diagnosi_Paziente WHERE ID_Paziente="+id+" ORDER BY Data_Diagnosi ASC");
@@ -104,7 +104,7 @@ public class Barra extends javax.swing.JPanel {
             }
         } 
         catch (SQLException ex) {
-            Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             ResultSet rs=GestioneDatabase.querySelect("SELECT ID_NPS,Data FROM ValutazioneNPS WHERE ID_Paziente="+id+" ORDER BY Data ASC");
@@ -117,7 +117,7 @@ public class Barra extends javax.swing.JPanel {
             }
         } 
         catch (SQLException ex) {
-            Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(Barra.class.getName()).log(Level.SEVERE, null, ex);
         }
         ordinaPulsanti();
         aggiungiPulsantiAllaBarra();

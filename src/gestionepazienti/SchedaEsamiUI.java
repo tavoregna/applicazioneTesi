@@ -95,7 +95,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
                 ticcaEsameText(comboInfet,rs.getDate("Data_Infettivologica"),dataInfet,infet,rs.getString("Infettivologica"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
             
@@ -1071,7 +1071,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataLeucocitiActionPerformed
 
@@ -1092,7 +1092,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataLinfocitiActionPerformed
 
@@ -1113,7 +1113,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataGRActionPerformed
 
@@ -1134,7 +1134,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataPiastrineActionPerformed
 
@@ -1155,7 +1155,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataCMVActionPerformed
 
@@ -1176,7 +1176,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataHBVActionPerformed
 
@@ -1197,7 +1197,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataHCVActionPerformed
 
@@ -1218,7 +1218,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataHIV1ActionPerformed
 
@@ -1239,7 +1239,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataHIV2ActionPerformed
 
@@ -1260,7 +1260,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataTBCActionPerformed
 
@@ -1281,7 +1281,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataPTActionPerformed
 
@@ -1302,7 +1302,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataJCVActionPerformed
 
@@ -1323,7 +1323,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataVZVActionPerformed
 
@@ -1344,7 +1344,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataEBVActionPerformed
 
@@ -1365,7 +1365,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataHSV1ActionPerformed
 
@@ -1386,7 +1386,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataHSV2ActionPerformed
 
@@ -1407,7 +1407,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataECGActionPerformed
 
@@ -1428,7 +1428,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataOCTActionPerformed
 
@@ -1449,7 +1449,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataRXActionPerformed
 
@@ -1470,7 +1470,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataEcocardioActionPerformed
 
@@ -1491,7 +1491,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataEcografiaActionPerformed
 
@@ -1512,7 +1512,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataDermaActionPerformed
 
@@ -1533,7 +1533,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataCardioActionPerformed
 
@@ -1554,7 +1554,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataPneuActionPerformed
 
@@ -1575,7 +1575,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.setInt(2, idPaziente);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataInfetActionPerformed
 
@@ -1603,7 +1603,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboCMV.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_cmvActionPerformed
 
@@ -1615,7 +1615,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboHBV.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_hbvActionPerformed
 
@@ -1627,7 +1627,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboHCV.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_hcvActionPerformed
 
@@ -1639,7 +1639,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboHIV1.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_hiv1ActionPerformed
 
@@ -1651,7 +1651,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboHIV2.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_hiv2ActionPerformed
 
@@ -1663,7 +1663,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboTBC.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_tbcActionPerformed
 
@@ -1675,7 +1675,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboPPTest.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_ppTestActionPerformed
 
@@ -1687,7 +1687,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboJCV.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_jcvActionPerformed
 
@@ -1699,7 +1699,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboVZV.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_vzvActionPerformed
 
@@ -1711,7 +1711,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboEBV.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_ebvActionPerformed
 
@@ -1723,7 +1723,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboHSV1.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_hsv1ActionPerformed
 
@@ -1735,7 +1735,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboHSV2.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_hsv2ActionPerformed
 
@@ -1747,7 +1747,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboECG.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_ecgKeyReleased
 
@@ -1759,7 +1759,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboOCT.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_octKeyReleased
 
@@ -1771,7 +1771,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboRX.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_rxKeyReleased
 
@@ -1783,7 +1783,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboEcocardio.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_ecocardioKeyReleased
 
@@ -1795,7 +1795,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboEcografia.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_ecografiaKeyReleased
 
@@ -1826,7 +1826,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboLeucociti.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_leuFocusLost
 
@@ -1841,7 +1841,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboLinfociti.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_linfFocusLost
 
@@ -1856,7 +1856,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboGR.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_grFocusLost
 
@@ -1871,7 +1871,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboPiastrine.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_piaFocusLost
 
@@ -1886,7 +1886,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboDerma.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_dermaFocusLost
 
@@ -1901,7 +1901,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboCardio.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_cardioFocusLost
 
@@ -1916,7 +1916,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboPneu.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_pneuFocusLost
 
@@ -1931,7 +1931,7 @@ public class SchedaEsamiUI extends javax.swing.JPanel {
             pst.executeUpdate();
             comboInfet.setSelected(true);
         } catch (SQLException ex) {
-            Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(SchedaEsamiUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_infetFocusLost
 

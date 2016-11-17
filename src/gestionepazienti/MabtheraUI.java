@@ -74,7 +74,7 @@ public class MabtheraUI extends javax.swing.JPanel {
                note.setText(rs.getString("Note"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
     @SuppressWarnings("unchecked")
@@ -697,7 +697,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2, idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(TysabriUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TysabriUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_noteFocusLost
 
@@ -716,7 +716,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2, idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataRMEncefaloActionPerformed
 
@@ -730,7 +730,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2, idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_diarioClinicoFocusLost
 
@@ -749,7 +749,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2, idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataRMCervDorsActionPerformed
 
@@ -772,7 +772,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2,idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_piramidaleFocusLost
 
@@ -799,7 +799,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2,idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_sensitivoFocusLost
 
@@ -826,7 +826,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2,idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_visivoFocusLost
 
@@ -853,7 +853,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2,idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_troncoEncFocusLost
 
@@ -880,7 +880,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2,idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cerebellareFocusLost
 
@@ -907,7 +907,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2,idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_sfintericheFocusLost
 
@@ -934,7 +934,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2,idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cerebraleFocusLost
 
@@ -961,7 +961,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2,idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_deambulazioneFocusLost
 
@@ -988,7 +988,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2,idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_edssFocusLost
 
@@ -1037,7 +1037,7 @@ public class MabtheraUI extends javax.swing.JPanel {
                 dataset.addValue(rs.getDouble(1), "",s);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }      
         return dataset;
     }
@@ -1052,7 +1052,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2, idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_esamiEmatoChimFocusLost
 
@@ -1070,7 +1070,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2, idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(TysabriUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(TysabriUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_terSintoFocusLost
 
@@ -1089,7 +1089,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2, idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataEsamEmatoActionPerformed
 
@@ -1103,7 +1103,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2, idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_rmEncefalicaFocusLost
 
@@ -1121,7 +1121,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2, idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_esameObbNeuroFocusLost
 
@@ -1139,7 +1139,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             pst.setInt(2, idMabthera);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_rmCervDorsFocusLost
 
@@ -1158,7 +1158,7 @@ public class MabtheraUI extends javax.swing.JPanel {
             parent.pulisciPanelDH();
             parent.aggiornaBarra();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cancellaMabtheraActionPerformed
 

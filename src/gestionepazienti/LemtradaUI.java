@@ -38,7 +38,7 @@ public class LemtradaUI extends javax.swing.JPanel {
             }
             num.setText(""+numero);
         } catch (SQLException ex) {
-            Logger.getLogger(LemtradaUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(LemtradaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -145,7 +145,7 @@ public class LemtradaUI extends javax.swing.JPanel {
                 pst.setInt(2,numero);
                 pst.executeUpdate();
             } catch (SQLException ex) {
-                Logger.getLogger(LemtradaUI.class.getName()).log(Level.SEVERE, null, ex);
+                Utilita.errore(ex);Logger.getLogger(LemtradaUI.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             pannello.add(new PannelloLemtradaUI(idStandardDH,numero));
@@ -165,7 +165,7 @@ public class LemtradaUI extends javax.swing.JPanel {
             parent.pulisciPanelDH();
             parent.aggiornaBarra();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cancellaLemtradaActionPerformed
 

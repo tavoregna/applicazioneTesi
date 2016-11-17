@@ -134,14 +134,14 @@ public class PannelloEsami extends javax.swing.JPanel {
                                 pst.executeUpdate();
                             }
                         } catch (SQLException ex) {
-                            Logger.getLogger(PannelloEsami.class.getName()).log(Level.SEVERE, null, ex);
+                            Utilita.errore(ex);Logger.getLogger(PannelloEsami.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 });
                 pannello.add(fi);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PannelloEsami.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(PannelloEsami.class.getName()).log(Level.SEVERE, null, ex);
         }
         aggiornaUI();
         
@@ -182,7 +182,7 @@ public class PannelloEsami extends javax.swing.JPanel {
                }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }   
         return dataset;
     }

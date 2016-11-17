@@ -75,7 +75,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
                note.setText(rs.getString("Note"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(PazienteUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
     @SuppressWarnings("unchecked")
@@ -700,7 +700,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2, idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ZinbrytaUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ZinbrytaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_noteFocusLost
 
@@ -719,7 +719,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2, idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataRMEncefaloActionPerformed
 
@@ -733,7 +733,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2, idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_diarioClinicoFocusLost
 
@@ -752,7 +752,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2, idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataRMCervDorsActionPerformed
 
@@ -775,7 +775,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2,idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_piramidaleFocusLost
 
@@ -802,7 +802,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2,idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_sensitivoFocusLost
 
@@ -829,7 +829,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2,idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_visivoFocusLost
 
@@ -856,7 +856,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2,idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_troncoEncFocusLost
 
@@ -883,7 +883,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2,idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cerebellareFocusLost
 
@@ -910,7 +910,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2,idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_sfintericheFocusLost
 
@@ -937,7 +937,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2,idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cerebraleFocusLost
 
@@ -964,7 +964,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2,idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_deambulazioneFocusLost
 
@@ -991,7 +991,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2,idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_edssFocusLost
 
@@ -1040,7 +1040,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
                 dataset.addValue(rs.getDouble(1), "",s);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }      
         return dataset;
     }
@@ -1055,7 +1055,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2, idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_esamiEmatoChimFocusLost
 
@@ -1073,7 +1073,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2, idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ZinbrytaUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ZinbrytaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_terSintoFocusLost
 
@@ -1092,7 +1092,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2, idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataEsamEmatoActionPerformed
 
@@ -1106,7 +1106,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2, idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_rmEncefalicaFocusLost
 
@@ -1124,7 +1124,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2, idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_esameObbNeuroFocusLost
 
@@ -1142,7 +1142,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             pst.setInt(2, idZinbryta);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_rmCervDorsFocusLost
 
@@ -1161,7 +1161,7 @@ public class ZinbrytaUI extends javax.swing.JPanel {
             parent.pulisciPanelDH();
             parent.aggiornaBarra();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cancellaZinbrytaActionPerformed
 

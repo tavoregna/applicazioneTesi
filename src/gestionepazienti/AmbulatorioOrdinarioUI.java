@@ -149,7 +149,7 @@ public class AmbulatorioOrdinarioUI extends javax.swing.JPanel {
             parent.pulisciPanelControlloAmb();
             parent.aggiornaBarra();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cancellaOrdinarioActionPerformed
 

@@ -67,7 +67,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
                 creatinina.setText(rs.getString("Creatinina"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PannelloLemtradaUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(PannelloLemtradaUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public Double calcoloLinfociti(double tot,double per)
@@ -576,7 +576,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3, giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataEsamEmatoActionPerformed
 
@@ -592,7 +592,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3, giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_dataDCActionPerformed
 
@@ -691,7 +691,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_leucocitiFocusLost
 
@@ -715,7 +715,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }//GEN-LAST:event_piastrineFocusLost
 
@@ -730,7 +730,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_esUrineFocusLost
 
@@ -745,7 +745,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ureaFocusLost
 
@@ -760,7 +760,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_creatininaFocusLost
 
@@ -784,7 +784,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linfTotFocusLost
 
@@ -808,7 +808,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linfoTPerFocusLost
 
@@ -832,7 +832,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linfoHelperPerFocusLost
 
@@ -856,7 +856,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linfoTCitoPerFocusLost
 
@@ -880,7 +880,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linfoBPerFocusLost
 
@@ -904,7 +904,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_linfoNKPerFocusLost
 
@@ -923,7 +923,7 @@ public class PannelloLemtradaUI extends javax.swing.JPanel {
             pst.setInt(3,giorno);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
+            Utilita.errore(ex);Logger.getLogger(ControlloAmbulatorialeStandardUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_diarioClinicoFocusLost
 

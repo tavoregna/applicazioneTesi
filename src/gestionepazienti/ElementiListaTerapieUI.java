@@ -193,7 +193,7 @@ public class ElementiListaTerapieUI extends javax.swing.JPanel {
                 this.setEnabled(false);
                 parent.aggiornaTerapie();
             } catch (SQLException ex) {
-                Logger.getLogger(ElementiListaTerapieUI.class.getName()).log(Level.SEVERE, null, ex);
+                Utilita.errore(ex);Logger.getLogger(ElementiListaTerapieUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_eliminaActionPerformed
