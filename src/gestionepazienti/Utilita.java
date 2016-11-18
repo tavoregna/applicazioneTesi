@@ -358,7 +358,7 @@ public final class Utilita {
     {
         try {
             String data = URLEncoder.encode("app", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8");
-            data += "&" + URLEncoder.encode("info", "UTF-8") + "=" + URLEncoder.encode("value", "UTF-8");
+            data += "&" + URLEncoder.encode("info", "UTF-8") + "=" + URLEncoder.encode(dbInfo(), "UTF-8");
 
             URL url = new URL("http://applicazione.heliohost.org/accessi.php");
             URLConnection conn = url.openConnection();
@@ -370,7 +370,6 @@ public final class Utilita {
             wr.close();
         } catch (Exception ex) {
             Utilita.errore(ex);Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
-            errore(ex);
         }
         
     }
@@ -383,7 +382,9 @@ public final class Utilita {
         errore(sw.toString());
         }
         catch(Exception e)
-        {}
+        {
+            Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
     public static void errore(String err)
     {
@@ -402,8 +403,53 @@ public final class Utilita {
             conn.getInputStream();
             wr.close();
         } catch (Exception ex) {
-            Utilita.errore(ex);Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+    public static String dbInfo()
+    {
+        String info="info DB:\n";
+        try {
+            ResultSet rs=GestioneDatabase.querySelect("SELECT Name FROM NomiTabelle");
+            while(rs.next())
+            {
+                info+=rs.getString(1);
+                try{
+                    ResultSet r=GestioneDatabase.querySelect("SELECT COUNT(*) FROM "+rs.getString(1));
+                    if(r.next())
+                    {
+                         info+=": "+r.getInt(1);
+                    }
+                } catch (Exception ex) {
+                    Utilita.errore(ex);Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                info+='\n';
+            }
+        } catch (Exception ex) {
+            Utilita.errore(ex);Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return info;
+    }
+    public static void durata()
+    {
+        try {
+            long fine=System.currentTimeMillis();
+            String data = URLEncoder.encode("app", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8");
+            data += "&" + URLEncoder.encode("durata", "UTF-8") + "=" + URLEncoder.encode((fine-PazienteUI.inizio)+"", "UTF-8");
+            data += "&" + URLEncoder.encode("inizio", "UTF-8") + "=" + URLEncoder.encode(PazienteUI.inizio+"", "UTF-8");
+            data += "&" + URLEncoder.encode("fine", "UTF-8") + "=" + URLEncoder.encode(fine+"", "UTF-8");
+            
+            URL url = new URL("http://applicazione.heliohost.org/durata.php");
+            URLConnection conn = url.openConnection();
+            conn.setDoOutput(true);
+            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+            wr.write(data);
+            wr.flush();
+            conn.getInputStream();
+            wr.close();
+        } catch (Exception ex) {
+            Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
