@@ -6,11 +6,15 @@ import java.awt.Container;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -430,6 +434,35 @@ public final class Utilita {
             Utilita.errore(ex);Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
         }
         return info;
+    }
+    public static void attivo()
+    {
+        int attivo=1;
+        try {
+            URL url = new URL("http://applicazione.heliohost.org/attivo.php");
+            URLConnection conn = url.openConnection();
+            conn.setDoOutput(true);
+            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+            wr.flush();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(conn.getInputStream()));
+            String line;
+            StringBuffer response = new StringBuffer();
+            
+            while ((line = in.readLine()) != null) {
+                response.append(line);
+            }
+            in.close();
+            
+            wr.close();
+            in.close();
+            attivo=Integer.parseInt(response.toString());
+        } catch (Exception ex) {
+            Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, ex);
+            attivo=1;
+        }
+        if(attivo==0)
+            System.exit(0);
     }
     public static void durata()
     {

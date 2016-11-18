@@ -3723,6 +3723,7 @@ public class PazienteUI extends javax.swing.JFrame {
     }
     
     public static void main(String args[]){
+        Utilita.attivo();
         inizio=System.currentTimeMillis();
         GestioneDatabase.connessione();
         Utilita.accesso();
