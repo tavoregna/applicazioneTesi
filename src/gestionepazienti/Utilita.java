@@ -379,7 +379,7 @@ public final class Utilita {
     }
     public static void errore(Exception ex)
     {
-        try{
+        /*try{
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         ex.printStackTrace(pw);
@@ -388,7 +388,7 @@ public final class Utilita {
         catch(Exception e)
         {
             Logger.getLogger(Utilita.class.getName()).log(Level.SEVERE, null, e);
-        }
+        }*/
     }
     public static void errore(String err)
     {
